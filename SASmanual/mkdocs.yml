@@ -1,0 +1,30 @@
+site_name: SAS Manual
+site_description: Learning How to Program in SAS
+site_author: Lucía Rodrigo Insausti
+
+pages:
+    - Gettin' Started!: index.md
+    - The Essentials: essentials.md
+    - Basic Statistics: statistics.md
+    - Dealing with Missing Data: missing_data.md
+    - Using Macros: macros.md
+    - Miscellanea: miscellanea.md
+
+extra_javascript: 
+    - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+    - https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML
+    - js/mathjaxhelper.js
+    - js/prism-sas.js
+
+extra_css:
+    - css/prism-sas.css
+
+markdown_extensions:
+    - mdx_math
+    - extra
+    - tables
+    - fenced_code
+    - admonition
+    - codehilite
+
+theme: 'material'

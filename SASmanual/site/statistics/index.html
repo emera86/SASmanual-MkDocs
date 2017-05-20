@@ -1,0 +1,1901 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="shortcut icon" href="../assets/images/favicon.png">
+      
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.6.2">
+    
+    
+      
+        <title>"Statistics: Introduction to ANOVA, Regression and Logistic Regression"</title>
+      
+    
+    
+      <script src="../assets/javascripts/modernizr-56ade86843.js"></script>
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application-e2807e330f.css">
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+  
+  
+  
+    <body>
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <a href=".." title="SAS Manual" class="md-icon md-icon--home md-header-nav__button">
+          </a>
+        
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
+            
+              
+            
+            Basic Statistics
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
+<div class="md-search" data-md-component="search">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">close</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <div class="md-header-nav__source">
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    
+      <i class="md-icon md-icon--home md-nav__button"></i>
+    
+    SAS Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Gettin' Started!" class="md-nav__link">
+      Gettin' Started!
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../essentials/" title="The Essentials" class="md-nav__link">
+      The Essentials
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Basic Statistics
+      </label>
+    
+    <a href="./" title="Basic Statistics" class="md-nav__link md-nav__link--active">
+      Basic Statistics
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-to-statistics" title="Introduction to Statistics" class="md-nav__link">
+    Introduction to Statistics
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-statistical-concepts" title="Basic Statistical Concepts" class="md-nav__link">
+    Basic Statistical Concepts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#descriptive-statistics" title="Descriptive Statistics" class="md-nav__link">
+    Descriptive Statistics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#picturing-your-data" title="Picturing Your Data" class="md-nav__link">
+    Picturing Your Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confidence-intervals-for-the-mean" title="Confidence Intervals for the Mean" class="md-nav__link">
+    Confidence Intervals for the Mean
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hypothesis-testing" title="Hypothesis Testing" class="md-nav__link">
+    Hypothesis Testing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analysis-of-variance-anova" title="Analysis of Variance (ANOVA)" class="md-nav__link">
+    Analysis of Variance (ANOVA)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#graphical-analysis-of-associations" title="Graphical Analysis of Associations" class="md-nav__link">
+    Graphical Analysis of Associations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#two-sample-t-tests" title="Two-Sample t-Tests" class="md-nav__link">
+    Two-Sample t-Tests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#one-way-anova" title="One-Way ANOVA" class="md-nav__link">
+    One-Way ANOVA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anova-with-data-from-a-randomized-block-design" title="ANOVA with Data from a Randomized Block Design" class="md-nav__link">
+    ANOVA with Data from a Randomized Block Design
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anova-post-hoc-tests" title="ANOVA Post Hoc Tests" class="md-nav__link">
+    ANOVA Post Hoc Tests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#two-way-anova-with-interactions" title="Two-Way ANOVA with Interactions" class="md-nav__link">
+    Two-Way ANOVA with Interactions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regression" title="Regression" class="md-nav__link">
+    Regression
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exploratory-data-analysis" title="Exploratory Data Analysis" class="md-nav__link">
+    Exploratory Data Analysis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simple-linear-regression" title="Simple Linear Regression" class="md-nav__link">
+    Simple Linear Regression
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-regression" title="Multiple Regression" class="md-nav__link">
+    Multiple Regression
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-building-and-interpretation" title="Model Building and Interpretation" class="md-nav__link">
+    Model Building and Interpretation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#information-criterion-and-other-selection-options" title="Information Criterion and Other Selection Options" class="md-nav__link">
+    Information Criterion and Other Selection Options
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-post-fitting-for-inference" title="Model Post-Fitting for Inference" class="md-nav__link">
+    Model Post-Fitting for Inference
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#examining-residuals" title="Examining Residuals" class="md-nav__link">
+    Examining Residuals
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identifying-influential-observations" title="Identifying Influential Observations" class="md-nav__link">
+    Identifying Influential Observations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detecting-collinearity" title="Detecting Collinearity" class="md-nav__link">
+    Detecting Collinearity
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#categorical-data-analysis" title="Categorical Data Analysis" class="md-nav__link">
+    Categorical Data Analysis
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#describing-categorical-data" title="Describing Categorical Data" class="md-nav__link">
+    Describing Categorical Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tests-of-association" title="Tests of Association" class="md-nav__link">
+    Tests of Association
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#introduction-to-logistic-regression" title="Introduction to Logistic Regression" class="md-nav__link">
+    Introduction to Logistic Regression
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-logistic-regression" title="Multiple Logistic Regression" class="md-nav__link">
+    Multiple Logistic Regression
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-building-and-scoring-for-prediction" title="Model Building and Scoring for Prediction" class="md-nav__link">
+    Model Building and Scoring for Prediction
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduction-to-predictive-modeling" title="Introduction to Predictive Modeling" class="md-nav__link">
+    Introduction to Predictive Modeling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scoring-predictive-models" title="Scoring Predictive Models" class="md-nav__link">
+    Scoring Predictive Models
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../missing_data/" title="Dealing with Missing Data" class="md-nav__link">
+      Dealing with Missing Data
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../macros/" title="Using Macros" class="md-nav__link">
+      Using Macros
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../miscellanea/" title="Miscellanea" class="md-nav__link">
+      Miscellanea
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-to-statistics" title="Introduction to Statistics" class="md-nav__link">
+    Introduction to Statistics
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-statistical-concepts" title="Basic Statistical Concepts" class="md-nav__link">
+    Basic Statistical Concepts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#descriptive-statistics" title="Descriptive Statistics" class="md-nav__link">
+    Descriptive Statistics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#picturing-your-data" title="Picturing Your Data" class="md-nav__link">
+    Picturing Your Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confidence-intervals-for-the-mean" title="Confidence Intervals for the Mean" class="md-nav__link">
+    Confidence Intervals for the Mean
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hypothesis-testing" title="Hypothesis Testing" class="md-nav__link">
+    Hypothesis Testing
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analysis-of-variance-anova" title="Analysis of Variance (ANOVA)" class="md-nav__link">
+    Analysis of Variance (ANOVA)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#graphical-analysis-of-associations" title="Graphical Analysis of Associations" class="md-nav__link">
+    Graphical Analysis of Associations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#two-sample-t-tests" title="Two-Sample t-Tests" class="md-nav__link">
+    Two-Sample t-Tests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#one-way-anova" title="One-Way ANOVA" class="md-nav__link">
+    One-Way ANOVA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anova-with-data-from-a-randomized-block-design" title="ANOVA with Data from a Randomized Block Design" class="md-nav__link">
+    ANOVA with Data from a Randomized Block Design
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anova-post-hoc-tests" title="ANOVA Post Hoc Tests" class="md-nav__link">
+    ANOVA Post Hoc Tests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#two-way-anova-with-interactions" title="Two-Way ANOVA with Interactions" class="md-nav__link">
+    Two-Way ANOVA with Interactions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regression" title="Regression" class="md-nav__link">
+    Regression
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exploratory-data-analysis" title="Exploratory Data Analysis" class="md-nav__link">
+    Exploratory Data Analysis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simple-linear-regression" title="Simple Linear Regression" class="md-nav__link">
+    Simple Linear Regression
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-regression" title="Multiple Regression" class="md-nav__link">
+    Multiple Regression
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-building-and-interpretation" title="Model Building and Interpretation" class="md-nav__link">
+    Model Building and Interpretation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#information-criterion-and-other-selection-options" title="Information Criterion and Other Selection Options" class="md-nav__link">
+    Information Criterion and Other Selection Options
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-post-fitting-for-inference" title="Model Post-Fitting for Inference" class="md-nav__link">
+    Model Post-Fitting for Inference
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#examining-residuals" title="Examining Residuals" class="md-nav__link">
+    Examining Residuals
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identifying-influential-observations" title="Identifying Influential Observations" class="md-nav__link">
+    Identifying Influential Observations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detecting-collinearity" title="Detecting Collinearity" class="md-nav__link">
+    Detecting Collinearity
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#categorical-data-analysis" title="Categorical Data Analysis" class="md-nav__link">
+    Categorical Data Analysis
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#describing-categorical-data" title="Describing Categorical Data" class="md-nav__link">
+    Describing Categorical Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tests-of-association" title="Tests of Association" class="md-nav__link">
+    Tests of Association
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#introduction-to-logistic-regression" title="Introduction to Logistic Regression" class="md-nav__link">
+    Introduction to Logistic Regression
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-logistic-regression" title="Multiple Logistic Regression" class="md-nav__link">
+    Multiple Logistic Regression
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#model-building-and-scoring-for-prediction" title="Model Building and Scoring for Prediction" class="md-nav__link">
+    Model Building and Scoring for Prediction
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#introduction-to-predictive-modeling" title="Introduction to Predictive Modeling" class="md-nav__link">
+    Introduction to Predictive Modeling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scoring-predictive-models" title="Scoring Predictive Models" class="md-nav__link">
+    Scoring Predictive Models
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Basic Statistics</h1>
+                
+                <h2 id="introduction-to-statistics">Introduction to Statistics</h2>
+<p><a href="https://support.sas.com/edu/OLTRN/ECST131/m551/m551_6_a_sum.htm">Chapter summary in SAS</a></p>
+<h3 id="basic-statistical-concepts">Basic Statistical Concepts</h3>
+<ul>
+<li><strong><em>Descriptive statistics (exploratory data analysis, EDA)</em></strong></li>
+<li>Explore your data</li>
+<li><strong><em>Inferential statistics (explanatory modelling)</em></strong></li>
+<li><strong>How is X related to Y?</strong></li>
+<li>Sample sizes are typically small and include few variables</li>
+<li>The focus is on the parameters of the model</li>
+<li>To assess the model, you use p-values and confidence intervals</li>
+<li><strong><em>Predictive modelling</em></strong></li>
+<li><strong>If you know X, can you predict Y?</strong></li>
+<li>Sample sizes are large and include many predictive (input) variables</li>
+<li>The focus is on the predictions of observations rather than the parameters of the model</li>
+<li>To assess a predictive model, you validate predictions using holdout sample data</li>
+</ul>
+<hr />
+<p><strong>How to generate random (representative) samples (population subsets)</strong></p>
+<pre><code>PROC SURVEYSELECT DATA=SAS-data-set 
+                  OUT=name-of-output-data-set
+                  METHOD=method-of-random-sampling
+                  SEED=seed-value 
+                  SAMPSIZE=number-of-observations-desired;
+     &lt;STRATA stratification-variable(s);&gt;
+RUN;
+</code></pre>
+
+<ul>
+<li><strong>METHOD</strong>: specifies the random sampling method to be used. For simple random sampling without replacement, use <strong>METHOD=SRS</strong>. For simple random sampling with replacement, use <strong>METHOD=URS</strong>. For other selection methods and details on sampling algorithms, see the SAS online documentation for PROC SURVEYSELECT.</li>
+<li><strong>SEED</strong>: specifies the initial seed for random number generation. If no SEED option is specified, SAS uses the system time as its seed value. This creates a different random sample every time the procedure is run.</li>
+<li><strong>SAMPSIZE</strong>: indicates the number of observations to be included in the sample. To select a certain fraction of the original data set rather than a given number of observations, use the <strong>SAMPRATE</strong> option.</li>
+</ul>
+<hr />
+<ul>
+<li><strong>Parameters</strong>: numerical values (typically unknown, you can't measure the entire population) that summarize characteristics of a population (greek letters)</li>
+<li><strong>Statistics</strong>: summarizes characteristics of a sample (standard alphabet)</li>
+<li>You use <strong>statistics</strong> to estimate <strong>parameters</strong></li>
+</ul>
+<hr />
+<ul>
+<li><strong>Independent variable</strong>: it can take different values, it affects or determines a <strong>dependent variable</strong>. It can be called predictor, explanatory, control or input variable.</li>
+<li><strong>Dependent variable</strong>: it can take different values in response to an <strong>independent variable</strong>. Also known as response, outcome or target variable.</li>
+</ul>
+<hr />
+<p><strong><em>Scale of measurement</em></strong>: variable's classification
+<br></p>
+<ul>
+<li><strong>Quantitative/numerical variables</strong>: counts or measurements, you can perform arithmetical operations with it</li>
+<li><strong>Discrete data</strong>: variables that can have only a countable number of values within a measurement range</li>
+<li><strong>Continuous data</strong>: variables that are measured on a scale that has infinite number of values and has no breaks or jumps</li>
+<li><strong>Interval scale data</strong>: it can be rank-ordered like ordinal data but also has a sensible spacing of observations such that differenes between measurements are meaningful but it lacks a true zero (ratios are meaningless)</li>
+<li><strong>Ratio scale data</strong>: it is rank-ordered with meaningful spacing and also includes a true zero point and can therefore accurately indicate the ratio difference between two spaces on the measurement scale</li>
+<li><strong>Categorical/attribute variables</strong>: variables that denote groupings or labels</li>
+<li><strong>Nominal data (qualitative/classification variable)</strong>: exhibits no ordering within its observed levels, groups or categories</li>
+<li><strong>Ordinal data</strong>: the observed labels can be ordered in some meaningful way that implies that the differences between the groups or categories are due to magnitude</li>
+</ul>
+<hr />
+<ul>
+<li><strong>Univariate analysis</strong> provides techniques for analyzing and describing a sigle variable. It reveals patterns in the data by looking at the <strong>range</strong> of values, measures of <strong>dispersion</strong>, the <strong>central tendecy</strong> of the values and <strong>frequency distribution</strong>.</li>
+<li><strong>Bivariate analysis</strong> describes and explains the relationships between two variables and how they change or covary together. It include techniques such as <strong>correlation analysis</strong> and <strong>chi-square tests of independance</strong>.</li>
+<li><strong>Multivariate/Multivariable analysis</strong> examines two or more variables at the same time in order to understand the relationships among them. </li>
+<li>Techniques such as <strong>mutiple linear regression</strong> and n-way <strong>ANOVA</strong> are typically called <strong>multivariable</strong> analysis (only one response variable). </li>
+<li>Techniques such as <strong>factora analysis</strong> and <strong>clustering</strong> are typically called <strong>mutivariate</strong> analysis (they consider more than one response variable).</li>
+</ul>
+<h3 id="descriptive-statistics">Descriptive Statistics</h3>
+<p><strong>Measures of central tendencies</strong>: mean (affected by outliers), median (less sensitive to outliers), mode</p>
+<p>25th percentile = 1st/lower quartile = Q1<br>
+50th percentile = median = middle quartile = Q2<br>
+75th percentile = 3rd/upper quartile = Q3<br></p>
+<p>The <strong>interquartile range (IQR)</strong> is the difference between Q1 and Q3, it is a <strong>robust estimate of the variability</strong> because changes in the upper/lower 25% of the data do not affect it. If there are <strong>outliers</strong> in the data, then the IQR is a more reliable measure of the spread than the overall range.</p>
+<p>The <strong>coefficient of variation (CV)</strong> is a measure of the standard deviation expressed as a percentage of the mean (S/mean*100)</p>
+<h3 id="picturing-your-data">Picturing Your Data</h3>
+<p><strong>Normal distribution</strong>: (&mu;-&sigma;,&mu;+&sigma;) = 68%; (&mu;-2&sigma;,&mu;+2&sigma;) = 95%; (&mu;-3&sigma;,&mu;+3&sigma;) = 99%</p>
+<p><em>How to check the normality of a sample?</em></p>
+<ul>
+<li>Compare the <strong>mean</strong> and the <strong>median</strong>: if they are nearly equal, that is an indicator of symmetry (requirement for normality).</li>
+<li>Check that <strong>skewness</strong> and <strong>kurtosis</strong> are close to 0.</li>
+</ul>
+<p><strong><em>Statistical summaries:</em></strong> <strong>skewness</strong> and <strong>kurtosis</strong> measure certain aspects of the shape of a distribution (they are <strong>0</strong> and <strong>3</strong> for a normal distribution, although SAS has standardized both to 0)</p>
+<ul>
+<li><strong>Skewness</strong> measures the tendency of your data to be more spread out on one side of the mean than on the other (asymmetry of the distribution). </li>
+<li>You can think of the direction of skewness as the direction the data is trailing off to. </li>
+<li>A <strong>right-skewed</strong> distribution tells us that the mean is <strong>greater than the median</strong>.</li>
+<li><strong>Kurtosis</strong> measures the tendency of your data to be concentrated toward the center or toward the tails of the distribution (peakedness of the data, tail thickness). </li>
+<li>A <strong>negative kurtosis (platykurtic distribution)</strong> means that the data has lighter tails than in a normal distribution. </li>
+<li>A <strong>positive kurtosis (leptokurtic/heavy-tailed/outlier-prone distribution)</strong> means that the data has heavier tails and is more concentrated around the mean than a normal distribution.</li>
+<li>Rectangular, bimodal and multimodal distributions tend to have low values of kurtosis.</li>
+<li><strong>Asymmetric distributions</strong> also tend to have nonzero kurtosis. In these cases, understanding kurtosis is considerably more complex and can be difficult to assess visually.</li>
+<li>If <strong>skewness/kurtosis</strong>:</li>
+<li>Both are greater than 1 or less than -1: data is not normal</li>
+<li>Either is greater than 2 or less than -2: data is not normal</li>
+</ul>
+<hr />
+<p><strong><em>PLOTS PRODUCED WITH PROC UNIVARIATE</em></strong></p>
+<ul>
+<li><strong>Histograms</strong></li>
+<li><strong>Normal probability plots</strong>: expected percentiles from standard normal vs actual data values</li>
+</ul>
+<p><img alt="Normal Probability Plots" src="https://lh3.googleusercontent.com/oQg9v6o7-BVphCe0xL8cP2L49JBQL7hixl7_uwJUEKQkMdbotX-f906RXjowuwCe3llq05I=s0" title="Normal Probability Plots" /></p>
+<p><strong><em>PLOTS PRODUCED WITH PROC SGSCATTER</em></strong></p>
+<ul>
+<li><strong>Scatter plots</strong>: you can create a <strong>single-cell</strong> (simple Y by X) scatter plot, a <strong>multi-cell</strong> scatter plot with multiple independent scatter plots in a grid and a <strong>scatter plot matrix</strong>, which produces a matrix of scatter plots comparing multiple variables.</li>
+</ul>
+<p><strong><em>PLOTS PRODUCED WITH PROC SGPLOT</em></strong></p>
+<pre><code>PROC SGPLOT DATA=SAS-data-set &lt;options&gt;;
+        DOT category-variable &lt;/options&gt;;
+        HBAR category-variable &lt;/options&gt;;
+        VBAR category-variable &lt;/options&gt;;
+        HBOX response-variable &lt;/options&gt;;
+        VBOX response-variable &lt;/options&gt;;
+        HISTOGRAM response-variable &lt;/options&gt;;
+        SCATTER X=variable Y=variable &lt;/options&gt;;
+        NEEDLE X=variable Y=numeric-variable &lt;/options&gt;;
+        REG X=numeric-variable Y=numeric-variable &lt;/options&gt;;
+RUN;
+</code></pre>
+
+<p>Anywhere in the procedure you can add <strong>reference lines</strong>:<br></p>
+<pre><code>REFLINE variable | value-1 &lt;... value-n&gt; &lt;/option(s)&gt;`&lt;br&gt;
+**E.g.:** `REFLINE 1200 / axis=y lineattrs=(color=blue);`&lt;/option(s)&gt;
+</code></pre>
+
+<p><strong>E.g.:</strong> </p>
+<pre><code>REFLINE 1200 / axis=y lineattrs=(color=blue);
+</code></pre>
+
+<ul>
+<li><strong>Scatter plots (SCATTER)</strong></li>
+<li><strong>Line graphs</strong></li>
+<li><strong>Histograms (HISTOGRAM)</strong> with overlaid distribution curves</li>
+<li><strong>Regression lines (REG)</strong> with confidence and prediction bands</li>
+<li><strong>Dot plots (DOT)</strong></li>
+<li><strong>Box plots (HBOX/VBOX)</strong>: it makes it easy to see how spread out your data is and if there are any outliers. The box represents the middle 50% of your data (IQR). The lower/middle/upper <strong>line of the box</strong> represent Q1/Q2/Q3. The <strong>diamond</strong> denotes the mean (easy to check how close the mean is to the median). The <strong>whiskers</strong> extend as far as the data extends to a maximum length of 1.5 times the IQR above Q3. Any data points farther than this distance are considered possible outliers and are represented in this plot as <strong>circles</strong>.</li>
+<li><strong>Bar charts (HBAR/VBAR)</strong></li>
+<li><strong>Needle plot (NEEDLE)</strong>: creates a plot with needles connecting each point to the baseline</li>
+<li>You can also <strong>overlay plots together</strong> to produce many different types of graphs</li>
+</ul>
+<p><strong><em>PLOTS PRODUCED WITH PROC SGPANEL</em></strong></p>
+<ul>
+<li><strong>Panels of plots</strong> for different levels of a factor or several different time periods depending on the classification variable</li>
+<li><strong>Side-by-side histograms</strong> which provide a visual comparison for your data</li>
+</ul>
+<p><strong><em>PLOTS PRODUCED WITH PROC SGRENDER</em></strong></p>
+<ul>
+<li><strong>Plots from graphs templates you have modified or written yourself</strong></li>
+</ul>
+<hr />
+<p>To specify options for graphs you submit the <strong>ODS GRAPHICS</strong> statement:</p>
+<pre><code>ODS GRAPHICS ON &lt;options&gt;;
+</code></pre>
+
+<ul>
+<li>To select/exclude specific test results, graphs or tables from you output, you can use <strong>ODS SELECT</strong> and <strong>ODS EXCLUDE</strong> statements.</li>
+<li>You can use ODS templates to modify the layout and details of each graph</li>
+<li>You can use ODS styles to control the general appearance and consistency of yous graphs and tables (by default <strong>HTMLBLUE</strong>).</li>
+</ul>
+<p>Another way to control you output is to use the <strong>PLOT</strong> option which is usually available in the procedure statement:<br>
+<code>PROC UNIVARIATE DATA=SAS-data-set PLOTS=options;</code><br>
+This option enables you to specify which graphs SAS should create, either in addtion or instead of the default plots.</p>
+<h3 id="confidence-intervals-for-the-mean">Confidence Intervals for the Mean</h3>
+<ul>
+<li>A <strong>point estimator</strong> is a sample statistic used to estimate a population parameter</li>
+<li>An estimator takes on different values from sample to sample, so it's important to know its variance</li>
+<li>A statistic that measures the variability of your estimator is the <strong>standard error</strong></li>
+<li>It differs from the standard deviation: the <strong>standard deviation</strong> deals with the variability of your data while <strong>standard error</strong> deals with the variability of you sample statistic</li>
+</ul>
+<p><strong>E.g.:</strong> Standard error of the mean = standard deviation/sqrt(sample size)</p>
+<p>The <strong>distribution of sample means</strong> is always less variable than the data.</p>
+<ul>
+<li>Because we know that point estimators vary from sample to sample, it would be nice to have an estimator of the mean that directly accounts for this natural variability</li>
+<li>The <strong>interval estimator</strong> gives us a range of values that is likely to contain the population mean</li>
+<li>It is calculated from the <strong>standard error</strong> and a value that is determined by the <strong>degree of certainty</strong> we require (<strong>significance level</strong>)</li>
+<li><strong>Confidence intervals</strong> are a type of interval estimator used to estimate the population mean</li>
+<li>You can make the confidence interval narrower by increasing the sample size and by decreasing the confidence level</li>
+</ul>
+<p>CI = sample mean &plusmn; quantile * standard error</p>
+<ul>
+<li>The <strong>CLM</strong> option of <strong>PROC MEANS</strong> calculates the confidence limits for the mean, you can add <strong>alpha=</strong> to change the default 0.05 value for a 95% confidence level</li>
+<li>The <strong>central limit theorem</strong> states that the distribution of sample means is approximately normal regardless of the population distribution's shape, if the sample size is large enough (~30 observations)</li>
+</ul>
+<h3 id="hypothesis-testing">Hypothesis Testing</h3>
+<ul>
+<li>The <strong>null hypothesis (H0)</strong> is what you assume to be true when you start your analysis</li>
+<li>The <strong>alternative hypothesis (Ha/H1)</strong> is your initial research hypothesis, that is, your proposed explanation</li>
+</ul>
+<p>Decision-making process:
+1. Define null and alternative hypothesis
+2. Specify significance level (type I error rate)
+3. Collect data
+4. Reject or fail to reject the null hypothesis</p>
+<p><img alt="Error types" src="https://lh3.googleusercontent.com/KaQmpAoTHu1NsLpiBusArHKbs5Zn0AP5eV0CB2PwBObxixZQ98gaUDJVGZSnSj8Li4Hwfvw=s0" title="Error types" /></p>
+<ul>
+<li>The type I and II errors are <strong>inversely related</strong>: as one type increases the other decreases </li>
+<li>The <strong>power</strong> is the probability of a <strong>correct rejection</strong> = 1 - &beta;</li>
+<li>It is the ability of the statistical test to detect a true difference</li>
+<li>
+<p>It is the ability to successfully reject a false null hypothesis</p>
+</li>
+<li>
+<p>A <strong>p-value</strong> measures the probability of observing a value as extreme as the one observed</p>
+</li>
+<li>The p-value is used to determine <strong>statistical significance</strong></li>
+<li>It helps you assess whether you should reject the null hypothesis</li>
+<li>The <strong>p-value</strong> is affected by:</li>
+<li>The <strong>effect size</strong>: the difference between the observed statistic and the hypothesized value</li>
+<li>
+<p>The <strong>sample size</strong>: the larger the sample size, the more sure you are about the sample statistics, the lower the p-value is</p>
+</li>
+<li>
+<p>A reference distribution enables you to quantify the probability (p-value) of observing a particular outcome (the calculated sample statistic) or a more extreme outcome, if the nul hypothesis is true</p>
+</li>
+<li>Two common reference distributions for statistical hypothesis testing are the <strong>t distribution</strong> and the <strong>F distribution</strong></li>
+<li>These distributions are characterized by the <strong>degrees of freedom</strong> associated with your data</li>
+<li>The <strong>t distribution</strong> arises when you're making inferences about a population mean and the population standard deviation is unknown and has to be estimated from the data</li>
+<li>It is <strong>approximately normal</strong> as the <strong>sample size grows larger</strong></li>
+<li>The t distribution is a <strong>symmetric distribution</strong> like the normal distribution except that the t distribution has <strong>thicker tails</strong></li>
+<li>The <strong>t statistic</strong> is positive/negative when the sample is more/less than the hypothesized mean</li>
+<li>If the data doesn't come from a normal distribution, then the t statistic approximately follows a t distribution as long as the sample size is large (<strong>central limit theorem</strong>)</li>
+</ul>
+<p>Calculation with <strong>PROC UNIVARIATE</strong>:</p>
+<pre><code>ODS SELECT TESTSFORLOCATION;
+PROC UNIVARIATE DATA=SAS-data-set MU0=number alpha=number;
+  VAR variable(s);
+  ID variable_to_relate;
+  HISTOGRAM variables &lt;/options&gt;;
+  PROBPLOT variables &lt;/options&gt;;
+  INSET keywords &lt;/options&gt;;
+RUN;
+</code></pre>
+
+<ul>
+<li><strong>TESTSFORLOCATION</strong> displays only the p-values calculation</li>
+<li>By default <strong>MU0 = 0</strong></li>
+</ul>
+<h2 id="analysis-of-variance-anova">Analysis of Variance (ANOVA)</h2>
+<p><a href="https://support.sas.com/edu/OLTRN/ECST131/m552/m552_7_a_sum.htm">Chapter summary in SAS</a></p>
+<p><img alt="enter image description here" src="https://lh3.googleusercontent.com/xOC5eoOUs-6v-b-VnQU6ivGQQPIOQH7ACcKMS2jfrOTK1HJLuBbchpYm3cuganuJ_gNJsBU=s0" title="ANOVA" /></p>
+<h3 id="graphical-analysis-of-associations">Graphical Analysis of Associations</h3>
+<ul>
+<li>Before analyzing your data, you need to have a general idea of any associations between <strong>predictor variables</strong> and <strong>response variables</strong></li>
+<li>An <strong>association</strong> exists between two variables when the expected value of one variable differs at different levels of the other variable</li>
+<li>One method for doing this is to conduct a <strong>graphical analysis</strong> of your data</li>
+<li>Associations between <strong>categorical</strong> predictor variable and a <strong>continuous</strong> response variable can be explored with <strong>SGPLOT</strong> to product <strong>box plots (box-and-whisker plots)</strong> (<strong>X</strong> predictor variable vs <strong>Y</strong> response variable)</li>
+<li>If the <strong>regression line</strong> conecting the means of Y at each value of X is not horizontal <strong>there might be an association</strong> between them</li>
+<li>If the <strong>regression line</strong> is horizontal <strong>there is no association</strong>: knowing the value of X doesn't tell you anything about the value of Y</li>
+</ul>
+<pre><code>PROC SGPLOT DATA=SAS-data-set;
+    VBOX response-variable / CATEGORY=predictor-variable
+    CONNECT=MEAN DATALABEL=outlier-ID-variable;
+RUN;
+</code></pre>
+
+<h3 id="two-sample-t-tests">Two-Sample t-Tests</h3>
+<ul>
+<li>You can use a <strong>one-sample t-test</strong> to determine if the mean of a population is equal to a particular value or not</li>
+<li>When you collect a random sample of independent observations from two different populations, you can perform a <strong>two-sample t-test</strong></li>
+</ul>
+<p>When you compare the means of two populations using a <strong>two-sample t-test</strong> you make three assumptions:</p>
+<ul>
+<li>The data contains independent observations</li>
+<li>The distributions of the two populations are normal (check histograms and normal probability/Q-Q plots)</li>
+<li>The variances in these normal distributions are equal (<strong>F-test</strong> is the formal way to verify this assumption)
+F statistic: $F=max(s_1^2,s_2^2)/min(s_1^2,s_2^2) \ge 1$
+H0: &sigma;$_1^2$ $=$  &sigma;$_2^2\rightarrow F \approx 1$
+Ha: &sigma;$_1^2$ $\ne$  &sigma;$_2^2\rightarrow F\gt 1$
+The <strong>Pr&gt;F</strong> value in the <strong>Equality of Variances</strong> table represents the <strong>p-value</strong> of the F-test for equal variances</li>
+</ul>
+<p><strong>Two-sided Tests</strong></p>
+<ul>
+<li><strong>PROC TTEST</strong> performs a two-sided two-sample t-test by default (confidence limits and ODS graphics included)</li>
+<li>It <strong>automatically test the assumption of equal variances</strong> and provides an exact two-sample t-test (<strong>pooled</strong>) when the assumptions are met and an approximate t-test (<strong>scatterthwaite</strong>) when it is not met </li>
+<li>The pooled and scatterthwaite t-tests are equal when the variances are equal</li>
+</ul>
+<pre><code>PROC TTEST DATA=SAS-data-set &lt;options&gt;
+    plots(shownull)=interval;         \* shownull = vertical reference line at the mean value of H0 *\
+    CLASS variable;                   \* Classification variable *\
+    VAR variable(s);                  \* Continuous response variables *\
+RUN;
+</code></pre>
+
+<p><strong>One-sided Tests</strong></p>
+<ul>
+<li>It <strong>can increase the power</strong> of a statistical test, meaning that if you are right about the direction of the true difference, you will more likely detect a significant difference with a one-sided test than with a tow-sided test</li>
+<li>The difference between the mean values for the null hypothesis will be defined by the alphabetical order of the classification variables (e.g.: female - male)</li>
+</ul>
+<pre><code>PROC TTEST DATA=SAS-data-set 
+    plots(only shownull)=interval H0=0 SIDES=u;     \* only = suppress the default plots; u/l = upper/lower-tailed t-test  *\
+    CLASS variable;                                 \* Classification variable *\
+    VAR variable(s);                                \* Continuous response variables *\
+RUN;
+</code></pre>
+
+<h3 id="one-way-anova">One-Way ANOVA</h3>
+<p>When you want to determine whether there are significant differences between the <strong>means of two or more populations</strong>, you can use analysis of variance (ANOVA).</p>
+<ul>
+<li>You have a continuous dependent (<strong>response</strong>) variable and a categorical independent (<strong>predictor</strong>) variable</li>
+<li>You can have <strong>many levels of the predictor variable</strong>, but you can have <strong>only one predictor variable</strong></li>
+<li>The <strong>squared value of the t statistic</strong> for a two-sample t-test is equal to the <strong>F statistic</strong> of a one-way ANOVA with two populations</li>
+<li>With ANOVA the <strong>H0</strong> is that all of the population means are equal and <strong>Ha</strong> is that not all the population means are equal (at least one mean is different)</li>
+</ul>
+<p>To perform an ANOVA test you make three assumptions:</p>
+<ul>
+<li>You have a <strong>good, random, representative sample</strong></li>
+<li>The <strong>error terms are normally distributed</strong></li>
+<li>The <strong>residuals</strong> (each observation minus its group mean) are estimates of the error term in the model so you verify this assumption by examining diagnostic plots of the residuals (if they are approximately normal, the error terms will be too)</li>
+<li>If your sample sizes are reasonably large and approximately equal across groups, then only severe departures from normality are considered a problem</li>
+<li>Residuals always sum to 0, regardless of the number of observations.</li>
+<li>The <strong>error terms have equal variances</strong> across the predictor variable levels: you can conduct a formal test for equal variances and also plot the residuals vs predicted values as a way to graphically verify this assumption</li>
+</ul>
+<p>You can use <strong>PROC GLM</strong> to verify the ANOVA assumptions and perform the ANOVA test. It fits a general linear model of which ANOVA is a special case and also displays the sums of squares associated with each hypothesis it tests.</p>
+<pre><code>PROC GLM DATA=SAS-data-set
+         PLOTS(ONLY)=DIAGNOSTICS(UNPACK);     /* print each plot on a separated page */
+    CLASS variable(s);
+    MODEL dependents=intependents &lt;/options&gt;;
+    MEANS effects / HOVTEST &lt;/options&gt;;    
+RUN;
+QUIT;
+</code></pre>
+
+<ul>
+<li><strong>HOVTEST</strong>: homogeneity of variance test option (Levene's test by default) + plot of residuals vs predicted values (means)</li>
+</ul>
+<hr />
+<ul>
+<li>Of the <strong>between-group variability</strong> is significantly larger than the <strong>within-group variability</strong>, you reject the null that all the group means are equal</li>
+<li>You partition out the variability using sums of squares: </li>
+<li><strong>Between-group</strong> variation: also called Model Sum of Squares (SSM): $\sum n_i (\overline Y_i- \overline {\overline Y})^2$</li>
+<li><strong>Within-group</strong> variation: also called Error Sum of Squares (SSE): $\sum \sum (Y_{ij}- \overline Y_i)^2$</li>
+<li><strong>Total</strong> variation: also called the Total Sum of Squares (SST): $\sum \sum (Y_{ij}- \overline {\overline Y})^2$</li>
+<li><strong>SSM</strong> and <strong>SSE</strong> represent pieces of <strong>SST</strong>: the SSM is the variability explanied by the predictor variable levels and SSE the variability not explained by the predictor variable levels</li>
+<li>You want the larger piece of the total to be better represented by what you can explain (SSM) vs what you cant't explain (SSE) </li>
+</ul>
+<h3 id="anova-with-data-from-a-randomized-block-design">ANOVA with Data from a Randomized Block Design</h3>
+<p>In an <strong>observational study</strong>, you often examine what already occurred, and therefore have little control over factors contributing to the outcome. In a <strong>controlled experiment</strong>, you can manipulate the <strong>factors of interest</strong> and can more reasonably claim causation.</p>
+<ul>
+<li>The variation due to the <strong>nuisance factors</strong> (fundamental to the probabilistic model but are no longer of interest) is part of the random variation that the error sum of squares accounts for.</li>
+<li>Including a <strong>blocking variable</strong> in the model is in essence like adding a second predictor variable to the model in terms of the way you write it</li>
+<li>The way you set up your experiment and data collection is what defines it as a blocking factor</li>
+<li>Although you're not specifically interested in its effect, <strong>controlling the blocking variable makes it easier to detect an effect of the factor of interest</strong></li>
+<li>In a model that does not include a blocking variable, its effects are lumped into the error term of the model (unaccounted for variation)</li>
+<li>When you include a blocking variable in your ANOVA model, any effects caused by the nuisance factors that are common within a sector are accounted for in the <strong>model sum of squares rather than the error sum of squares</strong></li>
+</ul>
+<p>You make two more assumptions when you include a blocking factor in the model:</p>
+<ul>
+<li>Primary variable levels are <strong>randomly assigned</strong> within each block</li>
+<li>The effects of the primary variable are <strong>constant across the levels</strong> of the blocking factor (the effects don't depend on the block they are in, there are <strong>no interactions</strong> with the blocking variable)</li>
+</ul>
+<p><strong>Note:</strong> Levene's test for homogeneity is <strong>only available for one-way ANOVA models</strong>, so in this case, you have to use the Residuals by Predicted plot.</p>
+<pre><code>PROC GLM DATA=SAS-data-set
+         PLOTS(ONLY)=DIAGNOSTICS(UNPACK);   /* print each plot on a separated page */
+    CLASS variable(s) blocking-factor(s);
+    MODEL dependents=intependents blocking-factor(s)&lt;/options&gt;;
+RUN;
+QUIT;
+</code></pre>
+
+<ul>
+<li><strong><em>Rule of thumb</em></strong>: if the <strong>F-value is &gt; 1</strong>, then it helped to add the blocking factor in your model </li>
+<li>If you compare the MSE (<em>Mean Square</em> in the table) without and with including the blocking variable in the model,  there is a drop of its value meaning that <strong>you have been able to account for a bit more of the unexplained variability due to the nuisance factors</strong> helping o have more precise estimates of the effect of your primary variable</li>
+<li>It is also reflected in the <em>R-Square</em> value that is increased when a blocking factor is added to the model</li>
+<li>Thanks to adding a blocking variable to your model you can get your primary variable to be significant</li>
+<li>The <strong>Type III SS</strong> at the bottom of the output tests for the difference due to each variable, controlling for or adjusting for the other variable</li>
+</ul>
+<h3 id="anova-post-hoc-tests">ANOVA Post Hoc Tests</h3>
+<p>This test is used to determine which means differ from other means and control the error rate using <strong>multiple comparison method</strong>.</p>
+<p>Assuming the null hypothesis is true for your different comparisons, the probability that you conclude a difference exist at least one time when there really  isn't a difference increases with the more tests you perform. So <strong>the chance that you make a Type I error increases each time you conduct a statistical test</strong>.</p>
+<ul>
+<li>The <strong>comparisonwise error rate (CER)</strong> is the probability of a Type I error on a single pairwise test (&alpha;)</li>
+<li>The <strong>experimentwise error rate (EER)</strong> is the probability of making at least one Type I error when performing the whole set of comparisons. It takes into consideration the number of pairwise comparisons you make, so it increases as the number of tests increase: $EER=1-(1-\alpha)^{# \\ of \\ comparisons}$</li>
+</ul>
+<p><strong><em>Tukey's Multiple Comparison Method</em></strong></p>
+<ul>
+<li>This method, which is also known as the <strong>Honestly Significant Difference</strong> test, is a popular multiple comparison test that <strong>controls the EER</strong></li>
+<li>This tests compares all possible pairs of means, so <strong>it can only be used when you make pairwise comparisons</strong></li>
+<li>This method controls $EER=\alpha$ when <strong>all possible pairwise comparisons are considered</strong> and controls $EER&lt;\alpha$ when fewer than all pairwise comparisons are considered</li>
+</ul>
+<p><strong><em>Dunnett's Multiple Comparison Method</em></strong></p>
+<ul>
+<li>This method is a specialised multiple comparison test that allows you to <strong>compare a single control group to all other groups</strong></li>
+<li>It controls $EER \le \alpha$ when all groups are compared to the reference group (control)</li>
+<li>It accounts for the correlation that exists between the comparisons and <strong>you can conduct one-sided tests</strong> of hypothesis against the reference group</li>
+</ul>
+<pre><code>PROC GLM DATA=SAS-data-set;
+    CLASS variable(s);
+    MODEL dependents=intependents &lt;/options&gt;;
+    LSMEANS effects &lt;/options-test-1&gt;;  
+    LSMEANS effects &lt;/options-test-2&gt;;
+    [...]
+    LSMEANS effects &lt;/options-test-n&gt;;  
+RUN;
+QUIT;
+</code></pre>
+
+<ul>
+<li><strong>PDIFF=ALL</strong> requests p-values for the differences between ALL the means and a <strong>diffogram</strong> is produced automatically displaying all pairwise least square means differences and indicating which are significant</li>
+<li>It can be undestood as a least squares mean by least squares mean plot</li>
+<li>The point estimates for differences between the means for each pairwise comparison can be found at the intersections of the gray grid lines (intersection of appropriate indexes)</li>
+<li>The red/blue diagonal lines show the <strong>confidence intervals for the true differences of the means</strong> for each pairwise comparison</li>
+<li>The grey 45$^{\circ}$ reference line represents equality of the means (if the confidence interval crosses over it, then there is no significant difference between the two groups and the diagonal line for the pair will be <strong>dashed and red</strong>; if the difference is significant the line will be <strong>solid and blue</strong>)</li>
+</ul>
+<p><img alt="Diffogram" src="https://lh3.googleusercontent.com/-yuw0XR4JPqs/WNknWl3atwI/AAAAAAAAABk/V_lTXMtgO_QDm7VJ9jPy29h7MIxZbyhzQCLcB/s0/diffogram.png" title="Diffogram" /></p>
+<ul>
+<li>The <strong>ADJUST=</strong> option specifies the adjustment method for multiple comparisons</li>
+<li>If you don't specify an option SAS uses the <strong>Tukey method by default</strong>, if you specify <strong>ADJUST=Dunnett</strong> the GLM procedure produces multiple comparisons using <strong>Dunnett's method</strong> and a <strong>control plot</strong> </li>
+<li>The control plot displays the least squares mean and confidence limits of each group compared to the reference group </li>
+<li>The middle <strong>horizontal line represents its least square mean value</strong> (you can see the arithmetic mean value un the <strong>upper right corner</strong> of the graph)</li>
+<li>The <strong>shaded area</strong> goes from the <strong>lower decision limit (LDL)</strong> to the <strong>upper decision limit (UDL)</strong></li>
+<li>There is a vertical line for each group that you're comparing to the reference (control) group. If a <strong>vertical line extends past the shaded area</strong>, then the group represented by the line is <strong>significantly different</strong> (small p-value) than the reference group </li>
+</ul>
+<p><img alt="Control plot" src="https://lh3.googleusercontent.com/-ZI5PKbFT1ns/WNkoofa4E3I/AAAAAAAAAB0/0RNlG7_94QMV3s864uB5UncYOw7VEMkYgCLcB/s0/controlplot.PNG" title="Control plot" /></p>
+<ul>
+<li><strong>PDIFF=CONTROLU('value')</strong> specifies the control group for the Dunnett's case: the direction of the sign in Ha is the same as the direction you are testing, so this is a <strong>one-sided upper-tailed t-test</strong></li>
+<li>If you specify <strong>ADJUST=T</strong> SAS will make no adjustments for multiple comparisons: is not recommended as there's a tendency to find <strong>more significant pairwise differences than might actually exist</strong></li>
+</ul>
+<h3 id="two-way-anova-with-interactions">Two-Way ANOVA with Interactions</h3>
+<p>When you have a continuous response variable and <strong>two categorical predictor variables</strong>, you use the <strong>two-way ANOVA model</strong></p>
+<ul>
+<li><strong>Effect</strong>: the magnitude of the expected change in the response variable presumably caused by the change in value of a predictor variable in the model</li>
+<li>In addition, the variables in a model can be referred to as effects or terms</li>
+<li><strong>Main effect</strong>: is the effect of a single predictor variable</li>
+<li><strong>Interaction effects</strong>: when the relationship of the response variable with a predictor changes with the changing of another predictor variable (the effect of one variable depends on the value of the other variable)</li>
+</ul>
+<p><img alt="Interaction plot" src="https://lh3.googleusercontent.com/-GK8G9YC7d1s/WNk5aOIcxAI/AAAAAAAAACM/nuq7AoAjh98_cci-KnaWTzhjbsCW_mSHACLcB/s0/interactionplot.png" title="Interaction plot" /></p>
+<p>When you consider an ANOVA with more than one predictor variable, it's called <strong>n-way ANOVA</strong> where <em>n</em> represents the number of predictor variables</p>
+<ul>
+<li>The analysis in a <strong>randomized block design</strong> is actually a <strong>special type of two-way ANOVA</strong> in which you have one factor of interest and one blocking factor</li>
+<li>When you analyze a two-way ANOVA with interactions, you first look at any tests for <strong>interactions among the factors</strong></li>
+<li>If there is <strong>no interaction between the factors</strong> you can interpret the tests for the individual factor effects to determine their significance/non-significance</li>
+<li>If an <strong>interaction exists between any factors</strong>, the tests for the individual factor effects might be misleading due to masking of these effect by the interaction (this is specially true for unbalanced data with different number of observations for each combination of groups)</li>
+<li>When the interaction is not statistically significant <strong>you can analyze the main effect with the model in its current form</strong> (generally the method you use when you analyze designed experiments)</li>
+<li>Even when you analyze designed experiments, some statisticians might suggest that if the interaction is not significant, <strong>you can delete the interaction effect from your model, rerun the model and then just analyze the main effects</strong> increasing the power of the main effects test</li>
+<li>If the <strong>interaction term is significant</strong>, it is good practice to keep the main effect terms that make up the interaction in the model, whether they are significant or not (this preserves model hierarchy)</li>
+<li>You have to make the <strong>same three assumptions used in the ANOVA test</strong></li>
+<li>The interaction terms are also called <strong>product terms</strong> or <strong>crossed effects</strong></li>
+</ul>
+<pre><code>PROC GLM DATA=SAS-data-set;
+    CLASS independent1 independent2;
+    MODEL dependent = independent1 independent2 independent1*independent2;
+    or
+    MODEL dependent = independent1 | independent2;
+RUN;
+QUIT;
+</code></pre>
+
+<p>This program is <strong>fitting to this model</strong>:
+$Y_{ijk}=\mu + \alpha_i+\beta_j+(\alpha\beta)<em>{ij}+\epsilon</em>{ijk}$
+dependent = overall mean + intependent1 + independent2 + interaction12 + unaccounted for variation </p>
+<ul>
+<li>In <strong>most situations</strong> you will want to use the <strong>Type III SS</strong></li>
+<li>The <strong>Type I SS (sequential)</strong> are the sums of squares you obtain from fitting the effects in the order you specify in the model </li>
+<li>The <strong>Type III SS (marginal)</strong> are the sums of squares you obtain from fitting each effect after all the other terms in the model, that is the sums of squares for each effect corrected for the other terms in the model</li>
+<li>When examining these results you first have to <strong>look at the interaction term and if it's significant</strong> (p-value), the <strong>main effects don't tell you the whole story</strong>. It that is the case, you don't need to worry all that much about the significance of the main effects at this point for two reasons:</li>
+<li>You know that the effect of each variable1 level changes for the different variable2 levels</li>
+<li>You want to include the main effects in the model, whether they are significant or not, to preserve model hierarchy</li>
+<li>You can analyze the interaction between terms by looking at the <strong>interaction plot</strong> that SAS produces by default when you include an interaction term in the model</li>
+<li>To analyze and interpret the effect of one of the interacting variables you need to add the <strong>LSMEANS</strong> statement to your program</li>
+</ul>
+<pre><code>PROC GLM DATA=SAS-data-set ORDER=INTERNAL PLOTS(ONLY)=INTPLOT;
+    CLASS independent1 independent2;
+    MODEL dependent = intependent1 independent2 independent1*independent2;
+    LSMEANS independent1*independent2 / SLICE= independent1;
+RUN;
+QUIT;
+</code></pre>
+
+<p>SAS creates two types of mean plots when you use the LSMEANS statement with an interaction term:</p>
+<ul>
+<li>The first plot displays the <strong>least squares mean (LS-Mean) for every effect level</strong> </li>
+<li>The second plot contains the same information rearranged so you can <strong>look a little closer at the combination levels</strong></li>
+</ul>
+<hr />
+<p>You can add a <strong>STORE</strong> statement to save your analysis results in an <strong>item store</strong> (a binary file format that cannot be modified). This allows you to <strong>run post-processing analysis</strong> on the stored results even if you no longer have access to the original data set. The STORE statement applies to the following SAS/STAT procedures: GENMOD, GLIMMIX, GLM, GLMSELECT, LOGISTIC, MIXED, ORTHOREG, PHREG, PROBIT, SURVEYLOGISTIC, SURVEYPHREG, and SURVEYREG.</p>
+<pre><code>STORE &lt;OUT=&gt;item-store-name
+    &lt;/ LABEL='label'&gt;;
+</code></pre>
+
+<ul>
+<li><strong>item-store-name</strong> is a usual one- or two-level SAS name, similar to the names that are used for SAS data sets</li>
+<li><strong>label</strong> identifies the estimate on the output (is optional)</li>
+</ul>
+<p>To perform post-fitting statistical analysis and plotting for the contents of the store item, you use the <strong>PLM procedure</strong>. The statements and options that are available vary depending upon which procedure you used to produce the item store.</p>
+<pre><code>PROC PLM RESTORE=item-store-specification &lt;options&gt;;
+    EFFECTPLOT INTERACTION(SLICEBY=variable) &lt;plot-type &lt;(plot-definition options)&gt;&gt; / CLM &lt;/ options&gt;;
+    LSMEANS &lt;model-effects&gt; &lt;/ options&gt;;
+    LSMESTIMATE model-effect &lt;'label'&gt; values
+        &lt;divisor=n&gt;&lt;,...&lt;'label'&gt; values
+        &lt;divisor=n&gt; &lt;/ options&gt;;
+    SHOW options;
+    SLICE model-effect / SLICEBY=variable ADJUST=tukey &lt;/ options&gt;;
+    WHERE expression;
+RUN;
+</code></pre>
+
+<ul>
+<li><strong>RESTORE</strong> specifies the source item store for processing</li>
+<li><strong>EFFECTPLOT</strong> produces a display of the fitted model and provides options for changing and enhancing the displays</li>
+<li><strong>LSMEANS</strong> computes and compares least squares means (LS-means) of fixed effects</li>
+<li><strong>LSMESTIMATE</strong>   provides custom hypothesis tests among least squares means</li>
+<li><strong>SHOW</strong> uses ODS to display contents of the item store. This statement is useful for verifying that the contents of the item store apply to the analysis and for generating ODS tables.</li>
+<li><strong>SLICE</strong> provides a general mechanism for performing a partitioned analysis of the LS-means for an interaction (analysis of simple effects) and it uses the same options as the LSMEANS statement</li>
+<li><strong>WHERE</strong> is used in the PLM procedure when the item store contains <strong>BY-variable</strong> information and you want to apply the PROC PLM statements to only a subset of the BY groups</li>
+</ul>
+<h2 id="regression">Regression</h2>
+<p><a href="https://support.sas.com/edu/OLTRN/ECST131/m553/m553_6_a_sum.htm">Chapter summary in SAS</a></p>
+<p><img alt="Summary lessons 3-6" src="https://lh3.googleusercontent.com/-Y-23_trrs6A/WON7VhnzxPI/AAAAAAAAADY/vRxCZowh9tItWRSSGTHZYpa2Ur4Qh97nwCLcB/s0/summary3-6.png" title="Summary lessons 3-6" /></p>
+<h3 id="exploratory-data-analysis">Exploratory Data Analysis</h3>
+<p>A useful set of techniques for investigating your data is known as <strong>exploratory data analysis</strong>.</p>
+<p><strong><em>Scatter plots</em></strong></p>
+<pre><code>PROC SGSCATTER DATA=SAS-data-base;
+    PLOT vairableY*(variableX1 variableX2) / REG;
+RUN;
+</code></pre>
+
+<ul>
+<li>If you have <strong>so many observations</strong> that the scatter plot of the whole data set is difficult to interpret, you might run PROC SGSCATTER on a <strong>random sample of observations</strong></li>
+</ul>
+<p><strong><em>Correlation analysis</em></strong></p>
+<p>The closer the <strong>Pearson</strong> correlation coefficient is to +1/-1, the stronger the positive/negative linear relationship is between the two variables. The closer the correlation coefficient is to 0, the weaker the linear relationship and if it is 0 variables are uncorrelated.</p>
+<ul>
+<li>When you interpret the correlation, be cautious about the effect of <strong>large sample sizes</strong>: even a correlation of 0.01 can be statistically significant with a large enough sample size and you would almost always reject the hypothesis H0: &rho;=0, even if the value of your correlation is small for all practical purposes</li>
+<li>Some <strong>common errors</strong> on interpreting correlations are concluding a <strong>cause-and-effect relationship</strong> between the variables misinterpreting the kind of relationship between the variables and failing to recognize the influence of outliers on the correlation<ul>
+<li>The variables might be related but not causally</li>
+<li>Correlation coefficients can be large because both variables are affected by other variables</li>
+<li>Variables might be strongly correlated by chance</li>
+</ul>
+</li>
+<li>Just because the correlation coefficient is close to 0 doesn't mean that no relationship exists between the two variables: they might have a <strong>non-linear relationship</strong></li>
+<li>Another common error is failing to recognize the <strong>influence of outliers</strong> on the correlation<ul>
+<li>If you have an outlier you should report both correlation coefficients (with and without the outlier) to report how influential the unusual data point is in your analysis</li>
+</ul>
+</li>
+</ul>
+<p>The <strong>PROC CORR</strong> also produces <strong>scatter plots</strong> or a <strong>scatter plot matrix</strong>.</p>
+<pre><code>PROC CORR DATA=SAS-data-set RANK|NOSIMPLE PLOTS(ONLY)=MATRIX(NVAR=ALL HISTOGRAM)|SCATTER(NVAR=ALL ELLIPSE=NONE) &lt;options&gt;;
+    VAR variable(s)X;
+    WITH variable(s)Y;
+    ID variable4label;
+RUN;
+</code></pre>
+
+<h3 id="simple-linear-regression">Simple Linear Regression</h3>
+<p>You use correlation analysis to determine the strength of the linear relationship between continuous response variables. Now you need to go a step further and <strong>define the linear relationship itself</strong>: $Y= \beta_0+\beta_1*X+\epsilon$</p>
+<ul>
+<li>$Y$ is the response variable </li>
+<li>$X$ is the predictor variable</li>
+<li>$\beta_0$ is the intercept parameter</li>
+<li>$\beta_1$ is the slope parameter</li>
+<li>$\epsilon$ is the error term</li>
+</ul>
+<p>The method of <strong>least squares</strong> produces parameter estimates $\hat \beta_0$ and $\hat \beta_1$ with certain <strong>optimum properties</strong> which make them the Best Linear Unbiased Estimators (<strong>BLUE</strong>):</p>
+<ul>
+<li>They are <strong>unbiased estimates</strong> of the population parameters</li>
+<li>They have <strong>minimum variance</strong></li>
+</ul>
+<p>To find out how much better is the model that takes the predictor variable into account than a model that ignores the predictor variable, you can compare the <strong>simple linear regression model</strong> to a <strong>baseline model</strong> ($Y= \bar Y$ independent of $X$). For your comparison, you calculate the <strong>explained</strong>, <strong>unexplained</strong> and <strong>total variability</strong> in the simple linear regression model.</p>
+<ul>
+<li>The <strong>explained variability (SSM)</strong> is the difference between the regression line and the mean of the response variable: $\sum(\hat Y_i-\bar Y)^2$</li>
+<li>The <strong>unexplained variability (SSE)</strong> is the difference between the observed values and the regression line: $\sum(Y_i-\hat Y_i)^2$</li>
+<li>The <strong>total variability</strong> is the difference between the observed values and the mean of the response variable: $\sum(Y_i-\bar Y)^2$</li>
+</ul>
+<p>If we consider <strong>hypothesis testing</strong> for linear regression:</p>
+<ul>
+<li>H0: the regression model does not fit the data better than the baseline model (slope $= 0$)</li>
+<li>Ha: the regression model does fit the data better than the baseline model (slope $= \hat\beta_1 \ne 0$)</li>
+</ul>
+<p>These <strong>assumptions</strong> underlie the hypothesis test for the regression model and have to be met for a simple linear regression analysis to be valid (last three assumptions are the same as for ANOVA):</p>
+<ul>
+<li>The mean of the response variable is linearly related to the value of the predictor variable</li>
+<li>The error terms are normally distributed with a mean of 0</li>
+<li>The error terms have equal variances</li>
+<li>The error terms are independent at each value of the predictor variable</li>
+</ul>
+<pre><code>PROC REG DATA=SAS-data-set &lt;options&gt;;
+    MODEL dependent=regressor / CLM CLI &lt;/options&gt;;
+    ID regressor;
+RUN;
+QUIT;
+</code></pre>
+
+<p>To asses the level of precision around the mean estimates you can produce <strong>confidence intervals</strong> around the means. Confidence intervals become wider as you move away from the mean of the predictor variable. The wider the confidence interval the less precise it is. You might also want to construct <strong>prediction intervals</strong> for a single observation. A prediction interval is wider than a confidence interval because <strong>single observations have more variability than sample means</strong>.</p>
+<p>For producing <strong>predicted values</strong> with PROC REG:</p>
+<ul>
+<li>Create a data set containing the values of the independent variables for which you want to make predictions</li>
+<li>Concatenate the new data set with the original data set</li>
+<li>Fit a simple linear regression model to the new data set and specify the <strong>P</strong> option in the MODEL statement</li>
+</ul>
+<p>Because the concatenated observations contain <strong>missing values</strong> for the response variable, PROC REG does not include these observations when fitting the regression model. However, PROC REG does <strong>produce predicted values</strong> for these observations.</p>
+<pre><code>DATA SAS-predictions-data-set;
+    INPUT dependent @@;
+    DATALINES;
+[new values separated with blanks]
+;
+RUN;
+
+DATA SAS-new-data-set;
+    SET SAS-predictions-data-set SAS-original-data-set;
+RUN;
+
+PROC REG DATA=SAS-new-data-set;
+    MODEL dependent=regressor / P;
+    ID regressor;
+RUN;
+QUIT;
+</code></pre>
+
+<p>When you use a model to predict future values of the response variable given certain values of the predictor variable, you must <strong>stay within (or near) the range of values for the predictor variable used to create the model</strong>. The relationship between the predictor variable and the response variable might be different beyond the range of the data.</p>
+<p>If you have a large data set and have already fitted the regression model, you can predict values more efficiently by using <strong>PROC REG</strong> and <strong>PROC SCORE</strong>:</p>
+<pre><code>PROC REG DATA=SAS-original-data-set NOPRINT OUTEST=SAS-estimates-data-set;
+    MODEL dependent=regressor &lt;/options&gt;;
+    ID regressor;
+RUN;
+QUIT;
+
+PROC SCORE DATA=SAS-predictions-data-set
+        SCORE=SAS-estimates-data-set
+        OUT=SAS-scored-data-set
+        TYPE=PARMS
+        &lt;options&gt;;
+    VAR variable(s);
+RUN;
+QUIT;
+</code></pre>
+
+<h3 id="multiple-regression">Multiple Regression</h3>
+<p>In <strong>multiple regression</strong> you can model the relationship between the response variable and <strong>more than one predictor variable</strong>. It is a powerful tool for both <strong>analytical or explanatory analysis and for prediction</strong>.</p>
+<p>$Y=\beta_0+\beta_1X_1+\beta_2X_2+...+\beta_kX_k+\epsilon$ ($k+1$ parameters)</p>
+<p><strong><em>Advantages</em></strong></p>
+<ul>
+<li>Multiple linear regression is a more powerful tool</li>
+<li>You can determine whether a relationship exists between the response variable and more than one predictor variable at the same time</li>
+</ul>
+<p><strong><em>Disadvantages</em></strong></p>
+<ul>
+<li>You need to perform a selection process to decide which model to use</li>
+<li>The more predictors you have, the more complicated interpreting the model becomes</li>
+</ul>
+<p>If we consider <strong>hypothesis testing</strong> for linear regression:</p>
+<ul>
+<li>H0: the regression model does not fit the data better than the baseline model ($\beta_1=\beta_2=...=\beta_k= 0$)</li>
+<li>Ha: the regression model does fit the data better than the baseline model (at least one $\beta_i \ne 0$)</li>
+</ul>
+<p>These <strong>assumptions</strong> have to be met for a multiple linear regression analysis to be valid (last three assumptions are the same as for ANOVA):</p>
+<ul>
+<li>A linear function of the $X$s accurately models the mean of the $Y$s</li>
+<li>The error terms are normally distributed with a mean of 0</li>
+<li>The error terms have constant variances</li>
+<li>The error terms are independent at each value of the predictor variable</li>
+</ul>
+<p>The <strong>regular $R^2$</strong> values never decrease when you add more terms to the model, but the <strong>adjusted $R^2$</strong> value takes into account the number of terms in the model by including a penalty for the complexity of the model. The <strong>adjusted $R^2$</strong> value increases only if new terms that you add significantly improve the model enough to warrant increasing the complexity of the model. It enables proper comparison between models with different parameter counts. When an <strong>adjusted $R^2$ increases by removing a variable</strong> from the models, it strongly implies that the removed <strong>variable was not necessary</strong>.</p>
+<pre><code>PROC REG DATA=SAS-data-set &lt;options&gt;;
+    MODEL dependent=regressor1 regressor2 &lt;/options&gt;;
+RUN;
+QUIT;
+
+PROC GLM DATA=SAS-data-set
+    PLOTS(ONLY)=(CONTOURFIT);
+    MODEL dependent=regressor1 regressor2;
+    STORE OUT=SAS-multiple-data-set;
+RUN;
+QUIT;
+
+PROC PLM RESTORE=SAS-multiple-data-set PLOTS=ALL;
+    EFFECTPLOT CONTOUR (Y=regressor1 X=regressor2);
+    EFFECTPLOT SLICEFIT (X=regressor2 SLICEBY=regressor1=250 to 1000 by 250);
+RUN;
+</code></pre>
+
+<ul>
+<li>In PROC GLM, when you run a linear regression model with only two predictor variables, the output includes a contour fit plot by default. We specify <strong>CONTOURFIT</strong> to tell SAS to overlay the contour plot with a scatter plot of the observed data</li>
+</ul>
+<p><img alt="Contour plot" src="https://lh3.googleusercontent.com/-NLdUzu7afu8/WOJldkIvudI/AAAAAAAAACs/Vo3RCSrIwvkcOUVi8mwEiurtjsOANjBTQCLcB/s0/contour-multiple-regression.png" title="Contour plot" /></p>
+<p>The plot shows <strong>predicted values</strong> of the response variable as <strong>gradations of the background color</strong> from blue, representing low values, to red, representing high values. The <strong>dots</strong>, which are similarly coloured, represent the <strong>actual data</strong>. Observations that are perfectly fit would show the same color within the circle as outside the circle. The <strong>lines on the graph</strong> help you read the actual predictions at even intervals.</p>
+<ul>
+<li>The <strong>CONTOUR</strong> option displays a contour plot of predicted values against two continuous covariates</li>
+<li>The <strong>SLICEFIT</strong> option displys a curve of predicted values vs a continuous variable grouped by the levels of another effect</li>
+</ul>
+<p>Clearly the <strong>PROC GLM</strong> contour fit plot is <strong>more useful</strong>. However, if you do not have access to the original data set and can run <strong>PROC PLM</strong> only on the item store, this plot still gives you an idea of the relationship between the predictor variables and predicted values.</p>
+<h3 id="model-building-and-interpretation">Model Building and Interpretation</h3>
+<p>The brute force approach to find a good model is to start including all the predictor variables available and rerun the model <strong>removing the least significant remaining term</strong> each time <strong>until</strong> you're left with a model where <strong>only significant terms remain</strong>. With a small number of predictor variables a manual approach isn't too difficult but with a large number of predictor variables it's very tedious. Fortunately, if you specify the model selection technique to use, SAS finds good candidate models in an automatic way.</p>
+<hr />
+<p><strong><em>All-possible regression methods</em></strong></p>
+<p>SAS computes all possible models and ranks the results. Then, to evaluate the models, you compare statistics side by side ($R^2$, adjusted $R^2$ and $C_p$ statistic).</p>
+<ul>
+<li>
+<p><strong>Mallows' $C_p$</strong> statistic helps you detect model bias if you are underfitting/overfitting the model, it is a simple indicator of effective variable selection within a model</p>
+</li>
+<li>
+<p>To select the best model for prediction (most accurate model for predicting future values of $Y$), you should use the <strong>Mallows' criterion</strong>:  $C_p \le p$, which is the <strong>number of parameters</strong> in the model including the intercept</p>
+</li>
+<li>To select the best model for parameter estimation (analytical or explanatory analysis), you should use <strong>Hocking's criterion</strong>: $C_p\le2p-p_{full}+1$</li>
+</ul>
+<pre><code>PROC REG DATA=SASdata-set PLOTS(ONLY)=(CP) &lt;options&gt;;
+    &lt;label:&gt; MODEL dependent=regressors  / SELECTION=CP RSQUARE ADJRSQ BEST=n &lt;/options&gt;;
+RUN;
+QUIT;
+</code></pre>
+
+<ul>
+<li><strong>BEST</strong> prints an specific number of the best candidate models according to a few different statistical criteria</li>
+<li><strong>SELECTION</strong> option is used to specify the method used to select the model (<strong>CP</strong>, <strong>RSQUARE</strong> and <strong>ADJRSQ</strong> to calculate with the all-possible regression model; the first statistic determines the sorting order)</li>
+<li>For this all-possible regression model,we add the label <strong>ALL_REG:</strong></li>
+<li>With <strong>PLOTS=(CP)</strong> we produce a plot:</li>
+</ul>
+<p><img alt="Mallows' Cp to select the best model" src="https://lh3.googleusercontent.com/-MKHCheN7vUA/WONM3WW0qSI/AAAAAAAAADE/tHJAjyHK-QE5j4UVlxmT7KHTA_bvGJLxwCLcB/s0/mallows_cp_best_model.png" title="Mallows' Cp to select the best model" /></p>
+<p>Each <strong>star</strong> represents the <strong>best model</strong> for a given number of parameters. The solid <strong>blue line</strong> represents <strong>Mallows' criterion</strong> for $C_p$, so using this line helps us find a good candidate model for prediction. Because we want the <strong>smallest model possible</strong>, we start at the left side of the graph, with the fewest number of parameters moving to the right until we find the <strong>first model that falls below the solid blue line</strong>. To find models for parameter estimation we have to look for models that falls below the <strong>red solid line</strong> which represent the <strong>Hocking's criterion</strong> for $C_p$ parameter estimation. If we hover over the star, we can see which variables are included in this model.</p>
+<hr />
+<p><strong><em>Stepwise selection methods</em></strong></p>
+<p>Here you choose a selection method (<strong>stepwise</strong>, <strong>forward</strong> or <strong>backward</strong> approaches) and SAS constructs a model based on that method. When you have a <strong>large number of potential predictor variables</strong>, the stepwise regression methods might be a better option. You can use either the <strong>REG</strong> procedure or the <strong>GLMSELECT</strong> procedure to perform stepwise selection methods</p>
+<ul>
+<li><strong>Forward selection</strong> starts with no predictor variables in the model</li>
+<li>It selects the best one-variable model</li>
+<li>It selects the best two-variable model that includes the variable from the first model (after a variable is added to the model, it stays in even if it becomes insignificant later)</li>
+<li>It keeps adding variables, one at a time, until no significant terms are left to add</li>
+<li><strong>Backward selection/elimination</strong> starts with all predictor variables in the model</li>
+<li>It removes variables one at a time, starting with the most non-significant variable (after a variable is removed from the model, it cannot reenter)</li>
+<li>It stops when only significant terms are left in the model</li>
+<li><strong>Stepwise selection</strong> combines aspects of both forward and backward selection</li>
+<li>It starts with no predictor variables in the model and starts adding variables, one at a time, as in forward selection</li>
+<li>However, as in backward selection, stepwise selection can drop non-significant variables, one at a time</li>
+<li>It stops when everything in the model is currently significant and everything not in the model is not significant</li>
+</ul>
+<p>Statisticians in general agree on first using <strong>stepwise methods</strong> to identify several good candidates models and then applying your <strong>subject matter expertise</strong> to choose the best model. Because the techniques for selecting or eliminating variables differ between the three selection methods, <strong>they don't always produce the same final model</strong>. There is no one method that is best and <strong>you need to be cautious</strong> when reporting statistical quantities produced by these methods:</p>
+<ul>
+<li>Using automated model selections results in <strong>biases in parameter estimates</strong>, <strong>predictions</strong> and <strong>standard errors</strong></li>
+<li><strong>Incorrect</strong> calculation of <strong>degrees of freedom</strong></li>
+<li><strong>p-values</strong> that tend to err on the side of <strong>overestimating significance</strong></li>
+</ul>
+<p>How can you <strong>avoid these issues</strong>?</p>
+<ul>
+<li>You can hold out some of your data in order to perform an honest assessment of how well your model performs on a different sample of data (<strong>holdout/validation data</strong>) than you use to develop the model (<strong>training data</strong>)</li>
+<li>Other honest assessment approaches include <strong>cross-validation</strong> (if your data set is not large enough to split) or <strong>bootstraping</strong> (a resampling method that tries to approximate the distribution of the parameter estimates to estimate the standard error and p-values)</li>
+</ul>
+<pre><code>PROC GLMSELECT DATA=SAS-data-set &lt;options&gt;;
+    CLASS variables;
+    &lt;label:&gt; MODEL dependent(s) = regressor(s) / &lt;/options&gt;;
+RUN;
+QUIT;
+</code></pre>
+
+<ul>
+<li>The <strong>SELECTION</strong> option specifies the method to be used to select the model (<strong>FORWARD</strong> | <strong>BACKWARD</strong> | <strong>STEPWISE</strong> = default value)</li>
+<li>The <strong>SELECT</strong> option specifies the criterion to be used to determine which variable to add/remove from the model (<strong>SL</strong> = significance level as the selection criterion)</li>
+<li>The <strong>SLENTRY</strong> option determines the significance level for a variable to enter the model (default = 0.5 for forward and 0.15 for stepwise)</li>
+<li>The <strong>SLSTAY</strong> option determines the significance level for a variable to stay in the model (default = 0.1 for backward and 0.15 for stepwise)</li>
+<li>You can display p-values in the <em>Parameter Estimates</em> table by including the <strong>SHOWPVALUES</strong> option int he MODEL statement</li>
+<li>The <strong>DETAILS</strong> option specifies the level of detail produced (<strong>ALL</strong> | <strong>STEPS</strong> | <strong>SUMMARY</strong>)</li>
+</ul>
+<hr />
+<p>Recommendations to decide which model is best for your needs:</p>
+<ol>
+<li>Run all model selection methods</li>
+<li>Look for commonalities across the results </li>
+<li>Narrow down your choice of models by using your subject matter knowledge</li>
+</ol>
+<h3 id="information-criterion-and-other-selection-options">Information Criterion and Other Selection Options</h3>
+<p>There are other selection criteria that you can use to select variables for a model as well as evaluate competing models. These statistics are collectively referred to as <strong>information criteria</strong>. Each information criterion searched for a model that minimizes the <strong>unexplained variability</strong> with as <strong>few effects in the model as possible</strong>. The model with the **smaller information criterion is considered to be better<strong><em>. For types are available in </em>*PROC GLMSELECT</strong>:</p>
+<ul>
+<li>Akaike's information criterion (SELECT=<strong>AIC</strong>)</li>
+<li>Correcterd Akaike's information criterion (SELECT=<strong>AICC</strong>)</li>
+<li>Sawa Bayesian information criterion (SELECT=<strong>BIC</strong>)</li>
+<li>Schwarz Bayesian information criterion (SELECT=<strong>SBC</strong>, it could be called <strong>BIC</strong> in some other SAS procedures)</li>
+</ul>
+<p>The calculations of all information criteria begin the same way:</p>
+<ol>
+<li>First you calculate $n\cdot log(SSE/n)$ </li>
+<li>Then, each criterion adds a penalty that represents the complexity of the model (each type of information criterion invokes a different penalty component)</li>
+<li>AIC: $2p+n+2$</li>
+<li>AICC: $n(n+p)/(n-p-2)$</li>
+<li>BIC: $2(p+2)1-2q^2$</li>
+<li>SBC: $p\cdot log(n)$</li>
+</ol>
+<h2 id="model-post-fitting-for-inference">Model Post-Fitting for Inference</h2>
+<p><a href="https://support.sas.com/edu/OLTRN/ECST131/m554/m554_4_a_sum.htm">Chapter summary in SAS</a></p>
+<p>How to <strong>verify the assumptions</strong> and <strong>diagnose problems</strong> that you encounter in <strong>linear regression</strong>?</p>
+<h3 id="examining-residuals">Examining Residuals</h3>
+<p>You can use the <strong>residual values</strong> (difference between each observed value of $Y$ and its predicted value) from the regression analysis to verify the <strong>assumptions of the linear regression</strong>. Residuals are estimates of the errors, so you can <strong>plot the residuals to check the assumptions of the errors</strong>.</p>
+<ul>
+<li>You can plot residuals vs the predicted values to check for <strong>violations of equal variances</strong></li>
+<li>You can also use this plot to check for <strong>violations of linearity and independence</strong></li>
+<li>You can plot the residuals vs the values of the independent variables to <strong>further examine any violations of equal variances</strong> (you can see which predictor contributes to the violation of the assumption)</li>
+<li>You can use a histogram or a normal probability plot of the residuals to determine whether or not the <strong>errors are normally distributed</strong></li>
+</ul>
+<p>You want to see a <strong>random scatter of the residual values</strong> above and below the reference line at 0. If you see <strong>patterns or trends</strong> in the residual values, the assumptions might not be valid and the models might have problems.</p>
+<p><img alt="Assumptions violation examples" src="https://lh3.googleusercontent.com/-84ce_WbduHI/WOOAkeq-iiI/AAAAAAAAADs/e2ZzJE_XoLE8DnfdqNt-aaHhOzw8Z-ucgCLcB/s0/assumption-violation.PNG" title="Assumptions violation examples" /></p>
+<p><strong>Note</strong>: To take autocorrelation (correlated over time) into account, you might need to use a regression procedure such as <strong>PROC AUTOREG</strong></p>
+<p>You can also use these plots to <strong>detect outliers</strong>, which often reflect data errors or unusual circumstances. They can affect your regression results, so you want to know whether any outliers are present and causing problems and investigate if they result from <strong>data entry error or some other problem</strong> that you can correct.</p>
+<pre><code>PROC REG DATA=SAS-data-set PLOTS(ONLY)=(QQ RESIDUALBYPREDICTED RESIDUALS)&lt;options&gt;;
+    &lt;label:&gt; MODEL dependent=regressor(s) &lt;/options&gt;;
+    ID variable4identification;
+RUN;
+QUIT;
+</code></pre>
+
+<ul>
+<li><strong>QQ</strong> requests a residual quantile-quantile plot to assess the normality of the residual error</li>
+<li><strong>RESIDUALBYPREDICTED</strong> requests a plot of residuals by predicted values to verify the equal variance assumption, the independence assumption and model adequacy</li>
+<li><strong>RESIDUALS</strong> requests a panel of plots of residuals by the predictor variables in the model. If any of the <em>Residual by Regressors</em> plots show signs of unequal variance, we can determine which predictor variable is involved in the problem.</li>
+</ul>
+<h3 id="identifying-influential-observations">Identifying Influential Observations</h3>
+<p>An influential observation is different from an outlier. An <strong>outlier</strong> is an unusual observation that has a large residual compare to the rest of the points. An <strong>influential observation</strong> can sometimes have a large residual compared to the rest of the points, but it is an observation so far away from the rest of the data that it singlehandedly exerts influence on the slope of the regression line.</p>
+<p><img alt="Outlier vs influential observation" src="https://lh3.googleusercontent.com/-SRVHsMC3NQg/WOOVPEZxDLI/AAAAAAAAAEA/1vGwrG2XlWISRMTx2fguuh109zyLXfVGACLcB/s0/outlier_vs_influential-observation.PNG" title="Outlier vs influential observation" /></p>
+<hr />
+<p><strong><em>Using STUDENT residuals to detect outliers</em></strong></p>
+<p>Also known as <strong>studientized or standardized residuals</strong>, the STUDENT residuals are calculated by dividing the <strong>residual by their standard errors</strong>, so you can think of them as roughly equivalent to a z-score. </p>
+<ul>
+<li>For <strong>relatively small sample sizes</strong>, if the absolute value of the STUDENT <strong>residual is $&gt;2$</strong>, you can suspect that the corresponding observation is an outlier</li>
+<li>For <strong>large sample sizes</strong>, it's very likely that even more STUDENT <strong>residuals greater than $\pm2$</strong> will occur just by chance, so you should typically use a larger cutoff value of $&gt;3$</li>
+</ul>
+<hr />
+<p><strong><em>Using Cook's D statistics to detect influential observations</em></strong></p>
+<p>Fore each observation, the Cook's D statistic is <strong>calculated as if that observation weren't in the data set</strong> as well as the set of parameter estimates with all the observations in your regression analysis. </p>
+<ul>
+<li>If any observation has a Cook's D <strong>statistic $&gt;4/n$</strong> that observation is influential</li>
+<li>The Cook's D statistic is most useful for identifying influential observations when the purpose of your model is <strong>parameter estimation</strong></li>
+</ul>
+<hr />
+<p><strong><em>Using RSTUDENT residuals to detect influential observations</em></strong></p>
+<p>RSTUDENT residuals are similar to STUDENT residuals. For each observation, the RSTUDENT residual is the <strong>residual divided by the standard error estimated with the current observation deleted</strong>.</p>
+<ul>
+<li>If the RSTUDENT residual is different from the STUDENT residual, the observation is probably influential</li>
+<li>If the absolute value of the RSTUDENT residuals is $&gt;2$ or $&gt;3$, you've probably detected an influential observation</li>
+</ul>
+<hr />
+<p><strong><em>Using DFFITS statistics to detect influential observations</em></strong></p>
+<p>DFFITS measures the impact that each observation has on its own predicted value. For each observation, DFFITS is <strong>calculated using two predicted values</strong>:</p>
+<ul>
+<li>The first predicted value is calculated from a model using the entire data set to estimate model parameters</li>
+<li>The second predicted value is calculated from a model using the data set with that particular observation removed to estimate model parameters</li>
+<li>The difference between the two predicted values is divided by the standard error of the predicted value, without the observation</li>
+</ul>
+<p>If the <strong>standardized difference</strong> between these predicted values <strong>is large</strong>, that particular observation has a <strong>large effect on the model fit</strong>.</p>
+<ul>
+<li>The <strong>general cutoff</strong> value is $2$</li>
+<li>The more <strong>precise cutoff</strong> is $2 \cdot sqrt(p/n)$</li>
+<li>If the absolute value of DFFITS for any observation is $&gt;$ cutoff value, you've detected an influential observation</li>
+<li>DFFITS is most useful for <strong>predictive models</strong></li>
+</ul>
+<hr />
+<p><strong><em>Using DFBETAS statistics to explore the influenced predictor variable</em></strong></p>
+<p>To help identifying which parameter the observation might be influencing most you can use DFBETAS (difference in betas). It measure the change in each parameter estimate. </p>
+<ul>
+<li>One DFBETA is calculated per predictor variable per observation</li>
+<li>Each value is calculated by taking the estimated coefficient for that particular predictor variable <strong>using all the data</strong>, subtracting the estimated coefficient for that particular predictor variable with the <strong>current observation removed</strong> and dividing by its standard error</li>
+<li>Large DFBETAS indicate observations that are influential in estimating a given parameter:</li>
+<li>The <strong>general cutoff</strong> value is $2$</li>
+<li>The more <strong>precise cutoff</strong> is $2 \cdot sqrt(1/n)$</li>
+</ul>
+<hr />
+<pre><code>PROC GLMSELECT DATA=SAS-data-set &lt;options&gt;;
+    &lt;label:&gt; MODEL dependent(s) = regressor(s) / &lt;/options&gt;;
+RUN;
+QUIT;
+
+ODS OUTPUT RSTUDENTBYPREDICTED=name-rstud-data-set
+           COOKSDPLOT=name-cooksd-data-set
+           DFFITSPLOT=name-dffits-data-set
+           DFBETASPANEL=name-dfbs-data-set;
+
+PROC REG DATA=SAS-data-set PLOTS(ONLY LABEL)=
+                                (RSTUDENTBYPREDICTED 
+                                 COOKSD 
+                                 DFFITS 
+                                 DFBETAS) &lt;options&gt;;
+    &lt;label:&gt; MODEL dependent=&amp;_GLSIND &lt;/options&gt;;
+    ID variable4identification;
+RUN;
+QUIT;
+
+DATA influential;
+    MERGE name-rstud-data-set
+          name-cooksd-data-set
+          name-dffits-data-set
+          name-dfbs-data-set;
+    BY observation;
+
+    IF (ABS(RSTUDENT)&gt;3) OR (COOKSDLABEL NE ' ') OR DFFITSOUT THEN FLAG=1;
+    ARRAY DFBETAS{*} _DFBETASOUT: ;
+    DO I=2 TO DIM(DFBETAS);
+        IF DFBETAS{I} THEN FLAG=1;
+    END;
+
+    IF ABS(RSTUDENT)&lt;=3 THEN RSTUDENT=.;
+    IF COOKSDLABEL EQ ' ' THEN COOKSD=.;
+
+    IF FLAG=1;
+    DROP I FLAG;
+RUN;
+
+PROC PRINT DATA=influential;
+    ID observation;
+    VAR RSTUDENT COOKSD DFFITSOUT _DFBETASOUT: ;
+RUN;
+</code></pre>
+
+<ul>
+<li>PROC GLMSELECT automatically creates the <strong>&amp;_GLSIND</strong> macro variable which stores the list of effects that are in the model whose variable order you can check in the <em>Influence Diagnostics</em> panel</li>
+<li>The <strong>ODS</strong> statement takes the data that creates each of the requested plots and saves it in the specified data set</li>
+<li>The <strong>LABEL</strong> option includes a label for the extreme observations in the plot (labeled with the observation numbers if there is not ID specified)</li>
+</ul>
+<p>Having <strong>influential observations doesn't violate regression assumptions</strong>, but it's a major nuisance that you need to address:</p>
+<ol>
+<li><strong>Recheck</strong> for data entry errors</li>
+<li>If the data appears to be valid, <strong>consider whether you have an adequate model</strong> (a different model might fit the data better). Divide the number of influential observations you detect by the number of observations in you data set: if the result is <strong>$&gt;5\%$ you probably have the wrong model</strong>.</li>
+<li>Determine whether the influential observation is <strong>valid but just unusual</strong></li>
+<li>As a general rule you should <strong>not exclude data</strong> (some unusual observations contain important information)</li>
+<li>If you choose to exclude some observations, include in your report a <strong>description of the types of observations that you excluded and why</strong> and discuss the limitation of the conclusions given the exclusions</li>
+</ol>
+<h3 id="detecting-collinearity">Detecting Collinearity</h3>
+<p>Collinearity (or multicollinearity) is a problem that you face in multiple regression. It occurs when two or more <strong>predictor variables are highly correlated with each other</strong> (<strong>redundant information</strong> among them, the predictor variables explain much of the same variation in the response). Collinearity doesn't violate the assumptions of multiple regression.</p>
+<ul>
+<li>Collinearity can <strong>hide significant effects</strong> (if you include only one of the collinear variables in the model it is significant but when there are more than one included none of them are significant)</li>
+<li>Collinearity <strong>increases the variance</strong> of the parameter estimates, making them <strong>unstable</strong> (the data points don't spread out enough in the space to provide stable support for the plane defined by the model) and, in turn, this <strong>increases the prediction error</strong> of the model</li>
+</ul>
+<p>When an overall model is highly significant but the individual variables don't tell the same story, it's a <strong>warning sign of collinearity</strong>. When the <strong>standard error for an estimate is larger than the parameter estimate</strong> itself, it's not going to be statistically significant. The SE tells us how variable the corresponding parameter estimate is: when the standard errors are high, the <strong>model lacks stability</strong>.</p>
+<pre><code>PROC REG DATA=SAS-data-set &lt;options&gt;;
+    &lt;label:&gt; MODEL dependent = regressors / VIF &lt;/options&gt;;
+RUN;
+QUIT;
+</code></pre>
+
+<ul>
+<li>The <strong>VIF</strong> (variance inflation factor, $VIF_i=1/(1-R_i^2)$) option measures the magnitude of collinearity in a model (VIF$&gt;10$ for any predictor in the model, those predictors are probably involved in collinearity)</li>
+<li>Other options are <strong>COLLIN</strong> (includes the intercept when analyzing collinearity and helps identify the predictors that are causing the problem) and <strong>COLLINOINT</strong> (requests the same analysis as COLLIN but excludes the intercept)</li>
+</ul>
+<hr />
+<p><strong><em>Effective modeling cycle</em></strong></p>
+<ol>
+<li>You want to get to know your data by <strong>performing preliminary analysis</strong>: <ul>
+<li>Plot your data</li>
+<li>Calculate descriptive statistics </li>
+<li>Perform correlation analysis</li>
+</ul>
+</li>
+<li>Identify some <strong>good candidate models</strong> using PROC REG: </li>
+<li>First check for collinearity </li>
+<li>Use all-possible regression or stepwise selection methods and subject matter knowledge to select model candidates</li>
+<li>Identify the good ones with the Mallows' (prediction) or Hocking's (explanatory) criterion for $C_p$</li>
+<li>
+<p><strong>Check and validate your assumtions</strong> by creating residual plots and conducting a few other statistical tests</p>
+</li>
+<li>
+<p>Deal with any <strong>problems in your data</strong>: </p>
+</li>
+<li>Determine whether any influential observations might be throwing off your model calculations</li>
+<li>Determine whether any variables are collinear</li>
+<li>
+<p><strong>Revise your model</strong></p>
+</li>
+<li>
+<p><strong>Validate your model</strong> with data not used to build the  model (prediction testing)</p>
+</li>
+</ol>
+<h2 id="categorical-data-analysis">Categorical Data Analysis</h2>
+<p><a href="https://support.sas.com/edu/OLTRN/ECST131/m556/m556_5_a_sum.htm">Chapter summary in SAS</a></p>
+<p>When you response variable is categorical, you need to use a different kind of regression analysis: <strong>logistic regression</strong>.</p>
+<h3 id="describing-categorical-data">Describing Categorical Data</h3>
+<p>When you examine the distribution of a <strong>categorical variable</strong>, you want to know the <strong>values</strong> of the variable and the <strong>frequency or count</strong> of each value in the data (<strong>one-way frequency able</strong>).</p>
+<pre><code>PROC FREQ DATA=SAS-data-set;
+    TABLES variable1 variable2 variable3 &lt;/options&gt;;
+    &lt;additional statements&gt;
+RUN;
+</code></pre>
+
+<p>To look for a possible <strong>association</strong> between two or more categorical variables, you can create a <strong>crosstabulation</strong>/<strong>contingency table</strong> (when it displays statistics for two variables is also called <strong>two-way frequency able</strong>).</p>
+<pre><code>PROC FREQ DATA=SAS-data-set;
+    TABLES variable-rows*variable-columns &lt;/options&gt;;
+    &lt;additional statements&gt;
+RUN;
+</code></pre>
+
+<p>Two distribution plots are associated with a frequency or crosstabulation table: a <strong>frequency plot</strong>, PLOTS=<strong>(FREQPLOT)</strong>, and a <strong>cumulative frequency plot</strong>.</p>
+<p>In PROC FREQ output, the default order for character values is <strong>alphaumeric</strong>. To reorder the values of an ordinal variable in your FROC FREQ output you can:</p>
+<ul>
+<li>Create a <strong>new variable</strong> in which the values are stored in logical order</li>
+<li>Apply a <a href="https://support.sas.com/edu/OLTRN/ECST131/eclibjr/tempformat.htm"><strong>temporary format</strong></a> to the original variable</li>
+</ul>
+<h3 id="tests-of-association">Tests of Association</h3>
+<p>To perform a <strong>formal test of association</strong> between two categorical variables, you use the (Pearson) <strong>chi-square test</strong> which measures the difference between the observed cell frequencies and the cell frequencies that are expected if there is no association between variables (H0 is true): 
+$Expected=Row \ total\cdot Column\ total/Total \ sample \ size$</p>
+<ul>
+<li>If the <strong>sample size decreases</strong>, the <strong>chi-square value decreases</strong> and the <strong>p-value for the chi-square statistic increases</strong></li>
+<li>Hypothesis testing: <strong>H0</strong>: no association; <strong>Ha</strong>: association</li>
+</ul>
+<p><strong>Cramer's V statistic</strong> is one measure of strength of an association between two categorical variables</p>
+<ul>
+<li>For two-by-two tables, Cramer's V is in the range of -1 to 1</li>
+<li>For larger tables, Cramer's V is int he range of 0 to 1 </li>
+<li>Values farther away from 0 indicate a relatively strong association between the variables</li>
+</ul>
+<p>To measure the strength of the association between a binary predictor variable and a binary outcome variable, you can use an <strong>odds ratio</strong>: $Odds \ Ratio=\frac{Odds \ of \ Outcome \ in \ Group \ B}{Odds \ of \ Outcome \ in \ Group \ A}$; $Odds=p_{event}/(1-p_{event})$</p>
+<ul>
+<li>The value of the odds ratio can range from 0 to $\infty$; it cannot be negative</li>
+<li>When the odds ratio is $1$, there is no association between variables</li>
+<li>When the odds ratio $&gt;1$/$&lt;1$, the group in the numerator/denominator is more likely to have the outcome</li>
+<li>The odds ratio is approximately the same <strong>regardless of the sample size</strong></li>
+<li>To estimate the true odds ratio while taking into account the variability of the sample statistic, you can calculate <strong>confidence intervals</strong></li>
+<li>You can use an odds ratio to <strong>test for significance</strong> between two categorical variables</li>
+<li>Odds ratio expressed as percent difference: $(odd \ ratio -1) \cdot 100$</li>
+</ul>
+<pre><code>PROC FREQ DATA=SAS-data-set;
+    TABLES variable-rows*variable-columns / CHISQ EXPECTED &lt;/options&gt;;
+    &lt;additional statements&gt;
+RUN;
+</code></pre>
+
+<ul>
+<li><strong>CHISQ</strong> produces the Pearson chi-square test of association, the likelihood-ratio chi-square and the Mantel-Haenszel: $\sum \frac{(obs. \ freq. - exp. \ freq.)^2}{exp. \ freq.}$</li>
+<li><strong>EXPECTED</strong> prints the expected cell frequencies</li>
+<li><strong>CELLCHI2</strong> prints each cell's contribution to the total chi-square statistic: $ \frac{(obs. \ freq. - exp. \ freq.)^2}{exp. \ freq.}$</li>
+<li><strong>NOCOL</strong> suppresses the printing of the column percentages</li>
+<li><strong>NOPERCENT</strong> supresses the printing of the cell percentages</li>
+<li><strong>RELRISK</strong> (relative risk) prints a table that contains risk ratios (probability ratios) and odds ratios; PROC FREQ uses the <strong>classification in the first column</strong> of the crosstabulation table as the <strong>outcome of interest</strong> and the first/second row in the numerator/denominator</li>
+</ul>
+<hr />
+<p>For <strong>ordinal associations</strong>, the <strong>Mantel-Haenszel</strong> chi-square test is a more powerful test.</p>
+<ul>
+<li>The levels must be in a <strong>logical order</strong> for the test results to be meaningful</li>
+<li>Hypothesis testing: <strong>H0</strong>: no ordinal association; <strong>Ha</strong>: ordinal association</li>
+<li>Similarly to the Pearson case, the Mantel-Haenszel chi-square statistic/p-value indicate whether an association exists but not its magnitude and they depend on and reflect the sample size</li>
+</ul>
+<p>To measure the <strong>strength of the association</strong> between two ordinal variables you can use the <strong>Spearman correlation</strong> statistic.</p>
+<ul>
+<li>You should only use it if both variables are ordinal and are in logical order</li>
+<li>Is considered to be a rank correlation because it provides a degree of association between the ranks of the ordinal variables</li>
+<li>This statistic has a <strong>range between -1 and +1</strong>: values close to -1/+1 indicate that there is a relatively high degree of negative/positive correlation and values close to 0 indicate a weak correlation</li>
+<li>It is <strong>not affected by the sample size</strong></li>
+</ul>
+<pre><code>PROC FREQ DATA=SAS-data-set;
+    TABLES variable-rows*variable-columns / CHISQ EXPECTED &lt;/options&gt;;
+  &lt;additional statements&gt;
+RUN;
+</code></pre>
+
+<ul>
+<li><strong>MEASURES</strong> produces the Spearman correlation statistic along with other measurement of association</li>
+<li><strong>CL</strong> produces confidence bounds for the statistics that the MEASURES option requests</li>
+<li>The confidence bounds are valid only if the sample size is large ($&gt;25$)</li>
+<li>The asymptotic standard error (<strong>ASE</strong>) is used for large samples and is used to calculate the confidence intervals for various measures of association (including the Spearman correlation coefficient)</li>
+</ul>
+<h3 id="introduction-to-logistic-regression">Introduction to Logistic Regression</h3>
+<p>Logistic Regression is a generalized linear model that you can use to predict a categorical response/outcome on the basis if one or more continuous or categorical predictor variables. There are three models:</p>
+<p><img alt="Logistic regression types" src="https://lh3.googleusercontent.com/-_wxj3yC7ZCE/WOd2RpxTQOI/AAAAAAAAAEg/HYmLKYjBYr8Thq7HwseFdK3hU8Tnreo8ACLcB/s0/logistic_regression_types.PNG" title="Logistic regression types" /></p>
+<p>Some reasons why you <strong>can't use linear regression</strong> with a <strong>binary response variable</strong> are:</p>
+<ul>
+<li>aaa</li>
+</ul>
+<h3 id="multiple-logistic-regression">Multiple Logistic Regression</h3>
+<h2 id="model-building-and-scoring-for-prediction">Model Building and Scoring for Prediction</h2>
+<p><a href="https://support.sas.com/edu/OLTRN/ECST131/m555/m555_3_a_sum.htm">Chapter summary in SAS</a></p>
+<h3 id="introduction-to-predictive-modeling">Introduction to Predictive Modeling</h3>
+<h3 id="scoring-predictive-models">Scoring Predictive Models</h3>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../essentials/" title="The Essentials" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                The Essentials
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../missing_data/" title="Dealing with Missing Data" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Dealing with Missing Data
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application-6b599127bc.js"></script>
+      <script>app.initialize({url:{base:".."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>

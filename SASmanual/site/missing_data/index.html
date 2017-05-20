@@ -1,0 +1,428 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="shortcut icon" href="../assets/images/favicon.png">
+      
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.6.2">
+    
+    
+      
+        <title>"Missing Data"</title>
+      
+    
+    
+      <script src="../assets/javascripts/modernizr-56ade86843.js"></script>
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application-e2807e330f.css">
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+  
+  
+  
+    <body>
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <a href=".." title="SAS Manual" class="md-icon md-icon--home md-header-nav__button">
+          </a>
+        
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
+            
+              
+            
+            Dealing with Missing Data
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
+<div class="md-search" data-md-component="search">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">close</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <div class="md-header-nav__source">
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    
+      <i class="md-icon md-icon--home md-nav__button"></i>
+    
+    SAS Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Gettin' Started!" class="md-nav__link">
+      Gettin' Started!
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../essentials/" title="The Essentials" class="md-nav__link">
+      The Essentials
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../statistics/" title="Basic Statistics" class="md-nav__link">
+      Basic Statistics
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Dealing with Missing Data
+      </label>
+    
+    <a href="./" title="Dealing with Missing Data" class="md-nav__link md-nav__link--active">
+      Dealing with Missing Data
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#direct-maximum-likelihood" title="Direct maximum likelihood" class="md-nav__link">
+    Direct maximum likelihood
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multiple-imputation" title="Multiple imputation" class="md-nav__link">
+    Multiple imputation
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../macros/" title="Using Macros" class="md-nav__link">
+      Using Macros
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../miscellanea/" title="Miscellanea" class="md-nav__link">
+      Miscellanea
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#direct-maximum-likelihood" title="Direct maximum likelihood" class="md-nav__link">
+    Direct maximum likelihood
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multiple-imputation" title="Multiple imputation" class="md-nav__link">
+    Multiple imputation
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Dealing with Missing Data</h1>
+                
+                <p>Depending on the <strong>type of data and model</strong> you will be using, techniques such as <strong>multiple imputation</strong> or <strong>direct maximum likelihood</strong> may better serve your needs. The main goals of statistical analysis with missing data are:</p>
+<ul>
+<li>Minimize bias</li>
+<li>Maximize use of available information</li>
+<li>Obtain appropriate estimates of uncertainty</li>
+</ul>
+<p>To use the more appropriate imputation method you should consider the missing data mechanism of your data which describes the process that is believed to have generated the missing values:</p>
+<ul>
+<li><strong>Missing completely at random (MCAR)</strong>:  neither the variables in the dataset nor the unobserved value of the variable itself predict whether a value will be missing</li>
+<li><strong>Missing at random (MAR)</strong>: other variables (but not the variable itself) in the dataset can be used to predict missingness on a given variable</li>
+<li><strong>Missing not at random (MNAR)</strong>: value of the unobserved variable itself predicts missingness</li>
+</ul>
+<p>Imputed values are <strong>not</strong> equivalent to observed values and serve only to help estimate the covariances between variables needed for inference.</p>
+<p>Some of the imputation techniques are:</p>
+<ul>
+<li><strong>Complete case analysis (listwise deletion)</strong>:  deleting cases in a particular dataset that are missing data on any variable of interest (for MCAR cases the power is reduced but it does not add any bias) </li>
+<li><strong>Available case analysis (pairwise deletion)</strong>:  deleting cases where a variable required for a particular analysis is missing, but including those cases in analyses for which all required variables are present</li>
+<li><strong>Mean Imputation</strong>:</li>
+<li><strong>Single Imputation</strong>:</li>
+<li><strong>Stochastic Imputation</strong>: </li>
+</ul>
+<h2 id="direct-maximum-likelihood">Direct maximum likelihood</h2>
+<h2 id="multiple-imputation">Multiple imputation</h2>
+<p>Visit <a href="http://lnr.li/YdyXo">this website</a> for more information.</p>
+<p>Multiple Imputation is always superior to any of the single imputation methods because:</p>
+<ul>
+<li>A single imputed value is never used</li>
+<li>The variance estimates reflect the appropriate amount of uncertainty surrounding parameter estimates</li>
+</ul>
+<p>There are several decisions to be made before performing a multiple imputation including <strong>distribution</strong>, <strong>auxiliary variables</strong> and <strong>number of imputations</strong> that can affect the quality of the imputation.</p>
+<ol>
+<li><strong>Imputation phase (PROC MI)</strong>:  the user specifies the imputation model to be used and the number 
+       of imputed datasets to be created</li>
+<li><strong>Analysis phase (PROG GLM/PROC GENMOD)</strong>: runs the analytic model of interest within each of the imputed datasets</li>
+<li><strong>Pooling phase (PROC MIANALYZE)</strong>: combines all the estimates across all the imputed datasets and outputs one set of parameter estimates for the model of interest</li>
+</ol>
+<p><strong><em>MVN or FCS?</em></strong></p>
+<p><strong><em>Auxiliary variables</em></strong></p>
+<ul>
+<li>They can can help improve the likelihood of meeting the MAR assumption </li>
+<li>They help yield more accurate and stable estimates and thus reduce the estimated standard errors in analytic models </li>
+<li>Including them can also help to increase power</li>
+</ul>
+<p><strong><em>Number of imputations (m)</em></strong></p>
+<ul>
+<li>Estimates of coefficients stabilize at much lower values of <em>m</em> than estimates of variances and covariances of error terms </li>
+<li>A larger number of imputations may also allow hypothesis tests with less restrictive assumptions (i.e., that do not assume equal fractions of missing information for all coefficients)</li>
+<li>Multiple runs of m imputations are recommended to assess the stability of the parameter estimates</li>
+<li>Recommendations: </li>
+<li>For low fractions of missing information (and relatively simple analysis techniques) 5-20 imputations and 50 or more when the proportion of missing data is relatively high</li>
+<li>The number of imputations should equal the percentage of incomplete cases (<em>m</em>=max(FMI%)), this way the error associated with estimating the regression coefficients, standard errors and the resulting p-values is considerably reduced and results in an adequate level of reproducibility</li>
+</ul>
+<p><strong>More comments</strong></p>
+<ul>
+<li>You should include the dependent variable (DV) in the imputation model unless you would like to impute independent variables (IVs) assuming they are uncorrelated with your DV</li>
+<li>Although MI can perform well up to 50% missing observations,  the larger the amount the higher the chance of finding estimation problems during the imputation process and the lower the chance of meeting the MAR assumption</li>
+</ul>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../statistics/" title="Basic Statistics" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Basic Statistics
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../macros/" title="Using Macros" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Using Macros
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application-6b599127bc.js"></script>
+      <script>app.initialize({url:{base:".."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>
