@@ -6,7 +6,11 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="Learning How to Program in SAS">
       
+      
+      
+        <meta name="author" content="Lucía Rodrigo Insausti">
       
       
         <link rel="shortcut icon" href="../assets/images/favicon.png">
@@ -15,7 +19,7 @@
     
     
       
-        <title>"Miscellanea"</title>
+        <title>Miscellanea - SAS Manual</title>
       
     
     
@@ -35,6 +39,8 @@
       
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
+    
+      <link rel="stylesheet" href="../css/prism-sas.css">
     
     
   </head>
@@ -160,10 +166,94 @@
       
 
 
-  <li class="md-nav__item">
-    <a href="../statistics/" title="Basic Statistics" class="md-nav__link">
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
       Basic Statistics
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Basic Statistics
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../statistics/introduction/" title="Introduction to Statistics" class="md-nav__link">
+      Introduction to Statistics
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../statistics/anova/" title="Analysis of Variance (ANOVA)" class="md-nav__link">
+      Analysis of Variance (ANOVA)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../statistics/regression/" title="Regression" class="md-nav__link">
+      Regression
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../statistics/inference/" title="Model Post-Fitting for Inference" class="md-nav__link">
+      Model Post-Fitting for Inference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../statistics/categorical-data/" title="Categorical Data Analysis" class="md-nav__link">
+      Categorical Data Analysis
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../statistics/prediction/" title="Model Building and Scoring for Prediction" class="md-nav__link">
+      Model Building and Scoring for Prediction
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -240,57 +330,88 @@
                 
                 <p>When you name a process flow Autoexec, SAS Enterprise Guide prompts you to run the process flow when you open the project. This makes it easy to recreate your data when you start practising in the course.</p>
 <p>For the SAS Enterprise Guide you need to add this command to get the plots displayed in the output:</p>
-<pre><code>ODS GRAPHICS ON;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>ODS GRAPHICS ON;
 [your code here]
 ODS GRAPHICS OFF;
-</code></pre>
+</pre></div>
+</td></tr></table>
 
 <p>When you add the <strong>ODS TRACE</strong> statement, SAS writes a trace record to the log that includes information about each output object (name, label, template, path):</p>
-<pre><code>ODS TRACE ON;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>ODS TRACE ON;
 [your code here]
 ODS TRACE OFF;
-</code></pre>
+</pre></div>
+</td></tr></table>
 
 <p>You produce a list of the possible output elements in the log that you may specify in the <strong>ODS SELECT/EXCLUDE</strong> statement:</p>
-<pre><code>ODS SELECT lmeans diff meanplot diffplot controlplot;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>ODS SELECT lmeans diff meanplot diffplot controlplot;
 [your code here]
-</code></pre>
+</pre></div>
+</td></tr></table>
 
 <p>This way you can see the actual variable level values in the output rather than some indexes:</p>
-<pre><code>FORMAT variable DOSEF.;
-</code></pre>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>FORMAT variable DOSEF.;
+</pre></div>
+</td></tr></table>
 
 <ul>
 <li>Create different data sets from one:</li>
 </ul>
-<pre><code>DATA data1 data2 data3;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>DATA data1 data2 data3;
     SET original_data;
     IF (condition1) THEN OUTPUT prueba1;
     IF (condition2) THEN OUTPUT prueba2;
     IF (condition3) THEN OUTPUT prueba3;
 RUN;
-</code></pre>
+</pre></div>
+</td></tr></table>
 
 <ul>
 <li>Copy database <strong>test</strong> into <strong>work</strong>:</li>
 </ul>
-<pre><code>proc copy in=test out=work;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>proc copy in=test out=work;
 run;
-</code></pre>
+</pre></div>
+</td></tr></table>
 
 <ul>
 <li>Remove data sets:</li>
 </ul>
-<pre><code>PROC DELETE DATA=data1 data2 data3;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>PROC DELETE DATA=data1 data2 data3;
 RUN;
-</code></pre>
+</pre></div>
+</td></tr></table>
 
 <ul>
 <li>Declaring <strong>arrays</strong>:</li>
 </ul>
 <p>The dimension has to be known in advance (???)
 There's no way to write an implicit loop through all the elements of the array (???)</p>
-<pre><code>data _null_;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>data _null_;
 
     ARRAY arrayname[2,3] &lt;$&gt; v11-3 (0 0 0)
                          &lt;$&gt; v21-3 (0 0 0);
@@ -299,23 +420,26 @@ There's no way to write an implicit loop through all the elements of the array (
         arrayname[i] = arrayname[i] + 1;
     END;
 
-    result=CATX(',',OF v11-3);
+    result=CATX(&#39;,&#39;,OF v11-3);
     PUT result=;
 
 RUN;
-</code></pre>
+</pre></div>
+</td></tr></table>
 
 <ul>
 <li>IF THEN analogue to "CONTAINS":</li>
 </ul>
-<pre><code>if find(variable_name,'pattern') then
-</code></pre>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>if find(variable_name,&#39;pattern&#39;) then
+</pre></div>
+</td></tr></table>
 
 <ul>
 <li>Site calculation from the two first numbers of the patient number:</li>
 </ul>
-<pre><code>site = SUBSTR(PUT(patient,z4.),1,2);
-</code></pre>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>site = SUBSTR(PUT(patient,z4.),1,2);
+</pre></div>
+</td></tr></table>
 
 <ul>
 <li><strong>PUT</strong>: turns the numeric variable <em>patient</em> into a string (<strong>z4.</strong> adds leading zeroes if needed)</li>
@@ -329,28 +453,39 @@ RUN;
 <p>Remove element/string from macro variable </p>
 </li>
 </ul>
-<pre><code>%put &amp;=list;     /* Check list contents before */
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nf">%put</span> <span class="o">&amp;=</span><span class="n">list</span><span class="p">;</span>     <span class="cm">/* Check list contents before */</span>
 
-%let removefromlist = string_to_remove;
-%let list = %sysfunc(tranwrd(&amp;list., &amp;removefromlist., %str()));;
+<span class="nf">%let</span> <span class="n">removefromlist</span> <span class="o">=</span> <span class="n">string_to_remove</span><span class="p">;</span>
+<span class="nf">%let</span> <span class="n">list</span> <span class="o">=</span> <span class="nf">%sysfunc</span><span class="p">(</span><span class="n">tranwrd</span><span class="p">(</span><span class="o">&amp;</span><span class="n">list</span><span class="p">.,</span> <span class="o">&amp;</span><span class="n">removefromlist</span><span class="p">.,</span> <span class="nf">%str</span><span class="p">()));;</span>
 
-%put &amp;=list;     /* Check list contents after */
-</code></pre>
+<span class="nf">%put</span> <span class="o">&amp;=</span><span class="n">list</span><span class="p">;</span>     <span class="cm">/* Check list contents after */</span>
+</pre></div>
+</td></tr></table>
 
 <ul>
 <li>How to uppercase the first letter of words:</li>
 </ul>
-<pre><code>var_propercase = PROPCASE(var_uppercase);
-</code></pre>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>var_propercase = PROPCASE(var_uppercase);
+</pre></div>
+</td></tr></table>
 
 <ul>
 <li><a href="http://support.sas.com/kb/23/350.html">How to replace the variable's name with the variable's label in PROC FREQ output</a></li>
 </ul>
-<pre><code>options validvarname=any;
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>options validvarname=any;
 PROC FREQ DATA=SAS-data-set (RENAME=(variable1=&quot;Label variable 1&quot;n variable1=&quot;Label variable 1&quot;n));
     TABLES &quot;Label variable 1&quot;n;
 RUN;
-</code></pre>
+</pre></div>
+</td></tr></table>
 
 <ul>
 <li><a href="https://support.sas.com/rnd/base/ods/scratch/styles-tips.pdf">PROC TEMPLATE style tips</a></li>
@@ -413,6 +548,12 @@ RUN;
     
       <script src="../assets/javascripts/application-6b599127bc.js"></script>
       <script>app.initialize({url:{base:".."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+      
+        <script src="../js/mathjaxhelper.js"></script>
       
     
     

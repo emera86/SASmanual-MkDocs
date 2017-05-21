@@ -1,6 +1,6 @@
 site_name: SAS Manual
 site_description: Learning How to Program in SAS
-site_author: LucÃ­a Rodrigo Insausti
+site_author: Lucía Rodrigo Insausti
 
 pages:
     - Gettin' Started!: index.md
@@ -23,8 +23,25 @@ extra_javascript:
 
 markdown_extensions:
     - mdx_math
+    - extra
+    - tables
+    - fenced_code
     - admonition
     - codehilite(linenums=true)
+    - meta
     - toc(permalink=true)
+    - pymdownx.arithmatex
+    - pymdownx.betterem(smart_enable=all)
+    - pymdownx.caret
+    - pymdownx.critic
+    - pymdownx.emoji:
+        emoji_generator: !!python/name:pymdownx.emoji.to_svg
+    - pymdownx.inlinehilite
+    - pymdownx.magiclink
+    - pymdownx.mark
+    - pymdownx.smartsymbols
+    - pymdownx.superfences
+    - pymdownx.tasklist(custom_checkbox=true)
+    - pymdownx.tilde
 
 theme: 'material'

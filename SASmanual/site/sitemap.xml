@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2017-05-16</lastmod>
+     <lastmod>2017-05-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,23 +12,55 @@
     
     <url>
      <loc>/essentials/</loc>
-     <lastmod>2017-05-16</lastmod>
+     <lastmod>2017-05-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
 
     
+        
     <url>
-     <loc>/statistics/</loc>
-     <lastmod>2017-05-16</lastmod>
+     <loc>/statistics/introduction/</loc>
+     <lastmod>2017-05-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
+    <url>
+     <loc>/statistics/anova/</loc>
+     <lastmod>2017-05-21</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/statistics/regression/</loc>
+     <lastmod>2017-05-21</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/statistics/inference/</loc>
+     <lastmod>2017-05-21</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/statistics/categorical-data/</loc>
+     <lastmod>2017-05-21</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/statistics/prediction/</loc>
+     <lastmod>2017-05-21</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     
     <url>
      <loc>/missing_data/</loc>
-     <lastmod>2017-05-16</lastmod>
+     <lastmod>2017-05-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -36,7 +68,7 @@
     
     <url>
      <loc>/macros/</loc>
-     <lastmod>2017-05-16</lastmod>
+     <lastmod>2017-05-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -44,7 +76,7 @@
     
     <url>
      <loc>/miscellanea/</loc>
-     <lastmod>2017-05-16</lastmod>
+     <lastmod>2017-05-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     

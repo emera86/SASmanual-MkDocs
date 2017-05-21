@@ -1,0 +1,611 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Learning How to Program in SAS">
+      
+      
+      
+        <meta name="author" content="Lucía Rodrigo Insausti">
+      
+      
+        <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.6.2">
+    
+    
+      
+        <title>Categorical Data Analysis - SAS Manual</title>
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr-56ade86843.js"></script>
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application-e2807e330f.css">
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+      <link rel="stylesheet" href="../../css/prism-sas.css">
+    
+    
+  </head>
+  
+  
+  
+  
+    <body>
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <a href="../.." title="SAS Manual" class="md-icon md-icon--home md-header-nav__button">
+          </a>
+        
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
+            
+              
+                <span class="md-header-nav__parent">
+                  Basic Statistics
+                </span>
+              
+            
+            Categorical Data Analysis
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
+<div class="md-search" data-md-component="search">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">close</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <div class="md-header-nav__source">
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    
+      <i class="md-icon md-icon--home md-nav__button"></i>
+    
+    SAS Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Gettin' Started!" class="md-nav__link">
+      Gettin' Started!
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../essentials/" title="The Essentials" class="md-nav__link">
+      The Essentials
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Basic Statistics
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Basic Statistics
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../introduction/" title="Introduction to Statistics" class="md-nav__link">
+      Introduction to Statistics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../anova/" title="Analysis of Variance (ANOVA)" class="md-nav__link">
+      Analysis of Variance (ANOVA)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../regression/" title="Regression" class="md-nav__link">
+      Regression
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../inference/" title="Model Post-Fitting for Inference" class="md-nav__link">
+      Model Post-Fitting for Inference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Categorical Data Analysis
+      </label>
+    
+    <a href="./" title="Categorical Data Analysis" class="md-nav__link md-nav__link--active">
+      Categorical Data Analysis
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#describing-categorical-data" title="Describing Categorical Data" class="md-nav__link">
+    Describing Categorical Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tests-of-association" title="Tests of Association" class="md-nav__link">
+    Tests of Association
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-to-logistic-regression" title="Introduction to Logistic Regression" class="md-nav__link">
+    Introduction to Logistic Regression
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multiple-logistic-regression" title="Multiple Logistic Regression" class="md-nav__link">
+    Multiple Logistic Regression
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../prediction/" title="Model Building and Scoring for Prediction" class="md-nav__link">
+      Model Building and Scoring for Prediction
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../missing_data/" title="Dealing with Missing Data" class="md-nav__link">
+      Dealing with Missing Data
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../macros/" title="Using Macros" class="md-nav__link">
+      Using Macros
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../miscellanea/" title="Miscellanea" class="md-nav__link">
+      Miscellanea
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#describing-categorical-data" title="Describing Categorical Data" class="md-nav__link">
+    Describing Categorical Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tests-of-association" title="Tests of Association" class="md-nav__link">
+    Tests of Association
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-to-logistic-regression" title="Introduction to Logistic Regression" class="md-nav__link">
+    Introduction to Logistic Regression
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multiple-logistic-regression" title="Multiple Logistic Regression" class="md-nav__link">
+    Multiple Logistic Regression
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Categorical Data Analysis</h1>
+                
+                <p><a href="https://support.sas.com/edu/OLTRN/ECST131/m556/m556_5_a_sum.htm">Chapter summary in SAS</a></p>
+<p>When you response variable is categorical, you need to use a different kind of regression analysis: <strong>logistic regression</strong>.</p>
+<h3 id="describing-categorical-data">Describing Categorical Data<a class="headerlink" href="#describing-categorical-data" title="Permanent link">&para;</a></h3>
+<p>When you examine the distribution of a <strong>categorical variable</strong>, you want to know the <strong>values</strong> of the variable and the <strong>frequency or count</strong> of each value in the data (<strong>one-way frequency able</strong>).</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>PROC FREQ DATA=SAS-data-set;
+    TABLES variable1 variable2 variable3 &lt;/options&gt;;
+    &lt;additional statements&gt;
+RUN;
+</pre></div>
+</td></tr></table>
+
+<p>To look for a possible <strong>association</strong> between two or more categorical variables, you can create a <strong>crosstabulation</strong>/<strong>contingency table</strong> (when it displays statistics for two variables is also called <strong>two-way frequency able</strong>).</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>PROC FREQ DATA=SAS-data-set;
+    TABLES variable-rows*variable-columns &lt;/options&gt;;
+    &lt;additional statements&gt;
+RUN;
+</pre></div>
+</td></tr></table>
+
+<p>Two distribution plots are associated with a frequency or crosstabulation table: a <strong>frequency plot</strong>, PLOTS=<strong>(FREQPLOT)</strong>, and a <strong>cumulative frequency plot</strong>.</p>
+<p>In PROC FREQ output, the default order for character values is <strong>alphaumeric</strong>. To reorder the values of an ordinal variable in your FROC FREQ output you can:</p>
+<ul>
+<li>Create a <strong>new variable</strong> in which the values are stored in logical order</li>
+<li>Apply a <a href="https://support.sas.com/edu/OLTRN/ECST131/eclibjr/tempformat.htm"><strong>temporary format</strong></a> to the original variable</li>
+</ul>
+<h3 id="tests-of-association">Tests of Association<a class="headerlink" href="#tests-of-association" title="Permanent link">&para;</a></h3>
+<p>To perform a <strong>formal test of association</strong> between two categorical variables, you use the (Pearson) <strong>chi-square test</strong> which measures the difference between the observed cell frequencies and the cell frequencies that are expected if there is no association between variables (H0 is true): 
+$Expected=Row \ total\cdot Column\ total/Total \ sample \ size$</p>
+<ul>
+<li>If the <strong>sample size decreases</strong>, the <strong>chi-square value decreases</strong> and the <strong>p-value for the chi-square statistic increases</strong></li>
+<li>Hypothesis testing: <strong>H0</strong>: no association; <strong>Ha</strong>: association</li>
+</ul>
+<p><strong>Cramer's V statistic</strong> is one measure of strength of an association between two categorical variables</p>
+<ul>
+<li>For two-by-two tables, Cramer's V is in the range of -1 to 1</li>
+<li>For larger tables, Cramer's V is int he range of 0 to 1 </li>
+<li>Values farther away from 0 indicate a relatively strong association between the variables</li>
+</ul>
+<p>To measure the strength of the association between a binary predictor variable and a binary outcome variable, you can use an <strong>odds ratio</strong>: $Odds \ Ratio=\frac{Odds \ of \ Outcome \ in \ Group \ B}{Odds \ of \ Outcome \ in \ Group \ A}$; $Odds=p_{event}/(1-p_{event})$</p>
+<ul>
+<li>The value of the odds ratio can range from 0 to $\infty$; it cannot be negative</li>
+<li>When the odds ratio is $1$, there is no association between variables</li>
+<li>When the odds ratio $&gt;1$/$&lt;1$, the group in the numerator/denominator is more likely to have the outcome</li>
+<li>The odds ratio is approximately the same <strong>regardless of the sample size</strong></li>
+<li>To estimate the true odds ratio while taking into account the variability of the sample statistic, you can calculate <strong>confidence intervals</strong></li>
+<li>You can use an odds ratio to <strong>test for significance</strong> between two categorical variables</li>
+<li>Odds ratio expressed as percent difference: $(odd \ ratio -1) \cdot 100$</li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>PROC FREQ DATA=SAS-data-set;
+    TABLES variable-rows*variable-columns / CHISQ EXPECTED &lt;/options&gt;;
+    &lt;additional statements&gt;
+RUN;
+</pre></div>
+</td></tr></table>
+
+<ul>
+<li><strong>CHISQ</strong> produces the Pearson chi-square test of association, the likelihood-ratio chi-square and the Mantel-Haenszel: $\sum \frac{(obs. \ freq. - exp. \ freq.)^2}{exp. \ freq.}$</li>
+<li><strong>EXPECTED</strong> prints the expected cell frequencies</li>
+<li><strong>CELLCHI2</strong> prints each cell's contribution to the total chi-square statistic: $ \frac{(obs. \ freq. - exp. \ freq.)^2}{exp. \ freq.}$</li>
+<li><strong>NOCOL</strong> suppresses the printing of the column percentages</li>
+<li><strong>NOPERCENT</strong> supresses the printing of the cell percentages</li>
+<li><strong>RELRISK</strong> (relative risk) prints a table that contains risk ratios (probability ratios) and odds ratios; PROC FREQ uses the <strong>classification in the first column</strong> of the crosstabulation table as the <strong>outcome of interest</strong> and the first/second row in the numerator/denominator</li>
+</ul>
+<hr />
+<p>For <strong>ordinal associations</strong>, the <strong>Mantel-Haenszel</strong> chi-square test is a more powerful test.</p>
+<ul>
+<li>The levels must be in a <strong>logical order</strong> for the test results to be meaningful</li>
+<li>Hypothesis testing: <strong>H0</strong>: no ordinal association; <strong>Ha</strong>: ordinal association</li>
+<li>Similarly to the Pearson case, the Mantel-Haenszel chi-square statistic/p-value indicate whether an association exists but not its magnitude and they depend on and reflect the sample size</li>
+</ul>
+<p>To measure the <strong>strength of the association</strong> between two ordinal variables you can use the <strong>Spearman correlation</strong> statistic.</p>
+<ul>
+<li>You should only use it if both variables are ordinal and are in logical order</li>
+<li>Is considered to be a rank correlation because it provides a degree of association between the ranks of the ordinal variables</li>
+<li>This statistic has a <strong>range between -1 and +1</strong>: values close to -1/+1 indicate that there is a relatively high degree of negative/positive correlation and values close to 0 indicate a weak correlation</li>
+<li>It is <strong>not affected by the sample size</strong></li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>PROC FREQ DATA=SAS-data-set;
+    TABLES variable-rows*variable-columns / CHISQ EXPECTED &lt;/options&gt;;
+  &lt;additional statements&gt;
+RUN;
+</pre></div>
+</td></tr></table>
+
+<ul>
+<li><strong>MEASURES</strong> produces the Spearman correlation statistic along with other measurement of association</li>
+<li><strong>CL</strong> produces confidence bounds for the statistics that the MEASURES option requests</li>
+<li>The confidence bounds are valid only if the sample size is large ($&gt;25$)</li>
+<li>The asymptotic standard error (<strong>ASE</strong>) is used for large samples and is used to calculate the confidence intervals for various measures of association (including the Spearman correlation coefficient)</li>
+</ul>
+<h3 id="introduction-to-logistic-regression">Introduction to Logistic Regression<a class="headerlink" href="#introduction-to-logistic-regression" title="Permanent link">&para;</a></h3>
+<p>Logistic Regression is a generalized linear model that you can use to predict a categorical response/outcome on the basis if one or more continuous or categorical predictor variables. There are three models:</p>
+<p><img alt="Logistic regression types" src="https://lh3.googleusercontent.com/-_wxj3yC7ZCE/WOd2RpxTQOI/AAAAAAAAAEg/HYmLKYjBYr8Thq7HwseFdK3hU8Tnreo8ACLcB/s0/logistic_regression_types.PNG" title="Logistic regression types" /></p>
+<p>Some reasons why you <strong>can't use linear regression</strong> with a <strong>binary response variable</strong> are:</p>
+<ul>
+<li>aaa</li>
+</ul>
+<h3 id="multiple-logistic-regression">Multiple Logistic Regression<a class="headerlink" href="#multiple-logistic-regression" title="Permanent link">&para;</a></h3>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../inference/" title="Model Post-Fitting for Inference" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Model Post-Fitting for Inference
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../prediction/" title="Model Building and Scoring for Prediction" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Model Building and Scoring for Prediction
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application-6b599127bc.js"></script>
+      <script>app.initialize({url:{base:"../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+      
+        <script src="../../js/mathjaxhelper.js"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>

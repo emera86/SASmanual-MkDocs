@@ -6,7 +6,11 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="Learning How to Program in SAS">
       
+      
+      
+        <meta name="author" content="Lucía Rodrigo Insausti">
       
       
         <link rel="shortcut icon" href="../assets/images/favicon.png">
@@ -35,6 +39,8 @@
       
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
+    
+      <link rel="stylesheet" href="../css/prism-sas.css">
     
     
   </head>
@@ -160,10 +166,94 @@
       
 
 
-  <li class="md-nav__item">
-    <a href="../statistics/" title="Basic Statistics" class="md-nav__link">
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
       Basic Statistics
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Basic Statistics
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../statistics/introduction/" title="Introduction to Statistics" class="md-nav__link">
+      Introduction to Statistics
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../statistics/anova/" title="Analysis of Variance (ANOVA)" class="md-nav__link">
+      Analysis of Variance (ANOVA)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../statistics/regression/" title="Regression" class="md-nav__link">
+      Regression
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../statistics/inference/" title="Model Post-Fitting for Inference" class="md-nav__link">
+      Model Post-Fitting for Inference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../statistics/categorical-data/" title="Categorical Data Analysis" class="md-nav__link">
+      Categorical Data Analysis
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../statistics/prediction/" title="Model Building and Scoring for Prediction" class="md-nav__link">
+      Model Building and Scoring for Prediction
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -277,38 +367,57 @@
                 
                   <h1>Using Macros</h1>
                 
-                <p>﻿---
-date:   "2017-05-03T22:23:25+02:00"
-title:  "Using Macros"
-weight: 40</p>
-<hr />
-<p>You can learn about macros in the <strong>SAS Macro Language 1: Essentials course</strong>.</p>
-<h3 id="macro-program-for-creating-box-plots-for-all-of-predictor-variables">Macro Program for Creating Box Plots for All of Predictor Variables</h3>
-<pre><code>%let categorical=House_Style2 Overall_Qual2 Overall_Cond2 Fireplaces 
-         Season_Sold Garage_Type_2 Foundation_2 Heating_QC 
-         Masonry_Veneer Lot_Shape_2 Central_Air;
-/* Macro Usage: %box(DSN = , Response = , CharVar = ) */
-%macro box(dsn      = ,
-           response = ,
-           Charvar  = );
-%let i = 1 ;
-%do %while(%scan(&amp;charvar,&amp;i,%str( )) ^= %str()) ;
-    %let var = %scan(&amp;charvar,&amp;i,%str( ));
-    proc sgplot data=&amp;dsn;
-        vbox &amp;response / category=&amp;var 
-                         grouporder=ascending 
-                         connect=mean;
-        title &quot;&amp;response across Levels of &amp;var&quot;;
-    run;
-    %let i = %eval(&amp;i + 1 ) ;
-%end ;
-%mend box;
-%box(dsn      = statdata.ameshousing3,
-     response = SalePrice,
-     charvar  = &amp;categorical);
-title;
-options label;
-</code></pre>
+                <p>﻿You can learn about macros in the <strong>SAS Macro Language 1: Essentials course</strong>.</p>
+<h3 id="macro-program-for-creating-box-plots-for-all-of-predictor-variables">Macro Program for Creating Box Plots for All of Predictor Variables<a class="headerlink" href="#macro-program-for-creating-box-plots-for-all-of-predictor-variables" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nf">%let</span> <span class="n">categorical</span><span class="o">=</span><span class="n">House_Style2</span> <span class="n">Overall_Qual2</span> <span class="n">Overall_Cond2</span> <span class="n">Fireplaces</span> 
+         <span class="n">Season_Sold</span> <span class="n">Garage_Type_2</span> <span class="n">Foundation_2</span> <span class="n">Heating_QC</span> 
+         <span class="n">Masonry_Veneer</span> <span class="n">Lot_Shape_2</span> <span class="n">Central_Air</span><span class="p">;</span>
+<span class="cm">/* Macro Usage: %box(DSN = , Response = , CharVar = ) */</span>
+<span class="nf">%macro</span> <span class="n">box</span><span class="p">(</span><span class="n">dsn</span>      <span class="o">=</span> <span class="p">,</span>
+           <span class="n">response</span> <span class="o">=</span> <span class="p">,</span>
+           <span class="n">Charvar</span>  <span class="o">=</span> <span class="p">);</span>
+<span class="nf">%let</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">;</span>
+<span class="nf">%do</span> <span class="nf">%while</span><span class="p">(</span><span class="nf">%scan</span><span class="p">(</span><span class="o">&amp;</span><span class="n">charvar</span><span class="p">,</span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="nf">%str</span><span class="p">(</span> <span class="p">))</span> <span class="o">^=</span> <span class="nf">%str</span><span class="p">())</span> <span class="p">;</span>
+    <span class="nf">%let</span> <span class="n">var</span> <span class="o">=</span> <span class="nf">%scan</span><span class="p">(</span><span class="o">&amp;</span><span class="n">charvar</span><span class="p">,</span><span class="o">&amp;</span><span class="n">i</span><span class="p">,</span><span class="nf">%str</span><span class="p">(</span> <span class="p">));</span>
+    <span class="n">proc</span> <span class="n">sgplot</span> <span class="n">data</span><span class="o">=&amp;</span><span class="n">dsn</span><span class="p">;</span>
+        <span class="n">vbox</span> <span class="o">&amp;</span><span class="n">response</span> <span class="o">/</span> <span class="n">category</span><span class="o">=&amp;</span><span class="n">var</span> 
+                         <span class="n">grouporder</span><span class="o">=</span><span class="n">ascending</span> 
+                         <span class="n">connect</span><span class="o">=</span><span class="n">mean</span><span class="p">;</span>
+        <span class="n">title</span> <span class="s">&quot;&amp;response across Levels of &amp;var&quot;</span><span class="p">;</span>
+    <span class="n">run</span><span class="p">;</span>
+    <span class="nf">%let</span> <span class="n">i</span> <span class="o">=</span> <span class="nf">%eval</span><span class="p">(</span><span class="o">&amp;</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">;</span>
+<span class="nf">%end</span> <span class="p">;</span>
+<span class="nf">%mend</span> <span class="n">box</span><span class="p">;</span>
+<span class="nf">%box</span><span class="p">(</span><span class="n">dsn</span>      <span class="o">=</span> <span class="n">statdata</span><span class="p">.</span><span class="n">ameshousing3</span><span class="p">,</span>
+     <span class="n">response</span> <span class="o">=</span> <span class="n">SalePrice</span><span class="p">,</span>
+     <span class="n">charvar</span>  <span class="o">=</span> <span class="o">&amp;</span><span class="n">categorical</span><span class="p">);</span>
+<span class="n">title</span><span class="p">;</span>
+<span class="n">options</span> <span class="n">label</span><span class="p">;</span>
+</pre></div>
+</td></tr></table>
                 
                   
                 
@@ -380,6 +489,12 @@ options label;
     
       <script src="../assets/javascripts/application-6b599127bc.js"></script>
       <script>app.initialize({url:{base:".."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+      
+        <script src="../js/mathjaxhelper.js"></script>
       
     
     
