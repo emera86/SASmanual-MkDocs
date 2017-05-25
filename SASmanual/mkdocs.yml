@@ -6,7 +6,7 @@ pages:
     - Gettin' Started!: index.md
     - The Essentials: essentials.md
     - Basic Statistics: 
-      - 'Introduction to Statistics': 'statistics/introduction.md'
+      - 'Introduction': 'statistics/introduction.md'
       - 'Analysis of Variance (ANOVA)': 'statistics/anova.md'
       - 'Regression': 'statistics/regression.md'
       - 'Model Post-Fitting for Inference': 'statistics/inference.md'
