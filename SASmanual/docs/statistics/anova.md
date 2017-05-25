@@ -114,7 +114,7 @@ QUIT;
     * **Within-group** variation: also called Error Sum of Squares (SSE): $\sum \sum (Y_{ij}- \overline Y_i)^2$
     * **Total** variation: also called the Total Sum of Squares (SST): $\sum \sum (Y_{ij}- \overline {\overline Y})^2$
 * **SSM** and **SSE** represent pieces of **SST**: the SSM is the variability explanied by the predictor variable levels and SSE the variability not explained by the predictor variable levels
-* You want the larger piece of the total to be better represented by what you can explain (SSM) vs what you cant't explain (SSE) 
+* You want the larger piece of the total to be better represented by what you can explain (SSM) vs what you can't explain (SSE) 
 
 ## ANOVA with Data from a Randomized Block Design
 
