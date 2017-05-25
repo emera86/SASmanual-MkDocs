@@ -4,7 +4,16 @@ site_author: Lucía Rodrigo Insausti
 
 pages:
     - Gettin' Started!: index.md
-    - The Essentials: essentials.md
+    - The Essentials: 
+      - 'Accessing Data': 'essentials/accessing.md'
+      - 'Producing Detailed Reports': 'essentials/reporting.md'
+      - 'Formatting Data Values': 'formatting.md'
+      - 'Reading SAS Data Sets': 'reading-sas.md'
+      - 'Reading Spreadsheet and Database Data': 'reading-spreadsheets.md'
+      - 'Reading Raw Data Files': 'reading-raw.md'
+      - 'Manipulating Data': 'manipulation.md'
+      - 'Combining SAS Data Sets': 'combination.md'
+      - 'Creating Summary Reports': 'summary.md'
     - Basic Statistics: 
       - 'Introduction': 'statistics/introduction.md'
       - 'Analysis of Variance (ANOVA)': 'statistics/anova.md'
