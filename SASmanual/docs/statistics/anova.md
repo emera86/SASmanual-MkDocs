@@ -108,7 +108,7 @@ QUIT;
 
 ---
 
-* Of the **between-group variability** is significantly larger than the **within-group variability**, you reject the null that all the group means are equal
+* If the **between-group variability** is significantly larger than the **within-group variability**, you reject the null that all the group means are equal
 * You partition out the variability using sums of squares: 
     * **Between-group** variation: also called Model Sum of Squares (SSM): $\sum n_i (\overline Y_i- \overline {\overline Y})^2$
     * **Within-group** variation: also called Error Sum of Squares (SSE): $\sum \sum (Y_{ij}- \overline Y_i)^2$
