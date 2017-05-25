@@ -1,6 +1,6 @@
 [Chapter summary in SAS](https://support.sas.com/edu/OLTRN/ECPRG193/m422/m422_5_a_sum.htm)
 
-### Using PROC FREQ to Create Summary Reports
+## Using PROC FREQ to Create Summary Reports
 
 * When you're summarizing data, there's no need to show a frequency distribution for variables that have a large number of distinct values
 * Frequency distributions work best with variables whose values meet two criteria: variable with **categorical values** and values are **best summarized by counts instead of averages**
@@ -89,7 +89,7 @@ RUN;
 
 The **FORMAT=** option applies only to crosstabulation tables displayed in the default format. It doesn't apply to crosstabulation tables produced with the **LIST**/**CROSSLIST** option
 
-### Using PROC FREQ for Data Validation
+## Using PROC FREQ for Data Validation
 
 You can use a **PROC FREQ** step with the **TABLES** statement to detect invalud numeric and character data by looking at distinct values. The **FREQ** procedure **lists all discrete values** for a variable and **reports its missing values**.
 
@@ -136,7 +136,7 @@ PROC FREQ DATA=SAS-data-set NOPRINT;
 RUN;
 ```
 
-### Using the MEANS and UNIVARIATE Procedures
+## Using the MEANS and UNIVARIATE Procedures
 
 **PROC MEANS** produces summary reports with descriptive statistics and you can create statistics for groups of observations
 
@@ -230,7 +230,7 @@ RUN;
 
 ![Validation procedures](https://lh3.googleusercontent.com/qa02E3GQU_EU1ZHWX40Ewy-WsXd7hmzfJ5HXBOCDvHrtxRGjrlh6R3hjEupj5Ul9mDreXO8=s0 "Validation procedures")
 
-### Using the SAS Output Delivery System
+## Using the SAS Output Delivery System
 
 ```
 ODS destination FILE="filename" <options>;

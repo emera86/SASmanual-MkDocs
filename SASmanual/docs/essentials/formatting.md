@@ -1,41 +1,49 @@
 [Chapter summary in SAS](https://support.sas.com/edu/OLTRN/ECPRG193/m416/m416_3_a_sum.htm)
 
-### Using SAS Formats
+## Using SAS Formats
 
 ```
 PROC PRINT DATA=SAS-data-base;
-    FORMAT FORMAT variable1 variable2 format;
+    FORMAT variable1 variable2 format;
     FORMAT variable3 format3 variable4 format4;
 RUN;
 ```
 
-Format definition: **<\$>*format*<\w>.<\d>**
+### Format definition
 
-* **<\$>** = character format
-* ***format*** = format name
-* **<\w>** = total width (includes special characters, commas, decimal point and decimal places)
-* **.** = required syntax (dot)
-* **<\d>** = decimal places (numeric format)
+`<\$>format<\w>.<\d>`
 
-SAS formats ([Dictionary of formats](http://support.sas.com/documentation/cdl/en/leforinforref/64790/HTML/default/viewer.htm#p0z62k899n6a7wn1r5in6q5253v1.htm)):
+* `<\$>` = character format
+* `format` = format name
+* `<\w>` = total width (includes special characters, commas, decimal point and decimal places)
+* `.` = required syntax (dot)
+* `<\d>` = decimal places (numeric format)
 
-* **\$w.** = writes standard character data
-* **\$UPCASE.** = writes a string in uppercase
-* **\$QUOTE.** = writes a string in quotation marks 
-* **w.d** = writes standard numeric data
-* **COMMAw.d** = writes numeric values with a comma that separates every three digits and a period that separates the decimal fraction
-* **DOLLARw.d** = writes numeric values with a leading dollar sign, a comma that separates every three digits and a period that separates the decimal fraction
-* **COMMAXw.d** = writes numeric values with a period that separates every three digits and a coma that separates the decimal fraction
-* **EUROXw.d** = writes numeric values with a leading euro symbol, a period that separates every three digits and a comma that separates the decimal fraction
+### SAS formats 
+[Dictionary of formats](http://support.sas.com/documentation/cdl/en/leforinforref/64790/HTML/default/viewer.htm#p0z62k899n6a7wn1r5in6q5253v1.htm)
 
-SAS date values: **MMDDYY<\w>.** / **DDMMYY<\w>.** / **MONYY<\w>.** / **DATE<\w>.** / **WEEKDATE.**
+* `\$w.` = writes standard character data
+* `\$UPCASE.` = writes a string in uppercase
+* `\$QUOTE.` = writes a string in quotation marks 
+* `w.d` = writes standard numeric data
+* `COMMAw.d` = writes numeric values with a comma that separates every three digits and a period that separates the decimal fraction
+* `DOLLARw.d` = writes numeric values with a leading dollar sign, a comma that separates every three digits and a period that separates the decimal fraction
+* `COMMAXw.d` = writes numeric values with a period that separates every three digits and a coma that separates the decimal fraction
+* `EUROXw.d` = writes numeric values with a leading euro symbol, a period that separates every three digits and a comma that separates the decimal fraction
+
+### SAS date values
+`MMDDYY<\w>.` / `DDMMYY<\w>.` / `MONYY<\w>.` / `DATE<\w>.` / `WEEKDATE.`
+
 * w = 6: only date numbers
-* w = 8: date numbers with **/** separators (just the last 2 digits of year)
-* w = 10: date numbers with **/** separators (full 4-digit year)
+* w = 8: date numbers with `/` separators (just the last 2 digits of year)
+* w = 10: date numbers with `/` separators (full 4-digit year)
 
-**Note:** dates before 01/01/1960 (0 value) will appear as negative numbers
+!!! note
+    Dates before 01/01/1960 (0 value) will appear as negative numbers.
 
-### Creating and Applying User-Defined Formats
+## Creating and Applying User-Defined Formats
+
+### `PROC FORMAT`
 
 ```
 PROC FORMAT;
@@ -75,15 +83,14 @@ PROC FORMAT LIBRARY = my-format-library;   /* To save the custom formats */
 RUN;
 ```
 
-**Note1:** if you omit the **LIBRARY** option, then formats and informats are stored in the **work.formats** catalog
-
-**Note2:** if you do not includ the keyword **OTHER**, then SAS applies the format only to values that match the value-range sets that you specify and the rest of values are displayed as they are stored in the data set
-
-**Note3:** you can only use the **<** symbol to define a non-inclusive range.
+!!! note
+    1. If you omit the **LIBRARY** option, then formats and informats are stored in the `work.formats` catalog.
+    2. If you do not include the keyword `OTHER`, then SAS applies the format only to values that match the value-range sets that you specify and the rest of values are displayed as they are stored in the data set.
+    3. You can only use the `<` symbol to define a non-inclusive range.
 
 ```
 OPTIONS FMTSEARCH = (libref1 libref2... librefn)
 ```
 
-* The **FMTSEARCH** system option controls the order in which format catalogs are searched until the desired member is found.
-* The **WORK.FORMATS** catalog is always searched first, unless it appears in the **FMTSEARCH** list.
+* The `FMTSEARCH` system option controls the order in which format catalogs are searched until the desired member is found.
+* The `WORK.FORMATS` catalog is always searched first, unless it appears in the `FMTSEARCH` list.

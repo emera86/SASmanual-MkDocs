@@ -1,6 +1,6 @@
 [Chapter summary in SAS](https://support.sas.com/edu/OLTRN/ECPRG193/m421/m421_5_a_sum.htm)
 
-### Using SAS Functions
+## Using SAS Functions
 
 ***SUM function***
 
@@ -53,7 +53,7 @@ The **INTCK** function returns the number of interval boundaries of a given kind
 
 The **DROP** statement is a compile-time-only statement. SAS sets a drop flag for the dropped variables, but the variables are in the PDV and, therefore, are available for processing.
 
-### Conditional Processing
+## Conditional Processing
 
 ***IF-THEN-ELSE conditional structures***
 

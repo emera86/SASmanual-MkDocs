@@ -15,7 +15,7 @@ RUN;
 
 **Note2:** new variables being created in the DATA step and not contained in the original data set cannot be used in a WHERE statement
 
-### Customizing a SAS Data Set
+## Customizing a SAS Data Set
 
 How to select a subset of the variables/observations of the original data set:
 
@@ -78,7 +78,7 @@ RUN;
 Addition of several variables: **Total=sum(var1, var2, var3)**
 Count of nonmissing values: **Nonmissing=n(var1, var2, var3)**
 
-### Adding Permanent Attributes
+## Adding Permanent Attributes
 
 ***Permanent variable labels***
 

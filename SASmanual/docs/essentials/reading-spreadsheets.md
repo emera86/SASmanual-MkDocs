@@ -1,6 +1,6 @@
 [Chapter summary in SAS](https://support.sas.com/edu/OLTRN/ECPRG193/m418/m418_3_a_sum.htm)
 
-### Reading Spreadsheet Data
+## Reading Spreadsheet Data
 
 To determine the SAS products that are included in your SAS license, you can run the following PROC SETINIT step:
 
@@ -39,7 +39,7 @@ PROC IMPORT DATAFILE="/folders/myfolders/reading_test.xlsx"
 RUN;
 ```
 
-### Reading Database Data
+## Reading Database Data
 
 ```
 LIBNAME libref engine <SAS/ACCESS options>;

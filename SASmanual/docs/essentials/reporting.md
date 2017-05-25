@@ -1,6 +1,6 @@
 [Chapter summary in SAS](https://support.sas.com/edu/OLTRN/ECPRG193/m415/m415_4_a_sum.htm)
 
-### Subsetting Report Data
+## Subsetting Report Data
 
 ```
 PROC PRINT DATA=SAS-data-set(OBS=3) NOOBS;  /* OBS=3 prints only 3 elements | NOOBS hides the 'Obs' */
@@ -15,20 +15,21 @@ PROC PRINT DATA=SAS-data-set(OBS=3) NOOBS;  /* OBS=3 prints only 3 elements | NO
 RUN;
 ```
 
-Special **WHERE operators**:
+Special `WHERE` operators:
 
-* **BETWEEN x AND y**: an inclusive range
-* **WHERE SAME AND**: augment a previous where expression (both applied)
-* **IS NULL**: a missing value
-* **IS MISSING**: a missing value
-* **LIKE**: matches a pattern (% = any number of characters, _ = one character). E.g.: 'T_m%'
-* The **SOUNDS-LIKE (=\*)** operator selects observations that contain a spelling variation of a specified word or words. This operator uses the *Soundex* algorithm to compare the variable value and the operand.
-* [**ANYVALUE**](http://support.sas.com/documentation/cdl/en/lrdict/64316/HTML/default/viewer.htm#a002194060.htm) is an interesting function that searches a character string for an alphabetic character, and returns the first position at which the character is found
+* `BETWEEN x AND y`: an inclusive range
+* `WHERE SAME AND`: augment a previous where expression (both applied)
+* `IS NULL`: a missing value
+* `IS MISSING`: a missing value
+* `LIKE`: matches a pattern (% = any number of characters, _ = one character). E.g.: `'T_m%'`
+* The `SOUNDS-LIKE (=\*)` operator selects observations that contain a spelling variation of a specified word or words. This operator uses the *Soundex* algorithm to compare the variable value and the operand.
+* [`ANYVALUE`](http://support.sas.com/documentation/cdl/en/lrdict/64316/HTML/default/viewer.htm#a002194060.htm) is an interesting function that searches a character string for an alphabetic character, and returns the first position at which the character is found
 
 
-**Note:** To compare with a SAS date value you need to express is as a SAS date constant: **'DDMM<\YY>YY'D**
+!!! note
+    To compare with a SAS date value you need to express is as a SAS date constant: `'DDMM<\YY>YY'D`.
 
-### Sorting and Grouping Report Data
+## Sorting and Grouping Report Data
 
 ```
 PROC SORT DATA=SAS-data-set
@@ -38,10 +39,12 @@ PROC SORT DATA=SAS-data-set
 RUN;
 ```
 
-* The **NODUPKEY** option deletes observations with duplicate **BY** values
-* **DUPOUT** writes duplicate observations to a separate output data set
+* The `NODUPKEY` option deletes observations with duplicate `BY` values
+* `DUPOUT` writes duplicate observations to a separate output data set
 
-### Enhancing Reports
+## Enhancing Reports
+
+### Titles and footnotes
 
 ```
 TITLEline 'text';       
@@ -55,23 +58,33 @@ TITLE;                     /* Cancel (erase) all titles */
 * The **lines** specifies the line (1-10) on which the title/footnote will appear (line = 1 is the default value)
 * The title/footnote will remain until you **change** it, **cancel** it or you **end your SAS session**
 
----
+#### Titles and footnotes inside AND outside a graph
+
+***COMPLETE***
+
+### Labels
 
 Assigning **temporary labels** to display in the report instead of the variable names:
 
 ```
-PROC PRINT DATA=SAS-data-set LABEL;           /* you need to add the LABEL option to display the labels */ 
+PROC PRINT DATA=SAS-data-set LABEL;            
     LABEL variable1 = 'new variable1 name' 
           variable2 = 'new variable2 name';
     LABEL variable3 = 'new variable3 name';
 RUN;
 ```
 
-- The **LABEL** lengths can go up to 256 characters long
-- You can specify several labels in one **LABEL** statement or use a separate **LABEL** statement for each variable
+* You need to add the `LABEL` option at the `PROC PRINT` definition to display the labels 
+* The `LABEL` lengths can go up to 256 characters long
+* You can specify several labels in one `LABEL` statement or use a separate `LABEL` statement for each variable
+
+#### The `SPLIT` option
 
 ```
-PROC PRINT DATA=SAS-data-set SPLIT='*';            /* you no longer need to add the LABEL option, SPLIT does the same work */ 
-    LABEL variable1 = 'new variable1*long name';   /* the variable name ocuppies 2 lines now */
+PROC PRINT DATA=SAS-data-set SPLIT='*';             
+    LABEL variable1 = 'variable label line 1*variable label line 1';   
 RUN;
 ```
+
+* When you use `SPLIT` you no longer need to add the `LABEL` option to get the labels printed out
+* The `SPLIT` option introduces a line break at the label text whenever it finds the specified character (`*`)

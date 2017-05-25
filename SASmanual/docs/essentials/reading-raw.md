@@ -1,6 +1,6 @@
 [Chapter summary in SAS](https://support.sas.com/edu/OLTRN/ECPRG193/m419/m419_5_a_sum.htm)
 
-### Introduction to Reading Raw Data Files
+## Introduction to Reading Raw Data Files
 
 - **Raw data files** are not software specific
 - A **delimited raw data file** is an external text file in which the values are separated by spaces or other special characters.
@@ -8,7 +8,7 @@
 - **Standard data** is data that SAS can read without any special instructions
 - **Nonstandard data** includes values like dates or numeric values that include special characters like dollar signs (extra instructions needed)
 
-### Reading Standard Delimited Data
+## Reading Standard Delimited Data
 
 ```
 DATA output-SAS-data-set-name;
@@ -35,7 +35,7 @@ RUN;
 - The variables not specified in the **LENGTH** statement will appear at the end of the table. If you want to keep the original order you should include all variables even if you want them to have the defaul length (8)
 
 
-### Reading Nonstandard Delimited Data
+## Reading Nonstandard Delimited Data
 
 You can use a **modified list input** to read all of the fields from a raw data file (including nonstandard variables)
 
@@ -109,7 +109,7 @@ run;
 title;
 ```
 
-### Validating Data
+## Validating Data
 
 When SAS encounters a data error, it prints messages and a ruler in the log and assigns a missing value to the affected variable. Then SAS continues processing.
 

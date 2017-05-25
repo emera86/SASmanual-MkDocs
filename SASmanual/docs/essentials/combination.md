@@ -1,6 +1,6 @@
 [Chapter summary in SAS](https://support.sas.com/edu/OLTRN/ECPRG193/m421/m421_5_a_sum.htm)
 
-### Concatenating Data Sets
+## Concatenating Data Sets
 
 ***Combine files vertically by concatenating***
 
@@ -22,7 +22,7 @@ RUN;
 - The **variable attributes** are assigned from the **first data set** in the SET statement
 - You will get an **error** in the DATA step if a variable is defined with **different data types** in the files that you are trying to concatenate
 
-### Merging SAS Data Sets One-to-One
+## Merging SAS Data Sets One-to-One
 
 ***Combine files horizontally by merging***
 
@@ -44,7 +44,7 @@ RUN;
 - In a **many-to-many** relationship, multiple observations in one data set are related to multiple observations in another data set
 - Sometimes the data sets have **non-matches**: at least one observation in one of the data sets is unrelated to any observation in another data set based on the values of one or more common variables
 
-### Merging SAS Data Sets One-to-Many
+## Merging SAS Data Sets One-to-Many
 
 ```
 DATA SAS-data-set;
@@ -65,7 +65,7 @@ When you reverse the order of the data sets in the MERGE statement, the results 
 * Performing a merge without a BY statement merges the observations based on their positions
 * This is almost never done intentionally and can lead to unexpected results
 
-### Merging SAS Data Sets that Have Non-Matches
+## Merging SAS Data Sets that Have Non-Matches
 
 ```
 DATA SAS-data-set;
