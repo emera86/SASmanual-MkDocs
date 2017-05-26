@@ -21,6 +21,8 @@ You produce a list of the possible output elements in the log that you may speci
 ```
 ODS SELECT lmeans diff meanplot diffplot controlplot;
 [your code here]
+
+ODS SELECT ALL;  /* Reset this option to the default */
 ```
 
 This way you can see the actual variable level values in the output rather than some indexes:
