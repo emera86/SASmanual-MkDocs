@@ -4,6 +4,8 @@ Depending on the **type of data and model** you will be using, techniques such a
 * Maximize use of available information
 * Obtain appropriate estimates of uncertainty
 
+### Missing Data Mechanisms
+
 To use the more appropriate imputation method you should consider the missing data mechanism of your data which describes the process that is believed to have generated the missing values:
 
 * **Missing completely at random (MCAR)**:  neither the variables in the dataset nor the unobserved value of the variable itself predict whether a value will be missing
@@ -11,6 +13,8 @@ To use the more appropriate imputation method you should consider the missing da
 * **Missing not at random (MNAR)**: value of the unobserved variable itself predicts missingness
 
 Imputed values are **not** equivalent to observed values and serve only to help estimate the covariances between variables needed for inference.
+
+### Main imputation techniques
 
 Some of the imputation techniques are:
 
@@ -35,8 +39,8 @@ There are several decisions to be made before performing a multiple imputation i
 
 1. **Imputation phase (PROC MI)**:  the user specifies the imputation model to be used and the number 
 	   of imputed datasets to be created
-2. **Analysis phase (PROG GLM/PROC GENMOD)**: runs the analytic model of interest within each of the imputed datasets
-3. **Pooling phase (PROC MIANALYZE)**: combines all the estimates across all the imputed datasets and outputs one set of parameter estimates for the model of interest
+2. **Analysis phase (`PROG GLM`/`PROC GENMOD`)**: runs the analytic model of interest within each of the imputed datasets
+3. **Pooling phase (`PROC MIANALYZE`)**: combines all the estimates across all the imputed datasets and outputs one set of parameter estimates for the model of interest
 
 ***MVN or FCS?***
 
