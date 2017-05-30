@@ -1,4 +1,16 @@
-Check out [this review](http://www.edmeasurement.net/surveydata/Tsikriktsis%202005.pdf) on techniques for trating missing data.
+Check out [this review](http://www.edmeasurement.net/surveydata/Tsikriktsis%202005.pdf) on techniques for treating missing data.
+
+## Objetives of Imputation
+
+Depending on the **type of data and model** you will be using, techniques such as **multiple imputation** or **direct maximum likelihood** may better serve your needs. The main goals of statistical analysis with missing data are:
+
+* Minimize bias
+* Maximize use of available information
+* Obtain appropriate estimates of uncertainty
+
+Imputed values are **not** equivalent to observed values and serve only to help estimate the covariances between variables needed for inference.
+
+![Techniques for handling missing data](https://lh3.googleusercontent.com/UnkDC9pWWIBLvrntQ85bdQyblLXlWRlnAXA-zDRJVLw_t0rBpsAyO1LBGuvEqw_-QLGk31A=s0 "Techniques for handling missing data")
 
 ## Missing Data Mechanisms and Patterns
 
@@ -8,24 +20,12 @@ To use the more appropriate method to deal with your missing data, you should co
 * **Missing at random (MAR)**: other variables (but not the variable itself) in the dataset can be used to predict missingness on a given variable
 * **Missing not at random (MNAR)**: value of the unobserved variable itself predicts missingness
 
-![Techniques for handling missing data](https://lh3.googleusercontent.com/Jgkhmjq9f7LyBBjp6ujj0jCRJc4UQDoe162bzfwHAWwbh5j3l9qbwcEIxX6YkTyMsbOiTyQ=s0 "Techniques for handling missing data")
-
 ## Deletion procedures 
 
 * **Complete case analysis (listwise deletion)**:  deleting cases in a particular dataset that are missing data on any variable of interest (for MCAR cases the power is reduced but it does not add any bias). It is a common technique because it is easy to implement and works with any type of analysis.
 * **Available case analysis (pairwise deletion)**:  deleting cases where a variable required for a particular analysis is missing, but including those cases in analyses for which all required variables are present. One of the main drawbacks of this method is no consistent sample size because depending on the pairwise comparison examined, the sample size will change based on the amount of missing present in one or both variables. This method became popular because the loss of power due to missing information is not as substantial as with complete case analysis. Unless the mechanism of missing data is MCAR, this method will introduce bias into the parameter estimates. Therefore, this method is not recommended.
 
 ## Replacement procedures
-
-### Objetives of Imputation
-
-Depending on the **type of data and model** you will be using, techniques such as **multiple imputation** or **direct maximum likelihood** may better serve your needs. The main goals of statistical analysis with missing data are:
-
-* Minimize bias
-* Maximize use of available information
-* Obtain appropriate estimates of uncertainty
-
-Imputed values are **not** equivalent to observed values and serve only to help estimate the covariances between variables needed for inference.
 
 ### Single Imputation Methods
 
@@ -36,9 +36,6 @@ Single imputation denotes that the missing value is replaced by a value. However
 * **Stochastic Imputation**: 
 
 In recognition of the problems with regression imputation and the reduced variability associated with this approach, researchers developed a technique to incorporate or “add back” lost variability. A residual term, that is randomly drawn from a normal distribution with mean zero and variance equal to the residual variance from the regression model, is added to the predicted scores from the regression imputation thus restoring some of the lost variability. This method is superior to the previous methods as it will produce unbiased coefficient estimates under MAR. However, the standard errors produced during regression estimation while less biased then the single imputation approach, will still be attenuated.
-
-
-### Direct maximum likelihood
 
 ### Multiple imputation
 
@@ -51,12 +48,11 @@ Multiple Imputation is always superior to any of the single imputation methods b
 
 There are several decisions to be made before performing a multiple imputation including **distribution**, **auxiliary variables** and **number of imputations** that can affect the quality of the imputation.
 
-1. **Imputation phase (PROC MI)**:  the user specifies the imputation model to be used and the number 
-	   of imputed datasets to be created
+1. **Imputation phase (`PROC MI`)**:  the user specifies the imputation model to be used and the number of imputed datasets to be created
 2. **Analysis phase (`PROG GLM`/`PROC GENMOD`)**: runs the analytic model of interest within each of the imputed datasets
 3. **Pooling phase (`PROC MIANALYZE`)**: combines all the estimates across all the imputed datasets and outputs one set of parameter estimates for the model of interest
 
-***MVN or FCS?***
+***`MVN` or `FCS`?***
 
 
 ***Auxiliary variables***
@@ -78,3 +74,12 @@ There are several decisions to be made before performing a multiple imputation i
 
 * You should include the dependent variable (DV) in the imputation model unless you would like to impute independent variables (IVs) assuming they are uncorrelated with your DV
 * Although MI can perform well up to 50% missing observations,  the larger the amount the higher the chance of finding estimation problems during the imputation process and the lower the chance of meeting the MAR assumption
+
+### Model-based Procedures
+
+#### Direct Maximum Likelihood
+This approach to analyzing missing data has many different forms. In its simplest form, it assumes that the observed data are a sample drawn from a multivariate normal distribution. The parameters are estimated by available data, and then missing scores are estimated based on the parameters just estimated. Contrary to the techniques discussed above, maximum likelihood procedures allow explicit modeling of missing data that is open to scientific analysis and critique. 
+
+#### Expectation Maximization 
+This algorithm is an iterative process. The first iteration estimates missing data and then parameters using maximum likelihood. The second iteration re-estimates the missing data based on the new parameter estimates and then recalculates the new parameters estimates
+based on actual and re-estimated missing data. The approach continues until there is convergence in the parameter estimates.
