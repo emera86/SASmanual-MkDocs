@@ -1,3 +1,24 @@
+Check out [this review](http://www.edmeasurement.net/surveydata/Tsikriktsis%202005.pdf) on techniques for trating missing data.
+
+## Missing Data Mechanisms and Patterns
+
+To use the more appropriate method to deal with your missing data, you should consider the missing data mechanism of your data which describes the process that is believed to have generated the missing values:
+
+* **Missing completely at random (MCAR)**:  neither the variables in the dataset nor the unobserved value of the variable itself predict whether a value will be missing
+* **Missing at random (MAR)**: other variables (but not the variable itself) in the dataset can be used to predict missingness on a given variable
+* **Missing not at random (MNAR)**: value of the unobserved variable itself predicts missingness
+
+![Techniques for handling missing data](https://lh3.googleusercontent.com/Jgkhmjq9f7LyBBjp6ujj0jCRJc4UQDoe162bzfwHAWwbh5j3l9qbwcEIxX6YkTyMsbOiTyQ=s0 "Techniques for handling missing data")
+
+## Deletion procedures 
+
+* **Complete case analysis (listwise deletion)**:  deleting cases in a particular dataset that are missing data on any variable of interest (for MCAR cases the power is reduced but it does not add any bias). It is a common technique because it is easy to implement and works with any type of analysis.
+* **Available case analysis (pairwise deletion)**:  deleting cases where a variable required for a particular analysis is missing, but including those cases in analyses for which all required variables are present. One of the main drawbacks of this method is no consistent sample size because depending on the pairwise comparison examined, the sample size will change based on the amount of missing present in one or both variables. This method became popular because the loss of power due to missing information is not as substantial as with complete case analysis. Unless the mechanism of missing data is MCAR, this method will introduce bias into the parameter estimates. Therefore, this method is not recommended.
+
+## Replacement procedures
+
+### Objetives of Imputation
+
 Depending on the **type of data and model** you will be using, techniques such as **multiple imputation** or **direct maximum likelihood** may better serve your needs. The main goals of statistical analysis with missing data are:
 
 * Minimize bias
@@ -6,27 +27,20 @@ Depending on the **type of data and model** you will be using, techniques such a
 
 Imputed values are **not** equivalent to observed values and serve only to help estimate the covariances between variables needed for inference.
 
-### Missing Data Mechanisms
+### Single Imputation Methods
 
-To use the more appropriate imputation method you should consider the missing data mechanism of your data which describes the process that is believed to have generated the missing values:
+Single imputation denotes that the missing value is replaced by a value. However, the imputed values are assumed to be the real values that would have been observed when the data would have been complete. When we have missing data, this is never the case. We can never be completely certain about imputed values. Therefore this missing data uncertaintly should be incorporated as is done in multiple imputation. 
 
-* **Missing completely at random (MCAR)**:  neither the variables in the dataset nor the unobserved value of the variable itself predict whether a value will be missing
-* **Missing at random (MAR)**: other variables (but not the variable itself) in the dataset can be used to predict missingness on a given variable
-* **Missing not at random (MNAR)**: value of the unobserved variable itself predicts missingness
-
-### Main imputation techniques
-
-Some of the imputation techniques are:
-
-* **Complete case analysis (listwise deletion)**:  deleting cases in a particular dataset that are missing data on any variable of interest (for MCAR cases the power is reduced but it does not add any bias) 
-* **Available case analysis (pairwise deletion)**:  deleting cases where a variable required for a particular analysis is missing, but including those cases in analyses for which all required variables are present
-* **Mean Imputation**:
+* **Unconditional Mean Imputation / Mean Substitution**: replacing the missing values for an individual variable wih it's overall estimated mean from the available cases. Its more important problem is that it will result in an artificial reduction in variability due to the fact you are imputing values at the center of the variable's distribution. This also has the unintended consequence of changing the magnitude of correlations between the imputed variable and other variables.
 * **Single Imputation**:
 * **Stochastic Imputation**: 
 
-## Direct maximum likelihood
+In recognition of the problems with regression imputation and the reduced variability associated with this approach, researchers developed a technique to incorporate or “add back” lost variability. A residual term, that is randomly drawn from a normal distribution with mean zero and variance equal to the residual variance from the regression model, is added to the predicted scores from the regression imputation thus restoring some of the lost variability. This method is superior to the previous methods as it will produce unbiased coefficient estimates under MAR. However, the standard errors produced during regression estimation while less biased then the single imputation approach, will still be attenuated.
 
-## Multiple imputation
+
+### Direct maximum likelihood
+
+### Multiple imputation
 
 Visit [this website](http://lnr.li/YdyXo) for more information.
 
