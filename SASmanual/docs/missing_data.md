@@ -20,6 +20,15 @@ Imputed values are **not** equivalent to observed values and serve only to help 
 
 ![Techniques for handling missing data](https://lh3.googleusercontent.com/UnkDC9pWWIBLvrntQ85bdQyblLXlWRlnAXA-zDRJVLw_t0rBpsAyO1LBGuvEqw_-QLGk31A=s0 "Techniques for handling missing data")
 
+Automated imputations generally fall into one of six categories: 
+
+* Deterministic imputation 
+* Model based imputation 
+* Deck imputation 
+* Mixed imputation 
+* Expert Systems 
+* Neural networks 
+
 ## Deletion procedures 
 
 * **Complete case analysis (listwise deletion)**:  deleting cases in a particular dataset that are missing data on any variable of interest (for MCAR cases the power is reduced but it does not add any bias). It is a common technique because it is easy to implement and works with any type of analysis.
@@ -40,7 +49,12 @@ Single imputation denotes that the missing value is replaced by a value. However
 * **Unconditional Mean Imputation / Mean Substitution**: replacing the missing values for an individual variable wih it's overall estimated mean from the available cases. Its more important problem is that it will result in an artificial reduction in variability due to the fact you are imputing values at the center of the variable's distribution. This also has the unintended consequence of changing the magnitude of correlations between the imputed variable and other variables.
 * **Regression Imputation**: This is a two-step approach: first, the relationships among variables are estimated, and then the regression coefficients are used to estimate the missing value. The underlying assumption of regression imputation is the existence of a linear relationship between the predictors and the missing variable. The technique also assumes that values are missing at random (i.e., a missing value is not related to the value of the predictors).
     * **Stochastic Regression Imputation**: In recognition of the problems with regression imputation and the reduced variability associated with this approach, researchers developed a technique to incorporate or “add back” lost variability. A residual term, that is randomly drawn from a normal distribution with mean zero and variance equal to the residual variance from the regression model, is added to the predicted scores from the regression imputation thus restoring some of the lost variability. This method is superior to the previous methods as it will produce unbiased coefficient estimates under MAR. However, the standard errors produced during regression estimation while less biased then the single imputation approach, will still be attenuated.
+    
+![Deterministic vs Stochastic](https://lh3.googleusercontent.com/Wq-bz7LPVnRFzrlZkc0e79P9aGM3AwjD0JxZTKpU7eE74NkRpUaeeBlmhaK-AnVQHHB793c=s0 "Deterministic vs Stochastic")
+*The deterministic imputations are exactly at the regression predictions and ignore predictive uncertainty. In contrast, the random imputations are more variable and better capture the range of the data.*
 
+* **Hot-deck Imputation**: According to this technique, the researcher should replace a missing value with the actual score from a similar case in the dataset. One form of hot-deck imputation is called "last observation carried forward" (LOCF), which involves sorting a dataset according to any of a number of variables, thus creating an ordered dataset. The technique then finds the first missing value and uses the cell value immediately prior to the data that are missing to impute the missing value. This method is known to increase risk of increasing bias and potentially false conclusions. For this reason LOCF is not recommended for use.
+* **Cold-deck Imputation**: This method replaces a missing value of an item with a constant value from an external source such as a value from a previous survey.
 
 * **Single Imputation**:
 
@@ -103,3 +117,5 @@ According to [this nice review](http://www.edmeasurement.net/surveydata/Tsikrikt
 * Maximum likelihood imputation if data are NMAR (non-missing at random)
 * Maximum likelihood and hot-deck if data are MAR (missing at random)
 * Pairwise deletion, hot-deck or regression if data are MCAR (missing completely at random)
+
+Moreover, **multiple imputation** by chained equations is regarded the best imputation method by many researchers.
