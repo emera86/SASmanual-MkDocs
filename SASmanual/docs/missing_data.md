@@ -1,5 +1,13 @@
 Check out [this review](http://www.edmeasurement.net/surveydata/Tsikriktsis%202005.pdf) on techniques for treating missing data.
 
+## Missing Data Mechanisms and Patterns
+
+To use the more appropriate method to deal with your missing data, you should consider the missing data mechanism of your data which describes the process that is believed to have generated the missing values:
+
+* **Missing completely at random (MCAR)**:  neither the variables in the dataset nor the unobserved value of the variable itself predict whether a value will be missing
+* **Missing at random (MAR)**: other variables (but not the variable itself) in the dataset can be used to predict missingness on a given variable
+* **Missing not at random (MNAR)**: value of the unobserved variable itself predicts missingness
+
 ## Objetives of Imputation
 
 Depending on the **type of data and model** you will be using, techniques such as **multiple imputation** or **direct maximum likelihood** may better serve your needs. The main goals of statistical analysis with missing data are:
@@ -11,14 +19,6 @@ Depending on the **type of data and model** you will be using, techniques such a
 Imputed values are **not** equivalent to observed values and serve only to help estimate the covariances between variables needed for inference.
 
 ![Techniques for handling missing data](https://lh3.googleusercontent.com/UnkDC9pWWIBLvrntQ85bdQyblLXlWRlnAXA-zDRJVLw_t0rBpsAyO1LBGuvEqw_-QLGk31A=s0 "Techniques for handling missing data")
-
-## Missing Data Mechanisms and Patterns
-
-To use the more appropriate method to deal with your missing data, you should consider the missing data mechanism of your data which describes the process that is believed to have generated the missing values:
-
-* **Missing completely at random (MCAR)**:  neither the variables in the dataset nor the unobserved value of the variable itself predict whether a value will be missing
-* **Missing at random (MAR)**: other variables (but not the variable itself) in the dataset can be used to predict missingness on a given variable
-* **Missing not at random (MNAR)**: value of the unobserved variable itself predicts missingness
 
 ## Deletion procedures 
 
