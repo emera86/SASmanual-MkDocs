@@ -27,15 +27,23 @@ Imputed values are **not** equivalent to observed values and serve only to help 
 
 ## Replacement procedures
 
+Data replacement does not compensate for a badly designed instrument or for poor data collection. Overall, replacement procedures can be used in certain cases, as long as the researcher has a good reason for replacing.
+
+The most important advantages of these procedures are the retention of the sample size (statistical power). To a greater or lesser extent, all replacement procedures are biased if there is a non-random distribution of missing values. In assessing the effectiveness of these procedures, both the accuracy of estimating the value of missing data and the accuracy of estimating the statistical effects have to be considered.
+
+Many different missing data replacement procedures have been developed over the years. In general, the differences between the various methods decrease with: (a) larger sample size, (b) a smaller percentage of missing values, (c) fewer missing variables and (d) a decrease in the level of the correlations between the variables. 
+
 ### Single Imputation Methods
 
-Single imputation denotes that the missing value is replaced by a value. However, the imputed values are assumed to be the real values that would have been observed when the data would have been complete. When we have missing data, this is never the case. We can never be completely certain about imputed values. Therefore this missing data uncertaintly should be incorporated as is done in multiple imputation. 
+Single imputation denotes that the missing value is replaced by a value. However, the imputed values are assumed to be the real values that would have been observed when the data would have been complete. When we have missing data, this is never the case. We can **never be completely certain about imputed values**. 
 
 * **Unconditional Mean Imputation / Mean Substitution**: replacing the missing values for an individual variable wih it's overall estimated mean from the available cases. Its more important problem is that it will result in an artificial reduction in variability due to the fact you are imputing values at the center of the variable's distribution. This also has the unintended consequence of changing the magnitude of correlations between the imputed variable and other variables.
-* **Single Imputation**:
-* **Stochastic Imputation**: 
+* **Regression Imputation**: This is a two-step approach: first, the relationships among variables are estimated, and then the regression coefficients are used to estimate the missing value. The underlying assumption of regression imputation is the existence of a linear relationship between the predictors and the missing variable. The technique also assumes that values are missing at random (i.e., a missing value is not related to the value of the predictors).
+    * **Stochastic Regression Imputation**: In recognition of the problems with regression imputation and the reduced variability associated with this approach, researchers developed a technique to incorporate or “add back” lost variability. A residual term, that is randomly drawn from a normal distribution with mean zero and variance equal to the residual variance from the regression model, is added to the predicted scores from the regression imputation thus restoring some of the lost variability. This method is superior to the previous methods as it will produce unbiased coefficient estimates under MAR. However, the standard errors produced during regression estimation while less biased then the single imputation approach, will still be attenuated.
 
-In recognition of the problems with regression imputation and the reduced variability associated with this approach, researchers developed a technique to incorporate or “add back” lost variability. A residual term, that is randomly drawn from a normal distribution with mean zero and variance equal to the residual variance from the regression model, is added to the predicted scores from the regression imputation thus restoring some of the lost variability. This method is superior to the previous methods as it will produce unbiased coefficient estimates under MAR. However, the standard errors produced during regression estimation while less biased then the single imputation approach, will still be attenuated.
+
+* **Single Imputation**:
+
 
 ### Multiple imputation
 
@@ -52,16 +60,16 @@ There are several decisions to be made before performing a multiple imputation i
 2. **Analysis phase (`PROG GLM`/`PROC GENMOD`)**: runs the analytic model of interest within each of the imputed datasets
 3. **Pooling phase (`PROC MIANALYZE`)**: combines all the estimates across all the imputed datasets and outputs one set of parameter estimates for the model of interest
 
-***`MVN` or `FCS`?***
+#### `MVN` vs `FCS`
 
 
-***Auxiliary variables***
+#### Auxiliary variables
 
 * They can can help improve the likelihood of meeting the MAR assumption 
 * They help yield more accurate and stable estimates and thus reduce the estimated standard errors in analytic models 
 *  Including them can also help to increase power
 
-***Number of imputations (m)***
+#### Number of imputations (m)
 
 * Estimates of coefficients stabilize at much lower values of *m* than estimates of variances and covariances of error terms 
 * A larger number of imputations may also allow hypothesis tests with less restrictive assumptions (i.e., that do not assume equal fractions of missing information for all coefficients)
@@ -70,16 +78,28 @@ There are several decisions to be made before performing a multiple imputation i
  *  For low fractions of missing information (and relatively simple analysis techniques) 5-20 imputations and 50 or more when the proportion of missing data is relatively high
  *  The number of imputations should equal the percentage of incomplete cases (*m*=max(FMI%)), this way the error associated with estimating the regression coefficients, standard errors and the resulting p-values is considerably reduced and results in an adequate level of reproducibility
 
-**More comments**
+#### More comments
 
 * You should include the dependent variable (DV) in the imputation model unless you would like to impute independent variables (IVs) assuming they are uncorrelated with your DV
 * Although MI can perform well up to 50% missing observations,  the larger the amount the higher the chance of finding estimation problems during the imputation process and the lower the chance of meeting the MAR assumption
 
-### Model-based Procedures
+## Model-based Procedures
 
-#### Direct Maximum Likelihood
+### Direct Maximum Likelihood
 This approach to analyzing missing data has many different forms. In its simplest form, it assumes that the observed data are a sample drawn from a multivariate normal distribution. The parameters are estimated by available data, and then missing scores are estimated based on the parameters just estimated. Contrary to the techniques discussed above, maximum likelihood procedures allow explicit modeling of missing data that is open to scientific analysis and critique. 
 
-#### Expectation Maximization 
+### Expectation Maximization 
 This algorithm is an iterative process. The first iteration estimates missing data and then parameters using maximum likelihood. The second iteration re-estimates the missing data based on the new parameter estimates and then recalculates the new parameters estimates
 based on actual and re-estimated missing data. The approach continues until there is convergence in the parameter estimates.
+
+## Summary
+
+The best technique to deal with your missing data depends on:
+ 1. The amount of missing data (what percentage of data is missing)
+ 2. Type of missing data (MAR, MCAR, NMAR)
+
+According to [this nice review](http://www.edmeasurement.net/surveydata/Tsikriktsis%202005.pdf), if more than 10% data is missing, the best solution is:
+
+* Maximum likelihood imputation if data are NMAR (non-missing at random)
+* Maximum likelihood and hot-deck if data are MAR (missing at random)
+* Pairwise deletion, hot-deck or regression if data are MCAR (missing completely at random)
