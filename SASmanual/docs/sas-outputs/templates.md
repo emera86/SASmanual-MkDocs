@@ -110,7 +110,7 @@ Current ODS PATH list is:
 2. SASHELP.TMPLMST(READ)
 ```
 
-### Revert Template Changes
+### Reverting to the Default Templates
 
 The following statements delete the modified template from `SASUSER.TEMPLAT` and revert to the default template in
 `SASHELP.TMPLMST`, which is where the SAS templates are stored.
