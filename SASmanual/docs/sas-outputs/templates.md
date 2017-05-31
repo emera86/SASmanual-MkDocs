@@ -127,7 +127,7 @@ The following note is printed in the SAS log:
 NOTE: 'Base.Freq.Graphics.AgreePlot' has been deleted from: SASUSER.TEMPLAT
 ```
 
-You can run the following step to delete the entire Sasuser.Templat store of customized templates:
+You can run the following step to delete the entire `Sasuser.Templat` store of customized templates:
 
 ```
 ODS PATH sashelp.tmplmst(read);
