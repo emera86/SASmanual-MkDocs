@@ -51,6 +51,9 @@ PROC TEMPLATE;
 RUN;
 ```
 
+!!! note
+    Remember to add to the extracted template a `PROC TEMPLATE;` at the beginning and a `RUN;` at the end to be able to run it directly.
+
 ### Revert Template Changes
 
 The following statements delete the modified template from `SASUSER.TEMPLAT` and revert to the default template in
