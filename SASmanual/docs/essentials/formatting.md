@@ -11,20 +11,20 @@ RUN;
 
 ### Format definition
 
-`<\$>format<\w>.<\d>`
+`<$>format<w>.<d>`
 
-* `<\$>` = character format
+* `<$>` = character format
 * `format` = format name
-* `<\w>` = total width (includes special characters, commas, decimal point and decimal places)
+* `<w>` = total width (includes special characters, commas, decimal point and decimal places)
 * `.` = required syntax (dot)
-* `<\d>` = decimal places (numeric format)
+* `<d>` = decimal places (numeric format)
 
 ### SAS formats 
 [Dictionary of formats](http://support.sas.com/documentation/cdl/en/leforinforref/64790/HTML/default/viewer.htm#p0z62k899n6a7wn1r5in6q5253v1.htm)
 
-* `\$w.` = writes standard character data
-* `\$UPCASE.` = writes a string in uppercase
-* `\$QUOTE.` = writes a string in quotation marks 
+* `$w.` = writes standard character data
+* `$UPCASE.` = writes a string in uppercase
+* `$QUOTE.` = writes a string in quotation marks 
 * `w.d` = writes standard numeric data
 * `COMMAw.d` = writes numeric values with a comma that separates every three digits and a period that separates the decimal fraction
 * `DOLLARw.d` = writes numeric values with a leading dollar sign, a comma that separates every three digits and a period that separates the decimal fraction
@@ -32,7 +32,7 @@ RUN;
 * `EUROXw.d` = writes numeric values with a leading euro symbol, a period that separates every three digits and a comma that separates the decimal fraction
 
 ### SAS date values
-`MMDDYY<\w>.` / `DDMMYY<\w>.` / `MONYY<\w>.` / `DATE<\w>.` / `WEEKDATE.`
+`MMDDYY<w>.` / `DDMMYY<w>.` / `MONYY<w>.` / `DATE<w>.` / `WEEKDATE.`
 
 * w = 6: only date numbers
 * w = 8: date numbers with `/` separators (just the last 2 digits of year)
