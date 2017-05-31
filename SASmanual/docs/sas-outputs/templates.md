@@ -74,6 +74,42 @@ You can change any of the following:
 * **You can change the content and arrangement of insets** (small tables of statistics embedded in some graphs).
 * **You can change the legend location, contents, border, background, title, and so on**.
 
+### Using Customized Templates
+
+The ODS PATH statement specifies the template stores to search, as well as the order in which to search them. You can change the default template search path by using the ODS PATH statement.
+
+```
+ODS PATH work.mystore(update) sashelp.tmplmst(read);
+```
+
+You can display the current template search path with the following statement:
+
+```
+ODS PATH SHOW;
+```
+
+The log messages for the default template search path are as follows:
+
+```
+Current ODS PATH list is:
+
+1. WORK.MYSTORE(UPDATE)
+2. SASHELP.TMPLMST(READ)
+```
+
+When you are done, you can reset the default template search path as follows:
+
+```
+ODS PATH RESET;
+```
+
+```
+Current ODS PATH list is:
+
+1. SASUSER.TEMPLAT(UPDATE)
+2. SASHELP.TMPLMST(READ)
+```
+
 ### Revert Template Changes
 
 The following statements delete the modified template from `SASUSER.TEMPLAT` and revert to the default template in
@@ -83,6 +119,22 @@ The following statements delete the modified template from `SASUSER.TEMPLAT` and
 PROC TEMPLATE;
 	DELETE Base.Freq.Graphics.AgreePlot;
 RUN;
+```
+
+The following note is printed in the SAS log:
+
+```
+NOTE: 'Base.Freq.Graphics.AgreePlot' has been deleted from: SASUSER.TEMPLAT
+```
+
+You can run the following step to delete the entire Sasuser.Templat store of customized templates:
+
+```
+ODS PATH sashelp.tmplmst(read);
+PROC DATASETS LIBRARY=sasuser NOLIST;
+   DELETE TEMPLAT(MEMTYPE=ITEMSTOR);
+RUN;
+ODS PATH sasuser.templat(update) sashelp.tmplmst(read);
 ```
 
 ## Other Related Topics
