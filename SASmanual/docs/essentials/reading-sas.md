@@ -78,6 +78,20 @@ RUN;
 Addition of several variables: **Total=sum(var1, var2, var3)**
 Count of nonmissing values: **Nonmissing=n(var1, var2, var3)**
 
+### `PROC SQL`
+
+[`PROC SQL`](https://support.sas.com/documentation/cdl/en/sqlproc/63043/PDF/default/sqlproc.pdf) is a wonderful tool for [summarizing or aggregating](http://support.sas.com/kb/25/279.html) data. When you use a [`GROUP BY`](http://support.sas.com/documentation/cdl/en/sqlproc/63043/HTML/default/viewer.htm#n0tf6s2l1rfv5ln1o04ojc4rotu1.htm) clause, you also use an aggregate function in the [`SELECT`](http://support.sas.com/documentation/cdl/en/sqlproc/63043/HTML/default/viewer.htm#p0gs8n2t8df024n1uh160pfr6a0i.htm) clause or in a `HAVING` clause to instruct `PROC SQL` in how to summarize the data for each group:
+
+```
+PROC SQL;
+	select T, range(survival) as RangeSurvival, sqrt(sum(sdf_stderr**2)) as Squares, range(survival)/sqrt(sum(sdf_stderr**2)) as z,
+	       probnorm(abs(range(survival)/sqrt(sum(sdf_stderr**2)))) as pz, 2 * (1-probnorm(abs(range(survival)/sqrt(sum(sdf_stderr**2))))) as pvalue
+  	from BTM_param 
+	where T > 0
+   	group by T;
+QUIT;
+```
+
 ## Adding Permanent Attributes
 
 ***Permanent variable labels***
