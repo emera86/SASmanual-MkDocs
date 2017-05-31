@@ -5,7 +5,7 @@
 
 ## Basic Template Information
 
-### Obtain the default template for an object
+### Obtain the Default Template for an Object
 
 First you need to know the name of the template. For this you can either look for its name listing all the available default templates that are kept in `sashelp.tmplmst`...
 
@@ -41,18 +41,19 @@ Path:       Freq.Table1.AgreePlot
 -------------
 ```
 
-
+Then you use the `SOURCE` option from the `TEMPLATE` procedure to show in the log the full object template.
 
 ```
 PROC TEMPLATE;
 	SOURCE Base.Freq.Graphics.AgreePlot;
 RUN;
 ```
-In the log you will see the full object template. Be careful to erase the pagination lines.
 
-* Revert to default template:
+Be careful to erase the pagination lines.
 
-The following statements delete the modified template from  `SASUSER.TEMPLAT` and revert to the default template in
+### Revert Template Changes
+
+The following statements delete the modified template from `SASUSER.TEMPLAT` and revert to the default template in
 `SASHELP.TMPLMST`, which is where the SAS templates are stored.
 
 ```
@@ -60,6 +61,8 @@ PROC TEMPLATE;
 	DELETE Base.Freq.Graphics.AgreePlot;
 RUN;
 ```
+
+## Other Related Topics
 
 * Solve the error *"[unable to write to the template store](http://support.sas.com/techsup/notes/v8/4/739.html)"*:
 ```
