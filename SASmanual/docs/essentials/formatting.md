@@ -32,7 +32,7 @@ RUN;
 * `EUROXw.d` = writes numeric values with a leading euro symbol, a period that separates every three digits and a comma that separates the decimal fraction
 
 ### SAS date values
-`MMDDYY<w>.` / `DDMMYY<w>.` / `MONYY<w>.` / `DATE<w>.` / `WEEKDATE.`
+`MMDDYY<w>.` | `DDMMYY<w>.` | `MONYY<w>.` | `DATE<w>.` | `WEEKDATE.`
 
 * w = 6: only date numbers
 * w = 8: date numbers with `/` separators (just the last 2 digits of year)
@@ -94,3 +94,42 @@ OPTIONS FMTSEARCH = (libref1 libref2... librefn)
 
 * The `FMTSEARCH` system option controls the order in which format catalogs are searched until the desired member is found.
 * The `WORK.FORMATS` catalog is always searched first, unless it appears in the `FMTSEARCH` list.
+
+## Examples
+
+### How to order categorical variables
+
+You first create a format that you will apply to an auxiliary variable: 
+
+```
+value SmFmt 1 = 'Non-smoker'
+            2 = 'Light (1-5)'
+            3 = 'Moderate (6-15)'
+            4 = 'Heavy (16-25)'
+            5 = 'Very Heavy (> 25)';
+run;
+```
+
+Then you create a data set view rather than a data set in order to save storage space (which might be important for large data sets) on which you define your auxiliary variable with the predefined format:
+
+```
+data Heart / view=Heart;
+	format Smoking_Cat SmFmt.;
+	set sashelp.heart;
+	counter = _n_;
+	keep counter Status Sex AgeAtStart Height Weight Diastolic Systolic Smoking_Cat;
+
+	select (Smoking_Status);
+   		when ('Non-smoker')        Smoking_Cat=1;
+   		when ('Light (1-5)')       Smoking_Cat=2;
+   		when ('Moderate (6-15)')   Smoking_Cat=3;
+   		when ('Heavy (16-25)')     Smoking_Cat=4;
+   		when ('Very Heavy (> 25)') Smoking_Cat=5;
+   		when (' ')                 Smoking_Cat=.;
+	end;
+run;
+```
+
+If you then use a `PROC REPORT` to display your results, the order of appearance will be the numeric order of your auxiliary variable. By using this technique, you can specify any order for the categories of a contingency table.
+
+
