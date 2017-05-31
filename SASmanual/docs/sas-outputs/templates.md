@@ -45,12 +45,11 @@ Path:       Freq.Table1.AgreePlot
 Then you use the `SOURCE` option from the `TEMPLATE` procedure to show in the log the full object template.
 
 ```
+%let path=C:\your-path-here;
 PROC TEMPLATE;
-	SOURCE Base.Freq.Graphics.AgreePlot;
+	SOURCE Base.Freq.Graphics.AgreePlot / file="&path.\agreeplot.sas";
 RUN;
 ```
-
-Be careful to erase the pagination lines.
 
 ### Revert Template Changes
 
