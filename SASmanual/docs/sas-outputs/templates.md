@@ -6,7 +6,7 @@
 
 ## Basic Template Information
 
-### Obtain the Default Template for an Object
+### Obtaining the Default Templates 
 
 First you need to know the name of the template. For this you can either look for its name listing all the available default templates that are kept in `sashelp.tmplmst`...
 
