@@ -120,5 +120,16 @@ PROC FREQ DATA=SAS-data-set (RENAME=(variable1="Label variable 1"n variable1="La
 RUN;
 ```
 
-* [PROC TEMPLATE style tips](https://support.sas.com/rnd/base/ods/scratch/styles-tips.pdf)
 * [WHERE variable IS MISSING](http://www.sascommunity.org/wiki/Tips:Use_IS_MISSING_and_IS_NULL_with_Numeric_or_Character_Variables)
+
+* Measure your code execution time:
+
+```
+%let datetime_start = %sysfunc(TIME()) ;
+%put START TIME: %sysfunc(datetime(),datetime14.);
+
+[YOUR CODE HERE]
+
+%put END TIME: %sysfunc(datetime(),datetime14.);
+%put TOTAL TIME:  %sysfunc(putn(%sysevalf(%sysfunc(TIME())-&datetime_start.),mmss.)) (mm:ss) ;
+```
