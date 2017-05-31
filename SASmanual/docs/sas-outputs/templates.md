@@ -4,7 +4,7 @@
 	  * [Here](https://support.sas.com/documentation/cdl/en/statug/63962/HTML/default/viewer.htm#templt_toc.htm) you can find the official documentation on ODS Graphics Template Modification
 	  * [PROC TEMPLATE style tips](https://support.sas.com/rnd/base/ods/scratch/styles-tips.pdf)
 
-## Basic Template Information
+## Basic Template Functionalities
 
 ### Obtaining the Default Templates 
 
