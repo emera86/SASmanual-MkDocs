@@ -50,9 +50,29 @@ PROC TEMPLATE;
 	SOURCE Base.Freq.Graphics.AgreePlot / file="&path.\agreeplot.sas";
 RUN;
 ```
-
 !!! note
-    Remember to add to the extracted template a `PROC TEMPLATE;` at the beginning and a `RUN;` at the end to be able to run it directly.
+    Remember that you must add a `PROC TEMPLATE;` statement before the generated source statements and optionally a `RUN;` statement after the `END;` statement before you submit your modified definition.
+
+### Editing Templates
+
+Graph definitions are self-contained and do not support inheritance (via the `PARENT=` option) as do table definitions. Consequently, the `EDIT` statement in `PROC TEMPLATE` is not supported for graph definitions.
+
+Here are some important points about what you can and cannot change in a template:
+
+* **Do not change the template name**. A statistical procedure can access only a predefined list of templates. If you change the name, the procedure cannot find your template. You must make sure that it is in a template store that is read before `Sashelp.Tmplmst` through the `ODS PATH` statement.
+* **Do not change the names of columns**. The underlying data object contains predefined column names that you must use. Be very careful if you change how a column is used in a template. Usually, columns are not interchangeable.
+* **Do not change the names of `DYNAMIC` variables**. Changing dynamic variable names can lead to runtime errors. Do not add dynamic variables, because the procedure cannot set their values.
+* **Do not change the names of statements** (for example, from a `SCATTERPLOT` to a `NEEDLEPLOT` or other type of plot).
+
+You can change any of the following:
+
+* **You can add macro variables that behave like dynamic variables**. They are resolved at the time that the statistical procedure is run, and not at the time that the template is compiled. They are defined with an `MVAR` or `NMVAR` statement at the beginning the template. You can also move a variable from a DYNAMIC statement to an MVAR or NMVAR statement if you want to set it yourself rather than letting the procedure set it.
+* **You can change the graph size**.
+* **You can change graph titles, footnotes, axis labels, and any other text that appears in the graph**.
+* **You can change which plot features are displayed**.
+* **You can change axis features, such as grid lines, offsets, view ports, tick value formatting, and so on**.
+* **You can change the content and arrangement of insets** (small tables of statistics embedded in some graphs).
+* **You can change the legend location, contents, border, background, title, and so on**.
 
 ### Revert Template Changes
 
