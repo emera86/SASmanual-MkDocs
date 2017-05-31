@@ -66,7 +66,7 @@ Here are some important points about what you can and cannot change in a templat
 
 You can change any of the following:
 
-* **You can add macro variables that behave like dynamic variables**. They are resolved at the time that the statistical procedure is run, and not at the time that the template is compiled. They are defined with an `MVAR` or `NMVAR` statement at the beginning the template. You can also move a variable from a DYNAMIC statement to an MVAR or NMVAR statement if you want to set it yourself rather than letting the procedure set it.
+* **You can add macro variables that behave like dynamic variables**. They are resolved at the time that the statistical procedure is run, and not at the time that the template is compiled. They are defined with an `MVAR` or `NMVAR` statement at the beginning the template. You can also move a variable from a `DYNAMIC` statement to an `MVAR` or `NMVAR` statement if you want to set it yourself rather than letting the procedure set it.
 * **You can change the graph size**.
 * **You can change graph titles, footnotes, axis labels, and any other text that appears in the graph**.
 * **You can change which plot features are displayed**.
