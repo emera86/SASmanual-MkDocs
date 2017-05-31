@@ -13,7 +13,7 @@ First you need to know the name of the template. For this you can either look fo
 ```
 PROC TEMPLATE;
   PATH sashelp.tmplmst;
-  LIST base.freq / SORT=path DESCENDING;
+  LIST Base.Freq / SORT=path DESCENDING;
 RUN; 
 ```
 
