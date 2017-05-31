@@ -84,7 +84,7 @@ RUN;
 ```
 
 !!! note
-    1. If you omit the **LIBRARY** option, then formats and informats are stored in the `work.formats` catalog.
+    1. If you omit the `LIBRARY` option, then formats and informats are stored in the `work.formats` catalog.
     2. If you do not include the keyword `OTHER`, then SAS applies the format only to values that match the value-range sets that you specify and the rest of values are displayed as they are stored in the data set.
     3. You can only use the `<` symbol to define a non-inclusive range.
 
