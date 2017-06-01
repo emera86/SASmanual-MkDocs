@@ -23,9 +23,8 @@ ODS TRACE OFF;
 You produce a list of the possible output elements in the log that you may specify in the `ODS SELECT/EXCLUDE` statement:
 
 ```
-ODS SELECT lmeans diff meanplot diffplot controlplot;
+ODS SELECT output-name1 output-name2 output-name3;
 [your code here]
-
 ODS SELECT ALL;  /* Reset this option to the default */
 ```
 
