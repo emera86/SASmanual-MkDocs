@@ -11,7 +11,34 @@ You can learn about macros in the **SAS Macro Language 1: Essentials course**.
 %put &=list;     /* Check list contents after */
 ```
 
-###Macro Program for Creating Box Plots for All of Predictor Variables
+## Macros Available in SAS 
+
+### [Color Utility Macros](http://support.sas.com/documentation/cdl/en/graphref/69717/HTML/default/viewer.htm#n0z9vlsy95ugxcn1qchqznw88m6e.htm)
+
+To initiate these macros in your current session you call the `%COLORMAC` macro.
+
+If you submit the following line:
+```
+%HELPCLR(HELP);
+```
+You will get a guide of the color utility macros available:
+```
+               Color Utility Macros Help              
+                                                      
+ HELP is currently available for the following macros 
+                                                      
+        CMY        CMYK       CNS        HLS          
+        HVS        RGB        HLS2RGB    RGB2HLS      
+                                                                                                          
+ Enter %HELPCLR(macroname) for details on each macro, 
+    or %HELPCLR(ALL) for details on all macros.   
+ ```
+ 
+### 
+
+## Macro examples
+
+### Macro Program for Creating Box Plots for All of Predictor Variables
 
 ```
 %let categorical=House_Style2 Overall_Qual2 Overall_Cond2 Fireplaces 
