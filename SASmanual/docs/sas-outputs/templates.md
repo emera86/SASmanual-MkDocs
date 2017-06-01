@@ -76,7 +76,7 @@ You can change any of the following:
 
 ### Using Customized Templates
 
-The ODS PATH statement specifies the template stores to search, as well as the order in which to search them. You can change the default template search path by using the ODS PATH statement.
+The `ODS PATH` statement specifies the template stores to search, as well as the order in which to search them. You can change the default template search path by using the `ODS PATH` statement.
 
 ```
 ODS PATH work.mystore(update) sashelp.tmplmst(read);
