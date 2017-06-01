@@ -37,9 +37,7 @@ PROC FREQ DATA=SAS-data-set (RENAME=(variable1="Label variable 1"n variable1="La
 RUN;
 ```
 
-* [Count the distinct values of a variable](http://support.sas.com/kb/36/898.html)
-
-The question of how to count distinct values of a `CLASS` or `BY` variable using either `PROC MEANS` or `PROC SUMMARY` is asked frequently. While neither of these procedures has this ability, `PROC SQL` can count these values using the `DISTINCT` option.
+* [Count the distinct values of a variable](http://support.sas.com/kb/36/898.html): The question of how to count distinct values of a `CLASS` or `BY` variable using either `PROC MEANS` or `PROC SUMMARY` is asked frequently. While neither of these procedures has this ability, `PROC SQL` can count these values using the `DISTINCT` option.
 
 ## Tests of Association
 
