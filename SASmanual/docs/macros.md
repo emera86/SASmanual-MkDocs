@@ -39,7 +39,44 @@ You will get a guide of the color utility macros available:
 ### `SG`Annotation Macros
 
 They can be used within a `DATA` to simplify the process of creating annotation observations.
+```
+  %SGARROW
+  %SGPOLYGON
+  %SGIMAGE
+  %SGPOLYLINE
+  %SGLINE
+  %SGRECTANGLE
+  %SGOVAL
+  %SGTEXT
+  %SGPOLYCONT
+  %SGTEXTCONT
+```
 
+### Template Modification Macros
+
+* `%MODSTYLE` macro allows you to easily make changes to style templates without accessing the code
+* `%MODTMPLT` macro allows you to easily make limited changes to graph templates without accessing the code
+
+### Graphical Macros
+
+* `%CompactMatrixMacro` (Author: Sanjay Matange): it help you modify graphs based on panels
+* `%NEWSURV` macro (Author: Jeff Meyers): it helps you tune the properties of survival plots
+* `%FORESTPLOT` macro (Author: Jeff Meyers): it allows another way of presenting results
+* `%EULER_MACRO`: useful to present proportion Euler diagrams
+* `%VENN` macro: useful to plot intersection between different events
+* `%GTLPieChartMacro`: useful for pie charts
+
+### Where to Find these Macros?
+
+* Color utility macros, SGAnnotation macros, `%MODSTYLE` and `%MODTMPLT` are SAS autocall macros
+* [`%AXISBREAK`](http://blogs.sas.com/content/graphicallyspeaking/2014/11/18/axis-break-appearance-macro/)
+* [`%COMPACTMATRIXMACRO`](http://blogs.sas.com/content/graphicallyspeaking/2014/11/18/axis-break-appearance-macro/)
+* [`%ORTHO3D_MACRO`](http://blogs.sas.com/content/graphicallyspeaking/2012/08/19/compact-scatter-plot-matrix/)
+* [`%NEWSURV`](http://www.sascommunity.org/wiki/Kaplan-Meier_Survival_Plotting_Macro_%25NEWSURV)
+* [`%FORESTPLOT`](http://www.sascommunity.org/wiki/Forest_Plotting_Analysis_Macro_%25FORESTPLOT)
+* [`%EULER_MACRO`](http://blogs.sas.com/content/graphicallyspeaking/2014/06/29/proportional-euler-diagram/)
+* [`%VENN`](http://support.sas.com/resources/papers/proceedings13/243-2013.pdf)
+* [`%GTLPIECHARTMACRO`](http://blogs.sas.com/content/graphicallyspeaking/2012/08/26/how-about-some-pie/)
 
 ## Macro examples
 
