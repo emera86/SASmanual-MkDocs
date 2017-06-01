@@ -13,6 +13,8 @@ You can learn about macros in the **SAS Macro Language 1: Essentials course**.
 
 ## Macros Available in SAS 
 
+Check this [powerpoint](https://www.google.es/url?sa=t&rct=j&q=&esrc=s&source=web&cd=5&ved=0ahUKEwjnkNj-p5zUAhUB2RQKHR9KA3MQFghHMAQ&url=http%3A%2F%2Fwww.sascommunity.org%2Fmwiki%2Fimages%2Ff%2Ff2%2F5_Macros.pptx&usg=AFQjCNHr9cDvdo8lzpMwXfZU6qaAxV1-vg&sig2=hWHrTpexhuvP2vnAOIjEFA) presentation for more tips.
+
 ### [Color Utility Macros](http://support.sas.com/documentation/cdl/en/graphref/69717/HTML/default/viewer.htm#n0z9vlsy95ugxcn1qchqznw88m6e.htm)
 
 To initiate these macros in your current session you call the `%COLORMAC` macro.
@@ -34,7 +36,10 @@ You will get a guide of the color utility macros available:
     or %HELPCLR(ALL) for details on all macros.   
  ```
  
-### 
+### `SG`Annotation Macros
+
+They can be used within a `DATA` to simplify the process of creating annotation observations.
+
 
 ## Macro examples
 
