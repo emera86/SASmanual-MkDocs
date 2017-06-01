@@ -1,4 +1,15 @@
-﻿You can learn about macros in the **SAS Macro Language 1: Essentials course**.
+You can learn about macros in the **SAS Macro Language 1: Essentials course**.
+ 
+## Remove element/string from macro variable 
+
+```
+%put &=list;     /* Check list contents before */
+
+%let removefromlist = string_to_remove;
+%let list = %sysfunc(tranwrd(&list., &removefromlist., %str()));;
+
+%put &=list;     /* Check list contents after */
+```
 
 ###Macro Program for Creating Box Plots for All of Predictor Variables
 
