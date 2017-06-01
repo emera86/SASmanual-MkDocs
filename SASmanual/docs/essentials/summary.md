@@ -4,7 +4,7 @@
 
 * When you're summarizing data, there's no need to show a frequency distribution for variables that have a large number of distinct values
 * Frequency distributions work best with variables whose values meet two criteria: variable with **categorical values** and values are **best summarized by counts instead of averages**
-* Variables that have continuous numerical values, such as dollar amounts and dates, will need to be **grouped into categories** by **applying formats** inside the PROC FREQ step (substitute an specific range of those values by a tag)
+* Variables that have continuous numerical values, such as dollar amounts and dates, will need to be **grouped into categories** by **applying formats** inside the `PROC FREQ` step (substitute an specific range of those values by a tag)
 
 ```
 PROC FREQ DATA=SAS-data-set <option(s)>;
@@ -13,12 +13,14 @@ PROC FREQ DATA=SAS-data-set <option(s)>;
 RUN;
 ```
 
-* **PROC FREQ** produces frequency tables that report the distribution of any or all variable values in a SAS data set
-* In the **TABLE** statement you specify the frequency tables to produce 
+* `PROC FREQ` produces frequency tables that report the distribution of any or all variable values in a SAS data set
+* In the `TABLE` statement you specify the frequency tables to produce 
 * To create **one-way** frequency tables you specify one or more variable names separated by space
-* **WATCH OUT**: if you omit the **TABLE** statement, SAS produces a one-way table for every variable in the data set
-* The **PROC FREQ** step automatically displays output in a report, so you don't need to add a PROC PRINT step 
+* The `PROC FREQ` step automatically displays output in a report, so you don't need to add a `PROC PRINT` step 
 * Each unique variable's value displayed in the 1<sup>st</sup> column of the output is called a **level of the variable**
+
+!!! warning
+    If you omit the `TABLE` statement, SAS produces a one-way table for every variable in the data set, which could be very messy if you have a lot of variables.
 
 ---
 
