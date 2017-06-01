@@ -1,5 +1,7 @@
 [Chapter summary in SAS](https://support.sas.com/edu/OLTRN/ECPRG193/m417/m417_4_a_sum.htm)
 
+### Subsetting using the `WHERE` statement 
+
 To create a new data set that is a subset of a previous data set:
 
 ```
@@ -13,7 +15,11 @@ RUN;
 
 !!! note
     1. If a missing value is involved in an arithmetic calculation the result will be a missing value too
-    2. New variables being created in the DATA step and not contained in the original data set cannot be used in a WHERE statement
+    2. New variables being created in the `DATA` step and not contained in the original data set cannot be used in a `WHERE` statement
+
+### Other `WHERE` options
+
+* Here's how to set a filter for [WHERE a variable IS MISSING](http://www.sascommunity.org/wiki/Tips:Use_IS_MISSING_and_IS_NULL_with_Numeric_or_Character_Variables)
 
 ## Customizing a SAS Data Set
 
