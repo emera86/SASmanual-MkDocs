@@ -43,6 +43,20 @@ RUN;
 QUIT;
 ```
 
+Copy database **test** into **work**:
+
+```
+proc copy in=test out=work;
+run;
+```
+
+Remove data sets:
+
+```
+PROC DELETE DATA=data1 data2 data3;
+RUN;
+```
+
 To check the **contents of a library** programatically:
 
 ```
