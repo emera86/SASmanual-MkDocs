@@ -3,8 +3,68 @@
 	  * [Bob Rodríguez](https://www.linkedin.com/in/bob-rodriguez-7b12634/) is has written a lot about templates, check his papers for more information
 	  * [Here](https://support.sas.com/documentation/cdl/en/statug/63962/HTML/default/viewer.htm#templt_toc.htm) you can find the official documentation on ODS Graphics Template Modification
 	  * [PROC TEMPLATE style tips](https://support.sas.com/rnd/base/ods/scratch/styles-tips.pdf)
+	  
+## Style Templates vs Graph Templates
 
-## Basic Template Functionalities
+### Modifying Style Templates
+
+1. Obtain the source code
+```
+proc template;
+    source styles.default;
+run;
+```
+
+2. Modify the code
+```
+proc template;
+    define style MyListingStyle;
+    parent=styles.listing;
+       [make desired changes in code]
+    end;
+run;
+```
+
+3. Generate the plot
+```
+ods listing style=mylistingstyle;
+[SGPLOT Statements]
+```
+
+### Modifying Graph Templates
+
+1. Obtain the source code
+```
+PROC TEMPLATE;
+      SOURCE Stat.Lifetest.Graphics.ProductLimitSurvival;
+RUN;
+```
+
+2. Modify the code
+```
+PROC TEMPLATE;
+    DEFINE Stat.Lifetest.Graphics.ProductLimitSurvival;
+    SOURCE Stat.Lifetest.Graphics.ProductLimitSurvival;
+    	[make desired changes in code]
+    END;
+RUN;
+```
+
+3. Generate the plot
+```
+PROC LIFETEST DATA=db PLOTS=S;
+    [statements]
+RUN;
+```
+
+4. Revert to default template
+```
+PROC TEMPLATE;
+    DELETE Stat.Lifetest.Graphics.ProductLimitSurvival;
+RUN;
+```
+
+## Basic Graph Template Functionalities
 
 ### Obtaining the Default Templates 
 
