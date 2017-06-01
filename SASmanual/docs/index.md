@@ -23,3 +23,5 @@ RUN;
 /* comment */
 * comment statement;
 ```
+
+* When you name a process flow `Autoexec`, SAS Enterprise Guide prompts you to run the process flow when you open the project. This makes it easy to recreate your data when you return to the project.
