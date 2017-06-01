@@ -258,3 +258,12 @@ ODS rtf CLOSE;
 
 ***Allowed file formats and their corresponding destinations:***
 ![SAS Output Delivery System](https://lh3.googleusercontent.com/p3gAmRNbwqP8WfUOSKCLxTA042D3e_F9OUkxYJ0XHspC7MAfzfAnK0ghvpLZQXJWNWdbPd0=s0 "SAS Output Delivery System")
+
+You can also `EXPORT` a database to a different format:
+```
+PROC EXPORT DATA=sashelp.class
+    OUTFILE='c:\temp\sashelp class.csv'
+    DBMS=CSV
+    REPLACE;
+RUN;
+```
