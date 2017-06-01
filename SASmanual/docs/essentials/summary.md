@@ -1,6 +1,6 @@
 [Chapter summary in SAS](https://support.sas.com/edu/OLTRN/ECPRG193/m422/m422_5_a_sum.htm)
 
-## Using PROC FREQ to Create Summary Reports
+## Using `PROC FREQ` to Create Summary Reports
 
 * When you're summarizing data, there's no need to show a frequency distribution for variables that have a large number of distinct values
 * Frequency distributions work best with variables whose values meet two criteria: variable with **categorical values** and values are **best summarized by counts instead of averages**
