@@ -4,6 +4,33 @@
 
 ## Basic `ODS` Options
 
+You need to add this command to get the plots displayed in the output:
+
+```
+ODS GRAPHICS ON;
+[your code here]
+ODS GRAPHICS OFF;
+```
+
+When you add the `ODS TRACE` statement, SAS writes a trace record to the log that includes information about each output object (name, label, template, path):
+
+``` 
+ODS TRACE ON;
+[your code here]
+ODS TRACE OFF;
+```
+
+You produce a list of the possible output elements in the log that you may specify in the `ODS SELECT/EXCLUDE` statement:
+
+```
+ODS SELECT lmeans diff meanplot diffplot controlplot;
+[your code here]
+
+ODS SELECT ALL;  /* Reset this option to the default */
+```
+
+---
+
 * Remove date and pagination from the automatic output header:
 ```
 OPTIONS NODATE NONUMBER;
