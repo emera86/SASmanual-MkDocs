@@ -31,8 +31,8 @@ PROC FREQ DATA=SAS-data-set <option(s)>;
 RUN;
 ```
 
-* **NOCUM** option supresses the display of  the cummulative frequency and cummulative percent values 
-* **NOPERCENT** option supresses the display of all percentages
+* `NOCUM` option supresses the display of  the cummulative frequency and cummulative percent values 
+* `NOPERCENT` option supresses the display of all percentages
 
 ---
 
@@ -48,8 +48,8 @@ PROC FREQ DATA=SAS-data-set-sorted;
 RUN;
 ```
 
-- Whenever you use the **BY** statement, the data set must be sorted by the variable named in the statement
-- Using this we will get a frequency table on **`variable_freq`** for each value of **`variable_sorted`**
+* Whenever you use the `BY` statement, the data set must be sorted by the variable named in the statement
+* Using this we will get a frequency table on `variable_freq` for each value of `variable_sorted`
 
 ---
 
