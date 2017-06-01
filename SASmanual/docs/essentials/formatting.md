@@ -23,7 +23,6 @@ RUN;
 [Dictionary of formats](http://support.sas.com/documentation/cdl/en/leforinforref/64790/HTML/default/viewer.htm#p0z62k899n6a7wn1r5in6q5253v1.htm)
 
 * `$w.` = writes standard character data
-* `$UPCASE.` = writes a string in uppercase
 * `$QUOTE.` = writes a string in quotation marks 
 * `w.d` = writes standard numeric data
 * `COMMAw.d` = writes numeric values with a comma that separates every three digits and a period that separates the decimal fraction
@@ -31,6 +30,13 @@ RUN;
 * `COMMAXw.d` = writes numeric values with a period that separates every three digits and a coma that separates the decimal fraction
 * `EUROXw.d` = writes numeric values with a leading euro symbol, a period that separates every three digits and a comma that separates the decimal fraction
 * `DOSEF.` = you can see the actual variable level values in the output rather than some indexes
+* `$UPCASE.` = writes a string in uppercase
+
+If you want to uppercase **only the first letter** of words there is not a format but a function that you could use to transform your value:
+
+```
+var_propercase = PROPCASE(var_uppercase);
+```
 
 ### SAS date values
 `MMDDYY<w>.` | `DDMMYY<w>.` | `MONYY<w>.` | `DATE<w>.` | `WEEKDATE.`
