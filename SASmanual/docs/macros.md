@@ -66,6 +66,10 @@ They can be used within a `DATA` to simplify the process of creating annotation 
 * `%VENN` macro: useful to plot intersection between different events
 * `%GTLPieChartMacro`: useful for pie charts
 
+### Export Macros
+
+* [`%DS2CSV`](http://go.documentation.sas.com/?cdcId=pgmmvacdc&cdcVersion=9.4&docsetId=lebaseutilref&docsetTarget=n0yo3bszlrh0byn1j4fxh4ndei8u.htm&locale=en): exports a dataset to \*.csv format.
+
 ### Where to Find these Macros?
 
 * Color utility macros, SGAnnotation macros, `%MODSTYLE` and `%MODTMPLT` are SAS autocall macros
