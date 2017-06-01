@@ -33,8 +33,6 @@ site = SUBSTR(PUT(patient,z4.),1,2);
     1. `PUT`: turns the numeric variable *patient* into a string (`z4.` adds leading zeroes if needed)
     2. `SUBSTR`: takes the first **2** characters starting from position **1**
 
-* [Count the distinct values of a variable](http://support.sas.com/kb/36/898.html)
-
 ## Measure your code execution time
 
 ```
