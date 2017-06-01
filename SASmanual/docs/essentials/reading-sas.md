@@ -11,9 +11,9 @@ DATA output-SAS-data-set;
 RUN;
 ```
 
-**Note1:** if a missing value is involved in an arithmetic calculation the result will be a missing value too
-
-**Note2:** new variables being created in the DATA step and not contained in the original data set cannot be used in a WHERE statement
+!!! note
+    1. If a missing value is involved in an arithmetic calculation the result will be a missing value too
+    2. New variables being created in the DATA step and not contained in the original data set cannot be used in a WHERE statement
 
 ## Customizing a SAS Data Set
 
@@ -75,7 +75,21 @@ RUN;
 
 ---
 
+Create different data sets from one:
+
+```
+DATA data1 data2 data3;
+	SET original_data;
+	IF (condition1) THEN OUTPUT prueba1;
+	IF (condition2) THEN OUTPUT prueba2;
+	IF (condition3) THEN OUTPUT prueba3;
+RUN;
+```
+
+---
+
 Addition of several variables: **Total=sum(var1, var2, var3)**
+
 Count of nonmissing values: **Nonmissing=n(var1, var2, var3)**
 
 ### `PROC SQL`
