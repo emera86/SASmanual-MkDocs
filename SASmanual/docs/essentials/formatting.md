@@ -30,6 +30,7 @@ RUN;
 * `DOLLARw.d` = writes numeric values with a leading dollar sign, a comma that separates every three digits and a period that separates the decimal fraction
 * `COMMAXw.d` = writes numeric values with a period that separates every three digits and a coma that separates the decimal fraction
 * `EUROXw.d` = writes numeric values with a leading euro symbol, a period that separates every three digits and a comma that separates the decimal fraction
+* `DOSEF.` = you can see the actual variable level values in the output rather than some indexes
 
 ### SAS date values
 `MMDDYY<w>.` | `DDMMYY<w>.` | `MONYY<w>.` | `DATE<w>.` | `WEEKDATE.`
