@@ -27,7 +27,7 @@ DATA output-SAS-data-set;
 RUN;
 ```
 
-How SAS processes the **DATA** step:
+### How SAS processes the **DATA** step
 
 **Compilation phase**
 
@@ -43,9 +43,7 @@ How SAS processes the **DATA** step:
 - SAS reads and processes the observations from the input data set 
 - SAS creates observations in the data portion of the output data set (an implicit output/implicit return loop over all the observations that continues until EOF)
 
----
-
-Subsetting **IF** statement: 
+### Subsetting using the `IF` statement 
 
 ```
 DATA output-SAS-data-set;
@@ -55,13 +53,16 @@ RUN;
 ```
 
 * When the expression is false, SAS excludes the observation from the output data set and continues processing
-* While original values can be managed with a **WHERE** statement as well as an **IF** statement, for **new variable** conditionals only **IF** can be used
-* You should subset as early as possible in your program for more efficient processing (a **WHERE** before an **IF** can make the processing more efficient).
-* In a **PROC** step **IF** statements are **NOT allowed**
+* While original values can be managed with a `WHERE` statement as well as an `IF` statement, for **new variable** conditionals only `IF` can be used
+* You should subset as early as possible in your program for more efficient processing (a `WHERE` before an `IF` can make the processing more efficient).
+* In a `PROC` step `IF` statements are **NOT allowed**
+* `IF THEN` analogue to `CONTAINS`:
 
----
+```
+IF FIND(variable_name,'pattern') THEN (...);
+```
 
-Subsetting **IF-THEN/DELETE** statement: 
+### Subsetting `IF-THEN/DELETE` statement
 
 ```
 DATA output-SAS-data-set;
@@ -70,12 +71,10 @@ DATA output-SAS-data-set;
 RUN;
 ```
 
-* The **IF-THEN/DELETE** statement eliminates the observations where the **conditions are not met** (on the contrary of what the **IF** does)
-* The **DELETE** statement stops processing the current observation. It is often used in a THEN clause of an IF-THEN statement or as part of a conditionally executed DO group.
+* The `IF-THEN/DELETE` statement eliminates the observations where the **conditions are not met** (on the contrary of what the `IF` does)
+* The `DELETE` statement stops processing the current observation. It is often used in a `THEN` clause of an `IF-THEN` statement or as part of a conditionally executed `DO` group.
 
----
-
-Create different data sets from one:
+### Create different data sets from one
 
 ```
 DATA data1 data2 data3;
@@ -86,13 +85,12 @@ DATA data1 data2 data3;
 RUN;
 ```
 
----
+### Available operations
 
-Addition of several variables: **Total=sum(var1, var2, var3)**
+* Addition of several variables: `Total=sum(var1, var2, var3)`
+* Count of nonmissing values: `Nonmissing=n(var1, var2, var3)`
 
-Count of nonmissing values: **Nonmissing=n(var1, var2, var3)**
-
-### `PROC SQL`
+### Using `PROC SQL` to `GROUP BY` variables
 
 [`PROC SQL`](https://support.sas.com/documentation/cdl/en/sqlproc/63043/PDF/default/sqlproc.pdf) is a wonderful tool for [summarizing or aggregating](http://support.sas.com/kb/25/279.html) data. When you use a [`GROUP BY`](http://support.sas.com/documentation/cdl/en/sqlproc/63043/HTML/default/viewer.htm#n0tf6s2l1rfv5ln1o04ojc4rotu1.htm) clause, you also use an aggregate function in the [`SELECT`](http://support.sas.com/documentation/cdl/en/sqlproc/63043/HTML/default/viewer.htm#p0gs8n2t8df024n1uh160pfr6a0i.htm) clause or in a `HAVING` clause to instruct `PROC SQL` in how to summarize the data for each group:
 
