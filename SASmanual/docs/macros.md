@@ -1,4 +1,5 @@
 You can learn about macros in the **SAS Macro Language 1: Essentials course**.
+
 [Here](http://jiangtanghu.com/blog/2011/11/08/my-collection-of-sas-macro-repositories/) you have some macro repositories.
  
 ## Remove element/string from macro variable 
