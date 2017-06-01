@@ -27,7 +27,7 @@ Two distribution plots are associated with a frequency or crosstabulation table:
 In `PROC FREQ` output, the default order for character values is **alphaumeric**. To reorder the values of an ordinal variable in your `PROC FREQ` output you can:
 
 * Create a **new variable** in which the values are stored in logical order
-* Apply a [**temporary format**](https://support.sas.com/edu/OLTRN/ECST131/eclibjr/tempformat.htm) to the original variable
+* Apply a [temporary format](https://support.sas.com/edu/OLTRN/ECST131/eclibjr/tempformat.htm) to the original variable
 * How to [replace the variable's name with the variable's label in `PROC FREQ` output](http://support.sas.com/kb/23/350.html)
 
 ```
