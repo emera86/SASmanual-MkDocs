@@ -28,6 +28,14 @@ In `PROC FREQ` output, the default order for character values is **alphaumeric**
 
 * Create a **new variable** in which the values are stored in logical order
 * Apply a [**temporary format**](https://support.sas.com/edu/OLTRN/ECST131/eclibjr/tempformat.htm) to the original variable
+* How to [replace the variable's name with the variable's label in `PROC FREQ` output](http://support.sas.com/kb/23/350.html)
+
+```
+options validvarname=any;
+PROC FREQ DATA=SAS-data-set (RENAME=(variable1="Label variable 1"n variable1="Label variable 1"n));
+	TABLES "Label variable 1"n;
+RUN;
+```
 
 ## Tests of Association
 
