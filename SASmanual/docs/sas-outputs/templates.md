@@ -9,60 +9,60 @@
 ### Modifying Style Templates
 
 1. Obtain the source code
-```
-proc template;
-    source styles.default;
-run;
-```
+        ```
+	PROC TEMPLATE;
+    	    SOURCE styles.default;
+	RUN;
+	```
 
 2. Modify the code
-```
-proc template;
-    define style MyListingStyle;
-    parent=styles.listing;
-       [make desired changes in code]
-    end;
-run;
-```
+	```
+	PROC TEMPLATE;
+    	    DEFINE STYLE MyListingStyle;
+    	    PARENT=styles.listing;
+        	[make desired changes in code]
+    	    END;
+	RUN;
+	```
 
 3. Generate the plot
-```
-ods listing style=mylistingstyle;
-[SGPLOT Statements]
-```
+	```
+	ODS LISTING STYLE=mylistingstyle;
+	[SGPLOT Statements]
+	```
 
 ### Modifying Graph Templates
 
 1. Obtain the source code
-```
-PROC TEMPLATE;
-      SOURCE Stat.Lifetest.Graphics.ProductLimitSurvival;
-RUN;
-```
+	```
+	PROC TEMPLATE;
+      	    SOURCE Stat.Lifetest.Graphics.ProductLimitSurvival;
+	RUN;
+	```
 
 2. Modify the code
-```
-PROC TEMPLATE;
-    DEFINE Stat.Lifetest.Graphics.ProductLimitSurvival;
-    SOURCE Stat.Lifetest.Graphics.ProductLimitSurvival;
-    	[make desired changes in code]
-    END;
-RUN;
-```
+	```
+	PROC TEMPLATE;
+    	    DEFINE Stat.Lifetest.Graphics.ProductLimitSurvival;
+    	    SOURCE Stat.Lifetest.Graphics.ProductLimitSurvival;
+    		[make desired changes in code]
+    	END;
+	RUN;
+	```
 
 3. Generate the plot
-```
-PROC LIFETEST DATA=db PLOTS=S;
-    [statements]
-RUN;
-```
+	```
+	PROC LIFETEST DATA=db PLOTS=S;
+    	    [statements]
+	RUN;
+	```
 
 4. Revert to default template
-```
-PROC TEMPLATE;
-    DELETE Stat.Lifetest.Graphics.ProductLimitSurvival;
-RUN;
-```
+	```
+	PROC TEMPLATE;
+   	    DELETE Stat.Lifetest.Graphics.ProductLimitSurvival;
+	RUN;
+	```
 
 ## Basic Graph Template Functionalities
 
