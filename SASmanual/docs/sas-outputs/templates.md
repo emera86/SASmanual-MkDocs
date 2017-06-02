@@ -9,22 +9,21 @@
 ### Modifying Style Templates
 
 1. Obtain the source code
-
-        ```
-	PROC TEMPLATE;
-    	    SOURCE styles.default;
-	RUN;
-	```
+```
+PROC TEMPLATE;
+SOURCE styles.default;
+RUN;
+```
 
 2. Modify the code
-	```
-	PROC TEMPLATE;
-    	    DEFINE STYLE MyListingStyle;
-    	    PARENT=styles.listing;
-        	[make desired changes in code]
-    	    END;
-	RUN;
-	```
+```
+PROC TEMPLATE;
+    DEFINE STYLE MyListingStyle;
+    PARENT=styles.listing;
+        [make desired changes in code]
+    END;
+RUN;
+```
 
 3. Generate the plot
 	```
