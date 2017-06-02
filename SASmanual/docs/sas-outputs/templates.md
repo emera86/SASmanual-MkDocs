@@ -9,6 +9,7 @@
 ### Modifying Style Templates
 
 1. Obtain the source code
+
         ```
 	PROC TEMPLATE;
     	    SOURCE styles.default;
