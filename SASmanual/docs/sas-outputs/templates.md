@@ -26,10 +26,10 @@ RUN;
 ```
 
 3. Generate the plot
-	```
-	ODS LISTING STYLE=mylistingstyle;
-	[SGPLOT Statements]
-	```
+```
+ODS LISTING STYLE=mylistingstyle;
+[SGPLOT Statements]
+```
 
 ### Modifying Graph Templates
 
