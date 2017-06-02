@@ -7,9 +7,9 @@ Enjoy! :)
 ---
 
 If this is your starting point with SAS programming, maybe these readings could be useful:
+
 * [Getting Started with SAS Programming](https://support.sas.com/edu/OLTRN/ECPRG193/m411/m411_5_a_sum.htm)
 * [Working with SAS Programs](https://support.sas.com/edu/OLTRN/ECPRG193/m412/m412_3_a_sum.htm)
-
 * Print out the available SAS packages according to your license and the expiration dates: 
 
 ```
