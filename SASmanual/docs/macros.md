@@ -1,6 +1,8 @@
 You can learn about macros in the **SAS Macro Language 1: Essentials course**.
 
 [Here](http://jiangtanghu.com/blog/2011/11/08/my-collection-of-sas-macro-repositories/) you have some macro repositories.
+
+How to define [optional macro arguments](https://communities.sas.com/t5/Base-SAS-Programming/how-to-define-optional-macro-parameters/td-p/259131).
  
 ## Remove element/string from macro variable 
 
