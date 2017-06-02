@@ -41,6 +41,7 @@ You will get a guide of the color utility macros available:
 ### `SG`Annotation Macros
 
 They can be used within a `DATA` to simplify the process of creating annotation observations.
+
 ```
   %SGARROW
   %SGPOLYGON
