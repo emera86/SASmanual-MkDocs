@@ -4,7 +4,7 @@ In order to produce outputs from SAS, the three more common `ODS` techniques, th
 
 |                   **RTF**             |                  **PDF**                   |     **HTML**        |
 |:---------------------------------------:|:--------------------------------------------:|:--------------------:|
-| BODYTITLE <\br> STARTPAGE=NO <\br> KEEPN <\br> NOTOC_DATA | BOOKMARKGEN=NO STARTPAGE=NO COMPRESS=9 TEXT= | STYLE=SASWEB RS=NONE |
+| BODYTITLE <br> STARTPAGE=NO <br> KEEPN <br> NOTOC_DATA | BOOKMARKGEN=NO STARTPAGE=NO COMPRESS=9 TEXT= | STYLE=SASWEB RS=NONE |
 
 ## PROC PRINT
 
