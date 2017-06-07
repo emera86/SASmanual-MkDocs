@@ -6,6 +6,8 @@ In order to produce outputs from SAS, the three more common `ODS` techniques, th
 |:---------------------------------------:|:--------------------------------------------:|:--------------------:|
 | BODYTITLE <br> STARTPAGE=NO <br> KEEPN <br> NOTOC_DATA | BOOKMARKGEN=NO <br> STARTPAGE=NO <br> COMPRESS=9 <br> TEXT= | STYLE=SASWEB <br> RS=NONE |
 
+For an explanation of the options, refer to [this page](http://www2.sas.com/proceedings/forum2007/021-2007.pdf).
+
 ## PROC PRINT
 
 ## PROC TABULATE
