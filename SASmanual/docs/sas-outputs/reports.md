@@ -4,9 +4,9 @@ In order to produce outputs from SAS, the three more common `ODS` techniques, th
 
 |                   **RTF**             |                  **PDF**                   |     **HTML**        |
 |:---------------------------------------:|:--------------------------------------------:|:--------------------:|
-| BODYTITLE <br> STARTPAGE=NO <br> KEEPN <br> NOTOC_DATA | BOOKMARKGEN=NO <br> STARTPAGE=NO <br> COMPRESS=9 <br> TEXT= | STYLE=SASWEB <br> RS=NONE |
+| `BODYTITLE` <br> `STARTPAGE=NO` <br> `KEEPN` <br> `NOTOC_DATA` / `TOC_DATA` <br> `CONTENTS` <br> `COLUMNS=` <br> `TEXT=` | `BOOKMARKGEN=NO` <br> `STARTPAGE=NO` <br> `COMPRESS=9` <br> `TEXT=` | `STYLE=SASWEB` <br> `RS=NONE` |
 
-For an explanation of the options, refer to [this page](http://www2.sas.com/proceedings/forum2007/021-2007.pdf).
+For an explanation of the options, refer to [this page](http://www2.sas.com/proceedings/forum2007/021-2007.pdf) or to the [`ODS` User's Guide](https://support.sas.com/documentation/cdl/en/odsug/69832/HTML/default/viewer.htm#titlepage.htm).
 
 ## PROC PRINT
 
