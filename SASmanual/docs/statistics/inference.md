@@ -2,7 +2,7 @@
 
 How to **verify the assumptions** and **diagnose problems** that you encounter in **linear regression**?
 
-##Examining Residuals
+## Examining Residuals
 You can use the **residual values** (difference between each observed value of $Y$ and its predicted value) from the regression analysis to verify the **assumptions of the linear regression**. Residuals are estimates of the errors, so you can **plot the residuals to check the assumptions of the errors**.
 
 * You can plot residuals vs the predicted values to check for **violations of equal variances**
@@ -33,7 +33,7 @@ QUIT;
 * `RESIDUALBYPREDICTED` requests a plot of residuals by predicted values to verify the equal variance assumption, the independence assumption and model adequacy
 * `RESIDUALS` requests a panel of plots of residuals by the predictor variables in the model: if any of the *Residual by Regressors* plots show signs of unequal variance, we can determine which predictor variable is involved in the problem
 
-##Identifying Influential Observations
+## Identifying Influential Observations
 
 An influential observation is different from an outlier. An **outlier** is an unusual observation that has a large residual compare to the rest of the points. An **influential observation** can sometimes have a large residual compared to the rest of the points, but it is an observation so far away from the rest of the data that it singlehandedly exerts influence on the slope of the regression line.
 
