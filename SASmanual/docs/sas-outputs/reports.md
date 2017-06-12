@@ -8,6 +8,12 @@ In order to produce outputs from SAS, the three more common `ODS` techniques, th
 
 For an explanation of the options, refer to [this page](http://www2.sas.com/proceedings/forum2007/021-2007.pdf) or to the [`ODS` User's Guide](https://support.sas.com/documentation/cdl/en/odsug/69832/HTML/default/viewer.htm#titlepage.htm).
 
+**Set the SAS system options.** The `NODATE` option suppresses the display of the date and time in the output. `PAGENO=` specifies the starting page number. `LINESIZE=` specifies the output line length, and `PAGESIZE=` specifies the number of lines on an output page.
+
+```
+OPTIONS NODATE PAGENO=1 LINESIZE=80 PAGESIZE=40;
+```
+
 ## PROC PRINT
 
 ## PROC TABULATE
