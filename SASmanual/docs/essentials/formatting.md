@@ -102,6 +102,19 @@ OPTIONS FMTSEARCH = (libref1 libref2... librefn)
 * The `FMTSEARCH` system option controls the order in which format catalogs are searched until the desired member is found.
 * The `WORK.FORMATS` catalog is always searched first, unless it appears in the `FMTSEARCH` list.
 
+### [`PROC FORMAT`'s `PICTURE` statement](http://support.sas.com/documentation/cdl/en/proc/70377/HTML/default/viewer.htm#p0n990vq8gxca6n1vnsracr6jp2c.htm)
+
+`LOW-HIGH` ensures that all values are included in the range. The `MULT=` statement option specifies that each value is multiplied by 1.61. The `PREFIX=` statement adds a US dollar sign to any number that you format. The picture contains six digit selectors, five for the salary and one for the dollar sign prefix.
+
+```
+PROC FORMAT;
+    PICTURE pct (round)   low-high ='0009.9%)'  (mult=10 prefix='(');
+    PICTURE pctl (round)  low-high ='0000.00%)' (mult=100 prefix='(');
+    PICTURE numero        low-high ="0000000)"  (prefix='(N=');
+    PICTURE uscurrency    low-high='000,000'    (mult=1.61 prefix='$');
+RUN;
+```
+
 ## Examples
 
 ### How to order categorical variables
