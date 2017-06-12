@@ -134,7 +134,7 @@ PROC PRINT DATA=influential;
 RUN;
 ```
 
-* `PROC GLMSELECT` automatically creates the `&_GLSIND` macro variable which stores the list of effects that are in the model whose variable order you can check in the *Influence Diagnostics* panel
+* `PROC GLMSELECT` automatically creates the `&_GLSIND` macro variable which stores the list of effects that are in the model whose variable order can be checked in the *Influence Diagnostics* panel
 * The `ODS` statement takes the data that creates each of the requested plots and saves it in the specified data set
 * The `LABEL` option includes a label for the extreme observations in the plot (labeled with the observation numbers if there is not ID specified)
 
