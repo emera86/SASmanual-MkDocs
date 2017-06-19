@@ -21,11 +21,13 @@ pages:
       - 'Model Post-Fitting for Inference': 'statistics/inference.md'
       - 'Categorical Data Analysis': 'statistics/categorical-data.md'
       - 'Model Building and Scoring for Prediction': 'statistics/prediction.md'
+    - Other analysis:
+      - 'Dealing with Missing Data': 'other-analysis/missing_data.md'
+      - 'Propensity Score': 'other-analysis/propensity-score.md'
     - SAS outputs:
       - 'Reports': 'sas-outputs/reports.md'
       - 'Graphs and Plots': 'sas-outputs/graphs.md'
       - 'Templates': 'sas-outputs/templates.md'
-    - Dealing with Missing Data: missing_data.md
     - Using Macros: macros.md
     - Miscellanea: miscellanea.md
 
