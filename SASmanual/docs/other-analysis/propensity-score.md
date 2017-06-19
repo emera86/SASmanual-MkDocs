@@ -208,3 +208,7 @@ ods select all;
 
 %mend PSMatching;
 ```
+
+## `PROC PSMATCH`
+
+[Here](http://documentation.sas.com/?docsetId=statug&docsetVersion=14.2&docsetTarget=statug_psmatch_overview.htm&locale=en) you can find the documentation of this procedure. 
