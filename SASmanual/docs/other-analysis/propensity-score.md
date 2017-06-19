@@ -211,4 +211,4 @@ ods select all;
 
 ## `PROC PSMATCH`
 
-[Here](http://documentation.sas.com/?docsetId=statug&docsetVersion=14.2&docsetTarget=statug_psmatch_overview.htm&locale=en) you can find the documentation of this procedure. 
+[Here](http://documentation.sas.com/?docsetId=statug&docsetVersion=14.2&docsetTarget=statug_psmatch_overview.htm&locale=en) and [here](https://support.sas.com/documentation/onlinedoc/stat/142/psmatch.pdf) you can find the documentation of this procedure. 
