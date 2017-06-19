@@ -42,6 +42,7 @@ We match each untreated subject to at most one treated subject. Once an untreate
 * Local optimal, greedy or nearest available neighbor matching: selects a treated subject and then selects as a matched control subject the one whose propensity score is closest to that of the treated subject (if multiple untreated subjects are equally close to the treated subject, one of these untreated subjects is selected at random). In each iteration, the best (optimal) control is chosen, but this process does not guarantee that the total distance between propensity scores is minimized.
     
 Four different approaches:
+
     * Sequentially treated subjects from highest to lowest propensity score
     * Sequentially treated subjects from lowest to highest propensity score
     * Sequentially treated subjects in the order of the best possible match (the first selected treated subject is that treated subject who is closest to an untreated subject and so on)
@@ -60,7 +61,7 @@ Four different approaches:
 
 !!! note
     Optimal matching and greedy nearest neighbor matching on the propensity score will result in all treated subjects being matched to an untreated subject (assuming that the number of untreated subjects is at least as large as the number of treated subjects). However, greedy nearest neighbor matching within specified caliper widths may not result in all treated subjects being matched to an untreated subject, because for some treated subjects, there may not be any untreated subjects who are unmatched and whose propensity score lies within the specified caliper distance of that of the treated subject. The objective of the caliper matching is to avoid bad matches.
-		
+    
 #### Methods with replacement
 
 Permits the same untreated subject to be matched to multiple treated subjects (because untreated subjects are recycled or allowed to be included in multiple matched sets, the order in which the treated subjects are selected has no effect on the formation of matched pairs). Matching with replacement minimizes the propensity score distance between the matched units since each treated unit is matched to the closest control, even if the control has been selected before.
@@ -86,3 +87,124 @@ where $S^{-1}$ is the pooled variance-covariance matrix and x and y are multivar
 matrix is an identity matrix the Mahalanobis metric is reduced to the familiar Euclidean metric. Usually the Mahalanobis metric
 matching includes the propensity score and other covariates that are considered to be important and are hoped to be balanced
 (Rosenbaum and Rubin 1985).
+
+## PSMatching Macro
+
+With the macro [`PSMatching.sas`](http://www2.sas.com/proceedings/forum2007/185-2007.pdf) (Coca-Perraillon, 2006) different methods can be applied to calculate the matching once you have the propensity score. First you have to prepare the following input:
+
+* `Treatment` data set containing the treatment cases along with the patient number `idT` and the corresponding propensity score `pscoreT`
+* `Control` data set containing the control cases along with the patient number `idC` and the corresponding propensity score `pscoreC`
+
+The parameters `datatreatment` and `datacontrol` refer to the Treatment and Control datasets and they do not need to be sorted.
+The method parameter can be `NN` (nearest available neighbor), `caliper` or `radius`. Caliper can be any number indicating the
+size of the `caliper` and the parameter `replacement` takes the values of yes or no. All the parameters are case insensitive. If the
+method is NN, the caliper parameter is ignored.
+
+```
+%PSMatching(datatreatment=treatment, datacontrol=control, method=caliper, numberofcontrols=1, caliper=0.2, replacement=no);
+```
+
+Here is the macro code:
+
+```
+%macro PSMatching(datatreatment=, datacontrol=, method=, numberofcontrols=, caliper=,replacement=);
+
+/* Create copies of the treated units if N > 1 */;
+data _Treatment0(drop= i);
+set Treatment;
+do i= 1 to &numberofcontrols;
+RandomNumber= ranuni(12345);
+output;
+end;
+run;
+
+/* Randomly sort both datasets */
+proc sort data= _Treatment0 out= _Treatment(drop= RandomNumber);
+by RandomNumber;
+run;
+data _Control0;
+set Control;
+RandomNumber= ranuni(45678);
+run;
+proc sort data= _Control0 out= _Control(drop= RandomNumber);
+by RandomNumber;
+run;
+data Matched(keep = IdSelectedControl MatchedToTreatID);
+length pscoreC 8;
+length idC 8;
+
+/* Load Control dataset into the hash object */
+if _N_= 1 then do;
+declare hash h(dataset: "_Control", ordered: 'no');
+declare hiter iter('h');
+h.defineKey('idC');
+h.defineData('pscoreC', 'idC');
+h.defineDone();
+call missing(idC, pscoreC);
+end;
+
+/* Open the treatment */
+set _Treatment;
+%if %upcase(&method) ~= RADIUS %then %do;
+retain BestDistance 99;
+%end;
+
+/* Iterate over the hash */
+rc= iter.first();
+if (rc=0) then BestDistance= 99;
+do while (rc = 0);
+
+/* Caliper */
+%if %upcase(&method) = CALIPER %then %do;
+if (pscoreT - &caliper) <= pscoreC <= (pscoreT + &caliper) then do;
+ScoreDistance = abs(pscoreT - pscoreC);
+if ScoreDistance < BestDistance then do;
+BestDistance = ScoreDistance;
+IdSelectedControl = idC;
+MatchedToTreatID = idT;
+end;
+end;
+%end;
+
+/* NN */
+%if %upcase(&method) = NN %then %do;
+ScoreDistance = abs(pscoreT - pscoreC);
+if ScoreDistance < BestDistance then do;
+BestDistance = ScoreDistance;
+IdSelectedControl = idC;
+MatchedToTreatID = idT;
+end;
+%end;
+%if %upcase(&method) = NN or %upcase(&method) = CALIPER %then %do;
+rc = iter.next();
+
+/* Output the best control and remove it */
+if (rc ~= 0) and BestDistance ~=99 then do;
+output;
+%if %upcase(&replacement) = NO %then %do;
+rc1 = h.remove(key: IdSelectedControl);
+%end;
+end;
+%end;
+
+/* Radius */
+%if %upcase(&method) = RADIUS %then %do;
+if (pscoreT - &caliper) <= pscoreC <= (pscoreT + &caliper) then do;
+IdSelectedControl = idC;
+MatchedToTreatID = idT;
+output;
+end;
+rc = iter.next();
+%end;
+end;
+run;
+
+/* Delete temporary tables. Quote for debugging */
+ods select none;
+proc datasets;
+delete _:(gennum=all);
+run;
+ods select all;
+
+%mend PSMatching;
+```
