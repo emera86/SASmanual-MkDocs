@@ -123,7 +123,7 @@ DATA SAS-new-data-set1 SAS-new-data-set2;
 	IF var2 THEN OUTPUT SAS-new-data-set1;
 	ELSE IF var1 and not var2 THEN OUTPUT SAS-new-data-set2;
 	KEEP variable1 variable2 variable5 variable8;
-run;
+RUN;
 ```
 
 ## Merging SAS Data Sets Many-to-Many
