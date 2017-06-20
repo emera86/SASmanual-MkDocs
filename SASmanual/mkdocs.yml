@@ -32,6 +32,8 @@ pages:
     - Using Macros: macros.md
     - Miscellanea: 
       - 'Working with Arrays': 'miscellanea/arrays.md'
+      - 'Execution time': 'miscellanea/execution-time.md'
+      - 'Patient identification': 'miscellanea/patient-identification.md'
 
 extra_javascript: 
     - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
