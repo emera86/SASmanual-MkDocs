@@ -30,7 +30,8 @@ pages:
       - 'Graphs and Plots': 'sas-outputs/graphs.md'
       - 'Templates': 'sas-outputs/templates.md'
     - Using Macros: macros.md
-    - Miscellanea: miscellanea.md
+    - Miscellanea: 
+      - 'Working with Arrays': 'miscellanea/arrays.md'
 
 extra_javascript: 
     - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
