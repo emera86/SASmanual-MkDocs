@@ -125,3 +125,11 @@ DATA SAS-new-data-set1 SAS-new-data-set2;
 	KEEP variable1 variable2 variable5 variable8;
 run;
 ```
+
+## Merging SAS Data Sets Many-to-Many
+
+With the macros [`makewide.sas` and `makelong.sas`](http://www.sascommunity.org/wiki/Transpose_data_with_macro_%25MAKEWIDE_and_%25MAKELONG_(based_on_Proc_TRANSPOSE)) you can 
+
+1. Make one of your data sets wide
+2. Perform a one-to-many merge with the other data set
+3. Make your resultant data set long to obtain the required result
