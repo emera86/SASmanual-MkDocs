@@ -98,7 +98,7 @@ With the macro [`PSMatching.sas`](http://www2.sas.com/proceedings/forum2007/185-
 The parameters `datatreatment` and `datacontrol` refer to the Treatment and Control datasets and they do not need to be sorted.
 The method parameter can be `NN` (nearest available neighbor), `caliper` or `radius`. Caliper can be any number indicating the
 size of the `caliper` and the parameter `replacement` takes the values of yes or no. All the parameters are case insensitive. If the
-method is NN, the caliper parameter is ignored.
+method is `NN`, the caliper parameter is ignored.
 
 ```
 %PSMatching(datatreatment=treatment, datacontrol=control, method=caliper, numberofcontrols=1, caliper=0.2, replacement=no);
