@@ -20,7 +20,7 @@ RUN;
 
 This kind of analysis are commonly used in observacional studies on which the patient is not randomized to a certain group but it belongs to it due to a certain diagnostic. In order to correct the possible effect of unbalanced population groups, **the propensity score value can be included in the model** as a way to isolate the effects due to the treatment from the baseline characteristics.
 
-## Matching methods
+## Matching on the Propensity Score
 
 After estimating the propensity scores, they are used to group observations that are close to each other. One way of
 accomplishing this is to classify treated and untreated observations into subgroups and then separately compare the outcome
@@ -88,7 +88,7 @@ matrix is an identity matrix the Mahalanobis metric is reduced to the familiar E
 matching includes the propensity score and other covariates that are considered to be important and are hoped to be balanced
 (Rosenbaum and Rubin 1985).
 
-## PSMatching Macro
+### PSMatching Macro
 
 With the macro [`PSMatching.sas`](http://www2.sas.com/proceedings/forum2007/185-2007.pdf) (Coca-Perraillon, 2006) different methods can be applied to calculate the matching once you have the propensity score. First you have to prepare the following input:
 
@@ -209,6 +209,12 @@ ods select all;
 %mend PSMatching;
 ```
 
-## `PROC PSMATCH`
+### `PROC PSMATCH`
 
 [Here](http://documentation.sas.com/?docsetId=statug&docsetVersion=14.2&docsetTarget=statug_psmatch_overview.htm&locale=en) and [here](https://support.sas.com/documentation/onlinedoc/stat/142/psmatch.pdf) you can find the documentation of this procedure. 
+
+## Stratification on the Propensity Score
+
+Stratification on the propensity score involves **stratifying subjects into mutually exclusive subsets based on their estimated propensity score**. Subjects are ranked according to their estimated propensity score. Subjects are then stratified into subsets based on previously defined thresholds of the estimated propensity score. A common approach is to **divide subjects into five equal-size groups using the quintiles of the estimated propensity score**. Rosenbaum and Rubin (1984) stated that stratifying on the quintiles of the propensity score eliminates approximately 90% of the bias due to measured confounders when estimating a linear treatment effect. Within each propensity score stratum, treated and untreated subjects will have roughly similar values of the propensity score. Therefore, when the propensity score has been correctly specified, the distribution of measured baseline covariates will be approximately similar between treated and untreated subjects within the same stratum.
+
+More info on this topic [here](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3144483/).
