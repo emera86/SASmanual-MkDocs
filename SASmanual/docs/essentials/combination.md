@@ -19,8 +19,8 @@ RUN;
 ```
 
 - The name change affects the PDV and the output data set, but has no effect on the input data set
-- The **variable attributes** are assigned from the **first data set** in the SET statement
-- You will get an **error** in the DATA step if a variable is defined with **different data types** in the files that you are trying to concatenate
+- The **variable attributes** are assigned from the **first data set** in the `SET` statement
+- You will get an **error** in the `DATA` step if a variable is defined with **different data types** in the files that you are trying to concatenate
 
 ## Merging SAS Data Sets One-to-One
 
@@ -28,7 +28,7 @@ RUN;
 
 - The **match-merging** is a process based on the values of common variables
 - Data sets are merged in the order that they appear in the MERGE statement
-- You may need to **SORT** the files by the **BY-variable(s)** before merging the files
+- You may need to `SORT` the files by the `BY-variable(s)` before merging the files
 
 ```
 DATA SAS-data-set;
@@ -54,13 +54,13 @@ DATA SAS-data-set;
 RUN;
 ```
 
-*In a **one-to-many merge**, does it matter which data set is listed first in the MERGE statement?*
+*In a **one-to-many merge**, does it matter which data set is listed first in the `MERGE` statement?*
 
-When you reverse the order of the data sets in the MERGE statement, the results are the same, but the order of the variables is different. SAS performs a **many-to-one merge**.
+When you reverse the order of the data sets in the `MERGE` statement, the results are the same, but the order of the variables is different. SAS performs a **many-to-one merge**.
 
 ---
 
-**MERGENOBY** (= NOWARN (default) | WARN | ERROR) controls whether a message is issued when MERGE processing occurs without an associated BY statement
+`MERGENOBY` (`= NOWARN (default) | WARN | ERROR`) controls whether a message is issued when `MERGE` processing occurs without an associated `BY` statement
 
 * Performing a merge without a BY statement merges the observations based on their positions
 * This is almost never done intentionally and can lead to unexpected results
@@ -87,7 +87,7 @@ DATA SAS-data-set;
 RUN;
 ```
 
-* When you spefify the **IN** option after an input data set in the MERGE statement, SAS creates a **temporary numeric variable** that indicates whether the data set contributed data to the current observation (0 = it did not contribute to the current observation, 1 = it did contribute)
+* When you spefify the `IN` option after an input data set in the `MERGE` statement, SAS creates a **temporary numeric variable** that indicates whether the data set contributed data to the current observation (0 = it did not contribute to the current observation, 1 = it did contribute)
 * These variables are only available **during execution**
 
 ```
@@ -100,7 +100,7 @@ DATA SAS-data-set;
 RUN;
 ```
 
-- ***Matches***
+* ***Matches***
 
 ```
 IF variable1 = 1 and variable2 = 1 
@@ -111,7 +111,7 @@ IF variable1 and variable2
 
 ```
 IF variable1 = 0 or not variable2 = 0
-IF not variable1 or not variable2`
+IF not variable1 or not variable2
 ```
 
 ***E.g.:***<br>
