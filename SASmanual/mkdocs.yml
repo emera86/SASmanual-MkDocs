@@ -24,6 +24,7 @@ pages:
     - Other analysis:
       - 'Dealing with Missing Data': 'other-analysis/missing-data.md'
       - 'Propensity Score': 'other-analysis/propensity-score.md'
+      - 'Survival Analysis': 'other-analysis/survival-analysis.md'
     - SAS outputs:
       - 'Reports': 'sas-outputs/reports.md'
       - 'Graphs and Plots': 'sas-outputs/graphs.md'
