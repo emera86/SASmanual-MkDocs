@@ -1,6 +1,6 @@
 ## Propensity Score
 
-### What is it and what is it for
+### What is it?
 
 The objective of randomization in statistics is to obtain groups that are comparable in terms of both observed and unobserved characteristics. When randomization is not possible, causal inference is complicated by the fact that a group that received a treatment or experienced an event maybe very different from another group that did not experience the event or receive the treatment. Thus, it is **not clear whether a difference in certain outcome of interest is due to the treatment or is the product of prior differences among groups**. Propensity score methods were developed to facilitate the **creation of comparison groups that are similar in terms of the distribution of observed characteristics**.
 
@@ -62,7 +62,7 @@ Four different approaches:
 !!! note
     Optimal matching and greedy nearest neighbor matching on the propensity score will result in all treated subjects being matched to an untreated subject (assuming that the number of untreated subjects is at least as large as the number of treated subjects). However, greedy nearest neighbor matching within specified caliper widths may not result in all treated subjects being matched to an untreated subject, because for some treated subjects, there may not be any untreated subjects who are unmatched and whose propensity score lies within the specified caliper distance of that of the treated subject. The objective of the caliper matching is to avoid bad matches.
     
-#### Methods with replacement
+#### Methods with Replacement
 
 Permits the same untreated subject to be matched to multiple treated subjects (because untreated subjects are recycled or allowed to be included in multiple matched sets, the order in which the treated subjects are selected has no effect on the formation of matched pairs). Matching with replacement minimizes the propensity score distance between the matched units since each treated unit is matched to the closest control, even if the control has been selected before.
 
