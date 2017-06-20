@@ -24,6 +24,7 @@ pages:
     - Other analysis:
       - 'Dealing with Missing Data': 'other-analysis/missing-data.md'
       - 'Propensity Score': 'other-analysis/propensity-score.md'
+      - 'ROC curve': 'other-analysis/roc-curve.md'
       - 'Survival Analysis': 'other-analysis/survival-analysis.md'
     - SAS outputs:
       - 'Reports': 'sas-outputs/reports.md'
