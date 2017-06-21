@@ -15,6 +15,21 @@ How to define [optional macro arguments](https://communities.sas.com/t5/Base-SAS
 %put &=list;     /* Check list contents after */
 ```
 
+## Call a Macro for a List of Variable Names
+
+```
+%macro runall(paramlist);
+ %let num = %sysfunc(countw(&paramlist));
+	%local i;
+	%do i =1 %to &num;
+		%let parameter&i = %scan(&paramlist, &i);
+		%macro_analysis(variablename=&&parameter&i);
+	%end;
+%mend;
+
+%runall(item1 item2 item3 item4 item5);
+```
+
 ## Macros Available in SAS 
 
 Check this [powerpoint](https://www.google.es/url?sa=t&rct=j&q=&esrc=s&source=web&cd=5&ved=0ahUKEwjnkNj-p5zUAhUB2RQKHR9KA3MQFghHMAQ&url=http%3A%2F%2Fwww.sascommunity.org%2Fmwiki%2Fimages%2Ff%2Ff2%2F5_Macros.pptx&usg=AFQjCNHr9cDvdo8lzpMwXfZU6qaAxV1-vg&sig2=hWHrTpexhuvP2vnAOIjEFA) presentation for more tips.
