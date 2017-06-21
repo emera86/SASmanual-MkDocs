@@ -21,12 +21,15 @@ pages:
       - 'Model Post-Fitting for Inference': 'statistics/inference.md'
       - 'Categorical Data Analysis': 'statistics/categorical-data.md'
       - 'Model Building and Scoring for Prediction': 'statistics/prediction.md'
-    - Other analysis:
+    - Other Analysis:
       - 'Dealing with Missing Data': 'other-analysis/missing-data.md'
       - 'Propensity Score': 'other-analysis/propensity-score.md'
       - 'ROC curve': 'other-analysis/roc-curve.md'
       - 'Survival Analysis': 'other-analysis/survival-analysis.md'
-    - SAS outputs:
+    - Specific Procedures:
+      - 'PROC GLIMMIX': 'procedures/glimmix.md'
+      - 'PROC MIXED': 'procedures/mixed.md'
+    - SAS Outputs:
       - 'Reports': 'sas-outputs/reports.md'
       - 'Graphs and Plots': 'sas-outputs/graphs.md'
       - 'Templates': 'sas-outputs/templates.md'
