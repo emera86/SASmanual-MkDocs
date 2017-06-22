@@ -1,4 +1,5 @@
-Check out [this review](http://www.edmeasurement.net/surveydata/Tsikriktsis%202005.pdf) on techniques for treating missing data.
+!!! seealso
+    Check out [this review](http://www.edmeasurement.net/surveydata/Tsikriktsis%202005.pdf) on techniques for treating missing data.
 
 ## Missing Data Mechanisms and Patterns
 
