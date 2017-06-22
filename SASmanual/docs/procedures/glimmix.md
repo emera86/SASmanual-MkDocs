@@ -47,4 +47,4 @@ RUN;
 !!! note
     * For more details check the [SAS documentation](http://documentation.sas.com/?docsetId=statug&docsetTarget=statug_glimmix_details49.htm&docsetVersion=14.2&locale=es)
     * An example different procedures (`PROC LOGISTIC` and `PROC GLIMMIX`) can be found [here](http://support.sas.com/kb/24/455.html)
-    * Some other options are also discussed [here](http://support.sas.com/resources/papers/proceedings11/216-2011.pdf)
+    * Some other options are also discussed [here](http://support.sas.com/resources/papers/proceedings11/216-2011.pdf) and [here](https://support.sas.com/resources/papers/proceedings11/351-2011.pdf)
