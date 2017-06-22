@@ -35,15 +35,24 @@ In models with `LINK=LOGIT | GLOGIT | CLOGIT`, you can obtain estimates of odds 
 By default `LSMEANS` produces estimates on the **logit scale**. The `ILINK` option on the `LSMEANS` statement requests that the estimates be transformed back to the scale of the original data. The `LSMEANS` output will include estimates of the probability of each combination of the predictors interactions included in your model. The `CL` option requests confidence intervals for the estimates. For nonnormal data, the `EXP` and `ILINK` options give you a way to obtain the quantity of interest on the scale of the mean (inverse link). Results presented in this fashion can be much easier to interpret than data on the link scale. 
 
 ```
+treatarm = {1, 2}
+visit = {1, 2, 3, 4, 5}
+
 PROC GLIMMIX DATA=SAS-data-set;
-  CLASS categorical1 categorical2;
-  MODEL response = continuous2 continuous2 categorical1 / DIST=BINARY LINK=LOGIT ODDSRATIO SOLUTION CL;
-  RANDOM intercept / SUBJECT=categorical2 SOLUTION CL;
+  CLASS categorical-variable(s);
+  MODEL response = predictor(s) / DIST=BINARY LINK=LOGIT ODDSRATIO SOLUTION CL;
+  RANDOM intercept / SUBJECT=repeated-variable SOLUTION CL;
   COVTEST / WALD;
+  LSMEANS treatarm*visit / SLICEDIFF=visit ODDSRATIO ILINK CL;
+  LSMESTIMATES treatarm*visit "OR Visit 1" 1 0 0 0 0 -1 0 0 0 0,
+               treatarm*visit "OR Visit 2" 0 1 0 0 0 0 -1 0 0 0 / EXP ILINK CL;
 RUN;
 ```
 
-!!! note
+!!! warning
+    Odds ratios are computed only for the logit, cumulative logit, or the generalized logit link function.
+
+!!! seealso
     * For more details check the [SAS documentation](http://documentation.sas.com/?docsetId=statug&docsetTarget=statug_glimmix_details49.htm&docsetVersion=14.2&locale=es)
     * An example different procedures (`PROC LOGISTIC` and `PROC GLIMMIX`) can be found [here](http://support.sas.com/kb/24/455.html)
     * Some other options are also discussed [here](http://support.sas.com/resources/papers/proceedings11/216-2011.pdf) and [here](https://support.sas.com/resources/papers/proceedings11/351-2011.pdf)
