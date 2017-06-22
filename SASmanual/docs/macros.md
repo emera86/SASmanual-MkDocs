@@ -39,10 +39,13 @@ Check this [powerpoint](https://www.google.es/url?sa=t&rct=j&q=&esrc=s&source=we
 To initiate these macros in your current session you call the `%COLORMAC` macro.
 
 If you submit the following line:
+
 ```
 %HELPCLR(HELP);
 ```
+
 You will get a guide of the color utility macros available:
+
 ```
                Color Utility Macros Help              
                                                       
@@ -132,4 +135,3 @@ They can be used within a `DATA` to simplify the process of creating annotation 
 title;
 options label;
 ```
-
