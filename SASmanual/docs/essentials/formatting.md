@@ -47,6 +47,9 @@ var_propercase = PROPCASE(var_uppercase);
 
 !!! note
     Dates before 01/01/1960 (0 value) will appear as negative numbers.
+    
+!!! warning
+    If you ever have to deal with hours (4-character strings with the military hour) you better create an auxiliary character variable with a `:` in between hours and minutes or translate it into seconds (numeric) before applying an `HOURw.d`or `HHMMw.d` format. 
 
 ## Creating and Applying User-Defined Formats
 
