@@ -26,7 +26,7 @@ RUN;
     * `LINK=CUMLOGIT | CLOGIT` to use the **cumulative logit** link
 * `DIST` specifies the built-in (conditional) probability distribution of the data ([distrubutions available and their corresponfing default link functions](http://documentation.sas.com/?docsetId=statug&docsetTarget=statug_glimmix_syntax17.htm&docsetVersion=14.2&locale=es#statug.glimmix.gmxdisttable))
 
-## Crossing Odds Ratio Estimation
+## Estimating an Odds Ratio for a Variable Involved in an Interaction
 
 In models with `LINK=LOGIT | GLOGIT | CLOGIT`, you can obtain estimates of odds ratios through the `ODDSRATIO` options in the `PROC GLIMMIX`, `LSMEANS`, and `MODEL` statements. Note that for these link functions the `EXP` option in the `ESTIMATE` and `LSMESTIMATE` statements also produces odds or odds ratios.
 
@@ -43,3 +43,5 @@ PROC GLIMMIX DATA=SAS-data-set;
 RUN;
 ```
 
+!!! note
+    An example different procedures (`PROC LOGISTIC` and `PROC GLIMMIX`) can be found [here](http://support.sas.com/kb/24/455.html).
