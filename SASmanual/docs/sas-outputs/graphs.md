@@ -29,6 +29,12 @@ ODS SELECT output-name1 output-name2 output-name3;
 ODS SELECT ALL;  /* Reset this option to the default */
 ```
 
+Yo can keeps some of the outputs in SAS-data-sets:
+
+```
+ODS OUTPUT output-name1=generated-data-set1 output-name1=generated-data-set2 output-name1=generated-data-set3;
+```
+
 ---
 
 * Remove date and pagination from the automatic output header:
