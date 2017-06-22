@@ -63,7 +63,8 @@ Single imputation denotes that the missing value is replaced by a value. However
 
 ### Multiple imputation
 
-Visit [this website](http://lnr.li/YdyXo) for more information.
+!!! seealso
+    Visit [this website](http://lnr.li/YdyXo) for more information.
 
 [*Bayesian Methods for Completing Data*](http://www.bias-project.org.uk/Missing2012/Lectures.pdf) are simply methods based on conditional probability.
 
@@ -113,6 +114,7 @@ based on actual and re-estimated missing data. The approach continues until ther
 ## Summary
 
 The best technique to deal with your missing data depends on:
+
  1. The amount of missing data (what percentage of data is missing)
  2. Type of missing data (MAR, MCAR, NMAR)
 
