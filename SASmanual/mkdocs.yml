@@ -43,6 +43,7 @@ extra_javascript:
     - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
     - https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML
     - js/mathjaxhelper.js
+    - superfences
 
 markdown_extensions:
     - mdx_math
