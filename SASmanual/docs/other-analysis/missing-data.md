@@ -3,11 +3,14 @@
 
 ## Missing Data Mechanisms and Patterns
 
-To use the more appropriate method to deal with your missing data, you should consider the missing data mechanism of your data which describes the process that is believed to have generated the missing values:
+To use the more appropriate method to deal with your missing data, you should consider the missing data mechanism of your data which describes the process that is believed to have generated the missing values. According to [Rubin (1976)](https://doi.org/10.1093/biomet/63.3.581), there are three mechanisms under which missing data can occur:
 
 * **Missing completely at random (MCAR)**:  neither the variables in the dataset nor the unobserved value of the variable itself predict whether a value will be missing
 * **Missing at random (MAR)**: other variables (but not the variable itself) in the dataset can be used to predict missingness on a given variable
 * **Missing not at random (MNAR)**: value of the unobserved variable itself predicts missingness
+
+!!! seealso
+    Check out the formal description of each missing mechanism in the "Missing data mechanisms" section of [this](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3701793/) paper.
 
 ## Objetives of Imputation
 
