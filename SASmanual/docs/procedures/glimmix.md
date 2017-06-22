@@ -32,7 +32,7 @@ In models with `LINK=LOGIT | GLOGIT | CLOGIT`, you can obtain estimates of odds 
 
 `EXP` requests exponentiation of the estimate (`ESTIMATE` statement) or least squares means estimate (`LSMESTIMATE` statement). If you specify the `CL` or `ALPHA=` option, the (adjusted) confidence bounds are also exponentiated.
 
-For more details check the [SAS documentation](http://documentation.sas.com/?docsetId=statug&docsetTarget=statug_glimmix_details49.htm&docsetVersion=14.2&locale=es).
+
 
 ```
 PROC GLIMMIX DATA=SAS-data-set;
@@ -44,5 +44,6 @@ RUN;
 ```
 
 !!! note
-    An example different procedures (`PROC LOGISTIC` and `PROC GLIMMIX`) can be found [here](http://support.sas.com/kb/24/455.html).
-    Some other options are also discussed [here](http://support.sas.com/resources/papers/proceedings11/216-2011.pdf).
+    * For more details check the [SAS documentation](http://documentation.sas.com/?docsetId=statug&docsetTarget=statug_glimmix_details49.htm&docsetVersion=14.2&locale=es)
+    * An example different procedures (`PROC LOGISTIC` and `PROC GLIMMIX`) can be found [here](http://support.sas.com/kb/24/455.html)
+    * Some other options are also discussed [here](http://support.sas.com/resources/papers/proceedings11/216-2011.pdf)
