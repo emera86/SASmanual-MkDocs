@@ -28,7 +28,7 @@ RUN;
 
 ## Estimating an Odds Ratio for a Variable Involved in an Interaction
 
-In models with `LINK=LOGIT | GLOGIT | CLOGIT`, you can obtain estimates of odds ratios through the `ODDSRATIO` options in the `PROC GLIMMIX`, `LSMEANS`, and `MODEL` statements. Note that for these link functions the `EXP` option in the `ESTIMATE` and `LSMESTIMATE` statements also produces odds or odds ratios.
+In models with `LINK=LOGIT | GLOGIT | CLOGIT`, you can obtain estimates of odds ratios through the `ODDSRATIO` options in the `PROC GLIMMIX`, `LSMEANS`, and `MODEL` statements. Note that for these link functions the `EXP` option in the `ESTIMATE` and `LSMESTIMATE` statements also produces odds or odds ratios. The `ODDSRATIO` option on the `PROC GLIMMIX` statement, requests odds ratio calculations for main effects. 
 
 `EXP` requests exponentiation of the estimate (`ESTIMATE` statement) or least squares means estimate (`LSMESTIMATE` statement). If you specify the `CL` or `ALPHA=` option, the (adjusted) confidence bounds are also exponentiated.
 
@@ -45,3 +45,4 @@ RUN;
 
 !!! note
     An example different procedures (`PROC LOGISTIC` and `PROC GLIMMIX`) can be found [here](http://support.sas.com/kb/24/455.html).
+    Some other options are also discussed [here](http://support.sas.com/resources/papers/proceedings11/216-2011.pdf).
