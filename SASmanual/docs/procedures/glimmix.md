@@ -32,7 +32,8 @@ In models with `LINK=LOGIT | GLOGIT | CLOGIT`, you can obtain estimates of odds 
 
 `EXP` requests exponentiation of the estimate (`ESTIMATE` statement) or least squares means estimate (`LSMESTIMATE` statement). If you specify the `CL` or `ALPHA=` option, the (adjusted) confidence bounds are also exponentiated.
 
-
+For nonnormal data, the `EXP` and `ILINK` options give you a way to obtain the quantity of interest on the scale of the
+mean (inverse link). Results presented in this fashion can be much easier to interpret than data on the link scale. 
 
 ```
 PROC GLIMMIX DATA=SAS-data-set;
