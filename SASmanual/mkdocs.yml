@@ -27,6 +27,7 @@ pages:
       - 'ROC curve': 'other-analysis/roc-curve.md'
       - 'Survival Analysis': 'other-analysis/survival-analysis.md'
     - Specific Procedures:
+      - 'General notes on regression procedures': 'regression-models.md'
       - 'PROC GLIMMIX': 'procedures/glimmix.md'
       - 'PROC MIXED': 'procedures/mixed.md'
     - SAS Outputs:
