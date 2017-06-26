@@ -77,7 +77,7 @@ RUN;
 * `CHISQ` produces the Pearson chi-square test of association, the likelihood-ratio chi-square and the Mantel-Haenszel: $\sum \frac{(obs. \ freq. - exp. \ freq.)^2}{exp. \ freq.}$
 * `EXPECTED` prints the expected cell frequencies
 * `CELLCHI2` prints each cell's contribution to the total chi-square statistic: $ \frac{(obs. \ freq. - exp. \ freq.)^2}{exp. \ freq.}$
-* `NOCOL` suppresses the printing of the column percentages
+* `NOCOL`/`NOROW` suppresses the printing of the column/row percentages
 * `NOPERCENT` supresses the printing of the cell percentages
 * `RELRISK` (relative risk) prints a table that contains risk ratios (probability ratios) and odds ratios; `PROC FREQ` uses the **classification in the first column** of the crosstabulation table as the **outcome of interest** and the first/second row in the numerator/denominator
 
