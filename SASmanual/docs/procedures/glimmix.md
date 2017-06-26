@@ -36,7 +36,7 @@ By default `LSMEANS` produces estimates on the **logit scale**. The `ILINK` opti
 
 !!! warning
     **Is it correct to assume, if you're using a different link function than `LINK=LOGIT | GLOGIT | CLOGIT`, that the exponentiated estimate can still be interpreted as the Odds Ratio?** 
-    No, that is not correct. The odds ratio only make sense when you are comparing the predicted PROBABILITIES for two or more level of classification variables. If you use `DIST=GAUSSIAN` and `LINK=IDENTITY`, you are merely fitting a linear model to a response that has values 0 and 1.
+    No, that is not correct. The odds ratio only make sense when you are comparing the predicted PROBABILITIES for two or more level of classification variables. If you use `DIST=GAUSSIAN` and `LINK=IDENTITY`, you are merely fitting a linear model to a response that has values 0 and 1. Check [this](https://communities.sas.com/t5/SAS-Statistical-Procedures/Odds-Ratio-Calculation-for-a-link-different-than-LOGIT-CLOGIT/m-p/370446#M19424) dicussion for more information.
 
 ```
 treatarm = {1, 2}
