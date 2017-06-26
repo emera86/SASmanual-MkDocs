@@ -34,6 +34,10 @@ In models with `LINK=LOGIT | GLOGIT | CLOGIT`, you can obtain estimates of odds 
 
 By default `LSMEANS` produces estimates on the **logit scale**. The `ILINK` option on the `LSMEANS` statement requests that the estimates be transformed back to the scale of the original data. The `LSMEANS` output will include estimates of the probability of each combination of the predictors interactions included in your model. The `CL` option requests confidence intervals for the estimates. For nonnormal data, the `EXP` and `ILINK` options give you a way to obtain the quantity of interest on the scale of the mean (inverse link). Results presented in this fashion can be much easier to interpret than data on the link scale. 
 
+!!! warning
+    **Is it correct to assume, if you're using a different link function than `LINK=LOGIT | GLOGIT | CLOGIT`, that the exponentiated estimate can still be interpreted as the Odds Ratio?** 
+    No, that is not correct. The odds ratio only make sense when you are comparing the predicted PROBABILITIES for two or more level of classification variables. If you use `DIST=GAUSSIAN` and `LINK=IDENTITY`, you are merely fitting a linear model to a response that has values 0 and 1.
+
 ```
 treatarm = {1, 2}
 visit = {1, 2, 3, 4, 5}
@@ -48,9 +52,6 @@ PROC GLIMMIX DATA=SAS-data-set;
                treatarm*visit "OR Visit 2" 0 1 0 0 0 0 -1 0 0 0 / EXP ILINK CL;
 RUN;
 ```
-
-!!! warning
-    Odds ratios are computed only for the logit, cumulative logit, or the generalized logit link function.
 
 !!! seealso
     * For more details check the [SAS documentation](http://documentation.sas.com/?docsetId=statug&docsetTarget=statug_glimmix_details49.htm&docsetVersion=14.2&locale=es)
