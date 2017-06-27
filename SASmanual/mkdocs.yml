@@ -23,6 +23,8 @@ pages:
       - 'Model Building and Scoring for Prediction': 'statistics/prediction.md'
     - Other Analysis:
       - 'Dealing with Missing Data': 'other-analysis/missing-data.md'
+      - 'Interim Analysis Design': 'other-analysis/interim-analysis.md'
+      - 'Normality tests': 'other-analysis/normality-tests.md'
       - 'Propensity Score': 'other-analysis/propensity-score.md'
       - 'ROC curve': 'other-analysis/roc-curve.md'
       - 'Survival Analysis': 'other-analysis/survival-analysis.md'
