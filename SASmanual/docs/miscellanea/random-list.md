@@ -1,5 +1,6 @@
 ```
 /* Load library containing patients data set*/
+
 %let path=C:\your-custom-path;
 libname data "&path.\path-to-library";
 
