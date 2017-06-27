@@ -2,7 +2,7 @@
 
 In statistics, the **Shapiro-Wilk test** is used to test the normality of a data set. It is considered one of the most powerful tests for normality contrast, especially for small samples ($n<50$).
 
-Monte Carlo simulations have found that Shapiro–Wilk has **the best power for a given significance**, followed closely by Anderson–Darling when comparing the Shapiro–Wilk, Kolmogorov–Smirnov, Lilliefors, and Anderson–Darling tests.
+Monte Carlo simulations have found that Shapiro–Wilk has **the best power for a given significance**, followed closely by Anderson–Darling when comparing to the Kolmogorov–Smirnov, Lilliefors, and Anderson–Darling tests.
 
 The null-hypothesis of this test is that the population is normally distributed. Thus,
 
