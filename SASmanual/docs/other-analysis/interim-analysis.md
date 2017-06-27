@@ -6,6 +6,8 @@ A group sequential trial is most useful in situations where it is important to m
 
 A **group sequential design** provides detailed specifications for a group sequential trial. In addition to the usual specification for a fixed-sample design, it provides the total number of stages (the number of interim stages plus a final stage) and a stopping criterion to reject, to accept, or to either reject or accept the null hypothesis at each interim stage. It also provides critical values and the sample size at each stage for the trial.
 
+![Flowchart](http://support.sas.com/documentation/cdl/en/statug/68162/HTML/default/images/seqchart.png)
+
 ## `PROC SEQDESIGN`
 You use the `SEQDESIGN` procedure compute the initial boundary values and required sample sizes for the trial. 
 
