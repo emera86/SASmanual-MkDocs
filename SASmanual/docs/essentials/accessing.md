@@ -43,10 +43,12 @@ RUN;
 QUIT;
 ```
 
-Delete the contents of a library:
+Delete some data sets of a library:
 
 ```
-PROC DATASETS LIB==work MEMTYPE=DATA KILL NOLIST;
+PROC DATASETS LIB=work NOWARN NOLIST NODETAILS; 
+  DELETE data-set1 :suffix prefix: ;
+RUN; 
 QUIT;
 ```
 
