@@ -29,17 +29,24 @@ libname orion "&path";
 
 ---
 
-To erase the association between SAS and a custom library:
+Erase the association between SAS and a custom library:
 
 ```
 LIBNAME libref-name CLEAR;
 ```
 
-To delete all the contents of a library:
+Delete all the contents of a library:
 
 ```
 PROC DATASETS LIB=library-name MEMTYPE=LIB KILL;
 RUN;
+QUIT;
+```
+
+Delete the contents of a library:
+
+```
+PROC DATASETS LIB==work MEMTYPE=DATA KILL NOLIST;
 QUIT;
 ```
 
