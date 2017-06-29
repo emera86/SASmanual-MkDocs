@@ -18,6 +18,16 @@ OPTIONS NODATE PAGENO=1 LINESIZE=80 PAGESIZE=40;
 
 ## PROC TABULATE
 
+```
+PROC TABULATE DATA=SAS-data-set ORDER=FREQ;
+	VAR var1 var2;
+	CLASS AEencoding;
+	CLASS grade / ORDER=FORMATTED;
+	CLASS treatment / ORDER=FORMATTED;
+	TABLE AEencoding='',treatment='Treatment/Grade'*grade=''*( N='N' var1='%'*SUM='') ALL='Total (N=# cases)'*( N='N' var2='%'*SUM='') / BOX="Preferred MeDDRA Term";
+RUN;
+```
+
 ## PROC REPORT
 
 * How to write a header in your tables:
