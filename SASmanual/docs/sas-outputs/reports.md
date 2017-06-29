@@ -24,7 +24,7 @@ PROC TABULATE DATA=SAS-data-set ORDER=FREQ;
 	CLASS AEencoding;
 	CLASS grade / ORDER=FORMATTED;
 	CLASS treatment / ORDER=FORMATTED;
-	TABLE AEencoding='',treatment='Treatment/Grade'*grade=''*( N='N' var1='%'*SUM='') ALL='Total (N=# cases)'*( N='N' var2='%'*SUM='') / BOX="Preferred MeDDRA Term";
+	TABLE AEencoding='', treatment='Treatment/Grade'*grade=''*(N='N' var1='%'*SUM='') ALL='Total (N=# cases)'*(N='N' var2='%'*SUM='') / BOX="Preferred MeDDRA Term";
 RUN;
 ```
 
