@@ -13,3 +13,8 @@ You use the `SEQDESIGN` procedure compute the initial boundary values and requir
 
 ## `PROC SEQTEST`
 You use the `SEQTEST` procedure to compare the test statistic with its boundary values.
+
+
+http://support.sas.com/documentation/cdl/en/statug/68162/HTML/default/viewer.htm#statug_seqdesign_overview01.htm
+https://support.sas.com/resources/papers/proceedings09/311-2009.pdf
+https://support.sas.com/documentation/cdl/en/statug/63033/HTML/default/viewer.htm#statug_seqdesign_sect035.htm
