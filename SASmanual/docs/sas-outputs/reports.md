@@ -30,7 +30,7 @@ RUN;
 
 ## PROC REPORT
 
-* How to write a header in your tables:
+How to write a header/footer in your tables:
 
 ```
 PROC REPORT DATA=sashelp.cars;
@@ -39,6 +39,9 @@ PROC REPORT DATA=sashelp.cars;
 			('2) Label 2' Horsepower Weight Length);
 	COMPUTE BEFORE _PAGE_ / STYLE=HEADER{JUST=L FONTWEIGHT=BOLD COLOR=PURPLE};
 		LINE 'Test of custom header';
+	ENDCOMP;
+	COMPUTE AFTER / STYLE={TEXTDECORATION=UNDERLINE JUST=C COLOR=RED};
+		LINE 'Test of a custom footer ';
 	ENDCOMP;
 RUN;
 ```
