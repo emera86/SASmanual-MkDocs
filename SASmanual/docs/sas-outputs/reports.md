@@ -46,6 +46,24 @@ PROC REPORT DATA=sashelp.cars;
 RUN;
 ```
 
+Specify the `STYLE` of a cell based on other cell's value:
+
+```
+PROC REPORT DATA=SAS-data-set NOWD;
+	COLUMN timeinterval date1 date2;
+	DEFINE timeinterval / DISPLAY NOPRINT; 
+	DEFINE date1 / DISPLAY;
+	DEFINE date2 / DISPLAY;
+	COMPUTE date2;
+		IF timeinterval lt 0 and timeinterval ne . then call define(_col_,"style","style={foreground=red font_weight=bold}");
+		ELSE call define(_col_,"style","style={foreground=green font_weight=bold}");
+	ENDCOMP;
+RUN;
+```
+
+* `DEFINE` the variables involved in your conditional structure before the variable to which you want to apply the new format 
+* `DEFINE` your variables as `DISPLAY NOPRINT` if you want to use them for the conditional structure but you don't want them to appear in your table
+
 !!! seealso
     * [Beyond the Basics: Advanced `PROC REPORT` Tips and Tricks](http://support.sas.com/rnd/papers/sgf07/sgf2007-report.pdf)
     * [Creating a Plan for Your Reports and Avoiding Common Pitfalls in `REPORT` Procedure Coding](http://support.sas.com/resources/papers/proceedings13/366-2013.pdf)
