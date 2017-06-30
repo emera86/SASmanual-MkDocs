@@ -33,6 +33,8 @@ RUN;
 How to write a header/footer in your tables:
 
 ```
+ODS ESCAPECHAR='^';
+
 PROC REPORT DATA=sashelp.cars;
 	WHERE Make = 'Jaguar';
 	COLUMN ('1) Label 1' model Invoice)
@@ -41,7 +43,8 @@ PROC REPORT DATA=sashelp.cars;
 		LINE 'Test of custom header';
 	ENDCOMP;
 	COMPUTE AFTER / STYLE={TEXTDECORATION=UNDERLINE JUST=C COLOR=RED};
-		LINE 'Test of a custom footer ';
+		LINE 'Test of a custom footer';
+		LINE '^S={color=green} Test of a custom footer with a different style';
 	ENDCOMP;
 RUN;
 ```
