@@ -37,6 +37,7 @@ pages:
       - 'Graphs and Plots': 'sas-outputs/graphs.md'
       - 'Templates': 'sas-outputs/templates.md'
     - Using Macros: macros.md
+    - Using Wizard Menus: wizard.md
     - Miscellanea: 
       - 'Working with Arrays': 'miscellanea/arrays.md'
       - 'Execution time': 'miscellanea/execution-time.md'
