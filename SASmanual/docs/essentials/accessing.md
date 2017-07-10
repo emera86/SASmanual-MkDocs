@@ -52,6 +52,13 @@ RUN;
 QUIT;
 ```
 
+Remove data sets:
+
+```
+PROC DELETE DATA=data1 data2 data3;
+RUN;
+```
+
 Copy database **test** into **work**:
 
 ```
@@ -59,10 +66,11 @@ proc copy in=test out=work;
 run;
 ```
 
-Remove data sets:
+Rename data sets:
 
 ```
-PROC DELETE DATA=data1 data2 data3;
+PROC DATASETS LIBRARY=library-name;
+   CHANGE data-set-name1=data-set-new-name1 data-set-name2=data-set-new-name2;
 RUN;
 ```
 
