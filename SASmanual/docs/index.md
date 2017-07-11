@@ -28,3 +28,5 @@ RUN;
 * When you name a process flow `Autoexec`, SAS Enterprise Guide prompts you to run the process flow when you open the project. This makes it easy to recreate your data when you return to the project.
 
 * How to [compare SAS programs](http://blogs.sas.com/content/sasdummy/2015/04/03/compare-sas-programs-in-sas-enterprise-guide/) in SAS Enterprise Guide
+
+* Send an [email](http://support.sas.com/documentation/cdl/en/lestmtsref/63323/HTML/default/viewer.htm#n0ig2krarrz6vtn1aw9zzvtez4qo.htm) with some coding
