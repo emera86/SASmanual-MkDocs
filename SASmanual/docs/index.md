@@ -36,4 +36,14 @@ RUN;
 | Shortcut | Function |
 |----------|----------|
 | Ctrl + I | Beautify code (proper indentation) |
+| Ctrl + Shift + U | Convert to uppercase |
+| Ctrl + Shift + L | Convert to lowercase |
+| Ctrl + / | Wrap selection (or current line) in a comment |
+| Ctrl + Shift + / | Unwrap selection (or current line) from a comment | 
+| Ctrl + G | Go to line (prompts for a line number) |
+| Ctrl + [, Ctrl + ] | Move caret to matching parenthesis/brace |
+| Alt + [, Alt + ] | Move caret to matching DO/END keyword |
+
+!!! seealso
+    [5 keyboard shortcuts in SAS that will change your life](http://blogs.sas.com/content/sasdummy/2013/10/29/five-keyboard-shortcuts/)
 
