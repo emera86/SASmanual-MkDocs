@@ -35,6 +35,7 @@ RUN;
 
 | Shortcut | Function |
 |----------|----------|
+| F3 | Run selection or run all if there's nothing selected |
 | Ctrl + I | Beautify code (proper indentation) |
 | Ctrl + Shift + U | Convert to uppercase |
 | Ctrl + Shift + L | Convert to lowercase |
