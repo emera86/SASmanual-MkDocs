@@ -30,3 +30,10 @@ RUN;
 * How to [compare SAS programs](http://blogs.sas.com/content/sasdummy/2015/04/03/compare-sas-programs-in-sas-enterprise-guide/) in SAS Enterprise Guide
 
 * Send an [email](http://support.sas.com/documentation/cdl/en/lestmtsref/63323/HTML/default/viewer.htm#n0ig2krarrz6vtn1aw9zzvtez4qo.htm) with some coding
+
+### Shortcuts
+
+| Shortcut | Function |
+|----------|----------|
+| Ctrl + I | Beautify code (proper indentation) |
+
