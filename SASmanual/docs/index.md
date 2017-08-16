@@ -13,14 +13,14 @@ If this is your starting point with SAS programming, maybe these readings could 
 * [Interesting configuration tips and tricks](http://support.sas.com/resources/papers/proceedings14/SAS331-2014.pdf)
 * Print out the available SAS packages according to your license and the expiration dates: 
 
-```
+``` sas
 PROC SETINIT; 
 RUN;
 ```
 
 * Comments:
 
-```
+``` sas
 /* comment */
 * comment statement;
 ```
@@ -45,6 +45,6 @@ RUN;
 | Ctrl + [, Ctrl + ] | Move caret to matching parenthesis/brace |
 | Alt + [, Alt + ] | Move caret to matching DO/END keyword |
 
-!!! seealso
-    [5 keyboard shortcuts in SAS that will change your life](http://blogs.sas.com/content/sasdummy/2013/10/29/five-keyboard-shortcuts/)
+!!! summary "See also"
+    * [5 keyboard shortcuts in SAS that will change your life](http://blogs.sas.com/content/sasdummy/2013/10/29/five-keyboard-shortcuts/)
 

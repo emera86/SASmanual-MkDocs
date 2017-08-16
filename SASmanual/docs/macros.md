@@ -6,7 +6,7 @@ How to define [optional macro arguments](https://communities.sas.com/t5/Base-SAS
  
 ## Remove element/string from macro variable 
 
-```
+``` 
 %put &=list;     /* Check list contents before */
 
 %let removefromlist = string_to_remove;
@@ -17,7 +17,7 @@ How to define [optional macro arguments](https://communities.sas.com/t5/Base-SAS
 
 ## Call a Macro for a List of Variable Names
 
-```
+``` 
 %macro runall(paramlist);
  %let num = %sysfunc(countw(&paramlist));
 	%local i;
@@ -46,23 +46,24 @@ If you submit the following line:
 
 You will get a guide of the color utility macros available:
 
-```
-               Color Utility Macros Help              
+``` 
+Color Utility Macros Help              
                                                       
- HELP is currently available for the following macros 
+HELP is currently available for the following macros 
                                                       
         CMY        CMYK       CNS        HLS          
         HVS        RGB        HLS2RGB    RGB2HLS      
                                                                                                           
- Enter %HELPCLR(macroname) for details on each macro, 
-    or %HELPCLR(ALL) for details on all macros.   
- ```
+Enter %HELPCLR(macroname) for details on each macro, 
+or %HELPCLR(ALL) for details on all macros.   
+
+```
  
-### `SG`Annotation Macros
+### `SG` Annotation Macros
 
 They can be used within a `DATA` to simplify the process of creating annotation observations.
 
-```
+``` 
   %SGARROW
   %SGPOLYGON
   %SGIMAGE

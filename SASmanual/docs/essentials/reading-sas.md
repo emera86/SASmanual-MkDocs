@@ -19,7 +19,7 @@ RUN;
 
 ### Other `WHERE` options
 
-* Here's how to set a filter for [WHERE a variable IS MISSING](http://www.sascommunity.org/wiki/Tips:Use_IS_MISSING_and_IS_NULL_with_Numeric_or_Character_Variables)
+* Here's how to set a filter for [`WHERE` a variable `IS MISSING`](http://www.sascommunity.org/wiki/Tips:Use_IS_MISSING_and_IS_NULL_with_Numeric_or_Character_Variables)
 
 ## Customizing a SAS Data Set
 
@@ -28,19 +28,19 @@ How to select a subset of the variables/observations of the original data set:
 ```
 DATA output-SAS-data-set;
     SET input-SAS-data-set;
-    DROP variable-list;        /* original variables to exclude */
-    KEEP variable-list;        /* original variables to include + new variables */
+    DROP variable-list;        /* variables to exclude */
+    KEEP variable-list;        /* variables to include */
 RUN;
 ```
 
-### How SAS processes the **DATA** step
+### How SAS processes the `DATA` step
 
 **Compilation phase**
 
 - SAS scan each DATA step statement for syntax errors and converts the program into machine code if everything's alright. 
 - SAS also creates the program data vector (**PDV**) in memory to hold the current observation.
- - **\_N\_**: iteration number of the DATA step
- - **\_ERROR\_**: its value is 0 is there are no errors (1 if there are some)
+ - `_N_`: iteration number of the DATA step
+ - `_ERROR_`: its value is 0 is there are no errors (1 if there are some)
 - SAS creates the descriptor portion of the new data set (takes the original one, adds the new variables and flags the variables to be dropped). 
 
 **Execution phase**
@@ -112,7 +112,7 @@ QUIT;
 
 ## Adding Permanent Attributes
 
-***Permanent variable labels***
+### Permanent variable labels
 
 ```
 DATA output-SAS-data-set;
@@ -127,10 +127,10 @@ PROC PRINT DATA=output-SAS-data-set label;
 RUN;
 ```
 
-* If you use the **LABEL** statement in the **PROC** step the labels are **temporary** while if you use it in the **DATA** step, SAS **permanently** associates the labels to the variables
-* Labels and formats that you specify in **PROC** steps override the permanent labels in the current step. However, the permanent labels are not changed.
+* If you use the `LABEL` statement in the `PROC` step the labels are **temporary** while if you use it in the `DATA` step, SAS **permanently** associates the labels to the variables
+* Labels and formats that you specify in `PROC` steps override the permanent labels in the current step. However, the permanent labels are not changed.
 
-***Permanent variable formats***
+### Permanent variable formats
 
 ```
 DATA output-SAS-data-set;
