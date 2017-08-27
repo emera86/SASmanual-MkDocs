@@ -1,4 +1,4 @@
-!!! note "Check these pages"
+!!! summary "Check these websites"
     * [Here](https://support.sas.com/resources/papers/proceedings11/281-2011.pdf) are some examples of complex graphs.
     * [Here](http://support.sas.com/documentation/cdl/en/grstatproc/65235/HTML/default/viewer.htm#p07m2vpyq75fgan14m6g5pphnwlr.htm) there are instructions to play with the axis' attributes.
     * [Graphically speaking](http://blogs.sas.com/content/graphicallyspeaking/) blog with useful tips for graphics.
@@ -51,14 +51,14 @@ ODS GRAPHICS / NOBORDER;
 
 * Highlight a certain boxplot and get the plot narrower: 
 ```
-proc sgplot data=sashelp.heart;
+PROC SGPLOT DATA=sashelp.heart;
 	/* The order matters: first thing defined goes to the back */
-	refline 'Coronary Heart Disease' / axis=x 
-    	lineattrs=(thickness=70 color=yellow) transparency=0.5 ;
-	vbox cholesterol / category=deathcause;
-	xaxis OFFSETMIN=0.25 OFFSETMAX=0.25 discreteorder=data;
-    yaxis grid;
-run;
+	REFLINE 'Coronary Heart Disease' / AXIS=x 
+    	LINEATTRS=(THICKNESS=70 COLOR=yellow) TRANSPARENCY=0.5 ;
+	VBOX cholesterol / CATEGORY=deathcause;
+	XAXIS OFFSETMIN=0.25 OFFSETMAX=0.25 DISCRETEORDER=data;
+    YAXIS GRID;
+RUN;
 ```
 
 * [Specify the colors of groups in SAS statistical graphics](http://blogs.sas.com/content/iml/2012/10/17/specify-the-colors-of-groups-in-sas-statistical-graphics.html)
@@ -74,5 +74,5 @@ PROC REGISTRY LIST STARTAT='\COLORNAMES\HTML';
 RUN; 
 ```
 
-!!! summary "See also"
+!!! summary "Check this website"
     * [Using the SAS Registry to Control Color](http://support.sas.com/documentation/cdl/en/lrcon/69852/HTML/default/viewer.htm#n1hpynpm51h88wn1izdahm5id5yw.htm#p1xtn4wjg933son1p6o6t8izxtrr)

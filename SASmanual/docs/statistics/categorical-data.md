@@ -110,12 +110,44 @@ RUN;
 
 ## Introduction to Logistic Regression
 
-Logistic Regression is a generalized linear model that you can use to predict a categorical response/outcome on the basis if one or more continuous or categorical predictor variables. There are three models:
+Logistic Regression is a generalized linear model (like Linear Regression or ANOVA) that you can use to predict a categorical response/outcome based on one or more continuous/categorical predictor variables. There are three models:
 
-![Logistic regression types](https://lh3.googleusercontent.com/-_wxj3yC7ZCE/WOd2RpxTQOI/AAAAAAAAAEg/HYmLKYjBYr8Thq7HwseFdK3hU8Tnreo8ACLcB/s0/logistic_regression_types.PNG "Logistic regression types")
+![Logistic regression types](../images/logistic-regression-types.PNG "Logistic regression types")
 
-Some reasons why you **can't use linear regression** with a **binary response variable** are:
+!!! fail "Why not to use Linear Regression to model a binary response variable"
+    Here you have some reasons why you should use Logistic Regression (instead of Linear regression) to model a binary response variable. 
 
-* Reason 1
+    Following the Linear Regression Model scheme the response variable is calculated as 
+
+    $Y_i=\beta_0+\beta_1\cdot X_i+\epsilon_i$, 
+
+    where $\beta_0$ and $\beta_1$ are obtained by the method of least squares. 
+
+    * This model **assumes that the data is continuous**, which is not true for the case of binary data
+    * This model **assumes that the mean of the response is $\beta_0+\beta_1\cdot X$**, while for binary data the mean of the response is the probability of a success
+    * If the response variable has only two levels, you cannot **assume the constant variance and normality** that are required for linear regression
+
+#### Linear Regression Model
+
+* Assumes that the expected value of the response ($Y$) has a linear relationship with the predictor variable ($X$)
+* The conditional mean of the response hast the linear form $E(Y|X)=\beta_0+\beta_1X$ and it ranges $(-\infty,+\infty)$
+
+#### Binary Logistic Regression Model
+
+* The predictor variable ($X$) is used to estimate the probability of a specific outcome ($p$) for which you need to use a nonlinear function
+* The logit function
+
+2:58
 
 ## Multiple Logistic Regression
+
+
+
+
+
+
+
+* Identifying the use and types of logistic regression
+* Fitting a binary logistic regression model using the `LOGISTIC` procedure
+* Explaining effect and reference cell coding for classification variables
+* Explaining the standard output from the `LOGISTIC` procedure

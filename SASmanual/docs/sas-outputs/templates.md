@@ -1,4 +1,4 @@
-!!! check
+!!! summary 'Check these websites'
 	  * [Here](http://support.sas.com/documentation/cdl/en/grstatug/63302/HTML/default/viewer.htm#n0kqozn49yx2lon1aavkll1f5dff.htm) you can find some notes on **Graph Template Language** (categories of statements)
 	  * [Bob Rodríguez](https://www.linkedin.com/in/bob-rodriguez-7b12634/) is has written a lot about templates, check his papers for more information
 	  * [Here](https://support.sas.com/documentation/cdl/en/statug/63962/HTML/default/viewer.htm#templt_toc.htm) you can find the official documentation on ODS Graphics Template Modification
