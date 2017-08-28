@@ -114,10 +114,16 @@ Logistic Regression is a generalized linear model (like Linear Regression or ANO
 
 ![Logistic regression types](../images/logistic-regression-types.PNG "Logistic regression types")
 
-!!! fail "Why not to use Linear Regression to model a binary response variable"
-    Here you have some reasons why you should use Logistic Regression (instead of Linear regression) to model a binary response variable. 
+### Linear vs Logistic
 
-    Following the Linear Regression Model scheme the response variable is calculated as 
+#### Linear Regression Model
+
+* Assumes that the expected value of the response continuous variable ($Y$) has a linear relationship with the predictor variable ($X$)
+* The conditional mean of the response hast the linear form $E(Y|X)=\beta_0+\beta_1X$ and it ranges $(-\infty,+\infty)$
+
+!!! fail "Why not to use Linear Regression to model a binary response variable"
+    
+    Following the Linear Regression Model scheme, the response variable is calculated as 
 
     $Y_i=\beta_0+\beta_1\cdot X_i+\epsilon_i$, 
 
@@ -127,17 +133,97 @@ Logistic Regression is a generalized linear model (like Linear Regression or ANO
     * This model **assumes that the mean of the response is $\beta_0+\beta_1\cdot X$**, while for binary data the mean of the response is the probability of a success
     * If the response variable has only two levels, you cannot **assume the constant variance and normality** that are required for linear regression
 
-#### Linear Regression Model
-
-* Assumes that the expected value of the response ($Y$) has a linear relationship with the predictor variable ($X$)
-* The conditional mean of the response hast the linear form $E(Y|X)=\beta_0+\beta_1X$ and it ranges $(-\infty,+\infty)$
-
 #### Binary Logistic Regression Model
 
 * The predictor variable ($X$) is used to estimate the probability of a specific outcome ($p$) for which you need to use a nonlinear function
-* The logit function
+* The mean of the response is a probability, which is between $(0, 1)$. 
+* The **Inverse Logit Function** binds the linear predictor between $0$ and $1$ is defined as $p_i=(1+e^{-(\beta_0+\beta_1 X_i)})^{-1}$
+* This model applies a **Logit Transformation** to the probabilities $logit(p_i)=ln\left ( \frac{p_i}{1-p_i} \right ) = \beta_0+\beta_1X_i$, so that the transformed probabilities and predictor variables end up with a linear relationship
+* The logit is the **natural log of the odds** (the probability of the event occurring divided by the probability of the event not occurring)
+* We make the **assumption that the logit transformation of the probabilities results in a linear relationship with the predictor variables** (we can use a linear function $X$ to model the logit in order to indireclty model the probability)
+* The logit of the probability transforms the probability into a linear function, which has no lower or upper bounds. So a **logit has no lower or upper bounds**.
 
-2:58
+### `PROC LOGISTIC`
+
+To model categorical data yu use the `LOGISTIC` procedure. Some of the most common statements of this procedure are shown here:
+
+```hl_lines="1 3"
+PROC LOGISTIC DATA=SAS-data-set <options>;
+	CLASS variable <(variable_options)> ... </ options>;
+	MODEL response <(variable_options)> = predictors </ options>;
+	UNITS independent1=list... </ options>;
+	ODDSRATIO <'label'> variable </ options>;
+RUN;
+```
+
+* `CLASS` is used to define the classification (categorical) predictor variables (if any); this statement must precede the `MODEL` statement
+* `CLODDS = PL` (profile likelihood) | `WALD` (default) | `BOTH` is an example of a general option that you can specify in the `MODEL` statement which computes confidence intervals for the odds ratios of all predictor variables and also enables the production of the odds ratio plot
+
+***Example:***
+
+```
+PROC LOGISTIC DATA=statdata.sales_inc PLOTS(ONLY)=(EFFECT ODDSRATIO);
+	CLASS gender;
+	MODEL purchase(EVENT='1')=gender / CLODDS=PL;
+RUN;
+```
+
+### Classification Variables Parametrization
+
+When the predictor variable is categorical, the assumption of linearity cannot be met. To get past the obstacle of nonlinearity, the `CLASS` statement creates a set of one or more **design variables** (also called dummy variables). `PROC LOGISTIC` uses these variables, and not the original ones, in model calculations.
+
+Different parametrization methods for the classification variables will produce the same results regarding the significance of the categorical predictors, but understanding the parametrization method helps to interpret the results accurately.
+
+Here we present two of the most common methods of parameterizing (`PARAM =`) the classification variables. For both of them:
+
+* The default **reference level** is the level that has the highest ranked value (or the last value) when the levels are sorted in ascending alphanumeric order
+* The number of design variables that are created are the number of levels of the classification variable -1
+
+#### Effect coding (default) 
+
+Also called **deviation from the mean coding**, it compares the effect of each level of the variable to the **average effect of all levels**. 
+
+!!! tip "Example"
+	Using this parametrization scheme the model will be described as follows
+
+	$logit(p)=\beta_0+\beta_1\cdot D_{Low \\ Income} + \beta_2\cdot D_{Medium \\ Income}$
+	
+	![Effect coding example](../images/effect-coding-example.PNG "Effect coding example")
+
+    * $\beta_0$ is the average value of the logit across all income levels
+    * $\beta_1$ is the difference between the logit for income level 1 and $\beta_0$
+    * $\beta_2$ is the difference between the logit for income level 2 and $\beta_0$
+
+    Here's the Analysis of Maximum Likelihood Estimates table that `PROC LOGISTIC` generates for this example on which the parameter estimates ($\beta_0$, $\beta_1$, $\beta_2$) and p-values reflect differences from the overall mean value over all levels. 
+
+    ![Effect coding MLE](../images/effect-coding-MLE.PNG "Effect coding MLE")
+
+    The p-values indicate whether each particular level is significant compared to the average effect of all levels. The p-values for $\beta_1$ and $\beta_2$ not significant meaning that the effect of those levels is not different than the average effect of low, medium and high income.
+
+#### Reference cell coding
+
+It compares the effect of each level of the predictor to the effect of another **level that is the designated reference level**.
+
+!!! tip "Example"
+	To use this scheme the classification variable has to be defined in the following way
+
+	`CLASS gender (PARAM=REF REF='Male');`
+
+	Using this parametrization scheme the model will be described as follows
+
+	$logit(p)=\beta_0+\beta_1\cdot D_{Low \\ Income} + \beta_2\cdot D_{Medium \\ Income}$
+	
+	![Reference cell coding example](../images/reference-cell-coding-example.PNG "Reference cell coding example")
+
+    * $\beta_0$ is the intercept, but not in terms of where you cross the $Y$ axis, instead is the value of the logit of the probability when income is high (or at the reference level)
+    * $\beta_1$ is the difference between the logit of the probability for low and high income
+    * $\beta_2$ is the difference between the logit of the probability for medium and high income
+
+    Here's the Analysis of Maximum Likelihood Estimates table that `PROC LOGISTIC` generates for this example on which the parameter estimates ($\beta_0$, $\beta_1$, $\beta_2$) and p-values reflect differences with respect to the reference level. 
+
+    ![Reference cell coding MLE](../images/reference-cell-coding-MLE.PNG "Reference cell coding MLE")
+
+    The p-values indicate whether each particular level is significant compared to the reference level. The p-value for $\beta_1<0.05$ is significant meaning that the effect of a low income is statistically different than the effect of a high income on the probability that people will spend at least $100\$$. The same applies to $\beta_2$.
 
 ## Multiple Logistic Regression
 
