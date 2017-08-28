@@ -22,7 +22,15 @@ RUN;
 - The **variable attributes** are assigned from the **first data set** in the `SET` statement
 - You will get an **error** in the `DATA` step if a variable is defined with **different data types** in the files that you are trying to concatenate
 
-## Merging SAS Data Sets One-to-One
+## Merging SAS Data Sets
+
+- In a **one-to-one** relationship, a single observation in one data set is related to one, and only one, observation in another data set based on the values of one or more common variables
+- In a **one-to-many** relationship, a single observation in one data set is related to one or more observations in another data set
+- In a **many-to-one** relationship, multiple observations in one data set are related to one observation in another data set
+- In a **many-to-many** relationship, multiple observations in one data set are related to multiple observations in another data set
+- Sometimes the data sets have **non-matches**: at least one observation in one of the data sets is unrelated to any observation in another data set based on the values of one or more common variables
+
+### Merging SAS Data Sets One-to-One
 
 ***Combine files horizontally by merging***
 
@@ -38,13 +46,7 @@ DATA SAS-data-set;
 RUN;
 ```
 
-- In a **one-to-one** relationship, a single observastion in one data set is related to one, and only one, observation in another data set based on the values of one or more common variables
-- In a **one-to-many** relationship, a single observation in one data set is related to one or more observations in another data set
-- In a **many-to-one** relationship, multiple observations in one data set are related to one observation in another data set
-- In a **many-to-many** relationship, multiple observations in one data set are related to multiple observations in another data set
-- Sometimes the data sets have **non-matches**: at least one observation in one of the data sets is unrelated to any observation in another data set based on the values of one or more common variables
-
-## Merging SAS Data Sets One-to-Many
+### Merging SAS Data Sets One-to-Many
 
 ```
 DATA SAS-data-set;
@@ -65,7 +67,7 @@ When you reverse the order of the data sets in the `MERGE` statement, the result
 * Performing a merge without a BY statement merges the observations based on their positions
 * This is almost never done intentionally and can lead to unexpected results
 
-## Merging SAS Data Sets that Have Non-Matches
+### Merging SAS Data Sets that Have Non-Matches
 
 ```
 DATA SAS-data-set;
@@ -126,7 +128,7 @@ DATA SAS-new-data-set1 SAS-new-data-set2;
 RUN;
 ```
 
-## Merging SAS Data Sets Many-to-Many
+### Merging SAS Data Sets Many-to-Many
 
 With the macros [`makewide.sas` and `makelong.sas`](http://www.sascommunity.org/wiki/Transpose_data_with_macro_%25MAKEWIDE_and_%25MAKELONG_(based_on_Proc_TRANSPOSE)) you can 
 
