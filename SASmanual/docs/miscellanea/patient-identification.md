@@ -1,4 +1,4 @@
-## Separate Site ID from Patient Number
+## Dealing with Study Identification Numbers
 
 * Site calculation from the two first numbers of the patient number:
 
