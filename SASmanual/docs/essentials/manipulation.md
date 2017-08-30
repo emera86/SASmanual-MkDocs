@@ -2,19 +2,19 @@
 
 ## Using SAS Functions
 
-***SUM function***
+###`SUM` Summation Function
 
 ```
 SUM(argument1, argument2, ...)
 ```
 
 - The arguments must be numeric values
-- The **SUM** function ignores missing values, so if an argument has a missing value, the result of the SUM function is the sum of the nonmissing values
-- If you add two values by **+**, if one of them is missing, the result will be a missing value which makes the **SUM** function a better choice
+- The `SUM` function ignores missing values, so if an argument has a missing value, the result of the `SUM` function is the sum of the nonmissing values
+- If you add two values by `+`, if one of them is missing, the result will be a missing value, which makes the `SUM` function a better choice
 
 ---
 
-***DATE funtion***
+###`DATE` Function
 
 ```
 YEAR(SAS-date)     
@@ -27,11 +27,12 @@ DATE()                 /* Obtain the current date and convert to SAS-date (no ar
 MDY(month, day, year)
 ```
 
-- The arguments must be numeric values (except from **TODAY()** and **DATE()** functions)
-- You can subtract dates: **Agein2012=(Bday2012-Birth_Date)/365.25;**
+- The arguments must be numeric values (except from `TODAY()` and `DATE()` functions)
+- You can subtract dates: `Agein2012=(Bday2012-Birth_Date)/365.25;`
 
 ---
-***Concatenation function***
+
+### `CATX` Concatenation Function
 
 ```
 CATX(' ', First_Name, Last_Name)
@@ -40,22 +41,22 @@ CATX(' ', First_Name, Last_Name)
 The **CATX** function removes leading and trailing blanks, inserts delimiters, and returns a concatenated character string. In the code, you first specify a character string that is used as a delimiter between concatenated items.
 
 ---
-***Time interval function***
+
+### `INTCK` Time Interval Function
 
 ```
 INTCK('year', Hire_Date, '01JAN2012'd)
 ```
 
-The **INTCK** function returns the number of interval boundaries of a given kind that lie between the two dates, times, or datetime values. In the code, you first specify the interval value.
+The `INTCK` function returns the number of interval boundaries of a given kind that lie between the two dates, times, or datetime values. In the code, you first specify the interval value.
 
----
-***What happens if you use a variable to describe a new one that you are gonna DROP in that same DATA statement?***
 
-The **DROP** statement is a compile-time-only statement. SAS sets a drop flag for the dropped variables, but the variables are in the PDV and, therefore, are available for processing.
+!!! warning "What happens when you define a new variable from another that you are gonna `DROP` in this DATA statement?"
+    The `DROP` statement is a compile-time-only statement. SAS sets a drop flag for the dropped variables, but the variables are in the PDV and, therefore, are available for processing.
 
 ## Conditional Processing
 
-***IF-THEN-ELSE conditional structures***
+### `IF-THEN-ELSE` Conditional Structures
 
 ```
 IF expression THEN statement;
@@ -63,11 +64,11 @@ ELSE IF expression THEN statement;
 ELSE statement;
 ```
 
-In the conditional expressions involving strings watch out for possible mixed case values where the condition may not be met:  **Country = upcase(Country);** to avoid problems
+In the conditional expressions involving strings watch out for possible mixed case values where the condition may not be met:  `country = UPCASE(country);` to avoid problems
 
 ---
 
-***Executing multiple statements in an IF-THEN-ELSE statement***
+### Executing Multiple Statements
 
 ```
 IF expression THEN
@@ -82,7 +83,7 @@ ELSE IF expression THEN
     
 ---
     
-In the **DATA** step, the first reference to a variable determines its length. The first reference to a new variable can be in a **LENGTH** statement, an **assignment** statement, or **another** statement such as an INPUT statement. After a variable is created in the PDV, the length of the variable's first value doesn't matter. 
+In the `DATA` step, the first reference to a variable determines its length. The first reference to a new variable can be in a `LENGTH` statement, an **assignment** statement, or **another** statement such as an `INPUT` statement. After a variable is created in the PDV, the length of the variable's first value doesn't matter. 
 
 To avoid truncation in a variable defined inside a conditional structure you can:
 
@@ -92,7 +93,7 @@ To avoid truncation in a variable defined inside a conditional structure you can
 
 ---
 
-***SELECT group***
+### `SELECT` Group
 
 ```
 SELECT(Gender);
@@ -111,8 +112,8 @@ SELECT(Gender);
 END;
 ```
 
-- The **SELECT** statement executes one of several statements or groups of statements
-- The **SELECT** statement begins a SELECT group. They contain **WHEN** statements that identify SAS statements that are executed when a particular condition is true
-- Use at least one **WHEN** statement in a SELECT group
-- An optional **OTHERWISE** statement specifies a statement to be executed if no **WHEN** condition is met
-- An **END** statement ends a **SELECT** group
+- The `SELECT` statement executes one of several statements or groups of statements
+- The `SELECT` statement begins a `SELECT` group. They contain `WHEN` statements that identify SAS statements that are executed when a particular condition is true
+- Use at least one `WHEN` statement in a `SELECT` group
+- An optional `OTHERWISE` statement specifies a statement to be executed if no `WHEN` condition is met
+- An `END` statement ends a `SELECT` group
