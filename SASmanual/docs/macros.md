@@ -38,7 +38,20 @@ DATA _NULL_;
 	CALL SYMPUT ('var1',OddsRatioEst);
 	CALL SYMPUT ('var2',LowerCl);
 	CALL SYMPUT ('var3',UpperCL);
+	* The variables have a lot of extra spaces;
 	%LET OR2report=OR: &var1. (&var2.,&var3.);
+	%PUT &OR2report;
+RUN;
+
+DATA _NULL_;
+	SET OddsRatios;
+	length OddsRatioEst LowerCL UpperCL 7;
+	Estaux = int(1000*OddsRatioEst)/1000;
+	Loweraux = int(1000*LowerCl)/1000;
+	Upperaux = int(1000*UpperCL)/1000;
+	* The extra blancks has reduced with the CATX function;
+	fullOR=CATX(' ','OR:',Estaux,'(',Loweraux,',',Upperaux,')');
+	CALL SYMPUT ('OR2report',fullOR);
 	%PUT &OR2report;
 RUN;
 ```
