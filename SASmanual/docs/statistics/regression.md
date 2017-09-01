@@ -18,6 +18,8 @@ RUN;
 
 ### `PROC CORR`: Correlation Analysis
 
+There are two ways of calculating correlations: the **Pearson correlation coefficient** (specially used for normal distributed data) and the **Spearman's rank correlation coefficient** (which is best fitted when your data presents outliers).
+
 The closer the **Pearson** correlation coefficient is to +1/-1, the stronger the positive/negative linear relationship is between the two variables. The closer the correlation coefficient is to 0, the weaker the linear relationship and if it is 0 variables are uncorrelated.
 
 * When you interpret the correlation, be cautious about the effect of **large sample sizes**: even a correlation of 0.01 can be statistically significant with a large enough sample size and you would almost always reject the hypothesis $H_0$: $\rho =0$, even if the value of your correlation is small for all practical purposes
