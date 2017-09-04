@@ -34,8 +34,7 @@ In models with `LINK=LOGIT | GLOGIT | CLOGIT`, you can obtain estimates of odds 
 
 By default `LSMEANS` produces estimates on the **logit scale**. The `ILINK` option on the `LSMEANS` statement requests that the estimates be transformed back to the scale of the original data. The `LSMEANS` output will include estimates of the probability of each combination of the predictors interactions included in your model. The `CL` option requests confidence intervals for the estimates. For nonnormal data, the `EXP` and `ILINK` options give you a way to obtain the quantity of interest on the scale of the mean (inverse link). Results presented in this fashion can be much easier to interpret than data on the link scale. 
 
-!!! warning
-    **Is it correct to assume, if you're using a different link function than `LINK=LOGIT | GLOGIT | CLOGIT`, that the exponentiated estimate can still be interpreted as the Odds Ratio?** 
+!!! warning "Is it correct to assume, if you're using a different link function than `LINK=LOGIT | GLOGIT | CLOGIT`, that the exponentiated estimate can still be interpreted as the Odds Ratio?"
     No, that is not correct. The odds ratio only make sense when you are comparing the predicted PROBABILITIES for two or more level of classification variables. If you use `DIST=GAUSSIAN` and `LINK=IDENTITY`, you are merely fitting a linear model to a response that has values 0 and 1. Check [this](https://communities.sas.com/t5/SAS-Statistical-Procedures/Odds-Ratio-Calculation-for-a-link-different-than-LOGIT-CLOGIT/m-p/370446#M19424) dicussion for more information.
 
 ```
@@ -53,7 +52,7 @@ PROC GLIMMIX DATA=SAS-data-set;
 RUN;
 ```
 
-!!! seealso
+!!! summary "Check these websites"
     * For more details check the [SAS documentation](http://documentation.sas.com/?docsetId=statug&docsetTarget=statug_glimmix_details49.htm&docsetVersion=14.2&locale=es)
     * An example different procedures (`PROC LOGISTIC` and `PROC GLIMMIX`) can be found [here](http://support.sas.com/kb/24/455.html)
     * Some other options are also discussed [here](http://support.sas.com/resources/papers/proceedings11/216-2011.pdf) and [here](https://support.sas.com/resources/papers/proceedings11/351-2011.pdf)
