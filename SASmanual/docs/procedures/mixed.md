@@ -7,8 +7,8 @@ The linear mixed model is an extension of the general linear model, in which fac
 * **Fixed-effects factors** are generally thought of as variables whose values of interest are all represented in the data file.
 * **Random-effects factors** are variables whose values in the data file can be considered a random sample from a larger population of values. They are useful for explaining excess variability in the dependent variable.
 
-!!! note
-    For example, a grocery store chain is interested in the effects of five different types of coupons on customer spending. At several store locations, these coupons are handed out to customers who frequent that location; one coupon **selected at random** is distributed to each customer.
+!!! note "Practical Example"
+    A grocery store chain is interested in the effects of five different types of coupons on customer spending. At several store locations, these coupons are handed out to customers who frequent that location; one coupon **selected at random** is distributed to each customer.
 	  The type of coupon is a **fixed effect** because the company is interested in those particular coupons. The store location is a **random effect** because the locations used are a sample from the larger population of interest, and while there is likely to be store-to-store variation in customer spending, the company is not directly interested in that variation in the context of this problem.
 
 **Covariates.** Scale predictors should be selected as covariates in the model. Within combinations of factor levels (or cells), values of covariates are assumed to be linearly correlated with values of the dependent variables.
@@ -23,8 +23,8 @@ The linear mixed model is an extension of the general linear model, in which fac
 * **Subject variables** define the individual subjects of the repeated measurements. The error terms for each individual are independent of those of other individuals.
 * The **covariance structure** specifies the relationship between the levels of the repeated effects. The types of covariance structures available allow for residual terms with a wide variety of variances and covariances.
 	
-!!! note 
-    For example, if the grocery store recorded the purchasing habits of their customers for four consecutive weeks, then the variable Week would be a **repeated effects variable**. Specifying a subject variable denoting the Customer ID differentiates the repeated observations of separate customers. Specifying a first-order autoregressive covariance structure reflects your belief that a higher-than-average volume of purchases in one week will correspond to a higher (or lower)-than-average volume in the following week.
+!!! note "Practical Example" 
+    If the grocery store recorded the purchasing habits of their customers for four consecutive weeks, then the variable Week would be a **repeated effects variable**. Specifying a subject variable denoting the Customer ID differentiates the repeated observations of separate customers. Specifying a first-order autoregressive covariance structure reflects your belief that a higher-than-average volume of purchases in one week will correspond to a higher (or lower)-than-average volume in the following week.
 
 ## SAS Formulation
 
