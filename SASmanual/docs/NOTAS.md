@@ -1,4 +1,4 @@
-[McNemar's test](https://en.wikipedia.org/wiki/McNemar%27s_test) vs [Cohen's kappa coefficient](https://en.wikipedia.org/wiki/Cohen%27s_kappa)
+## [McNemar's test](https://en.wikipedia.org/wiki/McNemar%27s_test) vs [Cohen's kappa coefficient](https://en.wikipedia.org/wiki/Cohen%27s_kappa)
 
 **McNemar's test** is a statistical test used on paired nominal data. It is applied to 2 × 2 contingency tables with a dichotomous trait, with matched pairs of subjects, to determine whether the row and column marginal frequencies are equal (that is, whether there is "marginal homogeneity"). 
 
