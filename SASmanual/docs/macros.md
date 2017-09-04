@@ -30,7 +30,7 @@ How to define [optional macro arguments](https://communities.sas.com/t5/Base-SAS
 %runall(item1 item2 item3 item4 item5);
 ```
 
-## Create Macrovariable with information inside a table
+## Create Macrovariable from Data Set Values
 
 ```
 DATA _NULL_;
