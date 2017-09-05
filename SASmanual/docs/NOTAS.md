@@ -18,7 +18,7 @@ Yates' correction for continuity (or Yates' chi-squared test) is used in certain
 
 In statistics, the Cochran–Mantel–Haenszel test (CMH) is a test used in the **analysis of stratified or matched categorical data**. It allows an investigator to test the association between a binary predictor or treatment and a binary outcome such as case or control status while taking into account the stratification. It is often used in observational studies where random assignment of subjects to different treatments cannot be controlled, but confounding covariates can be measured.
 
-The null hypothesis is that there is no association between the treatment and the outcome. More precisely, the null hypothesis is $H_{0}:R=1$ and the alternative hypothesis is $H_{1}:R\neq 1$.
+The null hypothesis is that there is no association between the treatment and the outcome. More precisely, the null hypothesis is $H_{0}:R=1$ and the alternative hypothesis is $H_{1}:R\neq 1$. It follows a $\chi^{2}$ distribution asymptotically under $H_{0}$.
 
 *  The CMH test is a **generalization of the McNemar test** as their test statistics are identical when the strata are pairs. Unlike the McNemar test which can only handle pairs, the CMH test **handles arbitrary strata size**.
 * **Conditional logistic regression** is more general than the CMH test as it can handle continuous variable and perform multivariate analysis. When the CMH test can be applied, the CMH test statistic and the score test statistic of the conditional logistic regression are identical.
