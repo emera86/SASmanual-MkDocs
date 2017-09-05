@@ -10,7 +10,7 @@ A useful set of techniques for investigating your data is known as **exploratory
 
 ```
 PROC SGSCATTER DATA=SAS-data-base;
-	PLOT vairableY*(variableX1 variableX2) / REG;
+	PLOT variableY*(variableX1 variableX2) / REG;
 RUN;
 ```
 
