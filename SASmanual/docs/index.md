@@ -31,6 +31,8 @@ RUN;
 
 * Send an [email](http://support.sas.com/documentation/cdl/en/lestmtsref/63323/HTML/default/viewer.htm#n0ig2krarrz6vtn1aw9zzvtez4qo.htm) with some coding
 
+* [SAS seminars by the UCLA Statistical Consulting Group](https://stats.idre.ucla.edu/other/mult-pkg/seminars/#SAS)
+
 ### Shortcuts
 
 | Shortcut | Function |
