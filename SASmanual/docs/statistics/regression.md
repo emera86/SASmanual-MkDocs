@@ -293,7 +293,7 @@ The calculations of all information criteria begin the same way:
 
 1. First you calculate $n\cdot log(SSE/n)$ 
 2. Then, each criterion adds a penalty that represents the complexity of the model (each type of information criterion invokes a different penalty component)
- * `AIC`: $2p+n+2$
- * `AICC`: $n(n+p)/(n-p-2)$
- * `BIC`: $2(p+2)1-2q^2$
- * `SBC`: $p\cdot log(n)$
+    * `AIC`: $2p+n+2$
+    * `AICC`: $n(n+p)/(n-p-2)$
+    * `BIC`: $2(p+2)1-2q^2$
+    * `SBC`: $p\cdot log(n)$
