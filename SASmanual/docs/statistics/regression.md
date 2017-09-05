@@ -1,6 +1,6 @@
 [Chapter summary in SAS](https://support.sas.com/edu/OLTRN/ECST131/m553/m553_6_a_sum.htm)
 
-![Summary lessons 3-6](https://lh3.googleusercontent.com/-Y-23_trrs6A/WON7VhnzxPI/AAAAAAAAADY/vRxCZowh9tItWRSSGTHZYpa2Ur4Qh97nwCLcB/s0/summary3-6.png "Summary lessons 3-6")
+![Summary lessons 3-6](../images/summary3-6.png "Summary lessons 3-6")
 
 ## Exploratory Data Analysis
 
@@ -186,7 +186,7 @@ RUN;
 
 * In `PROC GLM`, when you run a linear regression model with only two predictor variables, the output includes a contour fit plot by default. We specify `CONTOURFIT` to tell SAS to overlay the contour plot with a scatter plot of the observed data
 
-![Contour plot](https://lh3.googleusercontent.com/-NLdUzu7afu8/WOJldkIvudI/AAAAAAAAACs/Vo3RCSrIwvkcOUVi8mwEiurtjsOANjBTQCLcB/s0/contour-multiple-regression.png "Contour plot")
+![Contour plot](../images/contour-multiple-regression.png "Contour plot")
 
 The plot shows **predicted values** of the response variable as **gradations of the background color** from blue, representing low values, to red, representing high values. The **dots**, which are similarly coloured, represent the **actual data**. Observations that are perfectly fit would show the same color within the circle as outside the circle. The **lines on the graph** help you read the actual predictions at even intervals.
 
@@ -222,7 +222,7 @@ QUIT;
 * For this all-possible regression model, we add the label `ALL_REG:`
 * With `PLOTS=(CP)` we produce a plot:
 
-![Mallows' Cp to select the best model](https://lh3.googleusercontent.com/-MKHCheN7vUA/WONM3WW0qSI/AAAAAAAAADE/tHJAjyHK-QE5j4UVlxmT7KHTA_bvGJLxwCLcB/s0/mallows_cp_best_model.png "Mallows' Cp to select the best model")
+![Mallows' Cp to select the best model](../images/mallows_cp_best_model.png "Mallows' Cp to select the best model")
 
 Each **star** represents the **best model** for a given number of parameters. The solid **blue line** represents **Mallows' criterion** for $C_p$, so using this line helps us find a good candidate model for prediction. Because we want the **smallest model possible**, we start at the left side of the graph, with the fewest number of parameters moving to the right until we find the **first model that falls below the solid blue line**. To find models for parameter estimation we have to look for models that falls below the **red solid line** which represent the **Hocking's criterion** for $C_p$ parameter estimation. If we hover over the star, we can see which variables are included in this model.
 

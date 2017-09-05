@@ -128,7 +128,7 @@ Plots that can be produced with this procedure:
 * **Histograms**
 * **Normal probability plots**: expected percentiles from standard normal vs actual data values
 
-![Normal Probability Plots](https://lh3.googleusercontent.com/oQg9v6o7-BVphCe0xL8cP2L49JBQL7hixl7_uwJUEKQkMdbotX-f906RXjowuwCe3llq05I=s0 "Normal Probability Plots")
+![Normal Probability Plots](../images/normal-probability-plots.png "Normal Probability Plots")
 
 ### `PROC SGSCATTER` 
 Plots that can be produced with this procedure:
@@ -235,7 +235,7 @@ Decision-making process:
 3. Collect data
 4. Reject or fail to reject the null hypothesis
 
-![Error types](https://lh3.googleusercontent.com/KaQmpAoTHu1NsLpiBusArHKbs5Zn0AP5eV0CB2PwBObxixZQ98gaUDJVGZSnSj8Li4Hwfvw=s0 "Error types")
+![Error types](../images/error.png "Error types")
 
 * The type I and II errors are **inversely related**: as one type increases the other decreases 
 * The **power** is the probability of a **correct rejection** = 1 - &beta;

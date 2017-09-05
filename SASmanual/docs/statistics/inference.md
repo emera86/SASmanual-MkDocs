@@ -12,7 +12,7 @@ You can use the **residual values** (difference between each observed value of $
 
 You want to see a **random scatter of the residual values** above and below the reference line at 0. If you see **patterns or trends** in the residual values, the assumptions might not be valid and the models might have problems.
 
-![Assumptions violation examples](https://lh3.googleusercontent.com/-84ce_WbduHI/WOOAkeq-iiI/AAAAAAAAADs/e2ZzJE_XoLE8DnfdqNt-aaHhOzw8Z-ucgCLcB/s0/assumption-violation.PNG "Assumptions violation examples")
+![Assumptions violation examples](../images/assumption-violation.PNG "Assumptions violation examples")
 
 !!! note
     To take autocorrelation (correlated over time) into account, you might need to use a regression procedure such as **PROC AUTOREG**
@@ -37,7 +37,7 @@ QUIT;
 
 An influential observation is different from an outlier. An **outlier** is an unusual observation that has a large residual compare to the rest of the points. An **influential observation** can sometimes have a large residual compared to the rest of the points, but it is an observation so far away from the rest of the data that it singlehandedly exerts influence on the slope of the regression line.
 
-![Outlier vs influential observation](https://lh3.googleusercontent.com/-SRVHsMC3NQg/WOOVPEZxDLI/AAAAAAAAAEA/1vGwrG2XlWISRMTx2fguuh109zyLXfVGACLcB/s0/outlier_vs_influential-observation.PNG "Outlier vs influential observation")
+![Outlier vs influential observation](../images/outlier_vs_influential-observation.PNG "Outlier vs influential observation")
 
 ### Using `STUDENT` residuals to detect outliers
 

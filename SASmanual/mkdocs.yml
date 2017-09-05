@@ -21,6 +21,7 @@ pages:
       - 'Model Post-Fitting for Inference': 'statistics/inference.md'
       - 'Categorical Data Analysis': 'statistics/categorical-data.md'
       - 'Model Building and Scoring for Prediction': 'statistics/prediction.md'
+      - 'Miscellanea': 'statistics/miscellanea.md'
     - Other Analysis:
       - 'Dealing with Missing Data': 'other-analysis/missing-data.md'
       - 'Interim Analysis Design': 'other-analysis/interim-analysis.md'

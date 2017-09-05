@@ -1,6 +1,6 @@
 [Chapter summary in SAS](https://support.sas.com/edu/OLTRN/ECST131/m552/m552_7_a_sum.htm)
 
-![enter image description here](https://lh3.googleusercontent.com/xOC5eoOUs-6v-b-VnQU6ivGQQPIOQH7ACcKMS2jfrOTK1HJLuBbchpYm3cuganuJ_gNJsBU=s0 "ANOVA")
+![enter image description here](../images/anova.png "ANOVA")
 
 ## Graphical Analysis of Associations
 
@@ -194,7 +194,7 @@ QUIT;
  * The red/blue diagonal lines show the **confidence intervals for the true differences of the means** for each pairwise comparison
  * The grey 45$^{\circ}$ reference line represents equality of the means (if the confidence interval crosses over it, then there is no significant difference between the two groups and the diagonal line for the pair will be **dashed and red**; if the difference is significant the line will be **solid and blue**)
 
-![Diffogram](https://lh3.googleusercontent.com/-yuw0XR4JPqs/WNknWl3atwI/AAAAAAAAABk/V_lTXMtgO_QDm7VJ9jPy29h7MIxZbyhzQCLcB/s0/diffogram.png "Diffogram")
+![Diffogram](../images/diffogram.png "Diffogram")
 
 * The `ADJUST=` option specifies the adjustment method for multiple comparisons
 * If you don't specify an option SAS uses the **Tukey method by default**, if you specify `ADJUST=Dunnett` the GLM procedure produces multiple comparisons using **Dunnett's method** and a **control plot** 
@@ -203,7 +203,7 @@ QUIT;
     * The **shaded area** goes from the **lower decision limit (LDL)** to the **upper decision limit (UDL)**
     * There is a vertical line for each group that you're comparing to the reference (control) group. If a **vertical line extends past the shaded area**, then the group represented by the line is **significantly different** (small p-value) than the reference group 
 
-![Control plot](https://lh3.googleusercontent.com/-ZI5PKbFT1ns/WNkoofa4E3I/AAAAAAAAAB0/0RNlG7_94QMV3s864uB5UncYOw7VEMkYgCLcB/s0/controlplot.PNG "Control plot")
+![Control plot](../images/controlplot.PNG "Control plot")
 
 * `PDIFF=CONTROLU('value')` specifies the control group for the Dunnett's case: the direction of the sign in Ha is the same as the direction you are testing, so this is a **one-sided upper-tailed t-test**
 * If you specify `ADJUST=T` SAS will make no adjustments for multiple comparisons: is not recommended as there's a tendency to find **more significant pairwise differences than might actually exist**
@@ -217,7 +217,7 @@ When you have a continuous response variable and **two categorical predictor var
 * **Main effect**: is the effect of a single predictor variable
 * **Interaction effects**: when the relationship of the response variable with a predictor changes with the changing of another predictor variable (the effect of one variable depends on the value of the other variable)
 
-![Interaction plot](https://lh3.googleusercontent.com/-GK8G9YC7d1s/WNk5aOIcxAI/AAAAAAAAACM/nuq7AoAjh98_cci-KnaWTzhjbsCW_mSHACLcB/s0/interactionplot.png "Interaction plot")
+![Interaction plot](../images/interactionplot.png "Interaction plot")
 
 When you consider an ANOVA with more than one predictor variable, it's called **n-way ANOVA** where *n* represents the number of predictor variables
 
