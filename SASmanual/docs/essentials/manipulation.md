@@ -117,3 +117,19 @@ END;
 - Use at least one `WHEN` statement in a `SELECT` group
 - An optional `OTHERWISE` statement specifies a statement to be executed if no `WHEN` condition is met
 - An `END` statement ends a `SELECT` group
+
+## Avoiding Duplicates
+
+```
+* Period has more than one register per patient and the calculation of time periods between each one and the reference;
+PROC SORT DATA=period;
+	BY pt periodmax periodvisit;
+RUN;
+
+* Keep only highest (last value after the sorting);
+DATA maxperiod;
+	SET period;
+	BY pt;
+	IF last.pt;
+RUN;
+```
