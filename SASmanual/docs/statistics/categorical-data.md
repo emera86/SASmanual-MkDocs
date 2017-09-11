@@ -159,14 +159,13 @@ RUN;
 * `CLASS` is used to define the classification (categorical) predictor variables (if any); this statement must precede the `MODEL` statement
 * `CLODDS = PL` (profile likelihood) | `WALD` (default) | `BOTH` is an example of a general option that you can specify in the `MODEL` statement which computes confidence intervals for the odds ratios of all predictor variables and also enables the production of the odds ratio plot
 
-***Example:***
-
-```
-PROC LOGISTIC DATA=statdata.sales_inc PLOTS(ONLY)=(EFFECT ODDSRATIO);
-	CLASS gender;
-	MODEL purchase(EVENT='1')=gender / CLODDS=PL;
-RUN;
-```
+!!! tip "Example"
+	```
+	PROC LOGISTIC DATA=statdata.sales_inc PLOTS(ONLY)=(EFFECT ODDSRATIO);
+	    CLASS gender;
+	    MODEL purchase(EVENT='1')=gender / CLODDS=PL;
+	RUN;
+	```
 
 ### Classification Variables Parametrization
 
@@ -177,7 +176,7 @@ Different parametrization methods for the classification variables will produce 
 Here we present two of the most common methods of parameterizing (`PARAM =`) the classification variables. For both of them:
 
 * The default **reference level** is the level that has the highest ranked value (or the last value) when the levels are sorted in ascending alphanumeric order
-* The number of design variables that are created are the number of levels of the classification variable -1
+* The number of design variables (or $\beta$) that are created are the number of levels of the classification variable -1
 
 #### Effect coding (default) 
 
@@ -225,7 +224,28 @@ It compares the effect of each level of the predictor to the effect of another *
 
     The p-values indicate whether each particular level is significant compared to the reference level. The p-value for $\beta_1<0.05$ is significant meaning that the effect of a low income is statistically different than the effect of a high income on the probability that people will spend at least $100\$$. The same applies to $\beta_2$.
 
-## Multiple Logistic Regression
+#### Fitting a Binary Logistic Regression 
+
+```
+PROC LOGISTIC DATA=statdata.sales_inc PLOTS(ONLY)=(EFFECT);
+	CLASS Gender (PARAM=REF REF='Male');
+	MODEL Purchase(event='1') = Gender;
+	title1 'LOGISTIC MODEL (1): Purchase = Gender';
+RUN;
+```
+
+We look at the first few tables to make sure that the model is set up the way we want
+
+* The **Model Information** table describes the data set, the response variable, the number of response levels, the type of model, the algorithm used to obtain the parameter estimates, and the number of observations read and used.
+* The **Response Profile** table shows the values of the response variable, listed according to their ordered value and frequency. By default, `PROC LOGISTIC` orders the values of the response variable alphanumercally and bases the logistic regression model on the probability of the lowest value. However, we set the `EVENT=1`, the highest value, so this model is based on the probability that `Purchase=1`.
+* Below this table, we see the probability that `PROC LOGISTIC` is modeling, as shown in the log.
+* The **Class Level Information** table displays the predictor variable in the `CLASS` statement `Gender` (in the model we fixed `'Male'` as the reference level, so the design variable is 1 when `Gender='Female'` and 0 when `Gender='Male'`).
+* The **Model Convergence Status** simply indicates that the convergence criterion was met. There are a number of options to control the convergence criterion, but the default is the gradient convergence criterion with a default value of $1E-8$.
+
+2:53
+
+
+## Multiple Logistic Regression Model
 
 
 
