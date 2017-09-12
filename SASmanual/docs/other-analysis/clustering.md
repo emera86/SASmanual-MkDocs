@@ -13,4 +13,4 @@ The `FASTCLUS` procedure requires time proportional to the number of observation
 
 ## `PROC TREE`
 
-The TREE procedure produces a tree diagram from a data set created by the CLUSTER or VARCLUS procedure that contains the results of hierarchical clustering as a tree structure.
+The `TREE` procedure produces a tree diagram from a data set created by the `CLUSTER` or `VARCLUS` procedure that contains the results of hierarchical clustering as a tree structure.
