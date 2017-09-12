@@ -240,10 +240,16 @@ We look at the first few tables to make sure that the model is set up the way we
 * The **Response Profile** table shows the values of the response variable, listed according to their ordered value and frequency. By default, `PROC LOGISTIC` orders the values of the response variable alphanumercally and bases the logistic regression model on the probability of the lowest value. However, we set the `EVENT=1`, the highest value, so this model is based on the probability that `Purchase=1`.
 * Below this table, we see the probability that `PROC LOGISTIC` is modeling, as shown in the log.
 * The **Class Level Information** table displays the predictor variable in the `CLASS` statement `Gender` (in the model we fixed `'Male'` as the reference level, so the design variable is 1 when `Gender='Female'` and 0 when `Gender='Male'`).
-* The **Model Convergence Status** simply indicates that the convergence criterion was met. There are a number of options to control the convergence criterion, but the default is the gradient convergence criterion with a default value of $1E-8$.
-
-2:53
-
+* The **Model Convergence Status** simply indicates that the convergence criterion was met. There are a number of options to control the convergence criterion, but the default is the gradient convergence criterion with a default value of $10^{-8}$.
+* The **Model Fit Statistic** table reports the resuls of three tests (for the model with the intercept only and the model with the intercept and the predictor variables): AIC, SC and -2$\cdot$Log(likelihood). AIC and SC are **goodness-of-fit measures** that you can use to compare one model to another (lower values indicate more desirable model) and are not dependent on the number of terms in the model.
+	* **Akaike's Information Criterion (AIC)**: it adjusts for the number of predictor valriables. It is the best statitstic to come up with the best **explanatory model**.
+	* **Schwarz's Bayesian Criterion (SC)**: it adjusts for the number of predictor variables and the number of observations. This test uses a bigger penalty for extra variables and therefore favors more parsimonious models. It is the best statitstic to come up with the best **predictive model**.
+* The **Testing Global Null Hypothesis: BETA=0** table provides three statistics to test $H_0$ that all the regression coefficients in the model are 0. The **Likelihood Ratio** is the most reliable test, specially for small sample sizes. It is similar to the overall F test in linear regression.
+* The **Type 3 Analysis of Effects** table is generated when `CLASS` specifies a categorical predictor variable. The **Wald Chi-Square** statistic tests the listed effect. When there is only one predictor variable in the model, the value listed in the table will be idential to the Wald test in the **Testing Global Null Hypothesis** table.
+* The **Analysis of Maximum Likelihood Estimates** table lists the estimated model parameters, their standard errors, Wald test statistics and corresponding p-values. The parameter estimates are the estimated coefficients of the fitted logistic regression model. We can use these estimates to construct the logistic regression equation $logit(\beta)=\beta_0+\beta_1 \cdot Categorical \ predictor$.
+* The **Odds Ratio Estimates** table shows the OR ratio for the modeled event. Notice that `PROC LOGISTIC` calculates Wald confidence limits by default.
+* The **Association of Predicted Probabilities and Observed Responses** table lists several goodness-of-fit measures.
+* The **Effect plot** shows the levels of the `CLASS` predictor variable vs the probability of the desired outcome. 
 
 ## Multiple Logistic Regression Model
 
