@@ -29,6 +29,7 @@ pages:
       - 'Propensity Score': 'other-analysis/propensity-score.md'
       - 'ROC curve': 'other-analysis/roc-curve.md'
       - 'Survival Analysis': 'other-analysis/survival-analysis.md'
+      - 'Clustering': 'other-analysis/clustering.md'
     - Specific Procedures:
       - 'General notes on regression procedures': 'procedures/regression-models.md'
       - 'PROC GLIMMIX': 'procedures/glimmix.md'
