@@ -61,3 +61,9 @@ PROC FREQ DATA=bmt600;
 	WEIGHT contador;
 RUN;
 ```
+
+## Informative censoring
+
+!!! summary "Check these papers"
+    * [Censoring in survival analysis: Potential for bias](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3275994/)
+    * [Impact of Informative Censoring on the Kaplan-Meier Estimate of Progression-Free Survival in Phase II Clinical Trials](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4162501/)
