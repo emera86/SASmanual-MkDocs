@@ -224,7 +224,7 @@ It compares the effect of each level of the predictor to the effect of another *
 
     The p-values indicate whether each particular level is significant compared to the reference level. The p-value for $\beta_1<0.05$ is significant meaning that the effect of a low income is statistically different than the effect of a high income on the probability that people will spend at least $100\$$. The same applies to $\beta_2$.
 
-#### Fitting a Binary Logistic Regression 
+### Fitting a Binary Logistic Regression 
 
 ```
 PROC LOGISTIC DATA=statdata.sales_inc PLOTS(ONLY)=(EFFECT);
@@ -250,6 +250,55 @@ We look at the first few tables to make sure that the model is set up the way we
 * The **Odds Ratio Estimates** table shows the OR ratio for the modeled event. Notice that `PROC LOGISTIC` calculates Wald confidence limits by default.
 * The **Association of Predicted Probabilities and Observed Responses** table lists several goodness-of-fit measures.
 * The **Effect plot** shows the levels of the `CLASS` predictor variable vs the probability of the desired outcome. 
+
+#### Iterpreting the Odds Ratio for a Categorical Predictor
+
+Let's see how to calculate the odds and the odds ratio from the logistic regression model. Here is the logistic regression model that predicts the logit of $p$:
+
+$logit(\hat p)=ln(odds)=ln\left ( \frac{p_i}{1-p_i} \right )=\beta_0 + \beta_1 \cdot Gender$
+
+According to our example the variable `Gender` is codified in a way that `Females=1` and `Males=0`, so the OR can be written:
+
+$odds_{females}=e^{\beta_0+\beta_1}$
+
+$odds_{males}=e^{\beta_0}$
+
+$odds \ ratio = \frac{e^{\beta_0+\beta_1}}{e^{\beta_0}}=e^{\beta_1}$
+
+If the 95% confidence interval does not include 1, the OR is significant at the 0.05 level indicating an association between the predictor and response variables of your model.
+
+#### Iterpreting the Odds Ratio for a Continuous Predictor
+
+For a continuous predictor variable, the OR measures the **increase or decrease in odds associated with a one-unit difference** of the predictor variable by default. $OR - 1 = %$ of greater odds for having one-unit of difference.
+
+#### Comparing Pairs to Assess the Fit of a Logistic Regression Model
+
+`PROC LOGISTIC` calculates several different goodness-of-fit measures and displayed in the **Association of Predicted Probabilities and Observed Responses** table.
+
+One of these goodness-of-fit methods is comparing pairs (`Pairs`). To start, `PROC LOGISTIC` creates two groups of observations, one for each value of the response variable. Then, the procedure selects pairs of observations, one from each group, until no more pairs can be selected. `PROC LOGISTIC`determines whether each pair is concordant, discordant or tied.
+
+* A pair is **concordant** if the **model predicts it correclty**, i.e. if the observation with the desired outcome has a **higher predicted probability**, based on the model, than the observation without the outcome.
+* A pair is **discordant** if the **model does not predict it correctly**, i.e. if the observation with the desired outcome has a **lower predicted probability**, based on the model, than the observation without the outcome.
+* A pair is **tied** if it is neither concordant not discordant, i.e. the **probabilities are the same** and the model can not distinguished between them.
+
+The left column of the **Association of Predicted Probabilities and Observed Responses** table lists the percentage of pairs of each type. At the bottom is the total number of observation pairs on which the percentages are based, i.e. the number of pairs of observations with different outcome values $(N_{event=0} \cdot N_{event=1})$.
+
+More complex models have more than two predicted probabilities. However, regardless of the model's complexity, the same comparisons are made across all pairs of observations with different outcomes.
+
+You can use these results as goodness-of-fit measures to compare one model to another. In general, higher percentage of concordant pairs and lower percentages of discordant and tied pairs indicate a more desirable model.
+
+This table also shows the four rank correlation indices that are computed from the numbers of concordant $(n_c)$, discordant $(n_d)$ and tied $(n_t)$ pairs of observations:
+
+* **`Somers' D` (Gini coefficient)**, defined as $(n_c-n_d)/(n_c+n_d+n_t)$
+* **Goodman-Kruskal `Gamma`**, defined as $(n_c-n_d)/(n_c+n_d)$
+* **Kendall's `Tau-a`**, defined as $(n_c-n_d)/(0.5 \cdot N(N-1))$, with $N$ being the sum of observation frequencies in the data
+* **The concordance index `c`** is the most commonly used of these values and estimates the probability of an observation with the desired outcome having a higher predicted probability than an observation without the desired outcome and is defined as $c=\frac{n_c+0.5 \cdot n_t}{n_c+n_d+n_t}$. Note that the concordance index, c, also gives an estimate of the **area under the receiver operating characteristic (ROC) curve** when the response is binary.
+
+!!! note
+	More information about these parameters [here](http://support.sas.com/documentation/cdl/en/statug/66859/HTML/default/viewer.htm#statug_logistic_details22.htm).
+
+In general, a model with higher values of these indices has better predictive ability than a model with lower values.
+
 
 ## Multiple Logistic Regression Model
 
