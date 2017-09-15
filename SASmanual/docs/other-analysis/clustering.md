@@ -14,6 +14,7 @@ A lot of work goes into creating composite variables. The indicators of the mult
 ### Preliminary Discriminant Analysis
 
 * [Discriminant Function Analysis in SAS (UCLA)](https://stats.idre.ucla.edu/sas/dae/discriminant-function-analysis/)
+* [Introduction to Discriminant Procedures](http://documentation.sas.com/?docsetId=statug&docsetTarget=statug_introdisc_toc.htm&docsetVersion=14.2)
 
 ## SAS Procedures to Perform Cluster Analysis 
 
