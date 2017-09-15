@@ -80,6 +80,10 @@ RUN;
 * The `IF-THEN/DELETE` statement eliminates the observations where the **conditions are not met** (on the contrary of what the `IF` does)
 * The `DELETE` statement stops processing the current observation. It is often used in a `THEN` clause of an `IF-THEN` statement or as part of a conditionally executed `DO` group.
 
+!!! tip
+    You can remove all the observations with at least one missing value using this condition inside a `DATA` step:
+    `if cmiss(of _all_) then delete;`
+
 ### Create different data sets from one
 
 ```
