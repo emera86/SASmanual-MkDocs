@@ -15,3 +15,9 @@ site = SUBSTR(PUT(patient,z4.),1,2);
 ```
 patient = substr(patient_code,max(1,length(patient_code)-3));
 ```
+
+* Join the site number and the patient number to get a more general ID number for each patient:
+
+```
+patient = PUT(nsite,z2.) || PUT(npatient,z2.);
+```
