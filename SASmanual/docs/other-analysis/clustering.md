@@ -19,7 +19,8 @@ A lot of work goes into creating composite variables. The indicators of the mult
 When performing multivariate analysis, having variables that are measured at different scales can influence the numerical stability and precision of the estimators. Standardizing the data prior to performing statistical analysis can often prevent this problem.
 
 !!! summary "Check these websites"
-    * [Standardization Procedures](https://support.sas.com/documentation/cdl/en/statug/63033/HTML/default/viewer.htm#statug_stdize_sect020.htm)
+    * [Standardization Procedures](https://support.sas.com/rnd/app/stat/procedures/Standardization.html)
+    * [Standardization of Variables in Cluster Analysis](https://support.sas.com/documentation/cdl/en/statug/63033/HTML/default/viewer.htm#statug_stdize_sect020.htm)
 
 ### Preliminary Discriminant Analysis
 
