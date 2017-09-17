@@ -335,16 +335,33 @@ One major difference between a multiple logistic model and a logistic regression
 
 The adjusted odds ratio **assumes that the OR for a predictor variable is the same regardless of the level of the other predictor variables**. If that assumption is not true, then you need to fit **a more complex model that also considers the interactions** between predictor variables.
 
+The `MODEL` statement can include the `CLODDS=` option which enables the production of the OR plot (
+`PLOTS(ONLY)=(EFFECT ODDSRATIO)`). This option can be set to `PL` so that the procedure calculates profile-likelihood confidence limits for the OR of all predictor variables. These limits are based on the log likelihood and are generally preferred, especially for **smaller sample sizes**.
+
 ### Specifiying the Variable Selection Method in the `MODEL` Statement
+
+To specify the method that `PROC LOGISTIC` uses to select variable in a multiple logistic regression model, you add the `SELECTION=` option to the `MODEL` statement. The possible values of the `SELECTION=` statement are
+
+* `NONE | N` (default): no selection method is used and the complete model is fitted
+* `BACKWARD | B`: backward elimination
+* `FORWARD | F`: forward selection
+* `STEPWISE | S`: stepwise selection
+* `SCORE`: best subset selection
 
 ```
 PROC LOGISTIC DATA=SAS-data-set <options>;
 	CLASS variable <(variable_options)> ... </ options>;
-	MODEL response <(variable_options)> = predictors </ options>;
+	MODEL response <(variable_options)> = predictors </ options SELECTION>;
 RUN;
 ```
 
+By default the procedure uses a $\alpha=0.05$ significance level to determine which variables remain in the model. If you want to change the significance level, you can use the `SLSTAY | SLS =` option in the `MODEL` statement.
+
 ### The `UNITS` Statement
+
+The `UNITS`statement enables you to obtain customized **odds ratio estimates** for a specified unit of change in one or more continuous predictor variables. For each continuous predictor (or independent variable) that you want to modify, you specify the variable name, an equal sign, and a list of **one or more units of change**, separated by spaces, that are of interest for that variable. A unit of change can be a number, a standard deviation $(SD)$, or a number multiplied by the standard deviation $(n \times SD)$. 
+
+The `UNITS` statement is optional. If you want to use the units to change that are reflected in the stored data values, you do not need to include the `UNITS` statement.
 
 ### Comparing the Binary and Multiple Logistic Regression Models
 
