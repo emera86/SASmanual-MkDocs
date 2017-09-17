@@ -302,6 +302,68 @@ In general, a model with higher values of these indices has better predictive ab
 
 ## Multiple Logistic Regression Model
 
+### Introduction
+
+Sometimes you want to create a statistical model that explains the relationships among multiple predictors and a categorical response. You might want 
+
+* to examine the **effect of each individual predictor** on the response regardless of the levels of the other predictors 
+* to perform a more complex analysis that takes into account the **interactions between the predictors**
+
+In order to do this you will explore
+
+* how to define and explain the **adjusted odds ratio**
+* how to fit a multiple logistic regression model using the **backward elimination method**
+* how to fit a multiple logistic regression **model with interactions**
+
+### Multiple Logistic Regression
+
+Amultiple logistic regression model characterized the relationship between a categorical response variable and multiple predictor variables. The predictor variables can be continuous or categorical or both.
+
+$logit(p)=\beta_0+\beta_1 X_1 +...+\beta_k X_k$
+
+The goal of multiple logistic regression, like multiple linear regression, is to find the subset of variables that best explains the variability of the response variable. Models that are **parsimonious or simple** are more likely to be numerically stable and are also easier to generalize.
+
+### The Backward Elimination Method of Variable Selection
+
+This method starts with a full model (a model that contains all of the main effects or predictor variables). Using an iterative process, the backward elimination method identifies and eliminates the nonsignificant predictor variables, one at a time. At each step, this method removes the least significant variable of the nonsignificant terms (the variable with the largest p-value).
+
+The smaller your significance level, the more evidence you need to keep a predictor variable in the model. This results in a more parsimonious model. 
+
+### Adjusted Odds Ratios
+
+One major difference between a multiple logistic model and a logistic regression model with only one predictor variable is that the odds ratios are reported differently. Multiple logistic regression uses **adjusted odds ratios**. An adjusted odds ratio measures the effect of a single predictor variable on a response variable while holding all the other predictor variables constant. 
+
+The adjusted odds ratio **assumes that the OR for a predictor variable is the same regardless of the level of the other predictor variables**. If that assumption is not true, then you need to fit **a more complex model that also considers the interactions** between predictor variables.
+
+### Specifiying the Variable Selection Method in the `MODEL` Statement
+
+```
+PROC LOGISTIC DATA=SAS-data-set <options>;
+	CLASS variable <(variable_options)> ... </ options>;
+	MODEL response <(variable_options)> = predictors </ options>;
+RUN;
+```
+
+### The `UNITS` Statement
+
+### Comparing the Binary and Multiple Logistic Regression Models
+
+### Specifying a Formatted Value as a Reference Level
+
+### Interaction betweeen Variables
+
+### The Backward Elimination Method with Interactions in the Model
+
+### Specifying Interactions in the `MODEL` Statement
+
+### The `ODDSRATIO` Statement
+
+### Comparing the Multiple Logistic Regression Models
+
+### Interaction Plots
+
+### Saving Analysis Results with the `STORE` Statement
+
 
 
 
