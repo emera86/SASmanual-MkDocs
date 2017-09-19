@@ -4,12 +4,6 @@
 
 Variables with missing data should be excluded from the calculation unless they can be imputed.
 
-### Methods for data reduction
-You may need to reduce the number of variables to include in the analysis. There are several methods for this:
-
-* [Principal Component Analysis with `PROC FACTOR`](https://stats.idre.ucla.edu/sas/output/principal-components-analysis/)
-* [Variable Reduction for Modeling using `PROC VARCLUS`](http://www2.sas.com/proceedings/sugi26/p261-26.pdf)
-
 ### Dealing with Categorical Variables
 
 #### Composite variables
@@ -19,6 +13,12 @@ A lot of work goes into creating composite variables. The indicators of the mult
 
 #### Hot encoding
 Check [this website](https://heuristically.wordpress.com/2013/02/11/dummy-coding-sas/) for a macro to generate dummy variables.
+
+### Methods for data reduction
+You may need to reduce the number of variables to include in the analysis. There are several methods for this:
+
+* [Principal Component Analysis with `PROC FACTOR`](https://stats.idre.ucla.edu/sas/output/principal-components-analysis/)
+* [Variable Reduction for Modeling using `PROC VARCLUS`](http://www2.sas.com/proceedings/sugi26/p261-26.pdf)
 
 ### Standardize your Data
 When performing multivariate analysis, having variables that are measured at different scales can influence the numerical stability and precision of the estimators. Standardizing the data prior to performing statistical analysis can often prevent this problem.
