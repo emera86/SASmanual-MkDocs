@@ -1,3 +1,6 @@
+!!! summary "Check these websites"
+    * [VI Tutorials](http://video.sas.com/detail/videos/getting-started-with-sas-visual-analytics/)
+
 ## Home Page
 
 At the Home Page you can:
