@@ -105,6 +105,19 @@ OPTIONS FMTSEARCH = (libref1 libref2... librefn)
 * The `FMTSEARCH` system option controls the order in which format catalogs are searched until the desired member is found.
 * The `WORK.FORMATS` catalog is always searched first, unless it appears in the `FMTSEARCH` list.
 
+###  Creating a Format from a SAS Dataset
+
+```
+DATA formatdataset;
+	SET originaldataset;
+	RETAIN fmtname '$custom_format_name' TYPE 'C';
+	RENAME index_variable=start label_variable=label;
+RUN;
+
+PROC FORMAT CNTLIN=formatdataset;
+RUN;
+```
+
 ### [`PROC FORMAT`'s `PICTURE` statement](http://support.sas.com/documentation/cdl/en/proc/70377/HTML/default/viewer.htm#p0n990vq8gxca6n1vnsracr6jp2c.htm)
 
 `LOW-HIGH` ensures that all values are included in the range. The `MULT=` statement option specifies that each value is multiplied by 1.61. The `PREFIX=` statement adds a US dollar sign to any number that you format. The picture contains six digit selectors, five for the salary and one for the dollar sign prefix.
