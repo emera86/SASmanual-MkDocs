@@ -118,6 +118,9 @@ PROC FORMAT CNTLIN=formatdataset;
 RUN;
 ```
 
+!!! summary 'See More Information'
+    [Creating a Format from Raw Data or a SAS Dataset](http://www2.sas.com/proceedings/forum2007/068-2007.pdf)
+
 ### [`PROC FORMAT`'s `PICTURE` statement](http://support.sas.com/documentation/cdl/en/proc/70377/HTML/default/viewer.htm#p0n990vq8gxca6n1vnsracr6jp2c.htm)
 
 `LOW-HIGH` ensures that all values are included in the range. The `MULT=` statement option specifies that each value is multiplied by 1.61. The `PREFIX=` statement adds a US dollar sign to any number that you format. The picture contains six digit selectors, five for the salary and one for the dollar sign prefix.
