@@ -162,3 +162,7 @@ They can be used within a `DATA` to simplify the process of creating annotation 
 title;
 options label;
 ```
+
+## Macro's Sources
+
+* [Les macros SAS de Dominique Ladiray](http://www.unige.ch/ses/sococ/eda/sas/)
