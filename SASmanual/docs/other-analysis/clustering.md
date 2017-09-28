@@ -14,6 +14,10 @@ A lot of work goes into creating composite variables. The indicators of the mult
 #### Hot encoding
 Check [this website](https://heuristically.wordpress.com/2013/02/11/dummy-coding-sas/) for a macro to generate dummy variables.
 
+#### Ordinal Categorical Variables
+
+If your categorical variables have an ordinal meaning you can create an auxiliary variable with indexes representing the ordinal scale and use them for the analysis.
+
 ### Methods for data reduction
 You may need to reduce the number of variables to include in the analysis. There are several methods for this:
 
@@ -22,6 +26,9 @@ You may need to reduce the number of variables to include in the analysis. There
 
 ### Standardize your Data
 When performing multivariate analysis, having variables that are measured at different scales can influence the numerical stability and precision of the estimators. Standardizing the data prior to performing statistical analysis can often prevent this problem.
+
+!!! Warning
+    Do not forget to change the format of your numerical data and increase the number of decimal places before performing the standardization. Otherwise you may lose a lot of details on this process that can be crucial for the data analysis.
 
 !!! summary "Check these websites"
     * [Standardization Procedures](https://support.sas.com/rnd/app/stat/procedures/Standardization.html)
@@ -75,7 +82,7 @@ run;
 
 ### `PROC FASTCLUS`: Dijoint Cluster Analysis
 
-The `FASTCLUS` procedure performs a **disjoint cluster analysis** on the basis of distances computed from one or more quantitative variables. The observations are **divided into clusters such that every observation belongs to one and only one cluster**; the clusters **do not form a tree structure** as they do in the `CLUSTER` procedure. If you want separate analyses for different numbers of clusters, you can run `PROC FASTCLUS` once for each analysis. Alternatively, to do hierarchical clustering on a large data set, use `PROC FASTCLUS` to find initial clusters, and then use those initial clusters as input to `PROC CLUSTER` (Example [here](https://support.sas.com/documentation/cdl/en/statug/63033/HTML/default/viewer.htm#statug_cluster_sect027.htm)). The `FASTCLUS` procedure requires time proportional to the number of observations and thus can be used with much larger data sets than `PROC CLUSTER`.
+The `FASTCLUS` procedure performs a **disjoint cluster analysis** on the basis of distances computed from one or more quantitative variables. The observations are **divided into clusters such that every observation belongs to one and only one cluster**; the clusters **do not form a tree structure** as they do in the `CLUSTER` procedure. If you want separate analyses for different numbers of clusters, you can run `PROC FASTCLUS` once for each analysis. The `FASTCLUS` procedure requires time proportional to the number of observations and thus can be used with much larger data sets than `PROC CLUSTER`.
 
 ```
 data t2;
@@ -119,6 +126,12 @@ The cluster solution can also be **evaluated with respect to each clustering var
 
 !!! tip "Interesting Examples"
     * [Multivariate Statistical Analysis in SAS: Segmentation and Classification of Behavioral Data](http://support.sas.com/resources/papers/proceedings13/447-2013.pdf)
+    
+### Mixed Clustering
+
+On large data sets a useful methodology consists first in summarizing the observations in a large enough number of clusters (100 may be a standard value) and then applying a hierarchical clustering technique for aggregating these groups (Example [here](https://support.sas.com/documentation/cdl/en/statug/63033/HTML/default/viewer.htm#statug_cluster_sect027.htm)).
+
+This procedure has the advantages of the hierarchical method for showing an optimal number of clusters and solves the difficulty of the too high initial number of observations by first clustering them, using a non hierarchical method, in a smaller number of clusters. This number is a parameter of the procedure; it must be high enough in order not to impose a prior partitionning of the data.
 
 ### `PROC TREE`
 
@@ -137,6 +150,8 @@ The `TREE` procedure produces a tree diagram, also known as a dendrogram or phen
 * The `COPY` statement specifies one or more character or numeric variables to be copied to the `OUT=` data set.
 
 ## Choosing the Optimal Number of Clusters for the Analysis 
+
+In most cases, before using a clustering technique you have no prior idea of the number of clusters which will give the better differenciation of the data. The main objective is to summarize the data in the best way possible, i.e. getting a compromise between a good degree of differentiation and a not too high number of clusters.
 
 For hierarchical clustering try the Sarle's Cubic Clustering Criterion in PROC CLUSTER:
 plot _CCC_ versus the number of clusters and look for peaks where _ccc_ > 3 or look for local peaks of pseudo-F statistic (_PSF_) combined with a small value of the pseudo-t^2 statistic (_PST2_) and a larger pseudo t^2 for the next cluster fusion.
