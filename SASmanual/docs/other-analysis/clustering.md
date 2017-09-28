@@ -115,6 +115,8 @@ The cluster analysis may converge to a solution at the $n^{th}$ iteration becaus
 
 The statistics used for the evaluation of the cluster solution are the same as in the hierarchical cluster analysis.
 
+The cluster solution can also be **evaluated with respect to each clustering variable**. If the measurement scales are not the same, then for each variable one should obtain the **ratio** of the respective **Within STD** to the **Total STD**, and compare this ratio across the variables.
+
 !!! tip "Interesting Examples"
     * [Multivariate Statistical Analysis in SAS: Segmentation and Classification of Behavioral Data](http://support.sas.com/resources/papers/proceedings13/447-2013.pdf)
 
