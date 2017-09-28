@@ -171,3 +171,7 @@ This technique is discussed in the "Applied Clustering Techniques" course notes.
 
 !!! summary "Check these websites"
     * [The Number of Clusters](http://support.sas.com/documentation/cdl/en/statug/63033/HTML/default/viewer.htm#statug_introclus_sect010.htm)
+    
+## Visualizing the Results
+
+To interpret a cluster analysis solution, the first thig you want to try is to graph the cluster in a scatter plot to see whether or not they overlap with each other in terms of their location in the $p-$dimensional space. A scatter plot will work to visualize a few dimensions, but will not be helpful when you have a lot of them. So what we are going to do is use a **canonical discriminate analysis** which is a data reduction technique that creates a smaller number of variables that are linear combinations of the original $p$ clustering variables. The new variables, called canonical variables, are ordered in terms of the proportion of variance in the clustering variables that is accounted for by each of the canonical variables. So the first canonical variable will account
