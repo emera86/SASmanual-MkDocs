@@ -41,9 +41,40 @@ Ward's minimum-variance hierarchical clustering method using agglomerative (bott
 
 ### `PROC CLUSTER`
 
-The `CLUSTER` procedure hierarchically clusters the observations in a SAS data set by using one of 11 methods. The data can be coordinates or distances. 
+The `CLUSTER` procedure **hierarchically clusters the observations** in a SAS data set by using one of 11 methods. The data can be coordinates or distances. 
 
 All methods are based on the usual agglomerative hierarchical clustering procedure. Each observation begins in a cluster by itself. The two closest clusters are merged to form a new cluster that replaces the two old clusters. Merging of the two closest clusters is repeated until only one cluster is left. The various clustering methods differ in how the distance between two clusters is computed.
+
+```
+data t;
+	input cid $ 1-2 income educ;
+cards;
+c1 5 5
+c2 6 6
+c3 15 14
+c4 16 15
+c5 25 20
+c6 30 19
+run;
+
+proc cluster simple noeigen method=centroid rmsstd rsquare nonorm out=tree;
+id cid;
+var income educ;
+run;
+```
+
+* The `SIMPLE` option displays simple, descriptive statistics. 
+* The `NOEIGEN` option suppresses computation of eigenvalues. Specifying the `NOEIGEN` option saves time if the number of variables is large, but it should be used only if the variables are nearly uncorrelated or if you are not interested in the cubic clustering criterion. 
+* The `METHOD=` specification determines the clustering method used by the procedure. Here, we are using `CENTROID` method. The `Centroid Distance` that appears in the output is simply the Euclidian distance between the centroid of the two clusters that are to be joined or merged. It is a measure of the homogeneity of merged clusters and the value should be small.
+* The `RMSSTD` option displays the root-mean-square standard deviation of each cluster. `RMSSTD` is the pooled standard deviation of all the variables forming the cluster. Since the objective of cluster analysis is to form homogeneous groups, the `RMSSTD` of a cluster should be as small as possible.
+* The `RSQUARE` option displays the $R^2$ (`RSQ`) and semipartial $R^2$ (`SPRSQ`) to evaluate cluster solution. `RSQ` measures the extent to which groups or clusters are different from each other (so, when you have just one cluster `RSQ` value is, intuitively, zero). Thus, the `RSQ` value should be high.`SPRSQ` is a measure of the homogeneity of merged clusters, i.e. the loss of homogeneity due to combining two groups or clusters to form a new group or cluster.  Thus, its value should be small to imply that we are merging two homogeneous groups. 
+
+
+
+* The `NONORM` option prevents the distances from being normalized to unit mean or unit root mean square with most methods. 
+* The values of the `ID` variable identify observations in the displayed cluster history and in the `OUTTREE=` data set. If the `ID` statement is omitted, each observation is denoted by `OBn`, where n is the observation number.
+* The `VAR` statement lists numeric variables to be used in the cluster analysis. If you omit the `VAR` statement, all numeric variables not listed in other statements are used.
+
 
 ### `PROC FASTCLUS`
 
@@ -56,3 +87,35 @@ The `FASTCLUS` procedure requires time proportional to the number of observation
 
 The `TREE` procedure produces a tree diagram from a data set created by the `CLUSTER` or `VARCLUS` procedure that contains the results of hierarchical clustering as a tree structure.
 
+```
+proc tree data=tree out=clus3 nclusters=3;
+id cid;
+copy income educ;
+```
+
+The `TREE` procedure produces a tree diagram, also known as a dendrogram or phenogram, using a data set created by the `CLUSTER` procedure. The `CLUSTER` procedure creates output data sets that contain the results of **hierarchical clustering as a tree structure**. The `TREE` procedure uses the output data set to produce a diagram of the tree structure.
+
+* The `NCLUSTERS=` option specifies the number of clusters desired in the `OUT=` data set.
+* The `ID` variable is used to identify the objects (leaves) in the tree on the output. The `ID` variable can be a character or numeric variable of any length. 
+* The `COPY` statement specifies one or more character or numeric variables to be copied to the `OUT=` data set.
+
+## Choosing the Optimal Number of Clusters for the Analysis 
+
+For hierarchical clustering try the Sarle's Cubic Clustering Criterion in PROC CLUSTER:
+plot _CCC_ versus the number of clusters and look for peaks where _ccc_ > 3 or look for local peaks of pseudo-F statistic (_PSF_) combined with a small value of the pseudo-t^2 statistic (_PST2_) and a larger pseudo t^2 for the next cluster fusion.
+For K-Means clustering use this approach on a sample of your data to determine the max limit for k and assign it to the maxc= option in PROC FASTCLUS on the complete data. 
+
+For K-means cluster analysis, one can use `PROC FASTCLUS` like
+`proc fastclus data=mydata out=out maxc=4 maxiter=20;`
+and change the number defined by `MAXC=`, and run a number of times, then compare the **Pseduo F** and **CCC** values, to see which number of clusters gives peaks.
+ 
+or one can use `PROC CLUSTER`:
+`PROC CLUSTER data=mydata METHOD=WARD out=out ccc pseudo print=15;`
+to find the number of clusters with **pseudo F**, **pseudo-$t^2$** and **CCC**, and also look at junp in Semipartial R-Square.
+ 
+Sometimes these indications do not agree to each other. which indicator is more reliable?
+If you are doubting between 2 k-values, you can use Beale's F-type statistic to determine the final number of clusters. It will tell you whether the larger solution is significantly better or not (in the latter case the solution with fewer clusters is preferable).
+This technique is discussed in the "Applied Clustering Techniques" course notes.
+
+!!! summary "Check these websites"
+    * [The Number of Clusters](http://support.sas.com/documentation/cdl/en/statug/63033/HTML/default/viewer.htm#statug_introclus_sect010.htm)
