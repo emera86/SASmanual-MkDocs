@@ -34,11 +34,6 @@ When performing multivariate analysis, having variables that are measured at dif
     * [Standardization Procedures](https://support.sas.com/rnd/app/stat/procedures/Standardization.html)
     * [Standardization of Variables in Cluster Analysis](https://support.sas.com/documentation/cdl/en/statug/63033/HTML/default/viewer.htm#statug_stdize_sect020.htm)
 
-### Preliminary Discriminant Analysis
-
-* [Discriminant Function Analysis in SAS (UCLA)](https://stats.idre.ucla.edu/sas/dae/discriminant-function-analysis/)
-* [Introduction to Discriminant Procedures](http://documentation.sas.com/?docsetId=statug&docsetTarget=statug_introdisc_toc.htm&docsetVersion=14.2)
-
 ## SAS Procedures to Perform Cluster Analysis 
 
 Ward's minimum-variance hierarchical clustering method using agglomerative (bottom-up) approach and Ward's linkage.
@@ -172,9 +167,11 @@ This technique is discussed in the "Applied Clustering Techniques" course notes.
 !!! summary "Check these websites"
     * [The Number of Clusters](http://support.sas.com/documentation/cdl/en/statug/63033/HTML/default/viewer.htm#statug_introclus_sect010.htm)
     
-## Visualizing the Results
+## Further Examination of the Cluster Analysis Solution
 
-To interpret a cluster analysis solution, the first thig you want to try is to graph the cluster in a scatter plot to see whether or not they overlap with each other in terms of their location in the $p-$dimensional space. A scatter plot will work to visualize a few dimensions, but will not be helpful when you have a lot of them. So what we are going to do is use a **canonical discriminate analysis** which is a data reduction technique that creates a smaller number of variables that are linear combinations of the original $p$ clustering variables. The new variables, called canonical variables, are ordered in terms of the proportion of variance in the clustering variables that is accounted for by each of the canonical variables. Usually, the majority of the variants in the clustering variable will be accounted for by the first couple of canonical varaibles and those are the variables we can plot.
+### Visualizing the Results
+
+To interpret a cluster analysis solution, the first thing you want to try is to graph the cluster in a scatter plot to see whether or not they overlap with each other in terms of their location in the $p-$dimensional space. If the vectors have a high dimentionality,  we use **Canonical Discriminant Analysis (CDA)**. It is a **dimension-reduction technique related to principal component analysis and canonical correlation**. It creates a smaller number of variables that are linear combinations of the original $p$ clustering variables. The new variables, called canonical variables, are ordered in terms of the proportion of variance in the clustering variables that is accounted for by each of the canonical variables. Usually, the majority of the variants in the clustering variable will be accounted for by the first couple of canonical varaibles and those are the variables we can plot.
 
 In SAS we can use the `CANDISC`procedure to create the canonical variables for our cluster analysis output data set that has the cluster assignment variable that we created when we ran the cluster analysis. 
 
@@ -197,4 +194,16 @@ PROC SGPLOT DATA=candata;
 RUN;
 ```
 
-Let's analyze this example result for a 4-cluster analysis.
+Let's analyze the following example result for a 4-cluster analysis.
+
+![Scatter plot of canonical variables by cluster](../images/candisc4clustering.PNG "Scatter plot of canonical variables by cluster")
+
+What this shows is that the observations in **clusters 1 and 4** are densely packed, meaning they are pretty highly correlated with each other, and **within cluster variance is relatively low**. In addition, they **do not overlap** very much with the other clusters. The observations from **cluster 2** are a little more spread out, indicating less correlation among the observations and higher within cluster variance. But generally, the cluster is relatively distinct with the exception of some observations which are closer to clusters 1 and 4 indicating **some overlap** with these clusters. However, **cluster 3** is all over the place. There is come indication of a cluster but the observations are spread out more than the other clusters. This means that the **within cluster variance is high** as there is less correlation between the observations in this cluster, so we do not really know what is going to happen with that cluster. What this suggests is that the **best cluster solution may have fewer than 4 clusters**, meaning that it would be especially important to further evaluate the cluster solutions with fewer than four clusters.
+
+!!! summary "Check these websites"
+    * [Discriminant Function Analysis in SAS (UCLA)](https://stats.idre.ucla.edu/sas/dae/discriminant-function-analysis/)
+    * [Introduction to Discriminant Procedures](http://documentation.sas.com/?docsetId=statug&docsetTarget=statug_introdisc_toc.htm&docsetVersion=14.2)
+    
+### Cluster Means and Standard Deviations
+
+You can also check these values per cluster to detect possible similarities between groups and detect the most different ones.
