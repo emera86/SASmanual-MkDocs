@@ -122,7 +122,7 @@ The cluster solution can also be **evaluated with respect to each clustering var
 
 ### `PROC TREE`
 
-The `TREE` procedure produces a tree diagram from a data set created by the `CLUSTER` or `VARCLUS` procedure that contains the results of hierarchical clustering as a tree structure.
+The `TREE` procedure produces a tree diagram from a **data set created by the `CLUSTER` or `VARCLUS` procedure** that contains the results of **hierarchical clustering** as a tree structure.
 
 ```
 proc tree data=tree out=clus3 nclusters=3;
