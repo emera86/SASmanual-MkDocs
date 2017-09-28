@@ -114,6 +114,8 @@ You must specify either the `MAXCLUSTERS=` or the `RADIUS=` argument in the `PRO
 * The `ID` variable, which can be character or numeric, identifies observations on the output when you specify the `LIST` option.
 * The `VAR` statement lists the numeric variables to be used in the cluster analysis. If you omit the `VAR` statement, all numeric variables not listed in other statements are used.
 
+The cluster analysis may converge to a solution at the $n^{th}$ iteration because the change in cluster seeds at this iteration is less than the convergence criterion.  Note that a zero change in the centroid of the cluster seeds for the $n^{th}$ iteration implies that the reallocation did not result in any reassignment of observations.
+
 !!! tip "Interesting Examples"
     * [Multivariate Statistical Analysis in SAS: Segmentation and Classification of Behavioral Data](http://support.sas.com/resources/papers/proceedings13/447-2013.pdf)
 
