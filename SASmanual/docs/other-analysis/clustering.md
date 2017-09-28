@@ -78,7 +78,41 @@ run;
 
 ### `PROC FASTCLUS`
 
-The `FASTCLUS` procedure requires time proportional to the number of observations and thus can be used with much larger data sets than `PROC CLUSTER`. If you want to cluster a very large data set hierarchically, use `PROC FASTCLUS` for a preliminary cluster analysis to produce a large number of clusters. Then use `PROC CLUSTER` to cluster the preliminary clusters hierarchically (Example [here](https://support.sas.com/documentation/cdl/en/statug/63033/HTML/default/viewer.htm#statug_cluster_sect027.htm)).
+The `FASTCLUS` procedure performs a **disjoint cluster analysis** on the basis of distances computed from one or more quantitative variables. The observations are **divided into clusters such that every observation belongs to one and only one cluster**; the clusters **do not form a tree structure** as they do in the `CLUSTER` procedure. If you want separate analyses for different numbers of clusters, you can run `PROC FASTCLUS` once for each analysis. Alternatively, to do hierarchical clustering on a large data set, use `PROC FASTCLUS` to find initial clusters, and then use those initial clusters as input to `PROC CLUSTER` (Example [here](https://support.sas.com/documentation/cdl/en/statug/63033/HTML/default/viewer.htm#statug_cluster_sect027.htm)). The `FASTCLUS` procedure requires time proportional to the number of observations and thus can be used with much larger data sets than `PROC CLUSTER`.
+
+```
+data t2;
+	input cid $ 1-2 income educ;
+cards;
+c1 5 5
+c2 6 6
+c3 15 14
+c4 16 15
+c5 25 20
+c6 30 19
+run;
+
+proc fastclus radius=0 replace=full maxclusters=3 maxiter=20 list distance;
+id cid;
+var income educ;
+run;
+```
+
+You must specify either the `MAXCLUSTERS=` or the `RADIUS=` argument in the `PROC FASTCLUS` statement.
+
+* The `RADIUS=` option establishes the minimum distance criterion for selecting new seeds. No observation is considered as a new seed unless its minimum distance to previous seeds exceeds the value given by the `RADIUS=` option. The default value is 0. 
+* The `MAXCLUSTERS=` option specifies the maximum number of clusters allowed. If you omit the `MAXCLUSTERS=` option, a value of 100 is assumed. 
+* The `REPLACE=` option specifies how seed replacement is performed. 
+    * `FULL` requests default seed replacement. 
+    * `PART` requests seed replacement only when the distance between the observation and the closest seed is greater than the minimum distance between seeds. 
+    * `NONE` suppresses seed replacement. 
+    * `RANDOM` selects a simple pseudo-random sample of complete observations as initial cluster seeds. 
+    
+* The `MAXITER=` option specifies the maximum number of iterations for recomputing cluster seeds. When the value of the `MAXITER=` option is greater than 0, each observation is assigned to the nearest seed, and the seeds are recomputed as the means of the clusters. 
+* The `LIST` option lists all observations, giving the value of the `ID` variable (if any), the number of the cluster to which the observation is assigned, and the distance between the observation and the final cluster seed. 
+* The `DISTANCE` option computes distances between the cluster means. 
+* The `ID` variable, which can be character or numeric, identifies observations on the output when you specify the `LIST` option.
+* The `VAR` statement lists the numeric variables to be used in the cluster analysis. If you omit the `VAR` statement, all numeric variables not listed in other statements are used.
 
 !!! tip "Interesting Examples"
     * [Multivariate Statistical Analysis in SAS: Segmentation and Classification of Behavioral Data](http://support.sas.com/resources/papers/proceedings13/447-2013.pdf)
