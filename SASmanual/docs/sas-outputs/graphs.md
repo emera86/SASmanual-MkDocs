@@ -49,6 +49,21 @@ ODS GRAPHICS / NOBORDER;
 
 ## Plots
 
+###`GPLOT`
+
+* Reference lines:
+
+```
+SYMBOL1 COLOR=blue INTERPOL=join;
+AXIS1 LABEL=('X axis label') order=(0 to 15 by 1) reflabel=(j=c h=9pt 'Reference line label 1' 'Reference line label 2' 'Reference line label 3');
+AXIS2 LABEL=('Y axis label' j=c);
+PROC GPLOT DATA=SAS-data-set;
+	PLOT variabley*variablex / HAXIS=AXIS1 VAXIS=AXIS2 HREF=6 9 13 /*location of ref lines*/;
+RUN;
+```
+
+###`SGPLOT`
+
 * Highlight a certain boxplot and get the plot narrower: 
 ```
 PROC SGPLOT DATA=sashelp.heart;
