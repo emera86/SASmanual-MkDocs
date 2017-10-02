@@ -16,7 +16,7 @@ Check [this website](https://heuristically.wordpress.com/2013/02/11/dummy-coding
 
 #### Ordinal Categorical Variables
 
-If your categorical variables have an ordinal meaning you can create an auxiliary variable with indexes representing the ordinal scale and use them for the analysis.
+If your categorical variables have an ordinal meaning you can create an auxiliary numeric variable with indexes representing the ordinal scale and use this new variable, which can be standardized, for the analysis.
 
 ### Methods for data reduction
 You may need to reduce the number of variables to include in the analysis. There are several methods for this:
