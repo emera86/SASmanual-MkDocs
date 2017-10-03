@@ -132,6 +132,20 @@ On large data sets a useful methodology consists first in summarizing the observ
 
 This procedure has the advantages of the hierarchical method for showing an optimal number of clusters and solves the difficulty of the too high initial number of observations by first clustering them, using a non hierarchical method, in a smaller number of clusters. This number is a parameter of the procedure; it must be high enough in order not to impose a prior partitionning of the data.
 
+### `PROC VARCLUS`: Variable Clustering
+
+The `VARCLUS` procedure divides a set of numeric variables into disjoint or hierarchical clusters. `PROC VARCLUS` tries to maximize the variance that is explained by the cluster components, summed over all the clusters.
+
+In an ordinary principal component analysis, all components are computed from the same variables, and the first principal component is orthogonal to the second principal component and to every other principal component. In `PROC VARCLUS`, each cluster component is computed from a set of variables that is different from all the other cluster components. The first principal component of one cluster might be correlated with the first principal component of another cluster. Hence, the `PROC VARCLUS` algorithm is a type of oblique component analysis.
+
+`PROC VARCLUS` can be used as a **variable-reduction method**. A large set of variables can often be replaced by the set of cluster components with little loss of information. A given number of cluster components does not generally explain as much variance as the same number of principal components on the full set of variables, but the cluster components are usually easier to interpret than the principal components, even if the latter are rotated.
+
+```
+PROC VARCLUS DATA=SAS-data-set MAXEIGEN=0.7 OUTTREE=fortree short noprint;	
+	VAR variable1 variable2 variable3;
+RUN;
+```
+
 ### `PROC TREE`
 
 The `TREE` procedure produces a tree diagram from a **data set created by the `CLUSTER` or `VARCLUS` procedure** that contains the results of **hierarchical clustering** as a tree structure.
