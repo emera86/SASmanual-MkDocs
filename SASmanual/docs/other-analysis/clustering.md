@@ -1,3 +1,7 @@
+## Introduction to Cluster Analysis
+
+When subjects are sampled, randomized or allocated by clusters, several statistical problems arise. If observations within a cluster are correlated, one of the assumptions of estimation and hypothesis testing is violated. Because of this correlation, the analyses must be modified to take into account the cluster design effect. When cluster designs are used, there are two sources of variations in the observations. The first is the **one between subjects within a cluster**, and the second is the **variability among clusters**. These two sources of variation cause the variance to inflate and must be taken into account in the analysis.
+
 ## Gettin' Ready for a Cluster Analysis
 
 ### Check for Missing Data
