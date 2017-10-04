@@ -171,12 +171,12 @@ plot _CCC_ versus the number of clusters and look for peaks where _ccc_ > 3 or l
 For K-Means clustering use this approach on a sample of your data to determine the max limit for k and assign it to the maxc= option in PROC FASTCLUS on the complete data. 
 
 For K-means cluster analysis, one can use `PROC FASTCLUS` like
-`proc fastclus data=mydata out=out maxc=4 maxiter=20;`
+```PROC FASTCLUS DATA=SAS-data-set OUT=out MAXC=4 MAXITER=20;```
 and change the number defined by `MAXC=`, and run a number of times, then compare the **Pseduo F** and **CCC** values, to see which number of clusters gives peaks.
  
-or one can use `PROC CLUSTER`:
-`PROC CLUSTER data=mydata METHOD=WARD out=out ccc pseudo print=15;`
-to find the number of clusters with **pseudo F**, **pseudo-$t^2$** and **CCC**, and also look at junp in Semipartial R-Square.
+You can also use `PROC CLUSTER`
+```PROC CLUSTER data=mydata METHOD=WARD out=out ccc pseudo print=15;```
+to find the number of clusters with **pseudo F**, **pseudo-$t^2$** and **CCC**, and also look at junp in **Semipartial R-Square**.
  
 Sometimes these indications do not agree to each other. which indicator is more reliable?
 If you are doubting between 2 k-values, you can use Beale's F-type statistic to determine the final number of clusters. It will tell you whether the larger solution is significantly better or not (in the latter case the solution with fewer clusters is preferable).
