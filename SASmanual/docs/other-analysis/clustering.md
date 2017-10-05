@@ -8,6 +8,13 @@ When subjects are sampled, randomized or allocated by clusters, several statisti
 
 Variables with missing data should be excluded from the calculation unless they can be imputed.
 
+```
+DATA SAS-data-set-without-missing;
+	SET SAS-data-set-with-missing;
+	IF CMISS(OF _ALL_) THEN DELETE;
+RUN;
+```
+
 ### Dealing with Categorical Variables
 
 #### Composite variables
@@ -30,6 +37,17 @@ You may need to reduce the number of variables to include in the analysis. There
 
 ### Standardize your Data
 When performing multivariate analysis, having variables that are measured at different scales can influence the numerical stability and precision of the estimators. Standardizing the data prior to performing statistical analysis can often prevent this problem.
+
+```
+DATA SAS-data-set;
+	SET SAS-data-set-unformatted;
+	format variable1 variable2 variable3 10.4;
+RUN;
+
+PROC STANDARD DATA=SAS-data-set out=SAS-output-data-set MEAN=0 STD=1;
+	VAR variable1 variable2 variable3;
+RUN;
+```
 
 !!! Warning
     Do not forget to change the format of your numerical data and increase the number of decimal places before performing the standardization. Otherwise you may lose a lot of details on this process that can be crucial for the data analysis.
@@ -151,9 +169,10 @@ RUN;
 The `TREE` procedure produces a tree diagram from a **data set created by the `CLUSTER` or `VARCLUS` procedure** that contains the results of **hierarchical clustering** as a tree structure.
 
 ```
-proc tree data=tree out=clus3 nclusters=3;
-id cid;
-copy income educ;
+PROC TREE DATA=tree OUT=clus3 NCLUSTERS=3;
+	ID id-variable;
+	COPY variable1 variable2 variable3;
+RUN;
 ```
 
 The `TREE` procedure produces a tree diagram, also known as a dendrogram or phenogram, using a data set created by the `CLUSTER` procedure. The `CLUSTER` procedure creates output data sets that contain the results of **hierarchical clustering as a tree structure**. The `TREE` procedure uses the output data set to produce a diagram of the tree structure.
@@ -181,6 +200,54 @@ to find the number of clusters with **pseudo F**, **pseudo-$t^2$** and **CCC**, 
 Sometimes these indications do not agree to each other. which indicator is more reliable?
 If you are doubting between 2 k-values, you can use Beale's F-type statistic to determine the final number of clusters. It will tell you whether the larger solution is significantly better or not (in the latter case the solution with fewer clusters is preferable).
 This technique is discussed in the "Applied Clustering Techniques" course notes.
+
+```
+* Macro with the cluster procedure, to call it with different number of clusters;
+%MACRO CLUSTERSIZE(
+		 datain=
+		,dataout=
+		,maxclusters=
+		,maxiter=
+		);
+	proc fastclus data=&datain. out=&dataout.&maxclusters. outstat=statdata&maxclusters. maxclusters=&maxclusters. maxiter=&maxiter. noprint;
+		id patient;
+		var &varseleclust.;
+	run;
+	title;
+%MEND;
+
+* Calcultion of the cluster analysis statistics for 1-20 clusters and data set creation for elbow plot with RSQ values;
+%macro statCLUSTER;
+     %do k= 1 %to 20;
+	 	%CLUSTERSIZE(datain=SAS-data-set, dataout=clusterdata, maxclusters=&k., maxiter=1000);
+		data clusrsq&k.;
+			set statgreendata&k.;
+			nclust=&k.;
+			if _type_='RSQ';
+			keep nclust over_all;
+		run;
+     %end;
+%mend;
+%statCLUSTER;
+
+data clus_rsq;
+	set clusrsq1 clusrsq2 clusrsq3 clusrsq4 clusrsq5 clusrsq6 clusrsq7 clusrsq8 clusrsq9 clusrsq10 clusrsq11 clusrsq12 clusrsq13 clusrsq14 clusrsq15 clusrsq16 clusrsq17 clusrsq18 clusrsq19 clusrsq20;
+run;
+
+* Remove useless data sets;
+proc datasets lib=work nowarn nolist nodetails; 
+	delete clusrsq: statdata: clusterdata: greendata_aux:;
+run; 
+quit;
+
+* Plot elbow curve using r-square values;
+symbol1 color=blue interpol=join;
+axis1 label=('Number of clusters in the analysis') order=(0 to 15 by 1) reflabel=(j=c h=9pt 'Candidate 1' 'Candidate 2');
+axis2 label=('R^2 values' j=c);
+proc gplot data=clus_rsq;
+	plot over_all*nclust / haxis=axis1 vaxis=axis2 href=3 5;
+run;
+```
 
 !!! summary "Check these websites"
     * [The Number of Clusters](http://support.sas.com/documentation/cdl/en/statug/63033/HTML/default/viewer.htm#statug_introclus_sect010.htm)
