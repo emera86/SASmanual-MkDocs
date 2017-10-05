@@ -78,7 +78,47 @@ RUN;
 
 The `FORMAT=` option applies only to crosstabulation tables displayed in the default format. It doesn't apply to crosstabulation tables produced with the `LIST`/`CROSSLIST` option.
 
-## Using `PROC FREQ` for Data Validation
+## Using the `MEANS` and `UNIVARIATE` Procedures
+
+`PROC MEANS` produces summary reports with descriptive statistics and you can create statistics for groups of observations
+
+* It automatically displays output in a report and you can also save the output in a SAS data set
+* It reports the **number of nonmissing values** of the analysis variable (N), and the **mean**, the **standard deviation** and **minimum**/**maximum values** of every numeric variable in the data set
+* The variables in the `CLASS` statement are called **classification variables** or **class variables** (they typically have few discrete values)
+* Each combination of class variable values is called a **class level**
+* The data set **doesn't need to be sorted** or indexed by the class variables
+* `N Obs` reports the number of observations with each unique combination of class variables, whether or not there are missing values (if these `N Obs` are identical to `N`, there are no missing values in you data set)
+
+```
+PROC MEANS DATA=SAS-data-set <statistic(s)>;
+    VAR analysis-variable(s);
+    CLASS classification-variable(s);
+RUN;
+```
+
+To write the report in a new data set (including total addition):
+
+```
+PROC MEANS DATA=SAS-data-set NOPRINT NWAY;
+	OUTPUT OUT=SAS-new-data-set SUM=addition-new-variable;
+    VAR analysis-variable(s);
+    CLASS classification-variable(s);
+RUN;
+```
+
+Format options: 
+
+* `MAXDEC=number` (default format = `BESTw.`) 
+* `NONOBS`
+* `FW=number`: specifies that the field width for all columns is *number*
+* `PRINTALLTYPES`: displays statistics for all requested combination of class variables
+
+![Descriptive statistics](https://lh3.googleusercontent.com/R84N_PMRcXBBgDksyuhN6i--5J_vun1oLe5CRgMIvZdFZNSbSAxMkrKzCo5z7Zn_2aPnoFY=s0 "Descriptive statistics")
+![Quantile statistics](https://lh3.googleusercontent.com/aQuAOJzy4JgnaWUPOUwU80TvOp9DeQXr3Iesbw1EVHVJrZKjUw-TC4S27Mhd6Dt8NJ7V7j4=s0 "Quantile statistics")
+
+## Procedures for Data Validation
+
+### Using `PROC FREQ`
 
 You can use a `PROC FREQ` step with the `TABLES` statement to detect invalud numeric and character data by looking at distinct values. The `FREQ` procedure **lists all discrete values** for a variable and **reports its missing values**.
 
@@ -125,50 +165,12 @@ PROC FREQ DATA=SAS-data-set NOPRINT;
 RUN;
 ```
 
-## Using the `MEANS` and `UNIVARIATE` Procedures
-
-`PROC MEANS` produces summary reports with descriptive statistics and you can create statistics for groups of observations
-
-* It automatically displays output in a report and you can also save the output in a SAS data set
-* It reports the **number of nonmissing values** of the analysis variable (N), and the **mean**, the **standard deviation** and **minimum**/**maximum values** of every numeric variable in the data set
-* The variables in the `CLASS` statement are called **classification variables** or **class variables** (they typically have few discrete values)
-* Each combination of class variable values is called a **class level**
-* The data set **doesn't need to be sorted** or indexed by the class variables
-* `N Obs` reports the number of observations with each unique combination of class variables, whether or not there are missing values (if these `N Obs` are identical to `N`, there are no missing values in you data set)
-
-```
-PROC MEANS DATA=SAS-data-set <statistic(s)>;
-    VAR analysis-variable(s);
-    CLASS classification-variable(s);
-RUN;
-```
-
-To write the report in a new data set (including total addition):
-
-```
-PROC MEANS DATA=SAS-data-set NOPRINT NWAY;
-	OUTPUT OUT=SAS-new-data-set SUM=addition-new-variable;
-    VAR analysis-variable(s);
-    CLASS classification-variable(s);
-RUN;
-```
-
-Format options: 
-
-* `MAXDEC=number` (default format = `BESTw.`) 
-* `NONOBS`
-* `FW=number`: specifies that the field width for all columns is *number*
-* `PRINTALLTYPES`: displays statistics for all requested combination of class variables
-
-![Descriptive statistics](https://lh3.googleusercontent.com/R84N_PMRcXBBgDksyuhN6i--5J_vun1oLe5CRgMIvZdFZNSbSAxMkrKzCo5z7Zn_2aPnoFY=s0 "Descriptive statistics")
-![Quantile statistics](https://lh3.googleusercontent.com/aQuAOJzy4JgnaWUPOUwU80TvOp9DeQXr3Iesbw1EVHVJrZKjUw-TC4S27Mhd6Dt8NJ7V7j4=s0 "Quantile statistics")
-
-### Alternative Procedure to Validate Data: `PROC MEANS`
+### Using `PROC MEANS`
 
 * The `MIN`/`MAX` values can be useful to check if the data is within a range
 * `NMISS` option displays the number of observations with missing values
 
-### Alternative Procedure to Validate Data: `PROC UNIVARIATE`
+### Using `PROC UNIVARIATE`
 
 `PROC UNIVARIATE` is a procedure that is useful for detecting data outliers that also produces summary reports of **descriptive statistics**.
 
