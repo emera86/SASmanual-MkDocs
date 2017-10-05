@@ -56,13 +56,13 @@ RUN;
 
 Information contained in crosstabulation tables (legend):
 
-* **Frequency**: indicates the number of observations with the unique combination of values represented in that cell
-* **Percent**: indicates the cell's percentage of the total frequency
-* **Row Pct**: cell's percentage of the total frequency for its row
-* **Col Pct**: cell's percentage of the total frequency for its column 
+* `Frequency`: indicates the number of observations with the unique combination of values represented in that cell
+* `Percent`: indicates the cell's percentage of the total frequency
+* `Row Pct`: cell's percentage of the total frequency for its row
+* `Col Pct`: cell's percentage of the total frequency for its column 
 <br><br>
-* **LIST** option format: the first two columns specify each possible combination of the two variables; it displays the same statistics as the default **one-way frequency** table
-* **CROSSLIST** option format: it displays the same statistics as the default **crosstabulation** table
+* `LIST` option format: the first two columns specify each possible combination of the two variables; it displays the same statistics as the default **one-way frequency** table
+* `CROSSLIST` option format: it displays the same statistics as the default **crosstabulation** table
 
 ### Formatting Variables in `PROC FREQ`
 
@@ -165,8 +165,8 @@ Format options:
 
 ### Alternative Procedure to Validate Data: `PROC MEANS`
 
-* The **MIN**/**MAX** values can be useful to check if the data is within a range
-* **NMISS** option displays the number of observations with missing values
+* The `MIN`/`MAX` values can be useful to check if the data is within a range
+* `NMISS` option displays the number of observations with missing values
 
 ### Alternative Procedure to Validate Data: `PROC UNIVARIATE`
 
