@@ -43,21 +43,20 @@ We match each untreated subject to at most one treated subject. Once an untreate
     
 Four different approaches:
 
-    * Sequentially treated subjects from highest to lowest propensity score
-    * Sequentially treated subjects from lowest to highest propensity score
-    * Sequentially treated subjects in the order of the best possible match (the first selected treated subject is that treated subject who is closest to an untreated subject and so on)
-    * Treated subjects in a random order
-
-* Local optimal, greedy or nearest available neighbor matching within specified caliper widths: we can match treated and untreated subjects only if the absolute difference in their propensity scores is within a prespecified maximal distance (the caliper distance, defined as a proportion of the standard deviation of the logit of the propensity score)
+* Sequentially treated subjects from highest to lowest propensity score
+* Sequentially treated subjects from lowest to highest propensity score
+* Sequentially treated subjects in the order of the best possible match (the first selected treated subject is that treated subject who is closest to an untreated subject and so on)
+* Treated subjects in a random order
+* Local optimal, greedy or nearest available neighbour matching within specified caliper widths: we can match treated and untreated subjects only if the absolute difference in their propensity scores is within a prespecified maximal distance (the caliper distance, defined as a proportion of the standard deviation of the logit of the propensity score)
 
 !!! note
     Although the propensity score is the natural metric to use, when using caliper matching, a reduction in bias due to the use of different caliper widths has been described when matching on the logit of the propensity score.
     Although it is difficult to know beforehand the optimal choice of caliper width, some researchers (Rosenbuam & Rubin, 1985; Austin, 2011) have recommended using a caliper width that is equal to 0.2 of the standard deviation of the logit of the propensity score, i.e., $0.2\cdot\sqrt\left ( \sigma^2_1+\sigma^2_2 \right )/2$.
     
-    * Sequentially treated subjects from highest to lowest propensity score
-    * Sequentially treated subjects from lowest to highest propensity score
-    * Sequentially treated subjects in the order of the best possible match (the first selected treated subject is that treated subject who is closest to an untreated subject and so on)
-    * Treated subjects in a random order
+* Sequentially treated subjects from highest to lowest propensity score
+* Sequentially treated subjects from lowest to highest propensity score
+* Sequentially treated subjects in the order of the best possible match (the first selected treated subject is that treated subject who is closest to an untreated subject and so on)
+* Treated subjects in a random order
 
 !!! note
     Optimal matching and greedy nearest neighbor matching on the propensity score will result in all treated subjects being matched to an untreated subject (assuming that the number of untreated subjects is at least as large as the number of treated subjects). However, greedy nearest neighbor matching within specified caliper widths may not result in all treated subjects being matched to an untreated subject, because for some treated subjects, there may not be any untreated subjects who are unmatched and whose propensity score lies within the specified caliper distance of that of the treated subject. The objective of the caliper matching is to avoid bad matches.
