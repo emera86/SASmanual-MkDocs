@@ -20,7 +20,7 @@ RUN;
 
 This kind of analysis are commonly used in observacional studies on which the patient is not randomized to a certain group but it belongs to it due to a certain diagnostic. In order to correct the possible effect of unbalanced population groups, **the propensity score value can be included in the model** as a way to isolate the effects due to the treatment from the baseline characteristics.
 
-## Matching on the Propensity Score
+## Propensity Score Matching
 
 After estimating the propensity scores, they are used to group observations that are close to each other. One way of
 accomplishing this is to classify treated and untreated observations into subgroups and then separately compare the outcome
