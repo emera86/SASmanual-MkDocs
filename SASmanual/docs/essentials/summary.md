@@ -1,6 +1,6 @@
 [Chapter summary in SAS](https://support.sas.com/edu/OLTRN/ECPRG193/m422/m422_5_a_sum.htm)
 
-## Using `PROC FREQ` to Create Summary Reports
+## `PROC FREQ` to Create Summary Reports
 
 * When you're summarizing data, there's no need to show a frequency distribution for variables that have a large number of distinct values
 * Frequency distributions work best with variables whose values meet two criteria: variable with **categorical values** and values are **best summarized by counts instead of averages**
@@ -116,9 +116,9 @@ Format options:
 ![Descriptive statistics](https://lh3.googleusercontent.com/R84N_PMRcXBBgDksyuhN6i--5J_vun1oLe5CRgMIvZdFZNSbSAxMkrKzCo5z7Zn_2aPnoFY=s0 "Descriptive statistics")
 ![Quantile statistics](https://lh3.googleusercontent.com/aQuAOJzy4JgnaWUPOUwU80TvOp9DeQXr3Iesbw1EVHVJrZKjUw-TC4S27Mhd6Dt8NJ7V7j4=s0 "Quantile statistics")
 
-## Procedures for Data Validation
+## How to Use these Procedures for Data Validation
 
-### Using `PROC FREQ`
+### `PROC FREQ`
 
 You can use a `PROC FREQ` step with the `TABLES` statement to detect invalud numeric and character data by looking at distinct values. The `FREQ` procedure **lists all discrete values** for a variable and **reports its missing values**.
 
@@ -165,12 +165,12 @@ PROC FREQ DATA=SAS-data-set NOPRINT;
 RUN;
 ```
 
-### Using `PROC MEANS`
+### `PROC MEANS`
 
 * The `MIN`/`MAX` values can be useful to check if the data is within a range
 * `NMISS` option displays the number of observations with missing values
 
-### Using `PROC UNIVARIATE`
+### `PROC UNIVARIATE`
 
 `PROC UNIVARIATE` is a procedure that is useful for detecting data outliers that also produces summary reports of **descriptive statistics**.
 
