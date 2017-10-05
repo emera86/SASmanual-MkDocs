@@ -8,7 +8,7 @@
 
 ```
 PROC FREQ DATA=SAS-data-set <option(s)>;
-    TABLES variable(s) <loption(s)>;
+    TABLES variable(s) </ option(s)>;
     <additional statements>
 RUN;
 ```
@@ -25,14 +25,16 @@ RUN;
 ---
 
 ```
-PROC FREQ DATA=SAS-data-set <option(s)>;
-    TABLES variable/NOCUM NOPERCENT;
+PROC FREQ DATA=SAS-data-set ORDER=FREQ <option(s)>;
+    TABLES variable/NOCUM NOPERCENT OUT=custom-output-name;
     <additional statements>
 RUN;
 ```
 
 * `NOCUM` option supresses the display of  the cummulative frequency and cummulative percent values 
 * `NOPERCENT` option supresses the display of all percentages
+* `ORDER=FREQ` option orders the output in descending frequency order
+* `OUT=` option saves the output data set with a custom name
 
 ---
 
