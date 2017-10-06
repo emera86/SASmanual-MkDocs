@@ -133,6 +133,8 @@ KEYLABEL stat=‘label’;
 ```
 In order to hide variable or statistic labels, you leave the label specification blank (`variable =‘ ’`). 
 
+To **fill in the big white box in the upper left**, use the `BOX=` option (see Three Dimensional Table section).
+
 ### Examples
 
 ```
