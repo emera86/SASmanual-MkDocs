@@ -202,7 +202,12 @@ If you are doubting between 2 k-values, you can use Beale's F-type statistic to 
 This technique is discussed in the "Applied Clustering Techniques" course notes.
 
 ```
+* Define the variables for clustering;
+*------------------------------------;
+%let varlist=var1 var2 var3 var4 var5;
+
 * Macro with the cluster procedure, to call it with different number of clusters;
+*-------------------------------------------------------------------------------;
 %MACRO CLUSTERSIZE(
 		 datain=
 		,dataout=
@@ -211,17 +216,18 @@ This technique is discussed in the "Applied Clustering Techniques" course notes.
 		);
 	proc fastclus data=&datain. out=&dataout.&maxclusters. outstat=statdata&maxclusters. maxclusters=&maxclusters. maxiter=&maxiter. noprint;
 		id patient;
-		var &varseleclust.;
+		var &varlist.;
 	run;
 	title;
 %MEND;
 
 * Calcultion of the cluster analysis statistics for 1-20 clusters and data set creation for elbow plot with RSQ values;
+*---------------------------------------------------------------------------------------------------------------------;
 %macro statCLUSTER;
      %do k= 1 %to 20;
 	 	%CLUSTERSIZE(datain=SAS-data-set, dataout=clusterdata, maxclusters=&k., maxiter=1000);
 		data clusrsq&k.;
-			set statgreendata&k.;
+			set statdata&k.;
 			nclust=&k.;
 			if _type_='RSQ';
 			keep nclust over_all;
@@ -235,12 +241,14 @@ data clus_rsq;
 run;
 
 * Remove useless data sets;
+*-------------------------;
 proc datasets lib=work nowarn nolist nodetails; 
-	delete clusrsq: statdata: clusterdata: greendata_aux:;
+	delete clusrsq: statdata: clusterdata: ;
 run; 
 quit;
 
-* Plot elbow curve using r-square values;
+* Plot elbow curve using r-square values highlighting the best candidates to optimum number of clusters;
+*------------------------------------------------------------------------------------------------------;
 symbol1 color=blue interpol=join;
 axis1 label=('Number of clusters in the analysis') order=(0 to 15 by 1) reflabel=(j=c h=9pt 'Candidate 1' 'Candidate 2');
 axis2 label=('R^2 values' j=c);
