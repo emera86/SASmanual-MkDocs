@@ -95,6 +95,17 @@ RUN;
 
 ![Two Dimensional Table (Multiple CLASS variables)](../images/proctabulate-example-two-dimensional-multiple-CLASS.PNG "Two Dimensional Table (Multiple CLASS variables)")
 
+In order to get **marginal statistics** in your table, you use the `ALL` keyword. You can use the keyword in multiple places and, depending on where you put the keyword, there will be different subtotals produced. 
+
+```
+PROC TABULATE DATA=sashelp.cars;
+	CLASS DriveTrain Origin Type;
+	TABLE (Origin ALL) * DriveTrain ALL, Type * N;
+RUN; 
+```
+
+![Two Dimensional Table (Totals and Subtotals)](../images/proctabulate-example-two-dimensional-totals.PNG "Two Dimensional Table (Totals and Subtotals)")
+
 ### Examples
 
 ```
