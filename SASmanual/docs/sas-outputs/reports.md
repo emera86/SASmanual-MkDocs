@@ -60,6 +60,8 @@ RUN;
 
 You can get very different table structures by changing where the statistic definitions are placed. They can be attached to either the `VAR` or the `CLASS` variable, but the numbers in the cells will **always** be calculated using the `VAR` variable(s). 
 
+
+The statistic specification can be **attached to the columns**,
 ```
 PROC TABULATE data=sashelp.class;
 	CLASS Sex;
@@ -70,6 +72,7 @@ RUN;
 
 ![Two Dimensional Table (Statistics Attached to Columns)](../images/proctabulate-example-two-dimensional-columns.PNG "Two Dimensional Table (Statistics Attached to Columns)")
 
+or they can be **attached to the rows**.
 ```
 PROC TABULATE data=sashelp.class;
 	CLASS Sex;
