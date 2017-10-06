@@ -83,6 +83,18 @@ RUN;
 
 ![Two Dimensional Table (Statistics Attached to Rows)](../images/proctabulate-example-two-dimensional-rows.PNG "Two Dimensional Table (Statistics Attached to Rows)")
 
+You can specify **multiple classification variables**. They can be used in any of the dimensions and can be nested. When you have multiple `CLASS` variables, it is recommended to use the option `MISSING` to keep the observations that have any missing values and consider them as valid levels for the `CLASS` variable(s) instead of dropping those observations from all the tables.
+
+```
+PROC TABULATE DATA=sashelp.cars;
+	CLASS DriveTrain Origin Type / MISSING;
+	VAR Weight Length;
+	TABLE Origin * Type, DriveTrain * Weight * MEAN DriveTrain * Length * MEAN;
+RUN; 
+```
+
+![Two Dimensional Table (Multiple CLASS variables)](../images/proctabulate-example-two-dimensional-multiple-CLASS.PNG "Two Dimensional Table (Multiple CLASS variables)")
+
 ### Examples
 
 ```
