@@ -38,6 +38,9 @@ RUN;
     * **Parenthesis** will **group elements** and associate an operator with each element in the group.
     * **Angle brackets** specify a **denominator definition** for use in percentage calculations. 
     
+!!! summary "Check these websites"
+    * [`PROC TABULATE` and the Neat Things You Can Do With It](http://www2.sas.com/proceedings/forum2008/264-2008.pdf)
+    
 ### Available Statistics
 
 If you do not provide a statistic name, the default statistic produced will be `N` for the `CLASS` variables and `SUM` for the `VAR` variables.
@@ -134,6 +137,21 @@ KEYLABEL stat=‘label’;
 In order to hide variable or statistic labels, you leave the label specification blank (`variable =‘ ’`). 
 
 To **fill in the big white box in the upper left**, use the `BOX=` option (see Three Dimensional Table section).
+
+To **change the font color** of each variable you can define their style as in the following example:
+
+```
+PROC TABULATE DATA=sashelp.class;
+   CLASS Age Sex;
+   TABLES Age,
+          Sex='Gender' *(N*{STYLE=[COLOR=Black]}
+                  PCTN='Percent'   *{STYLE=[COLOR=Green]}
+                  ROWPCTN='Row Percent'*{STYLE=[COLOR=Purple]}
+                  COLPCTN='Column Percent' *{STYLE=[COLOR=Red]});
+RUN;
+```
+
+![Changing the font color](../images/proctabulate-example-font-color.PNG "Changing the font color")
 
 ### Examples
 
