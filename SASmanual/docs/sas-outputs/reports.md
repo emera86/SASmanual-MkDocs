@@ -47,15 +47,14 @@ If you do not provide a statistic name, the default statistic produced will be `
 ### Constructing a Single Dimensional `TABLE` 
 
 ```
-PROC TABULATE data=SAS-data-set;
-	CLASS gender;
-	VAR income;
-	TABLE income * (N MEAN) income * MEAN * gender;
+PROC TABULATE DATA=sashelp.class;
+	CLASS Sex;
+	VAR Height Weight;
+	TABLE Height * (N MEAN) Height * MEAN * Sex Weight * MEAN * Sex;
 RUN; 
 ```
 
-
-
+![Single Dimensional Table](../images/proctabulate-example-single-dimensional.PNG "Single Dimensional Table")
 
 ### Examples
 
