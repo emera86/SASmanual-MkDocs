@@ -175,7 +175,7 @@ PROC TABULATE DATA=SAS-data-set F=10.2 S=[custom style attributes];
 	VAR variable2;
 	TABLE variable1='' all={label='Total' S=[custom style attributes], 
 	      MEAN={S=[custom style attributes]} * variable2 
-	      / BOX={LABEL='custom label' S[custom style attributes]};
+	      / BOX={LABEL='custom label' S=[custom style attributes]};
 RUN;
 ```
 
