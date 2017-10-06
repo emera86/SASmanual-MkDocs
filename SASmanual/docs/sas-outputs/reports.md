@@ -44,7 +44,7 @@ If you do not provide a statistic name, the default statistic produced will be `
 
 ![Available Statistics in PROC TABULATE](../images/proctabulate-statistics.PNG "Available Statistics in PROC TABULATE")
 
-### Constructing a Single Dimensional `TABLE` 
+### Single Dimensional Table 
 
 ```
 PROC TABULATE DATA=sashelp.class;
