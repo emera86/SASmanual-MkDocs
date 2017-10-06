@@ -42,6 +42,8 @@ RUN;
 
 If you do not provide a statistic name, the default statistic produced will be `N` for the `CLASS` variables and `SUM` for the `VAR` variables.
 
+![Available Statistics in PROC TABULATE](../images/proctabulate-statistics.PNG "Available Statistics in PROC TABULATE")
+
 ### Constructing a Single Dimensional `TABLE` 
 
 ```
