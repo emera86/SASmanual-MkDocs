@@ -151,28 +151,6 @@ RUN;
 
 ![Changing the font color](../images/proctabulate-example-font-color.PNG "Changing the font color")
 
-```
-PROC TABULATE DATA=SAS-data-set F=10.2 S=[custom style attributes]; 
-	CLASS variable1 / S=[custom style attributes];
-	CLASSLEV variable1 / S=[custom style attributes];
-	VAR variable2;
-	TABLE variable1='' all={label='Total' S=[custom style attributes], 
-	      MEAN={S=[custom style attributes]} * variable2 
-	      / BOX={LABEL='custom label' S[custom style attributes]};
-RUN;
-```
-
-!!! note "Possible attributes"
-    * Background color: `BACKGROUND=yellow` 
-    * Foreground color: `FOREGROUND=black`
-    * Font color: `COLOR=red`
-    * Vertical justification: `VJUST=B|C|T`
-    * Horizontal justification: `JUST=R|C|L` 
-    * Cell width: `CELLWIDTH=200`
-    * Table lines: `RULES=none` (removes all ines from the table)
-    * Cell spacing: `CELLSPACING=0` 
-    * Cell padding: `CELLPADDING=10`
-
 * You can also **specify formats** for numbers in the cells of the table using the `variable-or-statistic*F=fmt.` expression.
 * The `CLASSLEV` statement is used to assign some style attributes to the variable values only (not to the column header)
 * The `NOSEPS` option **removes the horizontal dividers** between the row values from your table
@@ -186,13 +164,34 @@ PROC TABULATE DATA=SAS-data-set NOSEPS;
 TABLE (...) / BOX={LABEL='Custom label for upper left box'} INDENT=3 RTS=12;
 ```
 
-**ODS Style elements** can also be used to change the look of a table. A few are listed below.
-
-![ODS Style elements](../images/proctabulate-example-ods.PNG "ODS Style elements")
-
 Depending on where you place the style options, many different results can be achieved. If you place the style options on the `PROC TABULATE` statement, for example, you will affect all the table cells. Note that for the `CLASS`, `CLASSLEV`, `VAR`, and `KEYWORD` statements, the style options can also be specified in the dimension expression in the Table statement. See below for a list of some of the different places where you can put the style options and what portion of the table they will affect.
 
 ![Style elements location](../images/proctabulate-example-ods-location.PNG "Style elements location")
+
+```
+PROC TABULATE DATA=SAS-data-set F=10.2 S=[custom style attributes]; 
+	CLASS variable1 / S=[custom style attributes];
+	CLASSLEV variable1 / S=[custom style attributes];
+	VAR variable2;
+	TABLE variable1='' all={label='Total' S=[custom style attributes], 
+	      MEAN={S=[custom style attributes]} * variable2 
+	      / BOX={LABEL='custom label' S[custom style attributes]};
+RUN;
+```
+
+!!! note "Possible style attributes"
+    * Background color: `BACKGROUND=yellow` 
+    * Foreground color: `FOREGROUND=black`
+    * Font color: `COLOR=red`
+    * Change font characteristics: `FONTt_WEIGHT`|`FONT_FACE`|`FONT_SIZE`
+    * Vertical justification: `VJUST=B|C|T`
+    * Horizontal justification: `JUST=R|C|L` 
+    * Specify thickness of borders: `BORDERWIDTH=`
+    * Change size of table cells: `CELLWIDTH=200`|`CELLHEIGHT=50`
+    * Specify vertical and horizontal rule dividers: `RULES=none` (removes all ines from the table)
+    * Specify white space around cell: `CELLSPACING=0` 
+    * Specify thickness of spacing around cell: `CELLPADDING=10`
+    * Specify width of table: `OUTPUTWIDTH=` 
 
 ### Examples
 
