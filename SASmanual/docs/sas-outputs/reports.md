@@ -100,7 +100,7 @@ In order to get **marginal statistics** in your table, you use the `ALL` keyword
 ```
 PROC TABULATE DATA=sashelp.cars;
 	CLASS DriveTrain Origin Type;
-	TABLE (Origin ALL) * DriveTrain ALL, Type * N;
+	TABLE (Origin All='Total') * (DriveTrain ALL='Subtotal DriveTrain'), (Type ALL='Subtotal Type'* N);
 RUN; 
 ```
 
