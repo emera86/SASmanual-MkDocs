@@ -41,6 +41,16 @@ RUN;
 !!! summary "Check these websites"
     * [`PROC TABULATE` and the Neat Things You Can Do With It](http://www2.sas.com/proceedings/forum2008/264-2008.pdf)
     
+* `VARDEF=divisor` specifies the divisor to be used in the calculation of the variances. If divisor is `DF` (default), the degrees of freedom (N-1) are used as the divisor.
+* `ORDER=` specifies the order of appearance in the table of the `CLASS` variable levels
+    * `FORMATTED`: ordered by the formatted values
+    * `DATA`: the order that the observations are read from the data set
+    * `FREQ`: order the values so the one that occurs most frequently in the data set appears first
+    * `INTERNAL`: ordered by the `SORT` procedure (defaults)
+* `/CONDENSE` prints multiple logical pages on a single physical page
+* `/PRINTMISS` species that row and column headings are the same for all logical pages of the table
+* `/ROW = spacing` specifies whether all title elements in a row crossing are allotted space even when they are blank. When `ROW=CONSTANT` (or `CONST`), the default, all row title elements have space allotted to them; when `ROW=FLOAT`, the row title space is divided equally among the nonblank title elements in the crossing
+    
 ### Available Statistics
 
 If you do not provide a statistic name, the default statistic produced will be `N` for the `CLASS` variables and `SUM` for the `VAR` variables.
