@@ -56,6 +56,30 @@ RUN;
 
 ![Single Dimensional Table](../images/proctabulate-example-single-dimensional.PNG "Single Dimensional Table")
 
+### Two Dimensional Table
+
+You can get very different table structures by changing where the statistic definitions are placed. They can be attached to either the `VAR` or the `CLASS` variable, but the numbers in the cells will **always** be calculated using the `VAR` variable(s). 
+
+```
+PROC TABULATE data=sashelp.class;
+	CLASS Sex;
+	VAR Height Weight;
+	TABLE Sex, Height * (N MEAN MAX) Weight * (N MEAN MAX) ;
+RUN; 
+```
+
+![Two Dimensional Table (Statistics Attached to Columns)](../images/proctabulate-example-two-dimensional-columns.PNG "Two Dimensional Table (Statistics Attached to Columns)")
+
+```
+PROC TABULATE data=sashelp.class;
+	CLASS Sex;
+	VAR Height Weight;
+	TABLE Sex * (N MEAN MAX), Height  Weight;
+RUN; 
+```
+
+![Two Dimensional Table (Statistics Attached to Rows)](../images/proctabulate-example-two-dimensional-rows.PNG "Two Dimensional Table (Statistics Attached to Rows)")
+
 ### Examples
 
 ```
