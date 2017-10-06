@@ -153,6 +153,20 @@ RUN;
 
 ![Changing the font color](../images/proctabulate-example-font-color.PNG "Changing the font color")
 
+You can also **specify formats** for numbers in the cells of the table using the `variable-or-statistic*F=fmt.` expression.
+
+* The `NOSEPS` option at the `PROC TABULATE` definition, **removes the horizontal dividers** between the row values from your table
+* `INDENT=` is used for subsetting row subheaders
+* `RTS=` specifies how wide you want the row header field to be
+
+**ODS Style elements** can also be used to change the look of a table. A few are listed below.
+
+![ODS Style elements](../images/proctabulate-example-ods.PNG "ODS Style elements")
+
+Depending on where you place the style options, many different results can be achieved. If you place the style options on the `PROC TABULATE` statement, for example, you will affect all the table cells. Note that for the `CLASS`, `CLASSLEV`, `VAR`, and `KEYWORD` statements, the style options can also be specified in the dimension expression in the Table statement. See below for a list of some of the different places where you can put the style options and what portion of the table they will affect.
+
+![ODS Style elements location](../images/proctabulate-example-ods-location.PNG "ODS Style elements location")
+
 ### Examples
 
 ```
