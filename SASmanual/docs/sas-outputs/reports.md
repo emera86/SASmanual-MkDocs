@@ -14,9 +14,48 @@ For an explanation of the options, refer to [this page](http://www2.sas.com/proc
 OPTIONS NODATE PAGENO=1 LINESIZE=80 PAGESIZE=40;
 ```
 
-## PROC PRINT
+## `PROC PRINT`
 
-## PROC TABULATE
+## `PROC TABULATE`
+
+`PROC TABULATE` is a procedure that displays descriptive statistics in tabular format. It computes many statistics that other procedures compute, such as `MEANS`, `FREQ`, and `REPORT` and displays these statistics in a table format. `TABULATE` will produce tables in up to three dimensions and allows, within each dimension, multiple variables to be reported one after another hierarchically. There are also some very nice mechanisms that can be used to label and format the results. 
+
+```
+PROC TABULATE <options>;
+	CLASS variables </ options>;
+	VAR variables </ options>;
+	TABLE <page>, <row>, column </ options>;
+	... other statements...;
+RUN;
+```
+
+* `VAR` is used to list the variables you intend to use to create summary statistics on. They **must be numeric**.
+* `CLASS` variables allow you to get statistics by category. You will get one column/row for each value of the classification variable. You can also specify the universal CLASS variable `ALL` which allows you to **get totals**. They can be **either numeric or character** and you can only request counts and percents as statistics. This is almost like using a `BY`statement within the `TABLE`.
+* `TABLE` consists of up to three dimension expressions and the table options. You can have multiple table statements in one `PROC TABULATE`. This will generate one table for each statement.
+    * A **comma** specifies to add a new **dimension**. The order of the dimensions is page, row and column. If you only specify one dimension, then it is assumed to be column. If two are specified, row, then column.
+    * The **asterisk** is used to produce a **cross tabulation** of one variable with another (within the same dimension however, different from `PROC FREQ`).
+    * A **blank** is used to represent **concatenation** (i.e. place this output element after the preceding variable listed).
+    * **Parenthesis** will **group elements** and associate an operator with each element in the group.
+    * **Angle brackets** specify a **denominator definition** for use in percentage calculations. 
+    
+### Available Statistics
+
+If you do not provide a statistic name, the default statistic produced will be `N` for the `CLASS` variables and `SUM` for the `VAR` variables.
+
+### Constructing a Single Dimensional `TABLE` 
+
+```
+PROC TABULATE data=SAS-data-set;
+	CLASS gender;
+	VAR income;
+	TABLE income * (N MEAN) income * MEAN * gender;
+RUN; 
+```
+
+
+
+
+### Examples
 
 ```
 PROC TABULATE DATA=SAS-data-set ORDER=FREQ;
@@ -28,7 +67,7 @@ PROC TABULATE DATA=SAS-data-set ORDER=FREQ;
 RUN;
 ```
 
-## PROC REPORT
+## `PROC REPORT`
 
 How to write a header/footer in your tables:
 
