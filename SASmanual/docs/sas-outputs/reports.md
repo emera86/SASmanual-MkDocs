@@ -106,6 +106,33 @@ RUN;
 
 ![Two Dimensional Table (Totals and Subtotals)](../images/proctabulate-example-two-dimensional-totals.PNG "Two Dimensional Table (Totals and Subtotals)")
 
+### Three Dimensional Table
+
+Three dimensional tables have a nice way to fill in the upper left area. Instead of the label of the page dimension appearing above the table, you can use the `BOX=_page_` option to place that label inside the big white box.
+
+```
+PROC TABULATE data=sashelp.cars;
+	CLASS DriveTrain Origin Type;
+	VAR Weight Length;
+	TABLE Origin = 'Made in', Type = 'Category', DriveTrain * Weight * MEAN / BOX=_PAGE_;
+RUN; 
+```
+
+![Three Dimensional Table](../images/proctabulate-example-three-dimensional.PNG "Three Dimensional Table")
+
+### Formatting tables
+
+There are two ways to **add labels for your variables**:
+
+1. Add the text after the variable name: `variable =‘label’`. This will work for both variables and
+statistics.
+2. Add a `LABEL` statement for variables and/or a `KEYLABEL` statement for statistics to your code:
+```
+LABEL var=‘label’;
+KEYLABEL stat=‘label’;
+```
+In order to hide variable or statistic labels, you leave the label specification blank (`variable =‘ ’`). 
+
 ### Examples
 
 ```
