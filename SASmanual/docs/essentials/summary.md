@@ -113,8 +113,8 @@ Format options:
 * `FW=number`: specifies that the field width for all columns is *number*
 * `PRINTALLTYPES`: displays statistics for all requested combination of class variables
 
-![Descriptive statistics](https://lh3.googleusercontent.com/R84N_PMRcXBBgDksyuhN6i--5J_vun1oLe5CRgMIvZdFZNSbSAxMkrKzCo5z7Zn_2aPnoFY=s0 "Descriptive statistics")
-![Quantile statistics](https://lh3.googleusercontent.com/aQuAOJzy4JgnaWUPOUwU80TvOp9DeQXr3Iesbw1EVHVJrZKjUw-TC4S27Mhd6Dt8NJ7V7j4=s0 "Quantile statistics")
+![Descriptive statistics](../images/descriptive_statistics.PNG "Descriptive statistics")
+![Quantile statistics](../images/quantile_statistics.PNG "Quantile statistics")
 
 ## How to Use these Procedures for Data Validation
 
@@ -213,7 +213,7 @@ RUN;
 
 ### Summary of Validation Procedures
 
-![Validation procedures](https://lh3.googleusercontent.com/qa02E3GQU_EU1ZHWX40Ewy-WsXd7hmzfJ5HXBOCDvHrtxRGjrlh6R3hjEupj5Ul9mDreXO8=s0 "Validation procedures")
+![Validation procedures](../images/validation_procedures.PNG "Validation procedures")
 
 ## Using the SAS Output Delivery System (`ODS`)
 
@@ -243,7 +243,7 @@ ODS rtf CLOSE;
 
 ### Allowed File Formats and Their Corresponding Destinations
 
-![SAS Output Delivery System](https://lh3.googleusercontent.com/p3gAmRNbwqP8WfUOSKCLxTA042D3e_F9OUkxYJ0XHspC7MAfzfAnK0ghvpLZQXJWNWdbPd0=s0 "SAS Output Delivery System")
+![SAS Output Delivery System](../images/SAS_output_delivery_system.PNG "SAS Output Delivery System")
 
 You can also export a database to a different format:
 
