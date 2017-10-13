@@ -26,7 +26,7 @@ PROC FORMAT;
 	VALUE wfmt 
 		LOW-85.99 = 'red'
 		86-99.99 = 'orange'
-		100-HIGH='green';
+		100-HIGH = 'green';
 RUN;
 
 PROC SORT DATA=sashelp.class OUT=classtest;
