@@ -1,0 +1,1374 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Learning How to Program in SAS">
+      
+      
+      
+        <meta name="author" content="Lucía Rodrigo Insausti">
+      
+      
+        <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.8.1">
+    
+    
+      
+        <title>Introduction - SAS Manual</title>
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr-1df76c4e58.js"></script>
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application-bfecc7305d.css">
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+  
+  
+  
+    <body>
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <a href="../.." title="SAS Manual" class="md-icon md-icon--home md-header-nav__button">
+          </a>
+        
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
+            
+              
+                <span class="md-header-nav__parent">
+                  Basic Statistics
+                </span>
+              
+            
+            Introduction
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">close</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result" data-md-lang-search="" data-md-lang-tokenizer="[\s\-]+">
+          <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    
+      <i class="md-icon md-icon--home md-nav__button"></i>
+    
+    SAS Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Gettin' Started!" class="md-nav__link">
+      Gettin' Started!
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      The Essentials
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        The Essentials
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../essentials/accessing/" title="Accessing Data" class="md-nav__link">
+      Accessing Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../essentials/reporting/" title="Producing Detailed Reports" class="md-nav__link">
+      Producing Detailed Reports
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../essentials/formatting/" title="Formatting Data Values" class="md-nav__link">
+      Formatting Data Values
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../essentials/reading-sas/" title="Reading SAS Data Sets" class="md-nav__link">
+      Reading SAS Data Sets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../essentials/reading-spreadsheets/" title="Reading Spreadsheet and Database Data" class="md-nav__link">
+      Reading Spreadsheet and Database Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../essentials/reading-raw/" title="Reading Raw Data Files" class="md-nav__link">
+      Reading Raw Data Files
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../essentials/manipulation/" title="Manipulating Data" class="md-nav__link">
+      Manipulating Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../essentials/combination/" title="Combining SAS Data Sets" class="md-nav__link">
+      Combining SAS Data Sets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../essentials/summary/" title="Creating Summary Reports" class="md-nav__link">
+      Creating Summary Reports
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Basic Statistics
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Basic Statistics
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Introduction
+      </label>
+    
+    <a href="./" title="Introduction" class="md-nav__link md-nav__link--active">
+      Introduction
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-statistical-concepts" title="Basic Statistical Concepts" class="md-nav__link">
+    Basic Statistical Concepts
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proc-surveyselect" title="PROC SURVEYSELECT" class="md-nav__link">
+    PROC SURVEYSELECT
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#picturing-your-data" title="Picturing Your Data" class="md-nav__link">
+    Picturing Your Data
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proc-univariate" title="PROC UNIVARIATE" class="md-nav__link">
+    PROC UNIVARIATE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proc-sgscatter" title="PROC SGSCATTER" class="md-nav__link">
+    PROC SGSCATTER
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proc-sgplot" title="PROC SGPLOT" class="md-nav__link">
+    PROC SGPLOT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proc-sgpanel" title="PROC SGPANEL" class="md-nav__link">
+    PROC SGPANEL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proc-sgrender" title="PROC SGRENDER" class="md-nav__link">
+    PROC SGRENDER
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#confidence-intervals-for-the-mean" title="Confidence Intervals for the Mean" class="md-nav__link">
+    Confidence Intervals for the Mean
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hypothesis-testing" title="Hypothesis Testing" class="md-nav__link">
+    Hypothesis Testing
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../anova/" title="Analysis of Variance (ANOVA)" class="md-nav__link">
+      Analysis of Variance (ANOVA)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../regression/" title="Regression" class="md-nav__link">
+      Regression
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../inference/" title="Model Post-Fitting for Inference" class="md-nav__link">
+      Model Post-Fitting for Inference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../categorical-data/" title="Categorical Data Analysis" class="md-nav__link">
+      Categorical Data Analysis
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../prediction/" title="Model Building and Scoring for Prediction" class="md-nav__link">
+      Model Building and Scoring for Prediction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../miscellanea/" title="Miscellanea" class="md-nav__link">
+      Miscellanea
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Other Analysis
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Other Analysis
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../other-analysis/missing-data/" title="Dealing with Missing Data" class="md-nav__link">
+      Dealing with Missing Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../other-analysis/interim-analysis/" title="Interim Analysis Design" class="md-nav__link">
+      Interim Analysis Design
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../other-analysis/normality-tests/" title="Normality tests" class="md-nav__link">
+      Normality tests
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../other-analysis/propensity-score/" title="Propensity Score" class="md-nav__link">
+      Propensity Score
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../other-analysis/roc-curve/" title="ROC curve" class="md-nav__link">
+      ROC curve
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../other-analysis/survival-analysis/" title="Survival Analysis" class="md-nav__link">
+      Survival Analysis
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../other-analysis/clustering/" title="Clustering" class="md-nav__link">
+      Clustering
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Specific Procedures
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Specific Procedures
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../procedures/regression-models/" title="General notes on regression procedures" class="md-nav__link">
+      General notes on regression procedures
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../procedures/glimmix/" title="PROC GLIMMIX" class="md-nav__link">
+      PROC GLIMMIX
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../procedures/mixed/" title="PROC MIXED" class="md-nav__link">
+      PROC MIXED
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      SAS Outputs
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        SAS Outputs
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sas-outputs/reports/" title="Reports" class="md-nav__link">
+      Reports
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sas-outputs/graphs/" title="Graphs and Plots" class="md-nav__link">
+      Graphs and Plots
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sas-outputs/templates/" title="Templates" class="md-nav__link">
+      Templates
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../macros/" title="Using Macros" class="md-nav__link">
+      Using Macros
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../wizard/" title="Using Wizard Menus" class="md-nav__link">
+      Using Wizard Menus
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../sasvi/" title="SAS Visual Analytics" class="md-nav__link">
+      SAS Visual Analytics
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      Miscellanea
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        Miscellanea
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../miscellanea/arrays/" title="Working with Arrays" class="md-nav__link">
+      Working with Arrays
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../miscellanea/execution-time/" title="Execution time" class="md-nav__link">
+      Execution time
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../miscellanea/patient-identification/" title="Patient identification" class="md-nav__link">
+      Patient identification
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basic-statistical-concepts" title="Basic Statistical Concepts" class="md-nav__link">
+    Basic Statistical Concepts
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proc-surveyselect" title="PROC SURVEYSELECT" class="md-nav__link">
+    PROC SURVEYSELECT
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#picturing-your-data" title="Picturing Your Data" class="md-nav__link">
+    Picturing Your Data
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proc-univariate" title="PROC UNIVARIATE" class="md-nav__link">
+    PROC UNIVARIATE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proc-sgscatter" title="PROC SGSCATTER" class="md-nav__link">
+    PROC SGSCATTER
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proc-sgplot" title="PROC SGPLOT" class="md-nav__link">
+    PROC SGPLOT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proc-sgpanel" title="PROC SGPANEL" class="md-nav__link">
+    PROC SGPANEL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proc-sgrender" title="PROC SGRENDER" class="md-nav__link">
+    PROC SGRENDER
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#confidence-intervals-for-the-mean" title="Confidence Intervals for the Mean" class="md-nav__link">
+    Confidence Intervals for the Mean
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hypothesis-testing" title="Hypothesis Testing" class="md-nav__link">
+    Hypothesis Testing
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Introduction</h1>
+                
+                <p><a href="https://support.sas.com/edu/OLTRN/ECST131/m551/m551_6_a_sum.htm">Chapter summary in SAS</a></p>
+<h2 id="basic-statistical-concepts">Basic Statistical Concepts<a class="headerlink" href="#basic-statistical-concepts" title="Permanent link">&para;</a></h2>
+<p><strong><em>Descriptive statistics (exploratory data analysis, EDA)</em></strong></p>
+<ul>
+<li>Explore your data</li>
+</ul>
+<p><strong><em>Inferential statistics (explanatory modelling)</em></strong></p>
+<ul>
+<li><strong>How is X related to Y?</strong></li>
+<li>Sample sizes are typically small and include few variables</li>
+<li>The focus is on the parameters of the model</li>
+<li>To assess the model, you use p-values and confidence intervals</li>
+</ul>
+<p><strong><em>Predictive modelling</em></strong></p>
+<ul>
+<li><strong>If you know X, can you predict Y?</strong></li>
+<li>Sample sizes are large and include many predictive (input) variables</li>
+<li>The focus is on the predictions of observations rather than the parameters of the model</li>
+<li>To assess a predictive model, you validate predictions using holdout sample data</li>
+</ul>
+<hr />
+<ul>
+<li><strong>Parameters</strong>: numerical values (typically unknown, you can't measure the entire population) that summarize characteristics of a population (greek letters)</li>
+<li><strong>Statistics</strong>: summarizes characteristics of a sample (standard alphabet)</li>
+<li>You use <strong>statistics</strong> to estimate <strong>parameters</strong></li>
+</ul>
+<hr />
+<ul>
+<li><strong>Independent variable</strong>: it can take different values, it affects or determines a <strong>dependent variable</strong>. It can be called predictor, explanatory, control or input variable.</li>
+<li><strong>Dependent variable</strong>: it can take different values in response to an <strong>independent variable</strong>. Also known as response, outcome or target variable.</li>
+</ul>
+<hr />
+<p><strong><em>Scale of measurement</em></strong>: variable's classification</p>
+<ul>
+<li><strong>Quantitative/numerical variables</strong>: counts or measurements, you can perform arithmetical operations with it<ul>
+<li><strong>Discrete data</strong>: variables that can have only a countable number of values within a measurement range</li>
+<li><strong>Continuous data</strong>: variables that are measured on a scale that has infinite number of values and has no breaks or jumps<ul>
+<li><strong>Interval scale data</strong>: it can be rank-ordered like ordinal data but also has a sensible spacing of observations such that differenes between measurements are meaningful but it lacks a true zero (ratios are meaningless)</li>
+<li><strong>Ratio scale data</strong>: it is rank-ordered with meaningful spacing and also includes a true zero point and can therefore accurately indicate the ratio difference between two spaces on the measurement scale</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Categorical/attribute variables</strong>: variables that denote groupings or labels<ul>
+<li><strong>Nominal data (qualitative/classification variable)</strong>: exhibits no ordering within its observed levels, groups or categories</li>
+<li><strong>Ordinal data</strong>: the observed labels can be ordered in some meaningful way that implies that the differences between the groups or categories are due to magnitude</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li><strong>Univariate analysis</strong> provides techniques for analyzing and describing a sigle variable. It reveals patterns in the data by looking at the <strong>range</strong> of values, measures of <strong>dispersion</strong>, the <strong>central tendecy</strong> of the values and <strong>frequency distribution</strong>.</li>
+<li><strong>Bivariate analysis</strong> describes and explains the relationships between two variables and how they change or covary together. It include techniques such as <strong>correlation analysis</strong> and <strong>chi-square tests of independance</strong>.</li>
+<li><strong>Multivariate/Multivariable analysis</strong> examines two or more variables at the same time in order to understand the relationships among them. <ul>
+<li>Techniques such as <strong>mutiple linear regression</strong> and n-way <strong>ANOVA</strong> are typically called <strong>multivariable</strong> analysis (only one response variable). </li>
+<li>Techniques such as <strong>factora analysis</strong> and <strong>clustering</strong> are typically called <strong>mutivariate</strong> analysis (they consider more than one response variable).</li>
+</ul>
+</li>
+</ul>
+<hr />
+<p><strong><em>Descriptive Statistics</em></strong></p>
+<p><strong>Measures of central tendencies</strong>: mean (affected by outliers), median (less sensitive to outliers), mode</p>
+<table>
+<thead>
+<tr>
+<th align="center">Percentile</th>
+<th align="center">Quartile</th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">25th</td>
+<td align="center">1st / lower / Q1</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">50th</td>
+<td align="center">2nd / middle / Q2</td>
+<td align="center">Median</td>
+</tr>
+<tr>
+<td align="center">75th</td>
+<td align="center">3rd / upper / Q3</td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<p>The <strong>interquartile range (IQR)</strong> is the difference between Q1 and Q3, it is a <strong>robust estimate of the variability</strong> because changes in the upper/lower 25% of the data do not affect it. If there are <strong>outliers</strong> in the data, then the IQR is a more reliable measure of the spread than the overall range.</p>
+<p>The <strong>coefficient of variation (CV)</strong> is a measure of the standard deviation expressed as a percentage of the mean ($c_v = \sigma / 100 \mu$).</p>
+<hr />
+<p><strong><em>Normal distribution</em></strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">Intervals</th>
+<th align="center">Percentage contained</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">$\mu \pm \sigma$</td>
+<td align="center">68%</td>
+</tr>
+<tr>
+<td align="center">$\mu \pm 2 \sigma$</td>
+<td align="center">95%</td>
+</tr>
+<tr>
+<td align="center">$\mu \pm 3 \sigma$</td>
+<td align="center">99%</td>
+</tr>
+</tbody>
+</table>
+<p><em>How to check the normality of a sample?</em></p>
+<ul>
+<li>Compare the <strong>mean</strong> and the <strong>median</strong>: if they are nearly equal, that is an indicator of symmetry (requirement for normality)</li>
+<li>Check that <strong>skewness</strong> and <strong>kurtosis</strong> are close to 0:<ul>
+<li>If both are greater than 1 or less than -1: data is not normal</li>
+<li>If either is greater than 2 or less than -2: data is not normal</li>
+</ul>
+</li>
+</ul>
+<p><em>Statistical summaries</em> </p>
+<p><strong>Skewness</strong> and <strong>kurtosis</strong> measure certain aspects of the shape of a distribution (they are <strong>0</strong> and <strong>3</strong> for a normal distribution, although SAS has standardized both to 0)</p>
+<ul>
+<li><strong>Skewness</strong> measures the tendency of your data to be more spread out on one side of the mean than on the other (asymmetry of the distribution). <ul>
+<li>You can think of the direction of skewness as the direction the data is trailing off to. </li>
+<li>A <strong>right-skewed</strong> distribution tells us that the mean is <strong>greater than the median</strong>.</li>
+</ul>
+</li>
+<li><strong>Kurtosis</strong> measures the tendency of your data to be concentrated toward the center or toward the tails of the distribution (peakedness of the data, tail thickness). <ul>
+<li>A <strong>negative kurtosis (platykurtic distribution)</strong> means that the data has lighter tails than in a normal distribution. </li>
+<li>A <strong>positive kurtosis (leptokurtic/heavy-tailed/outlier-prone distribution)</strong> means that the data has heavier tails and is more concentrated around the mean than a normal distribution.</li>
+<li>Rectangular, bimodal and multimodal distributions tend to have low values of kurtosis.</li>
+<li><strong>Asymmetric distributions</strong> also tend to have nonzero kurtosis. In these cases, understanding kurtosis is considerably more complex and can be difficult to assess visually.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="proc-surveyselect"><code>PROC SURVEYSELECT</code><a class="headerlink" href="#proc-surveyselect" title="Permanent link">&para;</a></h3>
+<p>How to generate random (representative) samples (population subsets):</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>PROC SURVEYSELECT DATA=SAS-data-set 
+                  OUT=name-of-output-data-set
+                  METHOD=method-of-random-sampling
+                  SEED=seed-value 
+                  SAMPSIZE=number-of-observations-desired;
+     &lt;STRATA stratification-variable(s);&gt;
+RUN;
+</pre></div>
+</td></tr></table>
+
+<ul>
+<li><code>METHOD</code> specifies the random sampling method to be used. For simple random sampling without replacement, use <code>METHOD=SRS</code>. For simple random sampling with replacement, use <code>METHOD=URS</code>. For other selection methods and details on sampling algorithms, see the SAS online documentation for <code>PROC SURVEYSELECT</code>.</li>
+<li><code>SEED</code> specifies the initial seed for random number generation. If no <code>SEED</code> option is specified, SAS uses the system time as its seed value. This creates a different random sample every time the procedure is run.</li>
+<li><code>SAMPSIZE</code> indicates the number of observations to be included in the sample. To select a certain fraction of the original data set rather than a given number of observations, use the <code>SAMPRATE</code> option.</li>
+</ul>
+<h2 id="picturing-your-data">Picturing Your Data<a class="headerlink" href="#picturing-your-data" title="Permanent link">&para;</a></h2>
+<h3 id="proc-univariate"><code>PROC UNIVARIATE</code><a class="headerlink" href="#proc-univariate" title="Permanent link">&para;</a></h3>
+<p>Plots that can be produced with this procedure:</p>
+<ul>
+<li><strong>Histograms</strong></li>
+<li><strong>Normal probability plots</strong>: expected percentiles from standard normal vs actual data values</li>
+</ul>
+<p><img alt="Normal Probability Plots" src="../../images/normal-probability-plots.png" title="Normal Probability Plots" /></p>
+<h3 id="proc-sgscatter"><code>PROC SGSCATTER</code><a class="headerlink" href="#proc-sgscatter" title="Permanent link">&para;</a></h3>
+<p>Plots that can be produced with this procedure:</p>
+<ul>
+<li><strong>Scatter plots</strong>: you can create a <strong>single-cell</strong> (simple Y by X) scatter plot, a <strong>multi-cell</strong> scatter plot with multiple independent scatter plots in a grid and a <strong>scatter plot matrix</strong>, which produces a matrix of scatter plots comparing multiple variables.</li>
+</ul>
+<h3 id="proc-sgplot"><code>PROC SGPLOT</code><a class="headerlink" href="#proc-sgplot" title="Permanent link">&para;</a></h3>
+<p>Plots that can be produced with this procedure:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>PROC SGPLOT DATA=SAS-data-set <span class="nt">&lt;options&gt;</span>;
+        DOT category-variable <span class="nt">&lt;/options&gt;</span>;
+        HBAR category-variable <span class="nt">&lt;/options&gt;</span>;
+        VBAR category-variable <span class="nt">&lt;/options&gt;</span>;
+        HBOX response-variable <span class="nt">&lt;/options&gt;</span>;
+        VBOX response-variable <span class="nt">&lt;/options&gt;</span>;
+        HISTOGRAM response-variable <span class="nt">&lt;/options&gt;</span>;
+        SCATTER X=variable Y=variable <span class="nt">&lt;/options&gt;</span>;
+        NEEDLE X=variable Y=numeric-variable <span class="nt">&lt;/options&gt;</span>;
+        REG X=numeric-variable Y=numeric-variable <span class="nt">&lt;/options&gt;</span>;
+RUN;
+</pre></div>
+</td></tr></table>
+
+<p>Anywhere in the procedure you can add <strong>reference lines</strong>:<br></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>REFLINE variable | value-1 <span class="nt">&lt;...</span> <span class="err">value-n</span><span class="nt">&gt;</span> <span class="err">&lt;</span>/option(s)&gt;
+
+/* Example: */
+REFLINE 1200 / axis=y lineattrs=(color=blue);
+</pre></div>
+</td></tr></table>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The order on which you define the parts of the plot will the determined the order on which it is displayed (if you want to send a <code>REFLINE</code> to the back, define it first)</p>
+</div>
+<ul>
+<li><strong>Scatter plots (<code>SCATTER</code>)</strong></li>
+<li><strong>Line graphs</strong></li>
+<li><strong>Histograms (<code>HISTOGRAM</code>)</strong> with overlaid distribution curves</li>
+<li><strong>Regression lines (<code>REG</code>)</strong> with confidence and prediction bands</li>
+<li><strong>Dot plots (<code>DOT</code>)</strong></li>
+<li><strong>Box plots (<code>HBOX</code>/<code>VBOX</code>)</strong>: it makes it easy to see how spread out your data is and if there are any outliers. The box represents the middle 50% of your data (IQR). The lower/middle/upper <strong>line of the box</strong> represent Q1/Q2/Q3. The <strong>diamond</strong> denotes the mean (easy to check how close the mean is to the median). The <strong>whiskers</strong> extend as far as the data extends to a maximum length of 1.5 times the IQR above Q3. Any data points farther than this distance are considered possible outliers and are represented in this plot as <strong>circles</strong>.</li>
+<li><strong>Bar charts (<code>HBAR</code>/<code>VBAR</code>)</strong></li>
+<li><strong>Needle plot (<code>NEEDLE</code>)</strong>: creates a plot with needles connecting each point to the baseline</li>
+<li>You can also <strong>overlay plots together</strong> to produce many different types of graphs</li>
+</ul>
+<h3 id="proc-sgpanel"><code>PROC SGPANEL</code><a class="headerlink" href="#proc-sgpanel" title="Permanent link">&para;</a></h3>
+<p>Plots that can be produced with this procedure:</p>
+<ul>
+<li><strong>Panels of plots</strong> for different levels of a factor or several different time periods depending on the classification variable</li>
+<li><strong>Side-by-side histograms</strong> which provide a visual comparison for your data</li>
+</ul>
+<h3 id="proc-sgrender"><code>PROC SGRENDER</code><a class="headerlink" href="#proc-sgrender" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Plots from graphs templates you have modified or written yourself</strong></li>
+</ul>
+<hr />
+<p>To specify options for graphs you submit the <code>ODS GRAPHICS</code> statement:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>ODS GRAPHICS ON &lt;options&gt;;
+</pre></div>
+</td></tr></table>
+
+<ul>
+<li>To select/exclude specific test results, graphs or tables from you output, you can use <code>ODS SELECT</code> and <code>ODS EXCLUDE</code> statements.</li>
+<li>You can use ODS templates to modify the layout and details of each graph</li>
+<li>You can use ODS styles to control the general appearance and consistency of yous graphs and tables (by default <strong>HTMLBLUE</strong>).</li>
+</ul>
+<p>Another way to control your output is to use the <strong>PLOTS</strong> option which is usually available in the procedure statement:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>PROC UNIVARIATE DATA=SAS-data-set PLOTS=options;
+</pre></div>
+</td></tr></table>
+
+<p>This option enables you to specify which graphs SAS should create, either in addtion or instead of the default plots.</p>
+<h2 id="confidence-intervals-for-the-mean">Confidence Intervals for the Mean<a class="headerlink" href="#confidence-intervals-for-the-mean" title="Permanent link">&para;</a></h2>
+<ul>
+<li>A <strong>point estimator</strong> is a sample statistic used to estimate a population parameter</li>
+<li>An estimator takes on different values from sample to sample, so it's important to know its variance</li>
+<li>A statistic that measures the variability of your estimator is the <strong>standard error</strong></li>
+<li>It differs from the standard deviation: the <strong>standard deviation</strong> deals with the variability of your data while <strong>standard error</strong> deals with the variability of you sample statistic</li>
+</ul>
+<p><strong>E.g.:</strong> $standard \ error \ of \ the \ mean = standard \ deviation/ \sqrt{sample \ size}$</p>
+<p>The <strong>distribution of sample means</strong> is always less variable than the data.</p>
+<ul>
+<li>Because we know that point estimators vary from sample to sample, it would be nice to have an estimator of the mean that directly accounts for this natural variability</li>
+<li>The <strong>interval estimator</strong> gives us a range of values that is likely to contain the population mean</li>
+<li>It is calculated from the <strong>standard error</strong> and a value that is determined by the <strong>degree of certainty</strong> we require (<strong>significance level</strong>)</li>
+<li><strong>Confidence intervals</strong> are a type of interval estimator used to estimate the population mean</li>
+<li>You can make the confidence interval narrower by increasing the sample size and by decreasing the confidence level</li>
+</ul>
+<p><center>$CI = sample \ mean \pm quantile \cdot standard \ error$</center></p>
+<ul>
+<li>The <code>CLM</code> option of <code>PROC MEANS</code> calculates the confidence limits for the mean, you can add <code>ALPHA=</code> to change the default 0.05 value for a 95% confidence level</li>
+<li>The <strong>central limit theorem</strong> states that the distribution of sample means is approximately normal regardless of the population distribution's shape, if the sample size is large enough (~30 observations)</li>
+</ul>
+<h2 id="hypothesis-testing">Hypothesis Testing<a class="headerlink" href="#hypothesis-testing" title="Permanent link">&para;</a></h2>
+<ul>
+<li>The <strong>null hypothesis</strong> ($H_0$) is what you assume to be true when you start your analysis</li>
+<li>The <strong>alternative hypothesis</strong> ($H_a$ or $H_1$) is your initial research hypothesis, that is, your proposed explanation</li>
+</ul>
+<p>Decision-making process:</p>
+<ol>
+<li>Define null and alternative hypothesis</li>
+<li>Specify significance level (type I error rate)</li>
+<li>Collect data</li>
+<li>Reject or fail to reject the null hypothesis</li>
+</ol>
+<p><img alt="Error types" src="../../images/error.png" title="Error types" /></p>
+<ul>
+<li>The type I and II errors are <strong>inversely related</strong>: as one type increases the other decreases </li>
+<li>The <strong>power</strong> is the probability of a <strong>correct rejection</strong> = 1 - &beta;</li>
+<li>It is the ability of the statistical test to detect a true difference</li>
+<li>
+<p>It is the ability to successfully reject a false null hypothesis</p>
+</li>
+<li>
+<p>A <strong>p-value</strong> measures the probability of observing a value as extreme as the one observed</p>
+<ul>
+<li>The p-value is used to determine <strong>statistical significance</strong></li>
+<li>It helps you assess whether you should reject the null hypothesis</li>
+</ul>
+</li>
+<li>
+<p>The <strong>p-value</strong> is affected by:</p>
+<ul>
+<li>The <strong>effect size</strong>: the difference between the observed statistic and the hypothesized value</li>
+<li>The <strong>sample size</strong>: the larger the sample size, the more sure you are about the sample statistics, the lower the p-value is</li>
+</ul>
+</li>
+<li>
+<p>A reference distribution enables you to quantify the probability (p-value) of observing a particular outcome (the calculated sample statistic) or a more extreme outcome, if the nul hypothesis is true</p>
+</li>
+<li>Two common reference distributions for statistical hypothesis testing are the <strong>t distribution</strong> and the <strong>F distribution</strong></li>
+<li>These distributions are characterized by the <strong>degrees of freedom</strong> associated with your data</li>
+<li>The <strong>t distribution</strong> arises when you're making inferences about a population mean and the population standard deviation is unknown and has to be estimated from the data<ul>
+<li>It is <strong>approximately normal</strong> as the <strong>sample size grows larger</strong></li>
+<li>The t distribution is a <strong>symmetric distribution</strong> like the normal distribution except that the t distribution has <strong>thicker tails</strong></li>
+<li>The <strong>t statistic</strong> is positive/negative when the sample is more/less than the hypothesized mean</li>
+<li>If the data doesn't come from a normal distribution, then the t statistic approximately follows a t distribution as long as the sample size is large (<strong>central limit theorem</strong>)</li>
+</ul>
+</li>
+</ul>
+<p>Calculation with <code>PROC UNIVARIATE</code>:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>ODS SELECT TESTSFORLOCATION;
+PROC UNIVARIATE DATA=SAS-data-set MU0=number alpha=number;
+  VAR variable(s);
+  ID variable_to_relate;
+  HISTOGRAM variables <span class="nt">&lt;/options&gt;</span>;
+  PROBPLOT variables <span class="nt">&lt;/options&gt;</span>;
+  INSET keywords <span class="nt">&lt;/options&gt;</span>;
+RUN;
+</pre></div>
+</td></tr></table>
+
+<ul>
+<li><code>TESTSFORLOCATION</code> displays only the p-values calculation</li>
+<li>By default <code>MU0 = 0</code></li>
+</ul>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../essentials/summary/" title="Creating Summary Reports" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Creating Summary Reports
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../anova/" title="Analysis of Variance (ANOVA)" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Analysis of Variance (ANOVA)
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application-6940329b9f.js"></script>
+      
+      
+      <script>app.initialize({url:{base:"../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+      
+        <script src="../../js/mathjaxhelper.js"></script>
+      
+        <script src="../../superfences"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1362 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Learning How to Program in SAS">
+      
+      
+      
+        <meta name="author" content="Lucía Rodrigo Insausti">
+      
+      
+        <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.8.1">
+    
+    
+      
+        <title>Reports - SAS Manual</title>
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr-1df76c4e58.js"></script>
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application-bfecc7305d.css">
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+  
+  
+  
+    <body>
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <a href="../.." title="SAS Manual" class="md-icon md-icon--home md-header-nav__button">
+          </a>
+        
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
+            
+              
+                <span class="md-header-nav__parent">
+                  SAS Outputs
+                </span>
+              
+            
+            Reports
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">close</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result" data-md-lang-search="" data-md-lang-tokenizer="[\s\-]+">
+          <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    
+      <i class="md-icon md-icon--home md-nav__button"></i>
+    
+    SAS Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Gettin' Started!" class="md-nav__link">
+      Gettin' Started!
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      The Essentials
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        The Essentials
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../essentials/accessing/" title="Accessing Data" class="md-nav__link">
+      Accessing Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../essentials/reporting/" title="Producing Detailed Reports" class="md-nav__link">
+      Producing Detailed Reports
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../essentials/formatting/" title="Formatting Data Values" class="md-nav__link">
+      Formatting Data Values
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../essentials/reading-sas/" title="Reading SAS Data Sets" class="md-nav__link">
+      Reading SAS Data Sets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../essentials/reading-spreadsheets/" title="Reading Spreadsheet and Database Data" class="md-nav__link">
+      Reading Spreadsheet and Database Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../essentials/reading-raw/" title="Reading Raw Data Files" class="md-nav__link">
+      Reading Raw Data Files
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../essentials/manipulation/" title="Manipulating Data" class="md-nav__link">
+      Manipulating Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../essentials/combination/" title="Combining SAS Data Sets" class="md-nav__link">
+      Combining SAS Data Sets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../essentials/summary/" title="Creating Summary Reports" class="md-nav__link">
+      Creating Summary Reports
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Basic Statistics
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Basic Statistics
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../statistics/introduction/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../statistics/anova/" title="Analysis of Variance (ANOVA)" class="md-nav__link">
+      Analysis of Variance (ANOVA)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../statistics/regression/" title="Regression" class="md-nav__link">
+      Regression
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../statistics/inference/" title="Model Post-Fitting for Inference" class="md-nav__link">
+      Model Post-Fitting for Inference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../statistics/categorical-data/" title="Categorical Data Analysis" class="md-nav__link">
+      Categorical Data Analysis
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../statistics/prediction/" title="Model Building and Scoring for Prediction" class="md-nav__link">
+      Model Building and Scoring for Prediction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../statistics/miscellanea/" title="Miscellanea" class="md-nav__link">
+      Miscellanea
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Other Analysis
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Other Analysis
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../other-analysis/missing-data/" title="Dealing with Missing Data" class="md-nav__link">
+      Dealing with Missing Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../other-analysis/interim-analysis/" title="Interim Analysis Design" class="md-nav__link">
+      Interim Analysis Design
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../other-analysis/normality-tests/" title="Normality tests" class="md-nav__link">
+      Normality tests
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../other-analysis/propensity-score/" title="Propensity Score" class="md-nav__link">
+      Propensity Score
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../other-analysis/roc-curve/" title="ROC curve" class="md-nav__link">
+      ROC curve
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../other-analysis/survival-analysis/" title="Survival Analysis" class="md-nav__link">
+      Survival Analysis
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../other-analysis/clustering/" title="Clustering" class="md-nav__link">
+      Clustering
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Specific Procedures
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Specific Procedures
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../procedures/regression-models/" title="General notes on regression procedures" class="md-nav__link">
+      General notes on regression procedures
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../procedures/glimmix/" title="PROC GLIMMIX" class="md-nav__link">
+      PROC GLIMMIX
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../procedures/mixed/" title="PROC MIXED" class="md-nav__link">
+      PROC MIXED
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+    
+    <label class="md-nav__link" for="nav-6">
+      SAS Outputs
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        SAS Outputs
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Reports
+      </label>
+    
+    <a href="./" title="Reports" class="md-nav__link md-nav__link--active">
+      Reports
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ods" title="ODS" class="md-nav__link">
+    ODS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proc-print" title="PROC PRINT" class="md-nav__link">
+    PROC PRINT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proc-tabulate" title="PROC TABULATE" class="md-nav__link">
+    PROC TABULATE
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#available-statistics" title="Available Statistics" class="md-nav__link">
+    Available Statistics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#single-dimensional-table" title="Single Dimensional Table" class="md-nav__link">
+    Single Dimensional Table
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#two-dimensional-table" title="Two Dimensional Table" class="md-nav__link">
+    Two Dimensional Table
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#three-dimensional-table" title="Three Dimensional Table" class="md-nav__link">
+    Three Dimensional Table
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formatting-tables" title="Formatting tables" class="md-nav__link">
+    Formatting tables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples" title="Examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proc-report" title="PROC REPORT" class="md-nav__link">
+    PROC REPORT
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../graphs/" title="Graphs and Plots" class="md-nav__link">
+      Graphs and Plots
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../templates/" title="Templates" class="md-nav__link">
+      Templates
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../macros/" title="Using Macros" class="md-nav__link">
+      Using Macros
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../wizard/" title="Using Wizard Menus" class="md-nav__link">
+      Using Wizard Menus
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../sasvi/" title="SAS Visual Analytics" class="md-nav__link">
+      SAS Visual Analytics
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      Miscellanea
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        Miscellanea
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../miscellanea/arrays/" title="Working with Arrays" class="md-nav__link">
+      Working with Arrays
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../miscellanea/execution-time/" title="Execution time" class="md-nav__link">
+      Execution time
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../miscellanea/patient-identification/" title="Patient identification" class="md-nav__link">
+      Patient identification
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ods" title="ODS" class="md-nav__link">
+    ODS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proc-print" title="PROC PRINT" class="md-nav__link">
+    PROC PRINT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proc-tabulate" title="PROC TABULATE" class="md-nav__link">
+    PROC TABULATE
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#available-statistics" title="Available Statistics" class="md-nav__link">
+    Available Statistics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#single-dimensional-table" title="Single Dimensional Table" class="md-nav__link">
+    Single Dimensional Table
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#two-dimensional-table" title="Two Dimensional Table" class="md-nav__link">
+    Two Dimensional Table
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#three-dimensional-table" title="Three Dimensional Table" class="md-nav__link">
+    Three Dimensional Table
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formatting-tables" title="Formatting tables" class="md-nav__link">
+    Formatting tables
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples" title="Examples" class="md-nav__link">
+    Examples
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proc-report" title="PROC REPORT" class="md-nav__link">
+    PROC REPORT
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Reports</h1>
+                
+                <h2 id="ods">ODS<a class="headerlink" href="#ods" title="Permanent link">&para;</a></h2>
+<p>In order to produce outputs from SAS, the three more common <code>ODS</code> techniques, that produces different output files, are HTML, RTF, and PDF. Each <code>ODS</code> statement uses options that are specific to that destination. The <code>ODS</code> options (other than the <code>FILE=</code> option) used in the program are shown in the table below. </p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>RTF</strong></th>
+<th align="center"><strong>PDF</strong></th>
+<th align="center"><strong>HTML</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>BODYTITLE</code> <br> <code>STARTPAGE=NO</code> <br> <code>KEEPN</code> <br> <code>NOTOC_DATA</code> / <code>TOC_DATA</code> <br> <code>CONTENTS</code> <br> <code>COLUMNS=</code> <br> <code>TEXT=</code></td>
+<td align="center"><code>BOOKMARKGEN=NO</code> <br> <code>STARTPAGE=NO</code> <br> <code>COMPRESS=9</code> <br> <code>TEXT=</code></td>
+<td align="center"><code>STYLE=SASWEB</code> <br> <code>RS=NONE</code></td>
+</tr>
+</tbody>
+</table>
+<p>For an explanation of the options, refer to <a href="http://www2.sas.com/proceedings/forum2007/021-2007.pdf">this page</a> or to the <a href="https://support.sas.com/documentation/cdl/en/odsug/69832/HTML/default/viewer.htm#titlepage.htm"><code>ODS</code> User's Guide</a>.</p>
+<p><strong>Set the SAS system options.</strong> The <code>NODATE</code> option suppresses the display of the date and time in the output. <code>PAGENO=</code> specifies the starting page number. <code>LINESIZE=</code> specifies the output line length, and <code>PAGESIZE=</code> specifies the number of lines on an output page.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>OPTIONS NODATE PAGENO=1 LINESIZE=80 PAGESIZE=40;
+</pre></div>
+</td></tr></table>
+
+<h2 id="proc-print"><code>PROC PRINT</code><a class="headerlink" href="#proc-print" title="Permanent link">&para;</a></h2>
+<h2 id="proc-tabulate"><code>PROC TABULATE</code><a class="headerlink" href="#proc-tabulate" title="Permanent link">&para;</a></h2>
+<p><code>PROC TABULATE</code> is a procedure that displays descriptive statistics in tabular format. It computes many statistics that other procedures compute, such as <code>MEANS</code>, <code>FREQ</code>, and <code>REPORT</code> and displays these statistics in a table format. <code>TABULATE</code> will produce tables in up to three dimensions and allows, within each dimension, multiple variables to be reported one after another hierarchically. There are also some very nice mechanisms that can be used to label and format the results. </p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>PROC TABULATE <span class="nt">&lt;options&gt;</span>;
+    CLASS variables <span class="nt">&lt;/ options&gt;</span>;
+    VAR variables <span class="nt">&lt;/ options&gt;</span>;
+    TABLE <span class="nt">&lt;page&gt;</span>, <span class="nt">&lt;row&gt;</span>, column <span class="nt">&lt;/ options&gt;</span>;
+    ... other statements...;
+RUN;
+</pre></div>
+</td></tr></table>
+
+<ul>
+<li><code>VAR</code> is used to list the variables you intend to use to create summary statistics on. They <strong>must be numeric</strong>.</li>
+<li><code>CLASS</code> variables allow you to get statistics by category. You will get one column/row for each value of the classification variable. You can also specify the universal CLASS variable <code>ALL</code> which allows you to <strong>get totals</strong>. They can be <strong>either numeric or character</strong> and you can only request counts and percents as statistics. This is almost like using a <code>BY</code>statement within the <code>TABLE</code>.</li>
+<li><code>TABLE</code> consists of up to three dimension expressions and the table options. You can have multiple table statements in one <code>PROC TABULATE</code>. This will generate one table for each statement.<ul>
+<li>A <strong>comma</strong> specifies to add a new <strong>dimension</strong>. The order of the dimensions is page, row and column. If you only specify one dimension, then it is assumed to be column. If two are specified, row, then column.</li>
+<li>The <strong>asterisk</strong> is used to produce a <strong>cross tabulation</strong> of one variable with another (within the same dimension however, different from <code>PROC FREQ</code>).</li>
+<li>A <strong>blank</strong> is used to represent <strong>concatenation</strong> (i.e. place this output element after the preceding variable listed).</li>
+<li><strong>Parenthesis</strong> will <strong>group elements</strong> and associate an operator with each element in the group.</li>
+<li><strong>Angle brackets</strong> specify a <strong>denominator definition</strong> for use in percentage calculations. </li>
+</ul>
+</li>
+</ul>
+<div class="admonition summary">
+<p class="admonition-title">Check these websites</p>
+<ul>
+<li><a href="http://www2.sas.com/proceedings/forum2008/264-2008.pdf"><code>PROC TABULATE</code> and the Neat Things You Can Do With It</a></li>
+</ul>
+</div>
+<ul>
+<li><code>VARDEF=divisor</code> specifies the divisor to be used in the calculation of the variances. If divisor is <code>DF</code> (default), the degrees of freedom (N-1) are used as the divisor.</li>
+<li><code>ORDER=</code> specifies the order of appearance in the table of the <code>CLASS</code> variable levels<ul>
+<li><code>FORMATTED</code>: ordered by the formatted values</li>
+<li><code>DATA</code>: the order that the observations are read from the data set</li>
+<li><code>FREQ</code>: order the values so the one that occurs most frequently in the data set appears first</li>
+<li><code>INTERNAL</code>: ordered by the <code>SORT</code> procedure (defaults)</li>
+</ul>
+</li>
+<li><code>/CONDENSE</code> prints multiple logical pages on a single physical page</li>
+<li><code>/PRINTMISS</code> species that row and column headings are the same for all logical pages of the table</li>
+<li><code>/ROW = spacing</code> specifies whether all title elements in a row crossing are allotted space even when they are blank. When <code>ROW=CONSTANT</code> (or <code>CONST</code>), the default, all row title elements have space allotted to them; when <code>ROW=FLOAT</code>, the row title space is divided equally among the nonblank title elements in the crossing</li>
+</ul>
+<h3 id="available-statistics">Available Statistics<a class="headerlink" href="#available-statistics" title="Permanent link">&para;</a></h3>
+<p>If you do not provide a statistic name, the default statistic produced will be <code>N</code> for the <code>CLASS</code> variables and <code>SUM</code> for the <code>VAR</code> variables.</p>
+<p><img alt="Available Statistics in PROC TABULATE" src="../../images/proctabulate-statistics.PNG" title="Available Statistics in PROC TABULATE" /></p>
+<h3 id="single-dimensional-table">Single Dimensional Table<a class="headerlink" href="#single-dimensional-table" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>PROC TABULATE DATA=sashelp.class;
+    CLASS Sex;
+    VAR Height Weight;
+    TABLE Height * (N MEAN) Height * MEAN * Sex Weight * MEAN * Sex;
+RUN; 
+</pre></div>
+</td></tr></table>
+
+<p><img alt="Single Dimensional Table" src="../../images/proctabulate-example-single-dimensional.PNG" title="Single Dimensional Table" /></p>
+<h3 id="two-dimensional-table">Two Dimensional Table<a class="headerlink" href="#two-dimensional-table" title="Permanent link">&para;</a></h3>
+<p>You can get very different table structures by changing where the statistic definitions are placed. They can be attached to either the <code>VAR</code> or the <code>CLASS</code> variable, but the numbers in the cells will <strong>always</strong> be calculated using the <code>VAR</code> variable(s). </p>
+<p>The statistic specification can be <strong>attached to the columns</strong>,</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>PROC TABULATE data=sashelp.class;
+    CLASS Sex;
+    VAR Height Weight;
+    TABLE Sex, Height * (N MEAN MAX) Weight * (N MEAN MAX) ;
+RUN; 
+</pre></div>
+</td></tr></table>
+
+<p><img alt="Two Dimensional Table (Statistics Attached to Columns)" src="../../images/proctabulate-example-two-dimensional-columns.PNG" title="Two Dimensional Table (Statistics Attached to Columns)" /></p>
+<p>or they can be <strong>attached to the rows</strong>.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>PROC TABULATE data=sashelp.class;
+    CLASS Sex;
+    VAR Height Weight;
+    TABLE Sex * (N MEAN MAX), Height  Weight;
+RUN; 
+</pre></div>
+</td></tr></table>
+
+<p><img alt="Two Dimensional Table (Statistics Attached to Rows)" src="../../images/proctabulate-example-two-dimensional-rows.PNG" title="Two Dimensional Table (Statistics Attached to Rows)" /></p>
+<p>You can specify <strong>multiple classification variables</strong>. They can be used in any of the dimensions and can be nested. When you have multiple <code>CLASS</code> variables, it is recommended to use the option <code>MISSING</code> to keep the observations that have any missing values and consider them as valid levels for the <code>CLASS</code> variable(s) instead of dropping those observations from all the tables.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>PROC TABULATE DATA=sashelp.cars;
+    CLASS DriveTrain Origin Type / MISSING;
+    VAR Weight Length;
+    TABLE Origin * Type, DriveTrain * Weight * MEAN DriveTrain * Length * MEAN;
+RUN; 
+</pre></div>
+</td></tr></table>
+
+<p><img alt="Two Dimensional Table (Multiple CLASS variables)" src="../../images/proctabulate-example-two-dimensional-multiple-CLASS.PNG" title="Two Dimensional Table (Multiple CLASS variables)" /></p>
+<p>In order to get <strong>marginal statistics</strong> in your table, you use the <code>ALL</code> keyword. You can use the keyword in multiple places and, depending on where you put the keyword, there will be different subtotals produced. </p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>PROC TABULATE DATA=sashelp.cars;
+    CLASS DriveTrain Origin Type;
+    TABLE (Origin All=&#39;Total&#39;) * (DriveTrain ALL=&#39;Subtotal DriveTrain&#39;), (Type ALL=&#39;Subtotal Type&#39;* N);
+RUN; 
+</pre></div>
+</td></tr></table>
+
+<p><img alt="Two Dimensional Table (Totals and Subtotals)" src="../../images/proctabulate-example-two-dimensional-totals.PNG" title="Two Dimensional Table (Totals and Subtotals)" /></p>
+<h3 id="three-dimensional-table">Three Dimensional Table<a class="headerlink" href="#three-dimensional-table" title="Permanent link">&para;</a></h3>
+<p>Three dimensional tables have a nice way to fill in the upper left area. Instead of the label of the page dimension appearing above the table, you can use the <code>BOX=_page_</code> option to place that label inside the big white box.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>PROC TABULATE data=sashelp.cars;
+    CLASS DriveTrain Origin Type;
+    VAR Weight Length;
+    TABLE Origin = &#39;Made in&#39;, Type = &#39;Category&#39;, DriveTrain * Weight * MEAN / BOX=_PAGE_;
+RUN; 
+</pre></div>
+</td></tr></table>
+
+<p><img alt="Three Dimensional Table" src="../../images/proctabulate-example-three-dimensional.PNG" title="Three Dimensional Table" /></p>
+<h3 id="formatting-tables">Formatting tables<a class="headerlink" href="#formatting-tables" title="Permanent link">&para;</a></h3>
+<p>There are two ways to <strong>add labels for your variables</strong>:</p>
+<ol>
+<li>Add the text after the variable name: <code>variable =‘label’</code>. This will work for both variables and
+statistics.</li>
+<li>Add a <code>LABEL</code> statement for variables and/or a <code>KEYLABEL</code> statement for statistics to your code:</li>
+</ol>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>LABEL var=‘label’;
+KEYLABEL stat=‘label’;
+</pre></div>
+</td></tr></table>
+
+<p>In order to hide variable or statistic labels, you leave the label specification blank (<code>variable =‘ ’</code>). </p>
+<p>To <strong>change the font color</strong> of each variable you can define their style as in the following example:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>PROC TABULATE DATA=sashelp.class;
+   CLASS Age Sex;
+   TABLES Age,
+          Sex=&#39;Gender&#39; *(N*{STYLE=[COLOR=Black]}
+                  PCTN=&#39;Percent&#39;   *{STYLE=[COLOR=Green]}
+                  ROWPCTN=&#39;Row Percent&#39;*{STYLE=[COLOR=Purple]}
+                  COLPCTN=&#39;Column Percent&#39; *{STYLE=[COLOR=Red]});
+RUN;
+</pre></div>
+</td></tr></table>
+
+<p><img alt="Changing the font color" src="../../images/proctabulate-example-font-color.PNG" title="Changing the font color" /></p>
+<ul>
+<li>You can also <strong>specify formats</strong> for numbers in the cells of the table using the <code>variable-or-statistic*F=fmt.</code> expression.</li>
+<li>The <code>CLASSLEV</code> statement is used to assign some style attributes to the variable values only (not to the column header)</li>
+<li>The <code>NOSEPS</code> option <strong>removes the horizontal dividers</strong> between the row values from your table</li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>PROC TABULATE DATA=SAS-data-set NOSEPS;
+</pre></div>
+</td></tr></table>
+
+<ul>
+<li><code>INDENT=</code> is used for subsetting row subheaders</li>
+<li><code>RTS=</code> specifies how wide you want the row header field to be</li>
+<li>Use the <code>BOX=</code> option to <strong>fill in the big white box in the upper left</strong></li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>TABLE (...) / BOX={LABEL=&#39;Custom label for upper left box&#39;} INDENT=3 RTS=12;
+</pre></div>
+</td></tr></table>
+
+<p>Depending on where you place the style options, many different results can be achieved. If you place the style options on the <code>PROC TABULATE</code> statement, for example, you will affect all the table cells. Note that for the <code>CLASS</code>, <code>CLASSLEV</code>, <code>VAR</code>, and <code>KEYWORD</code> statements, the style options can also be specified in the dimension expression in the Table statement. See below for a list of some of the different places where you can put the style options and what portion of the table they will affect.</p>
+<p><img alt="Style elements location" src="../../images/proctabulate-example-ods-location.PNG" title="Style elements location" /></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>PROC TABULATE DATA=SAS-data-set F=10.2 S=[custom style attributes]; 
+    CLASS variable1 / S=[custom style attributes];
+    CLASSLEV variable1 / S=[custom style attributes];
+    VAR variable2;
+    TABLE variable1=&#39;&#39; all={label=&#39;Total&#39; S=[custom style attributes], 
+          MEAN={S=[custom style attributes]} * variable2 
+          / BOX={LABEL=&#39;custom label&#39; S=[custom style attributes]};
+RUN;
+</pre></div>
+</td></tr></table>
+
+<div class="admonition note">
+<p class="admonition-title">Possible style attributes</p>
+<ul>
+<li>Background color: <code>BACKGROUND=yellow</code> </li>
+<li>Foreground color: <code>FOREGROUND=black</code></li>
+<li>Font color: <code>COLOR=red</code></li>
+<li>Change font characteristics: <code>FONTt_WEIGHT</code>|<code>FONT_FACE</code>|<code>FONT_SIZE</code></li>
+<li>Vertical justification: <code>VJUST=B|C|T</code></li>
+<li>Horizontal justification: <code>JUST=R|C|L</code> </li>
+<li>Specify thickness of borders: <code>BORDERWIDTH=</code></li>
+<li>Change size of table cells: <code>CELLWIDTH=200</code>|<code>CELLHEIGHT=50</code></li>
+<li>Specify vertical and horizontal rule dividers: <code>RULES=none</code> (removes all ines from the table)</li>
+<li>Specify white space around cell: <code>CELLSPACING=0</code> </li>
+<li>Specify thickness of spacing around cell: <code>CELLPADDING=10</code></li>
+<li>Specify width of table: <code>OUTPUTWIDTH=</code> </li>
+</ul>
+</div>
+<h3 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>PROC TABULATE DATA=SAS-data-set ORDER=FREQ;
+    VAR var1 var2;
+    CLASS AEencoding;
+    CLASS grade / ORDER=FORMATTED;
+    CLASS treatment / ORDER=FORMATTED;
+    TABLE AEencoding=&#39;&#39;, treatment=&#39;Treatment/Grade&#39;*grade=&#39;&#39;*(N=&#39;N&#39; var1=&#39;%&#39;*SUM=&#39;&#39;) ALL=&#39;Total (N=# cases)&#39;*(N=&#39;N&#39; var2=&#39;%&#39;*SUM=&#39;&#39;) / BOX=&quot;Preferred MeDDRA Term&quot;;
+RUN;
+</pre></div>
+</td></tr></table>
+
+<h2 id="proc-report"><code>PROC REPORT</code><a class="headerlink" href="#proc-report" title="Permanent link">&para;</a></h2>
+<p>How to write a header/footer in your tables:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>ODS ESCAPECHAR=&#39;^&#39;;
+
+PROC REPORT DATA=sashelp.cars;
+    WHERE Make = &#39;Jaguar&#39;;
+    COLUMN (&#39;1) Label 1&#39; model Invoice)
+            (&#39;2) Label 2&#39; Horsepower Weight Length);
+    COMPUTE BEFORE _PAGE_ / STYLE=HEADER{JUST=L FONTWEIGHT=BOLD COLOR=PURPLE};
+        LINE &#39;Test of custom header&#39;;
+    ENDCOMP;
+    COMPUTE AFTER / STYLE={TEXTDECORATION=UNDERLINE JUST=C COLOR=RED};
+        LINE &#39;Test of a custom footer&#39;;
+        LINE &#39;^S={color=green} Test of a custom footer with a different style&#39;;
+    ENDCOMP;
+RUN;
+</pre></div>
+</td></tr></table>
+
+<p>Specify the <code>STYLE</code> of a cell based on other cell's value:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>PROC REPORT DATA=SAS-data-set NOWD;
+    COLUMN timeinterval date1 date2;
+    DEFINE timeinterval / DISPLAY NOPRINT; 
+    DEFINE date1 / DISPLAY;
+    DEFINE date2 / DISPLAY;
+    COMPUTE date2;
+        IF timeinterval lt 0 and timeinterval ne . then call define(_col_,&quot;style&quot;,&quot;style={foreground=red font_weight=bold}&quot;);
+        ELSE call define(_col_,&quot;style&quot;,&quot;style={foreground=green font_weight=bold}&quot;);
+    ENDCOMP;
+RUN;
+</pre></div>
+</td></tr></table>
+
+<ul>
+<li><code>DEFINE</code> the variables involved in your conditional structure before the variable to which you want to apply the new format </li>
+<li><code>DEFINE</code> your variables as <code>DISPLAY NOPRINT</code> if you want to use them for the conditional structure but you don't want them to appear in your table</li>
+</ul>
+<p>Specify the <code>STYLE</code> of your global header:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>PROC REPORT DATA=SAS-data-set HEADSKIP HEADLINE NOWINDOWS STYLE(header)={ASIS=on BACKGROUND=very light grey FONTWEIGHT=BOLD};
+    COLUMN (&quot;Style of this global header&quot; var1 var2);
+    DEFINE var1 / DISPLAY &#39;Parameters&#39; LEFT STYLE=[FONTWEIGHT=BOLD];
+    DEFINE var2 / DISPLAY &#39;Values&#39; CENTER;
+RUN;
+</pre></div>
+</td></tr></table>
+
+<div class="admonition summary">
+<p class="admonition-title">Check these websites</p>
+<ul>
+<li><a href="http://support.sas.com/rnd/papers/sgf07/sgf2007-report.pdf">Beyond the Basics: Advanced <code>PROC REPORT</code> Tips and Tricks</a></li>
+<li><a href="http://support.sas.com/resources/papers/proceedings13/366-2013.pdf">Creating a Plan for Your Reports and Avoiding Common Pitfalls in <code>REPORT</code> Procedure Coding</a></li>
+<li><a href="http://support.sas.com/resources/papers/proceedings10/133-2010.pdf">Turn Your Plain Report into a Painted Report Using ODS Styles</a></li>
+</ul>
+</div>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../procedures/mixed/" title="PROC MIXED" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                PROC MIXED
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../graphs/" title="Graphs and Plots" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Graphs and Plots
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application-6940329b9f.js"></script>
+      
+      
+      <script>app.initialize({url:{base:"../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+      
+        <script src="../../js/mathjaxhelper.js"></script>
+      
+        <script src="../../superfences"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>

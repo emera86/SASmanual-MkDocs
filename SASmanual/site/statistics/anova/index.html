@@ -1,0 +1,1487 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Learning How to Program in SAS">
+      
+      
+      
+        <meta name="author" content="Lucía Rodrigo Insausti">
+      
+      
+        <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.8.1">
+    
+    
+      
+        <title>Analysis of Variance (ANOVA) - SAS Manual</title>
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr-1df76c4e58.js"></script>
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application-bfecc7305d.css">
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+  
+  
+  
+    <body>
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <a href="../.." title="SAS Manual" class="md-icon md-icon--home md-header-nav__button">
+          </a>
+        
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
+            
+              
+                <span class="md-header-nav__parent">
+                  Basic Statistics
+                </span>
+              
+            
+            Analysis of Variance (ANOVA)
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">close</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result" data-md-lang-search="" data-md-lang-tokenizer="[\s\-]+">
+          <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    
+      <i class="md-icon md-icon--home md-nav__button"></i>
+    
+    SAS Manual
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Gettin' Started!" class="md-nav__link">
+      Gettin' Started!
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      The Essentials
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        The Essentials
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../essentials/accessing/" title="Accessing Data" class="md-nav__link">
+      Accessing Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../essentials/reporting/" title="Producing Detailed Reports" class="md-nav__link">
+      Producing Detailed Reports
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../essentials/formatting/" title="Formatting Data Values" class="md-nav__link">
+      Formatting Data Values
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../essentials/reading-sas/" title="Reading SAS Data Sets" class="md-nav__link">
+      Reading SAS Data Sets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../essentials/reading-spreadsheets/" title="Reading Spreadsheet and Database Data" class="md-nav__link">
+      Reading Spreadsheet and Database Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../essentials/reading-raw/" title="Reading Raw Data Files" class="md-nav__link">
+      Reading Raw Data Files
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../essentials/manipulation/" title="Manipulating Data" class="md-nav__link">
+      Manipulating Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../essentials/combination/" title="Combining SAS Data Sets" class="md-nav__link">
+      Combining SAS Data Sets
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../essentials/summary/" title="Creating Summary Reports" class="md-nav__link">
+      Creating Summary Reports
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Basic Statistics
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Basic Statistics
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../introduction/" title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Analysis of Variance (ANOVA)
+      </label>
+    
+    <a href="./" title="Analysis of Variance (ANOVA)" class="md-nav__link md-nav__link--active">
+      Analysis of Variance (ANOVA)
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#graphical-analysis-of-associations" title="Graphical Analysis of Associations" class="md-nav__link">
+    Graphical Analysis of Associations
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proc-sgplot" title="PROC SGPLOT" class="md-nav__link">
+    PROC SGPLOT
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#two-sample-t-tests" title="Two-Sample t-Tests" class="md-nav__link">
+    Two-Sample t-Tests
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proc-ttest" title="PROC TTEST" class="md-nav__link">
+    PROC TTEST
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#one-way-anova" title="One-Way ANOVA" class="md-nav__link">
+    One-Way ANOVA
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proc-glm" title="PROC GLM" class="md-nav__link">
+    PROC GLM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anova-with-data-from-a-randomized-block-design" title="ANOVA with Data from a Randomized Block Design" class="md-nav__link">
+    ANOVA with Data from a Randomized Block Design
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proc-glm_1" title="PROC GLM" class="md-nav__link">
+    PROC GLM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anova-post-hoc-tests" title="ANOVA Post Hoc Tests" class="md-nav__link">
+    ANOVA Post Hoc Tests
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proc-glm_2" title="PROC GLM" class="md-nav__link">
+    PROC GLM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#two-way-anova-with-interactions" title="Two-Way ANOVA with Interactions" class="md-nav__link">
+    Two-Way ANOVA with Interactions
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proc-glm_3" title="PROC GLM" class="md-nav__link">
+    PROC GLM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#store-statement" title="STORE statement" class="md-nav__link">
+    STORE statement
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proc-plm" title="PROC PLM" class="md-nav__link">
+    PROC PLM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../regression/" title="Regression" class="md-nav__link">
+      Regression
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../inference/" title="Model Post-Fitting for Inference" class="md-nav__link">
+      Model Post-Fitting for Inference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../categorical-data/" title="Categorical Data Analysis" class="md-nav__link">
+      Categorical Data Analysis
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../prediction/" title="Model Building and Scoring for Prediction" class="md-nav__link">
+      Model Building and Scoring for Prediction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../miscellanea/" title="Miscellanea" class="md-nav__link">
+      Miscellanea
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Other Analysis
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Other Analysis
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../other-analysis/missing-data/" title="Dealing with Missing Data" class="md-nav__link">
+      Dealing with Missing Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../other-analysis/interim-analysis/" title="Interim Analysis Design" class="md-nav__link">
+      Interim Analysis Design
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../other-analysis/normality-tests/" title="Normality tests" class="md-nav__link">
+      Normality tests
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../other-analysis/propensity-score/" title="Propensity Score" class="md-nav__link">
+      Propensity Score
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../other-analysis/roc-curve/" title="ROC curve" class="md-nav__link">
+      ROC curve
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../other-analysis/survival-analysis/" title="Survival Analysis" class="md-nav__link">
+      Survival Analysis
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../other-analysis/clustering/" title="Clustering" class="md-nav__link">
+      Clustering
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Specific Procedures
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Specific Procedures
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../procedures/regression-models/" title="General notes on regression procedures" class="md-nav__link">
+      General notes on regression procedures
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../procedures/glimmix/" title="PROC GLIMMIX" class="md-nav__link">
+      PROC GLIMMIX
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../procedures/mixed/" title="PROC MIXED" class="md-nav__link">
+      PROC MIXED
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      SAS Outputs
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        SAS Outputs
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sas-outputs/reports/" title="Reports" class="md-nav__link">
+      Reports
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sas-outputs/graphs/" title="Graphs and Plots" class="md-nav__link">
+      Graphs and Plots
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../sas-outputs/templates/" title="Templates" class="md-nav__link">
+      Templates
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../macros/" title="Using Macros" class="md-nav__link">
+      Using Macros
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../wizard/" title="Using Wizard Menus" class="md-nav__link">
+      Using Wizard Menus
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../sasvi/" title="SAS Visual Analytics" class="md-nav__link">
+      SAS Visual Analytics
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      Miscellanea
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        Miscellanea
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../miscellanea/arrays/" title="Working with Arrays" class="md-nav__link">
+      Working with Arrays
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../miscellanea/execution-time/" title="Execution time" class="md-nav__link">
+      Execution time
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../miscellanea/patient-identification/" title="Patient identification" class="md-nav__link">
+      Patient identification
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#graphical-analysis-of-associations" title="Graphical Analysis of Associations" class="md-nav__link">
+    Graphical Analysis of Associations
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proc-sgplot" title="PROC SGPLOT" class="md-nav__link">
+    PROC SGPLOT
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#two-sample-t-tests" title="Two-Sample t-Tests" class="md-nav__link">
+    Two-Sample t-Tests
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proc-ttest" title="PROC TTEST" class="md-nav__link">
+    PROC TTEST
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#one-way-anova" title="One-Way ANOVA" class="md-nav__link">
+    One-Way ANOVA
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proc-glm" title="PROC GLM" class="md-nav__link">
+    PROC GLM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anova-with-data-from-a-randomized-block-design" title="ANOVA with Data from a Randomized Block Design" class="md-nav__link">
+    ANOVA with Data from a Randomized Block Design
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proc-glm_1" title="PROC GLM" class="md-nav__link">
+    PROC GLM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anova-post-hoc-tests" title="ANOVA Post Hoc Tests" class="md-nav__link">
+    ANOVA Post Hoc Tests
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proc-glm_2" title="PROC GLM" class="md-nav__link">
+    PROC GLM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#two-way-anova-with-interactions" title="Two-Way ANOVA with Interactions" class="md-nav__link">
+    Two-Way ANOVA with Interactions
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proc-glm_3" title="PROC GLM" class="md-nav__link">
+    PROC GLM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#store-statement" title="STORE statement" class="md-nav__link">
+    STORE statement
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proc-plm" title="PROC PLM" class="md-nav__link">
+    PROC PLM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Analysis of Variance (ANOVA)</h1>
+                
+                <p><a href="https://support.sas.com/edu/OLTRN/ECST131/m552/m552_7_a_sum.htm">Chapter summary in SAS</a></p>
+<p><img alt="enter image description here" src="../../images/anova.png" title="ANOVA" /></p>
+<h2 id="graphical-analysis-of-associations">Graphical Analysis of Associations<a class="headerlink" href="#graphical-analysis-of-associations" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Before analyzing your data, you need to have a general idea of any associations between <strong>predictor variables</strong> and <strong>response variables</strong></li>
+<li>An <strong>association</strong> exists between two variables when the expected value of one variable differs at different levels of the other variable</li>
+<li>One method for doing this is to conduct a <strong>graphical analysis</strong> of your data</li>
+<li>Associations between <strong>categorical</strong> predictor variable and a <strong>continuous</strong> response variable can be explored with <code>SGPLOT</code> to product <strong>box plots</strong> (box-and-whisker plots) (<strong>X</strong> predictor variable vs <strong>Y</strong> response variable)</li>
+<li>If the <strong>regression line</strong> conecting the means of Y at each value of X is not horizontal <strong>there might be an association</strong> between them</li>
+<li>If the <strong>regression line</strong> is horizontal <strong>there is no association</strong>: knowing the value of X doesn't tell you anything about the value of Y</li>
+</ul>
+<h3 id="proc-sgplot"><code>PROC SGPLOT</code><a class="headerlink" href="#proc-sgplot" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>PROC SGPLOT DATA=SAS-data-set;
+    VBOX response-variable / CATEGORY=predictor-variable
+    CONNECT=MEAN DATALABEL=outlier-ID-variable;
+RUN;
+</pre></div>
+</td></tr></table>
+
+<h2 id="two-sample-t-tests">Two-Sample t-Tests<a class="headerlink" href="#two-sample-t-tests" title="Permanent link">&para;</a></h2>
+<ul>
+<li>You can use a <strong>one-sample t-test</strong> to determine if the mean of a population is equal to a particular value or not</li>
+<li>When you collect a random sample of independent observations from two different populations, you can perform a <strong>two-sample t-test</strong></li>
+</ul>
+<p>When you compare the means of two populations using a <strong>two-sample t-test</strong> you make three assumptions:</p>
+<ul>
+<li>The data contains independent observations</li>
+<li>The distributions of the two populations are normal (check histograms and normal probability/Q-Q plots)</li>
+<li>The variances in these normal distributions are equal (<strong>F-test</strong> is the formal way to verify this assumption)</li>
+</ul>
+<p>$F$ statistic: $F=max(s_1^2,s_2^2)/min(s_1^2,s_2^2) \ge 1$</p>
+<p>$H_0$: &sigma;$_1^2$ $=$  &sigma;$_2^2\rightarrow F \approx 1$</p>
+<p>$H_a$: &sigma;$_1^2$ $\ne$  &sigma;$_2^2\rightarrow F\gt 1$</p>
+<p>The <strong>Pr&gt;F</strong> value in the <strong>Equality of Variances</strong> table represents the <strong>p-value</strong> of the F-test for equal variances</p>
+<hr />
+<p><strong><em>Two-sided Tests</em></strong></p>
+<h3 id="proc-ttest"><code>PROC TTEST</code><a class="headerlink" href="#proc-ttest" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>PROC TTEST</code> performs a two-sided two-sample t-test by default (confidence limits and ODS graphics included)</li>
+<li>It <strong>automatically test the assumption of equal variances</strong> and provides an exact two-sample t-test (<strong>pooled</strong>) when the assumptions are met and an approximate t-test (<strong>scatterthwaite</strong>) when it is not met </li>
+<li>The pooled and scatterthwaite t-tests are equal when the variances are equal</li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>PROC TTEST DATA=SAS-data-set &lt;options&gt;
+    plots(shownull)=interval;         \* shownull = vertical reference line at the mean value of H0 *\
+    CLASS variable;                   \* Classification variable *\
+    VAR variable(s);                  \* Continuous response variables *\
+RUN;
+</pre></div>
+</td></tr></table>
+
+<hr />
+<p><strong><em>One-sided Tests</em></strong></p>
+<ul>
+<li>It <strong>can increase the power</strong> of a statistical test, meaning that if you are right about the direction of the true difference, you will more likely detect a significant difference with a one-sided test than with a tow-sided test</li>
+<li>The difference between the mean values for the null hypothesis will be defined by the alphabetical order of the classification variables (e.g.: female - male)</li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>PROC TTEST DATA=SAS-data-set 
+    plots(only shownull)=interval H0=0 SIDES=u;     \* only = suppress the default plots; u/l = upper/lower-tailed t-test  *\
+    CLASS variable;                                 \* Classification variable *\
+    VAR variable(s);                                \* Continuous response variables *\
+RUN;
+</pre></div>
+</td></tr></table>
+
+<h2 id="one-way-anova">One-Way ANOVA<a class="headerlink" href="#one-way-anova" title="Permanent link">&para;</a></h2>
+<p>When you want to determine whether there are significant differences between the <strong>means of two or more populations</strong>, you can use analysis of variance (ANOVA).</p>
+<ul>
+<li>You have a continuous dependent (<strong>response</strong>) variable and a categorical independent (<strong>predictor</strong>) variable</li>
+<li>You can have <strong>many levels of the predictor variable</strong>, but you can have <strong>only one predictor variable</strong></li>
+<li>The <strong>squared value of the t statistic</strong> for a two-sample t-test is equal to the <strong>F statistic</strong> of a one-way ANOVA with two populations</li>
+<li>With ANOVA the $H_0$ is that all of the population means are equal and $H_a$ is that not all the population means are equal (at least one mean is different)</li>
+</ul>
+<p>To perform an ANOVA test you make three assumptions:</p>
+<ul>
+<li>You have a <strong>good, random, representative sample</strong></li>
+<li>The <strong>error terms are normally distributed</strong><ul>
+<li>The <strong>residuals</strong> (each observation minus its group mean) are estimates of the error term in the model so you verify this assumption by examining diagnostic plots of the residuals (if they are approximately normal, the error terms will be too)</li>
+<li>If your sample sizes are reasonably large and approximately equal across groups, then only severe departures from normality are considered a problem</li>
+<li>Residuals always sum to 0, regardless of the number of observations.</li>
+</ul>
+</li>
+<li>The <strong>error terms have equal variances</strong> across the predictor variable levels: you can conduct a formal test for equal variances and also plot the residuals vs predicted values as a way to graphically verify this assumption</li>
+</ul>
+<h3 id="proc-glm"><code>PROC GLM</code><a class="headerlink" href="#proc-glm" title="Permanent link">&para;</a></h3>
+<p>You can use <code>PROC GLM</code> to verify the ANOVA assumptions and perform the ANOVA test. It fits a general linear model of which ANOVA is a special case and also displays the sums of squares associated with each hypothesis it tests.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>PROC GLM DATA=SAS-data-set
+         PLOTS(ONLY)=DIAGNOSTICS(UNPACK);     /* print each plot on a separated page */
+    CLASS variable(s);
+    MODEL dependents=intependents <span class="nt">&lt;/options&gt;</span>;
+    MEANS effects / HOVTEST <span class="nt">&lt;/options&gt;</span>;    
+RUN;
+QUIT;
+</pre></div>
+</td></tr></table>
+
+<ul>
+<li><code>HOVTEST</code>: homogeneity of variance test option (Levene's test by default) + plot of residuals vs predicted values (means)</li>
+</ul>
+<hr />
+<ul>
+<li>If the <strong>between-group variability</strong> is significantly larger than the <strong>within-group variability</strong>, you reject the null that all the group means are equal</li>
+<li>You partition out the variability using sums of squares: <ul>
+<li><strong>Between-group</strong> variation: also called Model Sum of Squares (SSM): $\sum n_i (\overline Y_i- \overline {\overline Y})^2$</li>
+<li><strong>Within-group</strong> variation: also called Error Sum of Squares (SSE): $\sum \sum (Y_{ij}- \overline Y_i)^2$</li>
+<li><strong>Total</strong> variation: also called the Total Sum of Squares (SST): $\sum \sum (Y_{ij}- \overline {\overline Y})^2$</li>
+</ul>
+</li>
+<li><strong>SSM</strong> and <strong>SSE</strong> represent pieces of <strong>SST</strong>: the SSM is the variability explanied by the predictor variable levels and SSE the variability not explained by the predictor variable levels</li>
+<li>You want the larger piece of the total to be better represented by what you can explain (SSM) vs what you can't explain (SSE) </li>
+</ul>
+<h2 id="anova-with-data-from-a-randomized-block-design">ANOVA with Data from a Randomized Block Design<a class="headerlink" href="#anova-with-data-from-a-randomized-block-design" title="Permanent link">&para;</a></h2>
+<p>In an <strong>observational study</strong>, you often examine what already occurred, and therefore have little control over factors contributing to the outcome. In a <strong>controlled experiment</strong>, you can manipulate the <strong>factors of interest</strong> and can more reasonably claim causation.</p>
+<ul>
+<li>The variation due to the <strong>nuisance factors</strong> (fundamental to the probabilistic model but are no longer of interest) is part of the random variation that the error sum of squares accounts for.</li>
+<li>Including a <strong>blocking variable</strong> in the model is in essence like adding a second predictor variable to the model in terms of the way you write it</li>
+<li>The way you set up your experiment and data collection is what defines it as a blocking factor</li>
+<li>Although you're not specifically interested in its effect, <strong>controlling the blocking variable makes it easier to detect an effect of the factor of interest</strong></li>
+<li>In a model that does not include a blocking variable, its effects are lumped into the error term of the model (unaccounted for variation)</li>
+<li>When you include a blocking variable in your ANOVA model, any effects caused by the nuisance factors that are common within a sector are accounted for in the <strong>model sum of squares rather than the error sum of squares</strong></li>
+</ul>
+<p>You make two more assumptions when you include a blocking factor in the model:</p>
+<ul>
+<li>Primary variable levels are <strong>randomly assigned</strong> within each block</li>
+<li>The effects of the primary variable are <strong>constant across the levels</strong> of the blocking factor (the effects don't depend on the block they are in, there are <strong>no interactions</strong> with the blocking variable)</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Levene's test for homogeneity is <strong>only available for one-way ANOVA models</strong>, so in this case, you have to use the Residuals by Predicted plot.</p>
+</div>
+<h3 id="proc-glm_1"><code>PROC GLM</code><a class="headerlink" href="#proc-glm_1" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>PROC GLM DATA=SAS-data-set
+         PLOTS(ONLY)=DIAGNOSTICS(UNPACK);   /* print each plot on a separated page */
+    CLASS variable(s) blocking-factor(s);
+    MODEL dependents=intependents blocking-factor(s)&lt;/options&gt;;
+RUN;
+QUIT;
+</pre></div>
+</td></tr></table>
+
+<ul>
+<li><strong><em>Rule of thumb</em></strong>: if the <strong>F-value is &gt; 1</strong>, then it helped to add the blocking factor in your model </li>
+<li>If you compare the MSE (<em>Mean Square</em> in the table) without and with including the blocking variable in the model,  there is a drop of its value meaning that <strong>you have been able to account for a bit more of the unexplained variability due to the nuisance factors</strong> helping o have more precise estimates of the effect of your primary variable</li>
+<li>It is also reflected in the <em>R-Square</em> value that is increased when a blocking factor is added to the model</li>
+<li>Thanks to adding a blocking variable to your model you can get your primary variable to be significant</li>
+<li>The <strong>Type III SS</strong> at the bottom of the output tests for the difference due to each variable, controlling for or adjusting for the other variable</li>
+</ul>
+<h2 id="anova-post-hoc-tests">ANOVA Post Hoc Tests<a class="headerlink" href="#anova-post-hoc-tests" title="Permanent link">&para;</a></h2>
+<p>This test is used to determine which means differ from other means and control the error rate using <strong>multiple comparison method</strong>.</p>
+<p>Assuming the null hypothesis is true for your different comparisons, the probability that you conclude a difference exist at least one time when there really  isn't a difference increases with the more tests you perform. So <strong>the chance that you make a Type I error increases each time you conduct a statistical test</strong>.</p>
+<ul>
+<li>The <strong>comparisonwise error rate (CER)</strong> is the probability of a Type I error on a single pairwise test (&alpha;)</li>
+<li>The <strong>experimentwise error rate (EER)</strong> is the probability of making at least one Type I error when performing the whole set of comparisons. It takes into consideration the number of pairwise comparisons you make, so it increases as the number of tests increase: 
+<center> <script type="math/tex; mode=display"> EER=1-(1-\alpha)^{comparisons} </script> </center></li>
+</ul>
+<p><strong><em>Tukey's Multiple Comparison Method</em></strong></p>
+<ul>
+<li>This method, which is also known as the <strong>Honestly Significant Difference</strong> test, is a popular multiple comparison test that <strong>controls the EER</strong></li>
+<li>This tests compares all possible pairs of means, so <strong>it can only be used when you make pairwise comparisons</strong></li>
+<li>This method controls $EER=\alpha$ when <strong>all possible pairwise comparisons are considered</strong> and controls $EER&lt;\alpha$ when fewer than all pairwise comparisons are considered</li>
+</ul>
+<p><strong><em>Dunnett's Multiple Comparison Method</em></strong></p>
+<ul>
+<li>This method is a specialised multiple comparison test that allows you to <strong>compare a single control group to all other groups</strong></li>
+<li>It controls $EER \le \alpha$ when all groups are compared to the reference group (control)</li>
+<li>It accounts for the correlation that exists between the comparisons and <strong>you can conduct one-sided tests</strong> of hypothesis against the reference group</li>
+</ul>
+<h3 id="proc-glm_2"><code>PROC GLM</code><a class="headerlink" href="#proc-glm_2" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>PROC GLM DATA=SAS-data-set;
+    CLASS variable(s);
+    MODEL dependents=intependents <span class="nt">&lt;/options&gt;</span>;
+    LSMEANS effects <span class="nt">&lt;/options-test-1&gt;</span>;  
+    LSMEANS effects <span class="nt">&lt;/options-test-2&gt;</span>;
+    [...]
+    LSMEANS effects <span class="nt">&lt;/options-test-n&gt;</span>;  
+RUN;
+QUIT;
+</pre></div>
+</td></tr></table>
+
+<ul>
+<li><code>PDIFF=ALL</code> requests p-values for the differences between <code>ALL</code> the means and a <strong>diffogram</strong> is produced automatically displaying all pairwise least square means differences and indicating which are significant</li>
+<li>It can be undestood as a least squares mean by least squares mean plot</li>
+<li>The point estimates for differences between the means for each pairwise comparison can be found at the intersections of the gray grid lines (intersection of appropriate indexes)</li>
+<li>The red/blue diagonal lines show the <strong>confidence intervals for the true differences of the means</strong> for each pairwise comparison</li>
+<li>The grey 45$^{\circ}$ reference line represents equality of the means (if the confidence interval crosses over it, then there is no significant difference between the two groups and the diagonal line for the pair will be <strong>dashed and red</strong>; if the difference is significant the line will be <strong>solid and blue</strong>)</li>
+</ul>
+<p><img alt="Diffogram" src="../../images/diffogram.png" title="Diffogram" /></p>
+<ul>
+<li>The <code>ADJUST=</code> option specifies the adjustment method for multiple comparisons</li>
+<li>If you don't specify an option SAS uses the <strong>Tukey method by default</strong>, if you specify <code>ADJUST=Dunnett</code> the GLM procedure produces multiple comparisons using <strong>Dunnett's method</strong> and a <strong>control plot</strong> <ul>
+<li>The control plot displays the least squares mean and confidence limits of each group compared to the reference group </li>
+<li>The middle <strong>horizontal line represents its least square mean value</strong> (you can see the arithmetic mean value un the <strong>upper right corner</strong> of the graph)</li>
+<li>The <strong>shaded area</strong> goes from the <strong>lower decision limit (LDL)</strong> to the <strong>upper decision limit (UDL)</strong></li>
+<li>There is a vertical line for each group that you're comparing to the reference (control) group. If a <strong>vertical line extends past the shaded area</strong>, then the group represented by the line is <strong>significantly different</strong> (small p-value) than the reference group </li>
+</ul>
+</li>
+</ul>
+<p><img alt="Control plot" src="../../images/controlplot.PNG" title="Control plot" /></p>
+<ul>
+<li><code>PDIFF=CONTROLU('value')</code> specifies the control group for the Dunnett's case: the direction of the sign in Ha is the same as the direction you are testing, so this is a <strong>one-sided upper-tailed t-test</strong></li>
+<li>If you specify <code>ADJUST=T</code> SAS will make no adjustments for multiple comparisons: is not recommended as there's a tendency to find <strong>more significant pairwise differences than might actually exist</strong></li>
+</ul>
+<h2 id="two-way-anova-with-interactions">Two-Way ANOVA with Interactions<a class="headerlink" href="#two-way-anova-with-interactions" title="Permanent link">&para;</a></h2>
+<p>When you have a continuous response variable and <strong>two categorical predictor variables</strong>, you use the <strong>two-way ANOVA model</strong></p>
+<ul>
+<li><strong>Effect</strong>: the magnitude of the expected change in the response variable presumably caused by the change in value of a predictor variable in the model</li>
+<li>In addition, the variables in a model can be referred to as effects or terms</li>
+<li><strong>Main effect</strong>: is the effect of a single predictor variable</li>
+<li><strong>Interaction effects</strong>: when the relationship of the response variable with a predictor changes with the changing of another predictor variable (the effect of one variable depends on the value of the other variable)</li>
+</ul>
+<p><img alt="Interaction plot" src="../../images/interactionplot.png" title="Interaction plot" /></p>
+<p>When you consider an ANOVA with more than one predictor variable, it's called <strong>n-way ANOVA</strong> where <em>n</em> represents the number of predictor variables</p>
+<ul>
+<li>The analysis in a <strong>randomized block design</strong> is actually a <strong>special type of two-way ANOVA</strong> in which you have one factor of interest and one blocking factor</li>
+<li>When you analyze a two-way ANOVA with interactions, you first look at any tests for <strong>interactions among the factors</strong><ul>
+<li>If there is <strong>no interaction between the factors</strong> you can interpret the tests for the individual factor effects to determine their significance/non-significance</li>
+<li>If an <strong>interaction exists between any factors</strong>, the tests for the individual factor effects might be misleading due to masking of these effect by the interaction (this is specially true for unbalanced data with different number of observations for each combination of groups)</li>
+</ul>
+</li>
+<li>When the interaction is not statistically significant <strong>you can analyze the main effect with the model in its current form</strong> (generally the method you use when you analyze designed experiments)</li>
+<li>Even when you analyze designed experiments, some statisticians might suggest that if the interaction is not significant, <strong>you can delete the interaction effect from your model, rerun the model and then just analyze the main effects</strong> increasing the power of the main effects test</li>
+<li>If the <strong>interaction term is significant</strong>, it is good practice to keep the main effect terms that make up the interaction in the model, whether they are significant or not (this preserves model hierarchy)</li>
+<li>You have to make the <strong>same three assumptions used in the ANOVA test</strong></li>
+<li>The interaction terms are also called <strong>product terms</strong> or <strong>crossed effects</strong></li>
+</ul>
+<h3 id="proc-glm_3"><code>PROC GLM</code><a class="headerlink" href="#proc-glm_3" title="Permanent link">&para;</a></h3>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>PROC GLM DATA=SAS-data-set;
+    CLASS independent1 independent2;
+    MODEL dependent = independent1 independent2 independent1*independent2;
+    or
+    MODEL dependent = independent1 | independent2;
+RUN;
+QUIT;
+</pre></div>
+</td></tr></table>
+
+<p>This program is <strong>fitting to this model</strong>:</p>
+<p>
+<script type="math/tex; mode=display">Y_{ijk}=\mu + \alpha_i+\beta_j+(\alpha\beta)_{ij}+\epsilon_{ijk}</script>
+</p>
+<p><center> dependent = overall mean + intependent1 + independent2 + interaction12 + unaccounted for variation </center></p>
+<ul>
+<li>In <strong>most situations</strong> you will want to use the <strong>Type III SS</strong></li>
+<li>The <strong>Type I SS (sequential)</strong> are the sums of squares you obtain from fitting the effects in the order you specify in the model </li>
+<li>The <strong>Type III SS (marginal)</strong> are the sums of squares you obtain from fitting each effect after all the other terms in the model, that is the sums of squares for each effect corrected for the other terms in the model</li>
+<li>When examining these results you first have to <strong>look at the interaction term and if it's significant</strong> (p-value), the <strong>main effects don't tell you the whole story</strong>. It that is the case, you don't need to worry all that much about the significance of the main effects at this point for two reasons:<ul>
+<li>You know that the effect of each variable1 level changes for the different variable2 levels</li>
+<li>You want to include the main effects in the model, whether they are significant or not, to preserve model hierarchy</li>
+</ul>
+</li>
+<li>You can analyze the interaction between terms by looking at the <strong>interaction plot</strong> that SAS produces by default when you include an interaction term in the model</li>
+<li>To analyze and interpret the effect of one of the interacting variables you need to add the <code>LSMEANS</code> statement to your program</li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>PROC GLM DATA=SAS-data-set ORDER=INTERNAL PLOTS(ONLY)=INTPLOT;
+    CLASS independent1 independent2;
+    MODEL dependent = intependent1 independent2 independent1*independent2;
+    LSMEANS independent1*independent2 / SLICE= independent1;
+RUN;
+QUIT;
+</pre></div>
+</td></tr></table>
+
+<p>SAS creates two types of mean plots when you use the <code>LSMEANS</code> statement with an interaction term:</p>
+<ul>
+<li>The first plot displays the <strong>least squares mean (LS-Mean) for every effect level</strong> </li>
+<li>The second plot contains the same information rearranged so you can <strong>look a little closer at the combination levels</strong></li>
+</ul>
+<hr />
+<h3 id="store-statement"><code>STORE</code> statement<a class="headerlink" href="#store-statement" title="Permanent link">&para;</a></h3>
+<p>You can add a <code>STORE</code> statement to save your analysis results in an <strong>item store</strong> (a binary file format that cannot be modified). This allows you to <strong>run post-processing analysis</strong> on the stored results even if you no longer have access to the original data set. The <code>STORE</code> statement applies to the following SAS/STAT procedures: <code>GENMOD</code>, <code>GLIMMIX</code>, <code>GLM</code>, <code>GLMSELECT</code>, <code>LOGISTIC</code>, <code>MIXED</code>, <code>ORTHOREG</code>, <code>PHREG</code>, <code>PROBIT</code>, <code>SURVEYLOGISTIC</code>, <code>SURVEYPHREG</code>, and <code>SURVEYREG</code>.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>STORE <span class="nt">&lt;OUT</span><span class="err">=</span><span class="nt">&gt;</span>item-store-name
+    <span class="err">&lt;</span>/ LABEL=&#39;label&#39;&gt;;
+</pre></div>
+</td></tr></table>
+
+<ul>
+<li><code>item-store-name</code> is a usual one- or two-level SAS name, similar to the names that are used for SAS data sets</li>
+<li><code>label</code> identifies the estimate on the output (is optional)</li>
+</ul>
+<hr />
+<h3 id="proc-plm"><code>PROC PLM</code><a class="headerlink" href="#proc-plm" title="Permanent link">&para;</a></h3>
+<p>To perform post-fitting statistical analysis and plotting for the contents of the store item, you use <code>PROC PLM</code>. The statements and options that are available vary depending upon which procedure you used to produce the item store.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>PROC PLM RESTORE=item-store-specification <span class="nt">&lt;options&gt;</span>;
+    EFFECTPLOT INTERACTION(SLICEBY=variable) <span class="nt">&lt;plot-type</span> <span class="err">&lt;(plot-definition</span> <span class="err">options)</span><span class="nt">&gt;</span>&gt; / CLM <span class="nt">&lt;/ options&gt;</span>;
+    LSMEANS <span class="nt">&lt;model-effects&gt;</span> <span class="nt">&lt;/ options&gt;</span>;
+    LSMESTIMATE model-effect <span class="err">&lt;</span>&#39;label&#39;&gt; values
+        <span class="nt">&lt;divisor</span><span class="err">=n</span><span class="nt">&gt;</span><span class="err">&lt;</span>,...<span class="err">&lt;</span>&#39;label&#39;&gt; values
+        <span class="nt">&lt;divisor</span><span class="err">=n</span><span class="nt">&gt;</span> <span class="nt">&lt;/ options&gt;</span>;
+    SHOW options;
+    SLICE model-effect / SLICEBY=variable ADJUST=tukey <span class="nt">&lt;/ options&gt;</span>;
+    WHERE expression;
+RUN;
+</pre></div>
+</td></tr></table>
+
+<ul>
+<li><code>RESTORE</code> specifies the source item store for processing</li>
+<li><code>EFFECTPLOT</code> produces a display of the fitted model and provides options for changing and enhancing the displays</li>
+<li><code>LSMEANS</code> computes and compares least squares means (LS-means) of fixed effects</li>
+<li><code>LSMESTIMATE</code> provides custom hypothesis tests among least squares means</li>
+<li><code>SHOW</code> uses <code>ODS</code> to display contents of the item store. This statement is useful for verifying that the contents of the item store apply to the analysis and for generating <code>ODS</code> tables.</li>
+<li><code>SLICE</code> provides a general mechanism for performing a partitioned analysis of the LS-means for an interaction (analysis of simple effects) and it uses the same options as the <code>LSMEANS</code> statement</li>
+<li><code>WHERE</code> is used in the PLM procedure when the item store contains <code>BY-variable</code> information and you want to apply the <code>PROC PLM</code> statements to only a subset of the BY groups</li>
+</ul>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../introduction/" title="Introduction" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Introduction
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../regression/" title="Regression" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Regression
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application-6940329b9f.js"></script>
+      
+      
+      <script>app.initialize({url:{base:"../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+      
+        <script src="../../js/mathjaxhelper.js"></script>
+      
+        <script src="../../superfences"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>
