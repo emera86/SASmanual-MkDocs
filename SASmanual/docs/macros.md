@@ -56,6 +56,22 @@ DATA _NULL_;
 RUN;
 ```
 
+## Useful Functions for Macro Programming
+
+### `VVALUEX` Function
+Returns the formatted value that is associated with the argument that you specify. The argument specifies a character constant, variable, or expression that evaluates to a variable name. 
+
+!!! warning
+    The value of the specified expression cannot denote an array reference.
+    
+```
+date1='31mar02'd;
+date2='date1';
+format date1 date7.;
+datevalue=vvaluex(date2);
+put datevalue;               /* 31MAR02 */
+```
+
 ## Macros Available in SAS 
 
 Check this [powerpoint](https://www.google.es/url?sa=t&rct=j&q=&esrc=s&source=web&cd=5&ved=0ahUKEwjnkNj-p5zUAhUB2RQKHR9KA3MQFghHMAQ&url=http%3A%2F%2Fwww.sascommunity.org%2Fmwiki%2Fimages%2Ff%2Ff2%2F5_Macros.pptx&usg=AFQjCNHr9cDvdo8lzpMwXfZU6qaAxV1-vg&sig2=hWHrTpexhuvP2vnAOIjEFA) presentation for more tips.
