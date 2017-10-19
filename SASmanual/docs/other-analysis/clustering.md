@@ -36,13 +36,16 @@ You may need to reduce the number of variables to include in the analysis. There
 * [Variable Reduction for Modeling using `PROC VARCLUS`](http://www2.sas.com/proceedings/sugi26/p261-26.pdf)
 
 #### Factor Analysis
-Factor analysis is a method of data reduction.  It does this by seeking underlying unobservable variables (**latent variables**) that are reflected in the observed variables (**manifest variables**).
+Factor analysis is a method of data reduction.  It does this by seeking underlying unobservable variables (**latent variables**) that are reflected in the observed variables (**manifest variables**). 
 
-* There are many different **methods** that can be used to conduct a factor analysis (such as principal axis factor, maximum likelihood, generalized least squares, unweighted least squares). 
-* There are also many different **types of rotations** that can be done after the initial extraction of factors, including orthogonal rotations, such as varimax and equimax, which impose the restriction that the factors cannot be correlated, and oblique rotations, such as promax, which allow the factors to be correlated with one another.  
-* You also need to determine the **number of factors** that you want to extract.  
+* There are many different **methods** that can be used to conduct a factor analysis (such as principal axis factor, maximum likelihood, generalized least squares, unweighted least squares). Each of them generates uncorrelated factors. 
+* There are also many different **types of rotations** that can be done after the initial extraction of factors, including orthogonal rotations, such as varimax and equimax, which impose the restriction that the factors cannot be correlated, and oblique rotations, such as promax, which allow the factors to be correlated with one another. It is generally considered that using a rotation in factor analysis will produce more interpretable results. If the factor analysis is being performed specifically to gain an explanation of what factors or groups exist in the data or to confirm hypothesized assumptions about the data, rotation can be especially helpful. Factor patterns can be rotated through two different ways:
+    * Orthogonal rotations which retain uncorrelated factors
+    * Oblique rotations which create correlated factors
+While arguments exist supporting both types of rotation methods, factor analysis which uses an **orthogonal rotation often creates a solution that is easier to grasp and interpret** than a solution obtained from an oblique rotation. 
+* You also need to determine the **number of factors** that you want to extract. Normally, the objetive during the initial factor analysis is to determine the minimum number of factors that will adequately account for the covariation among the larger number of analysis variables. This objective can be achieved by using any of the initial factoring methods.
 
-Given the number of factor analytic techniques and options, it is not surprising that different analysts could reach very different results analyzing the same data set.  However, all analysts are looking for simple structure.  Simple structure is pattern of results such that **each variable loads highly onto one and only one factor**.
+Given the number of factor analytic techniques and options, it is not surprising that different analysts could reach very different results analyzing the same data set. However, all analysts are looking for simple structure. Simple structure is pattern of results such that **each variable loads highly onto one and only one factor**.
 
 Factor analysis is a technique that requires a **large sample size** because it is based on the correlation matrix of the variables involved, and correlations usually need a large sample size before they stabilize. 
 
@@ -56,6 +59,7 @@ PROC FACTOR DATA=SAS-data-set NFACTORS=3 CORR SCREE EV REORDER ROTATE=VARIMAX ME
 RUN;
 ```
 
+* `MINEIGEN =`
 * `CORR` generates the **Correlations** table containing the correlations betweent he original variables (the ones specified on the `VAR` statement). Before conducting a principal components analysis, you want to check the correlations between the variables.  If any of the correlations are too high (say above .9), you may need to remove one of the variables from the analysis, as the two variables seem to be measuring the same thing.  Another alternative would be to combine the variables in some way (perhaps by taking the average).  If the correlations are too low, say below .1, then one or more of the variables might load only onto one factor (in other words, make its own factor).
 * `SCREE` or `PLOTS=SCREE` graph the eigenvalue against the factor number. The ploted values are contained in the **Initial Factor Method: Iterated Principal Factor Analysis** table:
     * **Iteration**: This column lists the number of the iteration. 
