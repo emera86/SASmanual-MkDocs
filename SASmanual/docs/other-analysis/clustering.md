@@ -35,6 +35,40 @@ You may need to reduce the number of variables to include in the analysis. There
 * [Principal Component Analysis with `PROC FACTOR`](https://stats.idre.ucla.edu/sas/output/principal-components-analysis/)
 * [Variable Reduction for Modeling using `PROC VARCLUS`](http://www2.sas.com/proceedings/sugi26/p261-26.pdf)
 
+#### Factor Analysis
+**
+Factor analysis is a method of data reduction.  It does this by seeking underlying unobservable variables (**latent variables**) that are reflected in the observed variables (**manifest variables**).
+
+* There are many different **methods** that can be used to conduct a factor analysis (such as principal axis factor, maximum likelihood, generalized least squares, unweighted least squares). 
+* There are also many different **types of rotations** that can be done after the initial extraction of factors, including orthogonal rotations, such as varimax and equimax, which impose the restriction that the factors cannot be correlated, and oblique rotations, such as promax, which allow the factors to be correlated with one another.  
+* You also need to determine the **number of factors** that you want to extract.  
+
+Given the number of factor analytic techniques and options, it is not surprising that different analysts could reach very different results analyzing the same data set.  However, all analysts are looking for simple structure.  Simple structure is pattern of results such that **each variable loads highly onto one and only one factor**.
+
+Factor analysis is a technique that requires a **large sample size** because it is based on the correlation matrix of the variables involved, and correlations usually need a large sample size before they stabilize. 
+
+!!! tip "Advisable sample size"
+    * 50 cases is very poor, 100 is poor, 200 is fair, 300 is good, 500 is very good, and 1000 or more is excellent 
+    * As a rule of thumb, a bare minimum of **10 observations per variable** is necessary to avoid computational difficulties
+
+```
+PROC FACTOR DATA=SAS-data-set NFACTORS=3 CORR SCREE EV ROTATE=VARIMAX METHOD=PRINIT PRIORS=SMC;
+	VAR var1 var2 var3 ... varn;
+RUN;
+```
+* `CORR` generates the **Correlations** table containing the correlations betweent he original variables (the ones specified on the `VAR` statement). Before conducting a principal components analysis, you want to check the correlations between the variables.  If any of the correlations are too high (say above .9), you may need to remove one of the variables from the analysis, as the two variables seem to be measuring the same thing.  Another alternative would be to combine the variables in some way (perhaps by taking the average).  If the correlations are too low, say below .1, then one or more of the variables might load only onto one factor (in other words, make its own factor).
+* `SCREE` or `PLOTS=SCREE` graph the eigenvalue against the factor number. The ploted values are contained in the **Initial Factor Method: Iterated Principal Factor Analysis** table:
+    * **Iteration**: This column lists the number of the iteration. 
+    * **Change**: When the change becomes smaller than the criterion, the iterating process stops.  The numbers in this column are the largest absolute difference between iterations. The difference given for the first iteration is the difference between the values at the first iteration and the squared multiple correlations (sometimes called iteration 0).
+    * **Communalities**: These are the communality estimates at each iteration.  For each iteration, the communality for each variable is listed.
+    
+* `EIGENVECTORS`
+* `PRIORS=SMC` enables the squared multiple correlation to be used on the diagonal of the correlation matrix. If this option is not used, 1’s are on the diagonal, and you will do a PCA instead of a principal axis factor analysis. The **Prior Communality Estimates:  SMC** table gives the communality estimates prior to the rotation.  The communalities (also known as h2) are the estimates of the variance of the factors, as opposed to the variance of the variable which includes measurement error. This table contains different values:
+    * **Eigenvalue**: This is the initial eigenvalue.  An eigenvalue is the variance of the factor.  Because this is an unrotated solution, the first factor will account for the most variance, the second will account for the second highest amount of variance, and so on.  Some of the eigenvalues are negative because the matrix is not of full rank.  This means that there are probably only four dimensions (corresponding to the four factors whose eigenvalues are greater than zero).  Although it is strange to have a negative variance, this happens because the factor analysis is only analyzing the common variance, which is less than the total variance.  If we were doing a principal components analysis, we would have had 1’s on the diagonal, which means that all of the variance is being analyzed (which is another way of saying that we are assuming that we have no measurement error), and we would not have negative eigenvalues.  In general, it is not uncommon to have negative eigenvalues.
+    * **Difference**: This column gives the difference between the eigenvalues and allows you to see how quickly the eigenvalues are decreasing.
+    * **Proportion**: This is the proportion of the total variance that each factor accounts for.
+    * **Cumulative**: This is the sum of the proportion column.
+
 ### Standardize your Data
 When performing multivariate analysis, having variables that are measured at different scales can influence the numerical stability and precision of the estimators. Standardizing the data prior to performing statistical analysis can often prevent this problem.
 
