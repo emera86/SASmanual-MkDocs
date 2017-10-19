@@ -36,7 +36,6 @@ You may need to reduce the number of variables to include in the analysis. There
 * [Variable Reduction for Modeling using `PROC VARCLUS`](http://www2.sas.com/proceedings/sugi26/p261-26.pdf)
 
 #### Factor Analysis
-**
 Factor analysis is a method of data reduction.  It does this by seeking underlying unobservable variables (**latent variables**) that are reflected in the observed variables (**manifest variables**).
 
 * There are many different **methods** that can be used to conduct a factor analysis (such as principal axis factor, maximum likelihood, generalized least squares, unweighted least squares). 
