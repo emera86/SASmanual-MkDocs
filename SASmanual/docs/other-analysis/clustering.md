@@ -78,6 +78,10 @@ RUN;
     * The **Factor** columns in this table are the rotated factors that have been extracted. These are the factors that analysts are most interested in and try to name looking at the items that load highly on it. The second factor might be called "relating to students" because items like "instructor is sensitive to students" and "instructor allows me to ask questions" load highly on it.  The third factor has to do with comparisons to other instructors and courses.
 * `ROTATE = PROMAX` | `VARIMAX`: With an oblique rotation, such as a `PROMAX` rotation, the factors are permitted to be correlated with one another.  With an orthogonal rotation, such as the `VARIMAX`, the factors are not permitted to be correlated. Oblique rotations produce both factor pattern and factor structure matrices. The factor pattern matrix gives the linear combination of the variables that make up the factors. The factor structure matrix presents the correlations between the variables and the factors. To completely interpret an oblique rotation one needs to take into account both the factor pattern and the factor structure matrices and the correlations among the factors. Please note that with orthogonal rotations the factor pattern and the factor structure matrices are the equal.
 
+!!! note "Check these websites"
+    * [Factor Analysis: SAS Annotated Output](https://stats.idre.ucla.edu/sas/output/factor-analysis/)
+    * [`PROC FACTOR`: How to Interpret the Output of a Real-World Example](http://www2.sas.com/proceedings/sugi22/STATS/PAPER268.PDF)
+
 ### Standardize your Data
 When performing multivariate analysis, having variables that are measured at different scales can influence the numerical stability and precision of the estimators. Standardizing the data prior to performing statistical analysis can often prevent this problem.
 
