@@ -49,7 +49,7 @@ ODS GRAPHICS / NOBORDER;
 
 ## Plots
 
-###`GPLOT`
+### `GPLOT`
 
 * Reference lines:
 
@@ -62,7 +62,7 @@ PROC GPLOT DATA=SAS-data-set;
 RUN;
 ```
 
-###`SGPLOT`
+### `SGPLOT`
 
 * Highlight a certain boxplot and get the plot narrower: 
 ```
@@ -76,7 +76,7 @@ PROC SGPLOT DATA=sashelp.heart;
 RUN;
 ```
 
-* [Specify the colors of groups in SAS statistical graphics](http://blogs.sas.com/content/iml/2012/10/17/specify-the-colors-of-groups-in-sas-statistical-graphics.html)
+* [Specify the colors/point styles of groups in SAS statistical graphics](http://blogs.sas.com/content/iml/2012/10/17/specify-the-colors-of-groups-in-sas-statistical-graphics.html)
 
 ## Miscellanea
 
