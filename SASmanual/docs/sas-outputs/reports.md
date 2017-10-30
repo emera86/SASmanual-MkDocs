@@ -80,7 +80,7 @@ RUN;
     * The **asterisk** is used to produce a **cross tabulation** of one variable with another (within the same dimension however, different from `PROC FREQ`).
     * A **blank** is used to represent **concatenation** (i.e. place this output element after the preceding variable listed).
     * **Parenthesis** will **group elements** and associate an operator with each element in the group.
-    * **Angle brackets** specify a **denominator definition** for use in percentage calculations. 
+    * **Angle brackets** specify a **denominator definition** for use in percentage calculations (e.g. `pctn<variable>`).
     
 !!! summary "Check these websites"
     * [`PROC TABULATE` and the Neat Things You Can Do With It](http://www2.sas.com/proceedings/forum2008/264-2008.pdf)
