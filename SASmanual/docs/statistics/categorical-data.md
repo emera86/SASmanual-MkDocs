@@ -54,7 +54,7 @@ $Expected=Row \ total\cdot Column\ total/Total \ sample \ size$
 It is one **measure of strength of an association** between two categorical variables:
 
  * For two-by-two tables, Cramer's V is in the range of -1 to 1
- * For larger tables, Cramer's V is int he range of 0 to 1 
+ * For larger tables, Cramer's V is in the range of 0 to 1 
  * Values farther away from 0 indicate a relatively strong association between the variables
 
 To measure the strength of the association between a binary predictor variable and a binary outcome variable, you can use an **odds ratio**: $Odds \ Ratio=\frac{Odds \ of \ Outcome \ in \ Group \ B}{Odds \ of \ Outcome \ in \ Group \ A}$; $Odds=p_{event}/(1-p_{event})$
@@ -281,7 +281,7 @@ One of these goodness-of-fit methods is comparing pairs (`Pairs`). To start, `PR
 
 * A pair is **concordant** if the **model predicts it correclty**, i.e. if the observation with the desired outcome has a **higher predicted probability**, based on the model, than the observation without the outcome.
 * A pair is **discordant** if the **model does not predict it correctly**, i.e. if the observation with the desired outcome has a **lower predicted probability**, based on the model, than the observation without the outcome.
-* A pair is **tied** if it is neither concordant not discordant, i.e. the **probabilities are the same** and the model can not distinguished between them.
+* A pair is **tied** if it is neither concordant not discordant, i.e. the **probabilities are the same** and the model can not distinguished between them. Tied pairs aren't very common when there are continuous variables in the model.
 
 The left column of the **Association of Predicted Probabilities and Observed Responses** table lists the percentage of pairs of each type. At the bottom is the total number of observation pairs on which the percentages are based, i.e. the number of pairs of observations with different outcome values $(N_{event=0} \cdot N_{event=1})$.
 
@@ -367,31 +367,144 @@ The `UNITS`statement enables you to obtain customized **odds ratio estimates** f
 
 The `UNITS` statement is optional. If you want to use the units to change that are reflected in the stored data values, you do not need to include the `UNITS` statement.
 
-### Comparing the Binary and Multiple Logistic Regression Models
-
 ### Specifying a Formatted Value as a Reference Level
+
+To ease the interpretation of the classification variable levels, text labels can be defined through a format definition.
+
+Appliying a format requires a change in the `PROC LOGISTIC` step. In the `CLASS` statement when you use the `REF=` option with a variable that has either a temporary or a permanent format assigned to it, you must **specify the formatted value of the level instead of the stored value**.
 
 ### Interaction betweeen Variables
 
+When you fit a multiple logistic regression model, the simplest approach is to consider only the main effects (each predictor individually) on the response. In other words, this approach assumes that each variable has the same effect on the outcome regardless of the levels of the other variables. However, sometimes the effect of one variable on the outcome depends on the observed level of another variable. When this happens, we say that **there is an interaction**.
+
+Keep in mind that **interactions that have more than two factors might be difficult to interpret**.
+
 ### The Backward Elimination Method with Interactions in the Model
+
+When you use the backward elimination method with interactions in the model, `PROC LOGISTIC` begins by fitting th full model with all the main effects and interactions.
+
+Using an iterative process, `PROC LOGISTIC` eliminates nonsignificant interactions one at a time, starting with the least significant interaction (largest p-value). When only significant interactions remain, `PROC LOGISTIC` turns its attention to the main effects. `PROC LOGISTIC` eliminates, one at a time, the nonsignificant main effects that are not involved in any significant interactions. 
+
+When eliminating main effects, `PROC LOGISTIC` must preserve the model hierarchy. According to this requirement, for any interaction that is included in the model, all main effects that the interaction contains must also be in the model, whether or not they are significant.
+
+The **final model** has only significant interactions, the main effects involved in the interactions, and any other significant main effects.
 
 ### Specifying Interactions in the `MODEL` Statement
 
+To specify interactions concisely, you can place a bar operator `|` between the names of each two main effects. The bar tells `PROC LOGISTIC` to treat the terms on either side of it as effects and also to include their combinations as interactions.
+
+If you want to limit the maximum number of variables that are involved in each interaction, you can specify `@integer` after the list of effects (e.g. `@2` to include only the two-way interactions).
+
+
 ### The `ODDSRATIO` Statement
 
-### Comparing the Multiple Logistic Regression Models
+By default, `PROC LOGISTIC` produces the OR only for variables that are not involved in an interaction. The OR for a main effect within an interaction would be misleading. It would only show the OR for that variable, holding constant the other variable at the value 0, which might not even be a valid value.
+
+To tell `PROC LOGISTIC` to produce the OR for each value of a variable that is involved in an interaction, you can use the `ODDSRATIO` statement. You specify a separate `ODDSRATIO` statement for each variable. In this statement you can optionally specify a label for the variable. The variable name is required. At the end, you can specify options following a forward slash `/`.
+
+In this example, there are three `ODDSRATIO` statements, one for each main effect (they do not have to appear in the same order that the variables are listed in the `MODEL` statement).
+
+```hl_lines="8 9 10"
+PROC LOGISTIC DATA=statdata.sales_inc 
+		PLOTS(ONLY)=(EFFECT ODDSRATIO);
+	CLASS Gender (PARAM=REF REF='Male')
+		IncLevel (PARAM=REF REF='1');
+	UNITS Age=10;
+	MODEL Purchase(EVENT='1')=Gender | Age | IncLevel @2 /
+		SELECTION=BACKWARD CLODDS=PL;
+	ODDSRATIO Age / CL=PL;
+	ODDSRATIO Gender / DIFF=REF AT (IncLevel=ALL) CL=PL;
+	ODDSRATIO IncLevel / DIFF=REF AT (Gender=ALL) CL=PL;
+RUN;
+```
+
+* The `CL = WALD (default) | PL | BOTH` option enables you to specify the type of confidence limits you want to produce: Wald, profile-likelihood or both.
+* The `DIFF = REF | ALL (default)` option applies only to categorical variables. Using this option, you can specify whether `PROC LOGISTIC` computes the OR for a categorical variable against the reference level or against all of its levels.
+* The `AT (covariate = value-list | REF | ALL (default))` option specifies fixed levels of one or more interacting variables (also called covariates). `PROC LOGISTIC` computes OR at each of the specified levels. For each categorical variable, you can specify a list of one or more formatted levels of the variable, or the keyword `REF` to select the reference level or the keyword `ALL` to select all levels of the variable. 
+
+![OR interaction table](../images/OR-interaction-table.PNG "Table of OR in a model with interactions")
+
+This plot whos graphically what we saw with the calculated confidence intervals in the table above.
+
+![OR interaction graph](../images/OR-interaction-graph.PNG "Graph of OR in a model with interactions")
+
+### Comparing the Binary and Multiple Logistic Regression Models
+
+![Comparing Logistic Regression Models](../images/comparing-logistic-models.png "Comparing Logistic Regression Models")
+
+* Remember that, in general, when comparing the `AIC` and `SC` statistics, smaller values mean a **better model fit**. Note that the `SC` value increased with the addition of the interaction. `SC` selects more parsimonious models by imposing a more severe penalty for increasing the number of parameters.
+* When comparing the `c` statistic values, larger values indicate a **better predictive model**.
 
 ### Interaction Plots
 
+To visualize the interaction terms you can produce an interaction plot. This plot explains more of the story behind the significant interaction in the output. 
+
+```
+proc means data=statdata.sales_inc noprint nway;
+   class IncLevel Gender;
+   var Purchase;
+   output out=bins sum(Purchase)=Purchase n(Purchase)=BinSize;
+run;
+
+data bins;
+   set bins;
+      Logit=log((Purchase+1)/(BinSize-Purchase+1));
+run;
+
+proc sgscatter data=bins;
+   plot Logit*IncLevel /group=Gender markerattrs=(size=15)
+                        join;
+   format IncLevel incfmt.;
+   label IncLevel='Income Level';
+   title;
+run;
+quit;
+```
+
+![Interaction plot for logistic regression](../images/interactionplot-logistic-regression.PNG "Interaction plot for logistic regression")
+
+If there is no interaction between two variables, the slopes shold be relatively parallel.
+
 ### Saving Analysis Results with the `STORE` Statement
 
+You can use the `STORE` statement with `PROC LOGISTIC` to save your analysis results as an item store for later processing.
 
+```hl_lines="6 21"
+ODS SELECT NONE;
+PROC LOGISTIC DATA=statdata.ameshousing3;
+	CLASS Fireplaces (REF='0') Lot_Shape_2 (REF='Regular') / param=ref;
+	MODEL Bonus(EVENT='1')=Basement_Area | Lot_Shape_2 Fireplaces;
+	UNITS Basement_Area=100;
+	STORE OUT=isbonus;
+RUN;
+ODS SELECT ALL;
 
+DATA newhouses;
+	LENGTH Lot_Shape_2 $9;
+	INPUT Fireplaces Lot_Shape_2 $ Basement_Area;
+	DATALINES;
+	0 Regular 1060
+	2 Regular 775
+	2 Irregular 1100
+	1 Irregular 975
+	1 Regular 800
+	;
+RUN;
 
+PROC PLM RESTORE=isbonus;
+	SCORE DATA=newhouses OUT=scored_houses / ILINK;
+	TITLE 'Predictions using PROC PLM';
+RUN;
 
+PROC PRINT DATA=scored_houses;
+RUN;
+```
 
+* Following the keyword `STORE`, you use the `OUT=` option to specify the name of your item store.
+* In the `PROC PLM` statement, the `RESTORE` option specifies that the predictions will be based on the analysis results saved in the item store.
+* The `SCORE` statement specifies that SAS will score the provided data set. The `ILINK` option requests that SAS provide the predictions in the form of predicted probabilities in lieu of logits where covariate effects are additive.
 
-* Identifying the use and types of logistic regression
-* Fitting a binary logistic regression model using the `LOGISTIC` procedure
-* Explaining effect and reference cell coding for classification variables
-* Explaining the standard output from the `LOGISTIC` procedure
+!!! Warning
+	Be sure that you generate predictions only for new data records that fall within the range of the training data. If not, predictions could be invalid due to extrapolation.
+
+	We assume that the modeled relationships between predictors and responses holds across the span of the observed data. We should not assume that this relationship holds everywhere.
