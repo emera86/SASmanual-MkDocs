@@ -424,7 +424,7 @@ RUN;
 
 ![OR interaction table](../images/OR-interaction-table.PNG "Table of OR in a model with interactions")
 
-This plot whos graphically what we saw with the calculated confidence intervals in the table above.
+This plot shows graphically what we saw with the calculated confidence intervals in the table above.
 
 ![OR interaction graph](../images/OR-interaction-graph.PNG "Graph of OR in a model with interactions")
 
@@ -469,7 +469,7 @@ If there is no interaction between two variables, the slopes shold be relatively
 
 You can use the `STORE` statement with `PROC LOGISTIC` to save your analysis results as an item store for later processing.
 
-```hl_lines="6 21"
+```hl_lines="6 22"
 ODS SELECT NONE;
 PROC LOGISTIC DATA=statdata.ameshousing3;
 	CLASS Fireplaces (REF='0') Lot_Shape_2 (REF='Regular') / param=ref;
