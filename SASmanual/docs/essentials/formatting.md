@@ -211,3 +211,11 @@ PROC FORMAT LIBRARY=WORK CNTLIN=newfmt FMTLIB;
 RUN;
 ODS SELECT ALL;
 ```
+
+If you need to recover the original format after some operations you just load the original data set:
+```
+ODS SELECT NONE;
+PROC FORMAT LIBRARY=WORK CNTLIN=tmpfmt1 FMTLIB;
+RUN;
+ODS SELECT ALL;
+```
