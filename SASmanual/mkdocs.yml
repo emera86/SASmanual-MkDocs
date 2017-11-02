@@ -34,6 +34,7 @@ pages:
       - 'General notes on regression procedures': 'procedures/regression-models.md'
       - 'PROC GLIMMIX': 'procedures/glimmix.md'
       - 'PROC MIXED': 'procedures/mixed.md'
+      - 'PROC SQL': 'procedures/sql.md'
     - SAS Outputs:
       - 'Reports': 'sas-outputs/reports.md'
       - 'Graphs and Plots': 'sas-outputs/graphs.md'
