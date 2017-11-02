@@ -37,7 +37,7 @@ QUIT;
     * `INTO: name` creates a `name` macrovariable containing the result of that specific query
     * `SEPARATED BY ' '` defines a the separator between elements
     
-### Counting grouped elements
+### Counting Grouped Elements
 
 In this first `PROC SQL` a number of count variables are created:
 ```
