@@ -121,7 +121,7 @@ RUN;
 !!! summary 'See More Information'
     [Creating a Format from Raw Data or a SAS Dataset](http://www2.sas.com/proceedings/forum2007/068-2007.pdf)
 
-### [`PROC FORMAT`'s `PICTURE` statement](http://support.sas.com/documentation/cdl/en/proc/70377/HTML/default/viewer.htm#p0n990vq8gxca6n1vnsracr6jp2c.htm)
+### [`PROC FORMAT`'s `PICTURE` Statement](http://support.sas.com/documentation/cdl/en/proc/70377/HTML/default/viewer.htm#p0n990vq8gxca6n1vnsracr6jp2c.htm)
 
 `LOW-HIGH` ensures that all values are included in the range. The `MULT=` statement option specifies that each value is multiplied by 1.61. The `PREFIX=` statement adds a US dollar sign to any number that you format. The picture contains six digit selectors, five for the salary and one for the dollar sign prefix.
 
@@ -136,7 +136,7 @@ RUN;
 
 ## Examples
 
-### How to order categorical variables
+### How to Order Categorical Variables
 
 You first create a format that you will apply to an auxiliary variable: 
 
@@ -171,4 +171,43 @@ run;
 
 If you then use a `PROC REPORT` to display your results, the order of appearance will be the numeric order of your auxiliary variable. By using this technique, you can specify any order for the categories of a contingency table.
 
+### How to Modify an Existing Format
 
+We first load the existing format from the catalog into a data set:
+```
+%LET fmtname = %QSYSFUNC(COMPRESS(&fmtnamepoint.,%STR(%.)));
+
+PROC FORMAT LIBRARY=WORK CNTLOUT=tmpfmt1;
+	SELECT &fmtname.;
+RUN;
+
+DATA tmpfmt2;
+	SET tmpfmt1;
+	KEEP START END LABEL FMTNAME;
+RUN;
+```
+
+We create the new format entry and add it to the existing format list:
+```
+DATA updatefmt;
+	LENGTH FMTNAME $32. START $16. END $16. LABEL $102.;
+	FMTNAME = "&TIMEVARFORMAT.";
+	LABEL = 'Format label';
+	END = 'end-valule';
+	START = 'start-value';
+RUN;
+
+DATA newfmt;
+	SET updatefmt tmpfmt2;
+	END = TRIM(LEFT(END));
+	START = TRIM(LEFT(START));
+RUN;
+```
+
+Now we load the updated format to the format catalog:
+```
+ODS SELECT NONE;
+PROC FORMAT LIBRARY=WORK CNTLIN=newfmt FMTLIB;
+RUN;
+ODS SELECT ALL;
+```
