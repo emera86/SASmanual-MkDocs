@@ -138,6 +138,9 @@ RUN;
 
 ### How to Order Categorical Variables
 
+!!! summary "Check these websites"
+    * [There Is No `APPEND` Option On `PROC FORMAT`. What Can You Do?](http://www.lexjansen.com/nesug/nesug97/coders/goldman.pdf)
+
 You first create a format that you will apply to an auxiliary variable: 
 
 ```
