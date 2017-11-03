@@ -312,3 +312,27 @@ RUN;
     * [Beyond the Basics: Advanced `PROC REPORT` Tips and Tricks](http://support.sas.com/rnd/papers/sgf07/sgf2007-report.pdf)
     * [Creating a Plan for Your Reports and Avoiding Common Pitfalls in `REPORT` Procedure Coding](http://support.sas.com/resources/papers/proceedings13/366-2013.pdf)
     * [Turn Your Plain Report into a Painted Report Using ODS Styles](http://support.sas.com/resources/papers/proceedings10/133-2010.pdf)
+    
+Introducing break lines:
+
+```
+PROC REPORT DATA=DATA2REPORT3 NOWINDOWS HEADLINE STYLE(HEADER)={BACKGROUND=VERY LIGHT GREY} MISSING SPLIT='*';
+	COLUMN("&TITLE." &TIMEVAR. ('SHIFT' SHIFT) &STRATAVAR., NVAL);
+	DEFINE &STRATAVAR./ '' ACROSS NOZERO ORDER=DATA;
+	DEFINE &TIMEVAR./ F=&TIMEVARFMT. '' GROUP ORDER=INTERNAL; 
+	DEFINE SHIFT/ F=SHIFTFMT. '' GROUP ORDER=INTERNAL;
+	DEFINE NVAL/ '' GROUP;
+	* INTRODUCE SOME LINE SEPARATIONS BETWEEN VISITS;
+	BREAK BEFORE &TIMEVAR. / SUMMARIZE STYLE=[BACKGROUND=VERY LIGHT GREY];
+	* MAKE THE GLOBAL SHIFT TO BE IN BOLD;
+	COMPUTE &TIMEVAR.;
+		IF &TIMEVAR. EQ '99999' AND _BREAK_ EQ "&TIMEVAR." THEN DO;
+			CALL DEFINE (_ROW_,'STYLE', 'STYLE=[FONT_WEIGHT=BOLD]');
+		END;
+	ENDCOMP;
+	* AVOID REPEATED LABELS;
+	COMPUTE NVAL;
+ 		IF MISSING(_BREAK_) THEN &TIMEVAR.=' ';
+	ENDCOMP;
+RUN;
+```
