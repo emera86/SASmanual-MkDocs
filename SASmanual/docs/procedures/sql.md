@@ -21,13 +21,22 @@ QUIT;
 In this code a macrovariable is created containing a list of a variable distinct values (`list`). Another macrovariable is also created whose value is the number of elements in the list (`nelements`).
 
 ```
+* Count distinct elements;
 PROC SQL NOPRINT;
-	SELECT COUNT(*) 
+	SELECT COUNT(DISTINCT variable2check) 
 	INTO : nelements
-	FROM 
-  	(SELECT DISTINCT variable2check INTO : list SEPARATED BY '$' FROM original-data-set);
+	FROM original-data-set;
+QUIT;
+
+* Load these distinct elements in a macrovariable list;
+PROC SQL NOPRINT;
+	SELECT DISTINCT variable2check. 
+	INTO : list SEPARATED BY '$' 
+	FROM original-data-set;
 QUIT;
 ```
+
+**Is there any way to do these two operations in just one `PROC SQL`?** Two different `INTO:` are not compatible.
 
 * General `PROC SQL` options:
     * The `NOPRINT` option avoids any output printing
