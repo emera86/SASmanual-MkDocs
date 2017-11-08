@@ -38,7 +38,10 @@ pages:
     - SAS Outputs:
       - 'Reports': 'sas-outputs/reports.md'
       - 'Graphs and Plots': 'sas-outputs/graphs.md'
-      - 'Templates': 'sas-outputs/templates.md'
+      - 'PROC PRINT': 'sas-outputs/print.md'
+      - 'PROC REPORT': 'sas-outputs/report.md'
+      - 'PROC TABULATE': 'sas-outputs/tabulate.md'
+      - 'PROC TEMPLATE': 'sas-outputs/template.md'
     - Using Macros: macros.md
     - Using Wizard Menus: wizard.md
     - SAS Visual Analytics: sasvi.md
