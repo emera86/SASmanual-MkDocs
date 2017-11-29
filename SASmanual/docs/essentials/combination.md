@@ -52,16 +52,26 @@ DATA SAS-data-set;
 RUN;
 ```
 
-*In a **one-to-many merge**, does it matter which data set is listed first in the `MERGE` statement?*
+* Performing a merge without a `BY` statement merges the observations based on their positions, this is almost never done intentionally and can lead to unexpected results
+* `MERGENOBY` (`= NOWARN (default) | WARN | ERROR`) controls whether a message is issued when `MERGE` processing occurs without an associated `BY` statement
+* When you reverse the order of the data sets in the `MERGE` statement, the results are the same, but the order of the variables is different. SAS performs a **many-to-one merge**
 
-When you reverse the order of the data sets in the `MERGE` statement, the results are the same, but the order of the variables is different. SAS performs a **many-to-one merge**.
-
----
-
-`MERGENOBY` (`= NOWARN (default) | WARN | ERROR`) controls whether a message is issued when `MERGE` processing occurs without an associated `BY` statement
-
-* Performing a merge without a BY statement merges the observations based on their positions
-* This is almost never done intentionally and can lead to unexpected results
+!!! tip "One-line-to-Many Merge"
+    If you have a data set that is just one line that you would like to joint to all the observations of a different data set you can do it in a single `DATA` step:
+    ```
+    DATA result-data-set;
+	SET multiple-observations-data-set;
+	IF _N_ EQ 1 THEN DO;
+		SET single-line-data-set;
+	END;
+    RUN;
+    ```
+    If you want to perform a cross join which is functionally the same as a Cartesian product join instead you can do it in a single `PROC SQL`:
+    ```
+    PROC SQL;
+	CREATE TABLE result-data-set AS SELECT var1, var2 FROM data-set1 AS alias1 CROSS JOIN data-set2 AS alias2;
+    RUN;
+    ```
 
 ### Merging SAS Data Sets that Have Non-Matches
 
