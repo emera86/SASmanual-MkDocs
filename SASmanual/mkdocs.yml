@@ -28,6 +28,7 @@ pages:
       - 'Normality tests': 'other-analysis/normality-tests.md'
       - 'Propensity Score': 'other-analysis/propensity-score.md'
       - 'ROC curve': 'other-analysis/roc-curve.md'
+      - 'Sequence design': 'other-analysis/sequence-design.md'
       - 'Survival Analysis': 'other-analysis/survival-analysis.md'
       - 'Clustering': 'other-analysis/clustering.md'
     - Specific Procedures:
