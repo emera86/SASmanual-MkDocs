@@ -109,7 +109,7 @@ OPTIONS FMTSEARCH = (libref1 libref2... librefn)
 
 !!! tip "Format maximum length"
     The maximum lenght of a custom format is defined by the length of its longer label.
-    If you need to increase it you can create a larger dummy element in the format or change the format attributes (see the example on how to modify a custom format). 
+    If you need to increase it you can create a larger dummy element in the format or change the format attributes (see [this example](https://luciarodrigoinsausti.com/sasmanual/essentials/formatting/#how-to-modify-an-existing-format)). 
 
 ###  Creating a Format from a SAS Dataset
 
@@ -122,48 +122,6 @@ RUN;
 
 PROC FORMAT CNTLIN=formatdataset;
 RUN;
-```
-
----
-    
-**Example on how to modify a custom format"
-
-```
-*---- Introducing a blank for numeric missing values to avoid them in the final proc report;
-
-data updatefmt1;
-	length fmtname $32. start $16. end $16. label $102.;
-	fmtname = upcase("&timevarfmt.");
-	label = ' ';
-	end = '.';
-	start = '.';
-run;
-
-data newfmt;
-	set updatefmt1 tmpfmt2;
-	end = trim(left(end));
-	start = trim(left(start));
-run;
-
-*---- Removing duplicates to avoid ERROR messages;
-
-proc sort data=newfmt nodupkey;
-	by _all_;
-run;
-
-ods select none;
-proc format library=work cntlin=newfmt fmtlib;
-run;
-ods select all;
-
-(...)
-
-*---- Setting the original format again;
-
-ods select none;
-proc format library=work cntlin=tmpfmt1 fmtlib;
-run;
-ods select all;
 ```
 
 !!! summary "Check these websites"
