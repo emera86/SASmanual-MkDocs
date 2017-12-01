@@ -105,6 +105,12 @@ OPTIONS FMTSEARCH = (libref1 libref2... librefn)
 * The `FMTSEARCH` system option controls the order in which format catalogs are searched until the desired member is found.
 * The `WORK.FORMATS` catalog is always searched first, unless it appears in the `FMTSEARCH` list.
 
+
+
+!!! tip "Format maximum length"
+    The maximum lenght of a custom format is defined by the length of its longer label.
+    If you need to increase it you can create a larger dummy element in the format or change the format attributes (see the example on how to modify a custom format). 
+
 ###  Creating a Format from a SAS Dataset
 
 ```
@@ -118,7 +124,49 @@ PROC FORMAT CNTLIN=formatdataset;
 RUN;
 ```
 
-!!! summary 'See More Information'
+---
+    
+**Example on how to modify a custom format"
+
+```
+*---- Introducing a blank for numeric missing values to avoid them in the final proc report;
+
+data updatefmt1;
+	length fmtname $32. start $16. end $16. label $102.;
+	fmtname = upcase("&timevarfmt.");
+	label = ' ';
+	end = '.';
+	start = '.';
+run;
+
+data newfmt;
+	set updatefmt1 tmpfmt2;
+	end = trim(left(end));
+	start = trim(left(start));
+run;
+
+*---- Removing duplicates to avoid ERROR messages;
+
+proc sort data=newfmt nodupkey;
+	by _all_;
+run;
+
+ods select none;
+proc format library=work cntlin=newfmt fmtlib;
+run;
+ods select all;
+
+(...)
+
+*---- Setting the original format again;
+
+ods select none;
+proc format library=work cntlin=tmpfmt1 fmtlib;
+run;
+ods select all;
+```
+
+!!! summary "Check these websites"
     [Creating a Format from Raw Data or a SAS Dataset](http://www2.sas.com/proceedings/forum2007/068-2007.pdf)
 
 ### [`PROC FORMAT`'s `PICTURE` Statement](http://support.sas.com/documentation/cdl/en/proc/70377/HTML/default/viewer.htm#p0n990vq8gxca6n1vnsracr6jp2c.htm)
