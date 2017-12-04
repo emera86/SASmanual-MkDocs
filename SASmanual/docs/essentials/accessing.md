@@ -27,32 +27,13 @@ LIBNAME libref-name 'SAS-library-folder-path' <options>;
 libname orion "&path";
 ```
 
----
-
-Erase the association between SAS and a custom library:
+### Erase the association between SAS and a custom library
 
 ```
 LIBNAME libref-name CLEAR;
 ```
 
-Delete all the contents of a library:
-
-```
-PROC DATASETS LIB=library-name MEMTYPE=LIB KILL;
-RUN;
-QUIT;
-```
-
-Delete some data sets of a library:
-
-```
-PROC DATASETS LIB=work NOWARN NOLIST NODETAILS; 
-  DELETE data-set1 :suffix prefix: ;
-RUN; 
-QUIT;
-```
-
-Remove data sets:
+### Remove data sets and libraries
 
 ```
 * Delete data sets ;
@@ -63,6 +44,7 @@ RUN;
 * Delete full library ;
 *---------------------;
 PROC DATASETS LIB=library-name MEMTYPE=DATA KILL NOLIST;
+RUN;
 QUIT;
 
 * Delete specific data sets ;
@@ -73,7 +55,7 @@ RUN;
 QUIT;
 ```
 
-Copy data sets and libraries:
+### Copy data sets and libraries
 
 ```
 * Copy full library ;
@@ -88,7 +70,7 @@ PROC COPY IN=old-library OUT=new-library MEMTYPE=DATA;
 RUN;
 ```
 
-Rename data sets:
+### Rename data sets
 
 ```
 PROC DATASETS LIBRARY=library-name;
@@ -96,7 +78,7 @@ PROC DATASETS LIBRARY=library-name;
 RUN;
 ```
 
-To check the **contents of a library** programatically:
+### Check the contents of a library
 
 ```
 PROC CONTENTS DATA=libref._ALL_;
@@ -110,7 +92,7 @@ PROC CONTENTS DATA=libref._ALL_ NODS;
 RUN;
 ```
 
-To access a data set you can use a `PROC PRINT` step:
+### Print the full data set
 
 ```
 PROC PRINT DATA=SAS-data-set;
@@ -125,7 +107,6 @@ Parts of a library (SAS notation):
 * Column = **variable**
 * Row = **observation**
  
-
 ### `PROC CONTENTS`
 The **descriptor portion** contains information about the attributes of the data set (metadata), including the variable names. It is show in three tables:
 
