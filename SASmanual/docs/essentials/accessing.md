@@ -55,15 +55,37 @@ QUIT;
 Remove data sets:
 
 ```
+* Delete data sets ;
+*------------------;
 PROC DELETE DATA=data1 data2 data3;
 RUN;
+
+* Delete full library ;
+*---------------------;
+PROC DATASETS LIB=library-name MEMTYPE=DATA KILL NOLIST;
+QUIT;
+
+* Delete specific data sets ;
+*---------------------------;
+PROC DATASETS LIB=library-name NOWARN NOLIST NODETAILS;
+	DELETE prefix-data-set: other-data-set;
+RUN;
+QUIT;
 ```
 
-Copy database **test** into **work**:
+Copy data sets and libraries:
 
 ```
-proc copy in=test out=work;
-run;
+* Copy full library ;
+*-------------------;
+PROC COPY IN=old-library OUT=new-library;
+RUN;
+
+* Copy specific data sets ;
+*-------------------------;
+PROC COPY IN=old-library OUT=new-library MEMTYPE=DATA;
+   SELECT data-set1 data-set2;
+RUN;
 ```
 
 Rename data sets:
