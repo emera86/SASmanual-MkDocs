@@ -30,14 +30,14 @@ The null hypothesis is that there is no association between the treatment and th
 !!! summary "Check these websites"
     * [Example of CMH vs Fisher](http://www.biostathandbook.com/cmh.html)
 
-## [Chi-Square test]() vs [t-test]()
+## [Chi-Square test](https://en.wikipedia.org/wiki/Chi-squared_test) vs [T-test](https://en.wikipedia.org/wiki/Student%27s_t-test)
 
 ### Characteristics
 A **t-test** can be either one-sided or two-sided.
 
 The **chi-square** is The chi-squared test is essentially always a one-sided test. Here is a loose way to think about it: the chi-squared test is basically a **goodness of fit** test. Sometimes it is explicitly referred to as such, but even when it's not, it is still often in essence a goodness of fit. 
 
-When the realized chi-squared value is way out on the right tail of it's distribution, it indicates a **poor fit**, and if it is far enough, relative to some pre-specified threshold, we might conclude that it is so poor that we don't believe the data are from that reference distribution. If we were to use the **chi-squared test as a two-sided test**, we would also be worried if the statistic were too far into the left side of the chi-squared distribution. This would mean that we are worried the **fit might be too good**. This is simply not something we are typically worried about. As a historical side-note, this is related to the controversy of whether Mendel fudged his data. The idea was that his data were too good to be true. See [here](https://stats.stackexchange.com/questions/22347/is-chi-squared-always-a-one-sided-test) for more info if you're curious.
+When the realized chi-squared value is way out on the right tail of it's distribution, it indicates a **poor fit**, and if it is far enough, relative to some pre-specified threshold, we might conclude that it is so poor that we don't believe the data are from that reference distribution. If we were to use the **chi-squared test as a two-sided test**, we would also be worried if the statistic were too far into the left side of the chi-squared distribution. This would mean that we are worried the **fit might be too good**. This is simply not something we are typically worried about. As a historical side-note, this is related to the controversy of whether Mendel fudged his data. The idea was that his data were too good to be true. See [here](http://www.amjbot.org/content/88/5/737.full) for more info if you're curious.
 
 In summary, the $\chi^2$ is a two-sided test from which we are usually interested in only one of the tails of the distribution, indicating more disagreement, rather than less disagreement than one expects by chance.
 
