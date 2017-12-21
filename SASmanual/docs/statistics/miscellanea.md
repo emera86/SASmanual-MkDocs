@@ -2,15 +2,19 @@
 
 The default among statistical packages performing tests is to report two-tailed p-values.  Because the most commonly used test statistic distributions (standard normal, Student's t) are symmetric about zero, most one-tailed p-values can be derived from the two-tailed p-values.
 
-To understand the connection between the results, you have to carefully review the $H_a$ for each case: the one-sided analysis (there is a difference with a certain sign) is more restricted and demanding than the two-sided (there is a difference). 
-
-The null hypothesis is that the difference in means is zero.  The two-sided alternative is that the difference in means is not zero. There are two one-sided alternatives that one could opt to test instead: that the difference is positive ($diff > 0$) or that the difference is negative ($diff < 0$). In this instance, Stata presents results for all three alternatives.  Under the headings $H_a: diff < 0$ and $H_a: diff > 0$ are the results for the one-tailed tests. In the middle, under the heading $H_a: diff \ne 0$, are the results for the two-tailed test. 
+The null hypothesis is that the difference in means is zero.  The two-sided alternative is that the difference in means is not zero. There are two one-sided alternatives that one could opt to test instead: that the difference is positive ($diff > 0$) or that the difference is negative ($diff < 0$). 
 
 Note that the test statistic is the same for all of these tests. The two-tailed p-value is $P > |t|$. This can be rewritten as $P(>x) + P(<x)$.  Because the t-distribution is symmetric about zero, these two probabilities are equal: $P > |t| = 2 \cdot  P(<x)$.  Thus, we can see that **the two-tailed p-value is twice the one-tailed p-value** for the alternative hypothesis that ($diff < 0$).  The other one-tailed alternative hypothesis has a p-value of $P(>x) = 1-(P<x)$. So, depending on the direction of the one-tailed hypothesis, its p-value is either $0.5 \cdot$(two-tailed p-value) or $1-0.5 \cdot$(two-tailed p-value) if the test statistic symmetrically distributed around zero. 
 
-!!! summary
-    * The one-tail p-value is half the two-tail p-value.
-    * The two-tail p-value is twice the one-tail p-value (assuming you correctly predicted the direction of the difference).
+To understand the connection between the results, you have to carefully review the $H_a$ for each case: the one-sided analysis (there is a difference with a certain sign) is more restricted and demanding than the two-sided (there is a difference). 
+    
+* The one-tail p-value is half the two-tail p-value.
+* The two-tail p-value is twice the one-tail p-value (assuming you correctly predicted the direction of the difference).
+    
+!!! summary "Check these websites"
+    * [What are the differences between one-tailed and two-tailed tests?](https://stats.idre.ucla.edu/other/mult-pkg/faq/general/faq-what-are-the-differences-between-one-tailed-and-two-tailed-tests/)
+    * [One-tail vs two-tail p-values](https://www.graphpad.com/guides/prism/7/statistics/one-tail_vs__two-tail_p_values.htm?toc=0&printWindow)
+    * [One-sided and two-sided tests and p-values](http://www.tandfonline.com/doi/abs/10.1080/10543409108835014)
 
 ## [McNemar's Test](https://en.wikipedia.org/wiki/McNemar%27s_test) vs [Cohen's Kappa Coefficient](https://en.wikipedia.org/wiki/Cohen%27s_kappa)
 
