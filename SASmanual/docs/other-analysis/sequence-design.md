@@ -8,11 +8,11 @@ The first method uses the same stopping boundaries as a classical group sequenti
 
 ## O'Brien-Flemming
 
-Let us start considering a two-arm trial. The usual settings for randomized tow-arm clinical trials are:
+Let us start considering a two-arm trial. The usual settings for randomized two-arm clinical trials are:
 
 1. Response is dichotomous and immediate
-2. They are single-pahse trials, with sample sizes fxed in advance
-3. At the end of a trial, compare success rates (i.e. proportions) using a formal test of significance based ont he usual Pearson, is chi-squared test.
+2. They are single-phase trials, with sample sizes fixed in advance
+3. At the end of a trial, compare success rates (i.e. proportions) using a formal test of significance based on the usual Pearson, is chi-squared test.
 
 The aim is to form a multiple testing procedure that provides investigators with an opportunity to conduct periodic reviews of the data as they accumulate and thereby offers the chance for early termination should one treatment prove superior to the other early on while continuing to use essentially the single-phase decision rule should early termination not occur. The following is a brief description of the **O'Brien-Flemming procedure**:
 
