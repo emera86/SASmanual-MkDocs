@@ -6,10 +6,10 @@ The null hypothesis is that the difference in means is zero.  The two-sided alte
 
 Note that the test statistic is the same for all of these tests. The two-tailed p-value is $P > |t|$. This can be rewritten as $P(>x) + P(<x)$.  Because the t-distribution is symmetric about zero, these two probabilities are equal: $P > |t| = 2 \cdot  P(<x)$.  Thus, we can see that **the two-tailed p-value is twice the one-tailed p-value** for the alternative hypothesis that ($diff < 0$).  The other one-tailed alternative hypothesis has a p-value of $P(>x) = 1-(P<x)$. So, depending on the direction of the one-tailed hypothesis, its p-value is either $0.5 \cdot$(two-tailed p-value) or $1-0.5 \cdot$(two-tailed p-value) if the test statistic symmetrically distributed around zero. 
 
-To understand the connection between the results, you have to carefully review the $H_a$ for each case: the one-sided analysis (there is a difference with a certain sign) is more restricted and demanding than the two-sided (there is a difference). 
+In summary, to understand the connection between the results, you have to carefully review the $H_a$ for each case: the one-sided analysis (there is a difference with a certain sign) is more restrictive and demanding than the two-sided (there is a difference). Therefore, it follows that
     
-* The one-tail p-value is half the two-tail p-value.
-* The two-tail p-value is twice the one-tail p-value (assuming you correctly predicted the direction of the difference).
+* the **one-tail p-value is half the two-tail p-value** and
+* the **two-tail p-value is twice the one-tail p-value** (assuming you correctly predicted the direction of the difference).
     
 !!! summary "Check these websites"
     * [What are the differences between one-tailed and two-tailed tests?](https://stats.idre.ucla.edu/other/mult-pkg/faq/general/faq-what-are-the-differences-between-one-tailed-and-two-tailed-tests/)
