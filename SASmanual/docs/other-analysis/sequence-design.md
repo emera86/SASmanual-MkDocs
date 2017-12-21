@@ -23,3 +23,45 @@ The aim is to form a multiple testing procedure that provides investigators with
 
 Using the theory of Brownian motion, O'Brien and Fleming (1979) obtained the values for $P(k,\alpha)$ but, more importantly, they concluded that they are approximately the $(1-\alpha)th$ percentile of the chi-squared distribution with 1 degree of freedom -- almost independent of $k$.
 
+### SAS code 
+
+We first calculate the boundaries for our study design according to the prerequisites.
+
+**One-sided example**
+```
+PROC SEQDESIGN ALTREF=0.25 BOUNDARYSCALE=PVALUE PLOTS=BOUNDARY(HSCALE=SAMPLESIZE) ERRSPEND;
+ONESIDEDOBRIENFLEMING:
+		DESIGN NSTAGES=3
+		METHOD=OBF
+		STOP=BOTH
+		ALT=UPPER
+		ALPHA=0.1 
+		BETA=0.2 
+		INFO=EQUAL;
+	SAMPLESIZE MODEL= TWOSAMPLEFREQ(NULLPROP=0.15 TEST=PROP WEIGHT=2);
+	ODS OUTPUT BOUNDARY=BND_1PVALUE;
+	TITLE 'SEQUENCE DESIGN: ONE SIDED-O´BRIEN FLEMMING(ALPHA=0.1)(SCALE=PVALUE)';
+RUN;
+```
+
+`PROC SEQDESIGN` parameters:
+* `ALTREF =` specifies alternative reference, 0.25 for a difference of 25%
+* `BOUNDARYSCALE = MLE | SCORE | STDZ | PVALUE` specifies statistic scale for the boundary
+* `ERRSPEND` displays cumulative error spending at each stage
+
+`DESIGN` statement parameters:
+* `NSTAGES` is the number of stages in the design (including the final stage)
+* `METHOD` specifies methods for boundary values (`OBF` specifies the O'Brien-Fleming method)
+* `STOP = ACCEPT | REJECT | BOTH` specifies the condition of early stopping for the design
+* `ALT = LOWER | UPPER | TWOSIDED` specifies type of alternative hypothesis
+* `ALPHA =` and `BETA=` specify the Type I error probability level $\alpha$ and the Type II error probability level $\beta$
+* `INFO =` specifies information levels (`EQUAL` for equally spaced information levels and `CUM` for cumulative relative information levels)
+
+`SAMPLESIZE` statement parameters:
+* `MODEL = TWOSAMPLEFREQ < ( options ) >` specifies the two-sample test for binomial proportions. The available options are as follows:
+    * The `NULLPROP =` option specifies proportions $p_a=p_{0a}$ and $p_b=p_{0b}$ in groups A and B, respectively, under the null hypothesis
+    * The `TEST =` option specifies the null hypothesis $H_0:\theta=0$ in the test (`PROP` option uses the difference in proportions $\theta=(p_a-p_b)-(p_{0a}-p_{0b})$, `LOGOR` option uses the log odds-ratio test and the `LOGRR` option uses the log relative risk test) 
+    * The `WEIGHT=` option specifies the sample size allocation weights for the two groups
+
+
+
