@@ -1,5 +1,7 @@
 ## One-sided vs Two-sided Tests: How do their p-values compare?
 
+The default among statistical packages performing tests is to report two-tailed p-values.  Because the most commonly used test statistic distributions (standard normal, Student’s t) are symmetric about zero, most one-tailed p-values can be derived from the two-tailed p-values.
+
 * The one-tail p-value is half the two-tail p-value.
 * The two-tail p-value is twice the one-tail p-value (assuming you correctly predicted the direction of the difference).
 
