@@ -50,8 +50,8 @@ RUN;
 * `ERRSPEND` displays cumulative error spending at each stage
 
 `DESIGN` statement parameters:
-* `NSTAGES` is the number of stages in the design (including the final stage)
-* `METHOD` specifies methods for boundary values (`OBF` specifies the O'Brien-Fleming method)
+* `NSTAGES =` is the number of stages in the design (including the final stage)
+* `METHOD =` specifies methods for boundary values (`OBF` specifies the O'Brien-Fleming method)
 * `STOP = ACCEPT | REJECT | BOTH` specifies the condition of early stopping for the design
 * `ALT = LOWER | UPPER | TWOSIDED` specifies type of alternative hypothesis
 * `ALPHA =` and `BETA=` specify the Type I error probability level $\alpha$ and the Type II error probability level $\beta$
