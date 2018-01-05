@@ -49,7 +49,7 @@ DATA _NULL_;
 	Estaux = int(1000*OddsRatioEst)/1000;
 	Loweraux = int(1000*LowerCl)/1000;
 	Upperaux = int(1000*UpperCL)/1000;
-	* The extra blancks has reduced with the CATX function;
+	* The extra blancks has been reduced with the CATX function;
 	fullOR=CATX(' ','OR:',Estaux,'(',Loweraux,',',Upperaux,')');
 	CALL SYMPUT ('OR2report',fullOR);
 	%PUT &OR2report;
