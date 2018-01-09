@@ -52,6 +52,23 @@ RUN;
     * [Creating a Plan for Your Reports and Avoiding Common Pitfalls in `REPORT` Procedure Coding](http://support.sas.com/resources/papers/proceedings13/366-2013.pdf)
     * [Turn Your Plain Report into a Painted Report Using ODS Styles](http://support.sas.com/resources/papers/proceedings10/133-2010.pdf)
     
+### Working with `ACROSS`
+
+```
+PROC REPORT DATA=_AUX3 NOWINDOWS  
+	HEADLINE STYLE(HEADER)={BACKGROUND=VERY LIGHT GREY} MISSING SPLIT='*';
+	COLUMN("&&VAR&I (&&UNIT&I)" &TIMEVAR. ('STATISTICS' _LABEL_) &STRATAVAR., COL1);
+	DEFINE _LABEL_ / '' GROUP ORDER=DATA;
+	DEFINE &STRATAVAR./ '' ACROSS NOZERO ORDER=INTERNAL;
+	/* NOZERO = SINCE ALL PRODUCT CATEGORIES WILL NOT BE REPRESENTED FOR EACH PRODUCT LINE IN THE TABLE */
+	DEFINE &TIMEVAR./ '' F=&TIMEFMT. GROUP ORDER=INTERNAL; 
+	DEFINE COL1/ '' GROUP;
+RUN;
+```
+
+!!! summary "Check these websites"
+    * [Sailing Over the `ACROSS` Hurdle in `PROC REPORT`](https://www.sas.com/content/dam/SAS/support/en/technical-papers/SAS388-2014.pdf)
+    
 ### Introducing Line Breaks
 
 ```
