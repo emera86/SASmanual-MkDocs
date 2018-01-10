@@ -31,11 +31,27 @@ RUN;
 * `/PRINTMISS` species that row and column headings are the same for all logical pages of the table
 * `/ROW = spacing` specifies whether all title elements in a row crossing are allotted space even when they are blank. When `ROW=CONSTANT` (or `CONST`), the default, all row title elements have space allotted to them; when `ROW=FLOAT`, the row title space is divided equally among the nonblank title elements in the crossing
     
-## Available Statistics
+## [Statistics That Are Available in `PROC TABULATE`](http://support.sas.com/documentation/cdl/en/proc/61895/HTML/default/viewer.htm#a000146762.htm)
 
-If you do not provide a statistic name, the default statistic produced will be `N` for the `CLASS` variables and `SUM` for the `VAR` variables.
+If you do not provide a statistic name, the default statistic produced will be `N` for the `CLASS` variables and `SUM` for the `VAR` variables. Use the following keywords to request statistics in the `TABLE` statement or to specify statistic keywords in the `KEYWORD` or `KEYLABEL` statement.
 
-![Available Statistics in PROC TABULATE](../images/proctabulate-statistics.PNG "Available Statistics in PROC TABULATE")
+!!! tip
+    If a variable name (class or analysis) and a statistic name are the same, then enclose the statistic name in single quotation marks (for example, `'MAX'` ).
+
+Descriptive statistic keywords
+* Percentages: `PCTN`, `COLPCTN`, `ROWPCTN`, `REPPCTN`, `PAGEPCTN`
+* Additions: `SUM`, `SUMWGT`, `PCTSUM`, `COLPCTSUM`, `ROWPCTSUM`, `REPPCTSUM`, `PAGEPCTSUM`
+* Elements: `N`, `NMISS`
+* Basic statistics: `MEAN`, `STDDEV` | `STD`, `STDERR`, `MIN`, `MAX`, `RANGE`, `MODE`, `LCLM`, `UCLM`, `KURTOSIS` | `KURT`, `SKEWNESS` | `SKEW`
+* Quantile statistics: `P1`, `P5`, `P10`, `Q1` | `P25`, `MEDIAN` | `P50`, `Q3` | `P75`, `P90`, `P95`, `P99`, `QRANGE`
+* Hypothesis testing: `PROBT` | `PRT`, `T`
+* Others: `CSS`, `CV`, `USS`, `VAR`
+	
+To compute standard error of the mean (`STDERR`) or Student's t-test, you must use the default value of the `VARDEF=` option, which is `DF`. The `VARDEF=` option is specified in the `PROC TABULATE` statement.
+
+To compute weighted quantiles, you must use `QMETHOD=OS` in the `PROC TABULATE` statement.
+
+Use both `LCLM` and `UCLM` to compute a two-sided confidence limit for the mean. Use only `LCLM` or `UCLM` to compute a one-sided confidence limit. Use the `ALPHA=` option in the `PROC TABULATE` statement to specify a confidence level.
 
 ## Single Dimensional Table 
 
