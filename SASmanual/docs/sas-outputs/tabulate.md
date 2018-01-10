@@ -31,7 +31,7 @@ RUN;
 * `/PRINTMISS` species that row and column headings are the same for all logical pages of the table
 * `/ROW = spacing` specifies whether all title elements in a row crossing are allotted space even when they are blank. When `ROW=CONSTANT` (or `CONST`), the default, all row title elements have space allotted to them; when `ROW=FLOAT`, the row title space is divided equally among the nonblank title elements in the crossing
     
-## [Statistics That Are Available in `PROC TABULATE`](http://support.sas.com/documentation/cdl/en/proc/61895/HTML/default/viewer.htm#a000146762.htm)
+## [Statistics that Are Available in `PROC TABULATE`](http://support.sas.com/documentation/cdl/en/proc/61895/HTML/default/viewer.htm#a000146762.htm)
 
 If you do not provide a statistic name, the default statistic produced will be `N` for the `CLASS` variables and `SUM` for the `VAR` variables. Use the following keywords to request statistics in the `TABLE` statement or to specify statistic keywords in the `KEYWORD` or `KEYLABEL` statement.
 
@@ -208,5 +208,16 @@ PROC TABULATE DATA=SAS-data-set ORDER=FREQ;
 	CLASS grade / ORDER=FORMATTED;
 	CLASS treatment / ORDER=FORMATTED;
 	TABLE AEencoding='', treatment='Treatment/Grade'*grade=''*(N='N' var1='%'*SUM='') ALL='Total (N=# cases)'*(N='N' var2='%'*SUM='') / BOX="Preferred MeDDRA Term";
+RUN;
+```
+
+### How to Force Missing Values to Appear
+
+Provided that the specific category is present (non-missing) at least in one of the variables in the `TABLE` statement, you can force the missing values to appear.
+
+```
+PROC TABULATE DATA=SAS-data-set ORDER=FREQ OUT=Output-SAS-data-set MISSING;
+	CLASS var1 var2 crossvar;
+	TABLE var1 var2, crossvar*(N COLPCTN) / PRINTMISS MISSTEXT='0';
 RUN;
 ```
