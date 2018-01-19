@@ -14,6 +14,9 @@ RUN;
 * In the `TIME` statement, only patients that haven't been censored are analysed 
 * The `STRATA` statement includes only non-missing data points (no `WHERE` filtering is needed) 
 
+!!! tip
+    If you are performing a survival analysis which only applies to part of your population but you want to make the probabilities be referred to the total population just define the excluded subpopulation as having event at time = 0. This way your plot will not start at 1/0.
+
 ## P-value of a Lifetest Analysis
 
 We select only 2 groups from the test data set (High and Low risk):
