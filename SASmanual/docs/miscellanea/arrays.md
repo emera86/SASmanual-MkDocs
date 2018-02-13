@@ -5,17 +5,15 @@ There's no way to write an implicit loop through all the elements of the array (
 
 ```
 data _null_;
-
-	ARRAY arrayname[2,3] <$> v11-3 (0 0 0)
-	                     <$> v21-3 (0 0 0);
+	ARRAY arrayname[2,3] <$> value11-value13 (0 0 0)
+	                     <$> value21-value23 (0 0 0);
                              
 	DO i=1 TO DIM(arrayname);
 		arrayname[i] = arrayname[i] + 1;
 	END;
 
-	result=CATX(',',OF v11-3);
+	result=CATX(',',OF value11-value13);
 	PUT result=;
-
 RUN;
 ```
 
