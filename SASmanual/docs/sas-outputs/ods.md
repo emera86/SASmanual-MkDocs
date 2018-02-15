@@ -57,7 +57,22 @@ Yo can keeps some of the outputs in SAS-data-sets:
 ODS OUTPUT output-name1=generated-data-set1 output-name1=generated-data-set2 output-name1=generated-data-set3;
 ```
 
----
+### Control the output via `ODS EXCLUDE`
+
+* [Turn off ODS when running simulations in SAS](https://blogs.sas.com/content/iml/2013/05/24/turn-off-ods-for-simulations.html)
+* [What is the best way to suppress ODS output in SAS?](https://blogs.sas.com/content/iml/2015/05/26/suppress-ods.html)
+* [Five reasons to use ODS EXCLUDE to suppress SAS output](https://blogs.sas.com/content/iml/2015/05/28/five-reasons-ods-exclude.html)
+
+Example on combining `ODS EXCLUDE` with `ODS OUTPUT` to control the obtained output:
+
+```
+ODS EXCLUDE ALL;
+PROC FREQ DATA=SAS-data-set;
+	TABLE variable1*variable2;
+	ODS OUTPUT CROSSTABFREQS=custom-SAS-data-set;
+RUN;
+ODS EXCLUDE NONE;
+```
 
 
 
