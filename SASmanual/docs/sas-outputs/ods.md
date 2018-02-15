@@ -59,6 +59,8 @@ ODS OUTPUT output-name1=generated-data-set1 output-name1=generated-data-set2 out
 
 ### Control the output via `ODS EXCLUDE`
 
+Some interesting articles on this topic by [Rick Wicklin](https://blogs.sas.com/content/author/rickwicklin/):
+
 * [Turn off `ODS` when running simulations in SAS](https://blogs.sas.com/content/iml/2013/05/24/turn-off-ods-for-simulations.html)
 * [What is the best way to suppress `ODS` output in SAS?](https://blogs.sas.com/content/iml/2015/05/26/suppress-ods.html)
 * [Five reasons to use `ODS EXCLUDE` to suppress SAS output](https://blogs.sas.com/content/iml/2015/05/28/five-reasons-ods-exclude.html)
