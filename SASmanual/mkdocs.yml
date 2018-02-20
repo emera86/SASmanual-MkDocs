@@ -37,7 +37,7 @@ pages:
       - 'PROC MIXED': 'procedures/mixed.md'
       - 'PROC SQL': 'procedures/sql.md'
     - SAS Outputs:
-      - 'Reports': 'sas-outputs/reports.md'
+      - 'Output Delivery System': 'sas-outputs/ods.md'
       - 'Graphs and Plots': 'sas-outputs/graphs.md'
       - 'PROC PRINT': 'sas-outputs/print.md'
       - 'PROC REPORT': 'sas-outputs/report.md'

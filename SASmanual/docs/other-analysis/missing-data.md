@@ -1,4 +1,4 @@
-!!! seealso
+!!! summary "Check these websites"
     Check out [this review](http://www.edmeasurement.net/surveydata/Tsikriktsis%202005.pdf) on techniques for treating missing data.
 
 ## Missing Data Mechanisms and Patterns
@@ -9,7 +9,7 @@ To use the more appropriate method to deal with your missing data, you should co
 * **Missing at random (MAR)**: other variables (but not the variable itself) in the dataset can be used to predict missingness on a given variable
 * **Missing not at random (MNAR)**: value of the unobserved variable itself predicts missingness
 
-!!! seealso
+!!! summary "Check these websites"
     Check out the formal description of each missing mechanism in the "Missing data mechanisms" section of [this](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3701793/) paper.
 
 ## Objetives of Imputation
@@ -66,7 +66,7 @@ Single imputation denotes that the missing value is replaced by a value. However
 
 ### Multiple imputation
 
-!!! seealso
+!!! summary "Check these websites"
     Visit [this website](http://lnr.li/YdyXo) for more information.
 
 [*Bayesian Methods for Completing Data*](http://www.bias-project.org.uk/Missing2012/Lectures.pdf) are simply methods based on conditional probability.

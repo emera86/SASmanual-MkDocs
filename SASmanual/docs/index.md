@@ -47,6 +47,6 @@ RUN;
 | Ctrl + [, Ctrl + ] | Move caret to matching parenthesis/brace |
 | Alt + [, Alt + ] | Move caret to matching DO/END keyword |
 
-!!! summary "See also"
+!!! summary "Check these websites"
     * [5 keyboard shortcuts in SAS that will change your life](http://blogs.sas.com/content/sasdummy/2013/10/29/five-keyboard-shortcuts/)
 
