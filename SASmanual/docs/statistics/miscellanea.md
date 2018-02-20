@@ -18,9 +18,19 @@ In summary, to understand the connection between the results, you have to carefu
 
 ## [McNemar's Test](https://en.wikipedia.org/wiki/McNemar%27s_test) vs [Cohen's Kappa Coefficient](https://en.wikipedia.org/wiki/Cohen%27s_kappa)
 
-**McNemar's test** is a statistical test used on paired nominal data. It is applied to 2 × 2 contingency tables with a dichotomous trait, with matched pairs of subjects, to determine whether the row and column marginal frequencies are equal (that is, whether there is "marginal homogeneity"). 
+**McNemar's test** is a statistical test used on paired nominal data. It is applied to $2 \times 2$ contingency tables with a dichotomous trait, with matched pairs of subjects, to determine whether the row and column marginal frequencies are equal (that is, whether there is "marginal homogeneity"). 
 
 The null hypothesis of marginal homogeneity states that the two marginal probabilities for each outcome are the same.
+
+```
+ODS EXCLUDE ALL;
+PROC FREQ DATA=SAS-data-set;
+	TABLE variable1 * variable2;
+	EXACT MCNEM;
+	ODS OUTPUT MCNEMARSTEST=mcnemarresults;
+RUN;
+ODS EXCLUDE NONE;
+```
 
 **Cohen's kappa coefficient** is a statistic which measures inter-rater agreement for qualitative (categorical) items. It is generally thought to be a more robust measure than simple percent agreement calculation, since $\kappa$ takes into account the possibility of the agreement occurring by chance. There is controversy surrounding Cohen’s Kappa due to the difficulty in interpreting indices of agreement. Some researchers have suggested that it is conceptually simpler to evaluate disagreement between items.
 
