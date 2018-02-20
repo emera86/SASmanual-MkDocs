@@ -38,6 +38,9 @@ If the raters are in complete agreement then $\kappa=1$. If there is no agreemen
 
 Note that Cohen's kappa measures agreement between **two raters only**. The Fleiss kappa is a **multi-rater** generalization of Scott's pi statistic. Kappa is also used to compare performance in machine learning but the directional version known as Informedness or Youden's J statistic is argued to be more appropriate for supervised learning.
 
+!!! summary "Check these websites"
+    * [McNemar vs. Cohen's Kappa](http://math.usu.edu/jrstevens/biostat/projects2013/pres_mcnemarcohen.pdf)
+
 ## Yates' Correction for Continuity
 
 Yates' correction for continuity (or Yates' chi-squared test) is used in certain situations when testing for independence in a contingency table. It is a correction made to account for the fact that both Pearson’s chi-square test and McNemar’s chi-square test are biased upwards for a 2 x 2 contingency table. An upwards bias tends to make results larger than they should be. If you are creating a 2 x 2 contingency table that uses either of these two tests, the Yates correction is usually recommended
