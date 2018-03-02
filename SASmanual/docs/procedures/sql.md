@@ -46,7 +46,7 @@ QUIT;
     * `INTO: name` creates a `name` macrovariable containing the result of that specific query
     * `SEPARATED BY ' '` defines a the separator between elements
    
-### Selecting distinct values of a variable and create a data set with them
+### Selecting Distinct Values of a Variable to Create a Data Set with them
 
 ```
 PROC SQL NOPRINT;
@@ -55,7 +55,7 @@ PROC SQL NOPRINT;
 QUIT;
 ```
 
-### Cartesian product of data sets (all possible combinations)
+### Cartesian Product of Data Sets (All Possible Combinations)
 
 ```
 PROC SQL;
@@ -63,7 +63,7 @@ PROC SQL;
 RUN;
 ```
 
-### Selecting the maximum value
+### Selecting the Maximum Value
 
 If you need only the maximum value of a certain variable for equal registers except this value, you will use the `MAX()` function. If you want to keep in the selection any other variable that you do not need to group you will need to apply the `MAX()` function to it as well.
 
