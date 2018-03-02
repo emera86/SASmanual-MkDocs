@@ -45,8 +45,47 @@ QUIT;
     * The `DISTINCT` option selects only different variable values
     * `INTO: name` creates a `name` macrovariable containing the result of that specific query
     * `SEPARATED BY ' '` defines a the separator between elements
-    
+   
+### Selecting distinct values of a variable and create a data set with them
+
+```
+PROC SQL NOPRINT;
+	CREATE TABLE new-SAS-data-set AS SELECT DISTINCT analyzed-variable
+	FROM original-SAS-data-set;
+QUIT;
+```
+
+### Cartesian product of data sets (all possible combinations)
+
+```
+PROC SQL;
+	CREATE TABLE new-SAS-data-set AS SELECT variable1, variable2, variablE3 FROM original-SAS-data-set1 AS f1 CROSS JOIN original-SAS-data-set2 AS f2 CROSS JOIN original-SAS-data-set3 AS f3;
+RUN;
+```
+
+### Selecting the maximum value
+
+If you need only the maximum value of a certain variable for equal registers except this value, you will use the `MAX()` function. If you want to keep in the selection any other variable that you do not need to group you will need to apply the `MAX()` function to it as well.
+
+```
+PROC SQL;
+	CREATE TABLE new-SAS-data-set AS
+	SELECT grouped-variable1, grouped-variable2, MAX(ungrouped-variable) AS alias-ungrouped, MAX(maximized-variable) AS alias-maximized
+	FROM original-SAS-data-set
+	GROUP BY grouped-variable1, grouped-variable2;
+QUIT;
+```
+
 ### Counting Grouped Elements
+
+A simple example first.
+```
+PROC SQL NOPRINT;
+	SELECT COUNTt(*)
+	INTO :nlabs
+	FROM SAS-data-set;
+QUIT;
+```
 
 In this first `PROC SQL` a number of count variables are created:
 ```
