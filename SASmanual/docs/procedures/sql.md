@@ -60,7 +60,7 @@ QUIT;
 ```
 PROC SQL;
 	CREATE TABLE new-SAS-data-set AS SELECT variable1, variable2, variablE3 FROM original-SAS-data-set1 AS f1 CROSS JOIN original-SAS-data-set2 AS f2 CROSS JOIN original-SAS-data-set3 AS f3;
-RUN;
+QUIT;
 ```
 
 ### Selecting the Maximum Value
