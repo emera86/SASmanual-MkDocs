@@ -79,8 +79,8 @@ proc report data=_data2report nowindows headline style(header)={background=very 
 	define clinsig60 / '' across nozero order=internal;
 	define clinsigET / '' across nozero order=internal;
 	* nozdero = since all product categories will not be represented for each product line in the table;
-	define npctn60/ '';
-	define npctnET/ '';
+	define npctn60/ group '';
+	define npctnET/ group '';
 	define _dummy / computed noprint; /* This variable is created to avoid an error message */
 
 	compute after/style=[just=L foreground=black FONT_SIZE=9pt];
