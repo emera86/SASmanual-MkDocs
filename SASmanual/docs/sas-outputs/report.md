@@ -54,6 +54,8 @@ RUN;
     
 ### Working with `ACROSS`
 
+* Simple example:
+
 ```
 PROC REPORT DATA=_AUX3 NOWINDOWS  
 	HEADLINE STYLE(HEADER)={BACKGROUND=VERY LIGHT GREY} MISSING SPLIT='*';
@@ -64,6 +66,40 @@ PROC REPORT DATA=_AUX3 NOWINDOWS
 	DEFINE &TIMEVAR./ '' F=&TIMEFMT. GROUP ORDER=INTERNAL; 
 	DEFINE COL1/ '' GROUP;
 RUN;
+```
+
+* Complex example:
+
+```
+proc report data=_data2report nowindows headline style(header)={background=very light grey} missing split='*';
+	column("Lab tests (Hematology): normal, high abnormal and low abnormal results n(%)" lbtest trtgrpnum ('Value at * screening' clinsigSCR) ('Day 6' clinsig60, npctn60 _dummy) ('Early Termination Day' clinsigET, npctnET _dummy));
+	define lbtest / '' group order=internal;
+	define trtgrpnum/ '' group order=internal;
+	define clinsigSCR / '' group order=internal;
+	define clinsig60 / '' across nozero order=internal;
+	define clinsigET / '' across nozero order=internal;
+	* nozdero = since all product categories will not be represented for each product line in the table;
+	define npctn60/ '';
+	define npctnET/ '';
+	define _dummy / computed noprint; /* This variable is created to avoid an error message */
+
+	compute after/style=[just=L foreground=black FONT_SIZE=9pt];
+		line "Normal, high abnormal and low abnormal results relative to the upper and lower limits of normal for each hematology quantitative parameter at the local laboratory on Day 6 and end of treatment days relative to screening";
+		line "n for each arm is number of patients in the safety population from Efficacy Phase";
+		line "Percentages are based on the number of patients in each treatment arm";
+		line "(a) p-value obtained from the Chi Squared/Fisher’s exact test comparing both treatment groups";
+		line "Reference: Listing 16.2.8.1";
+	endcomp;
+
+	* Introduce some line separations between arms of treatment;
+	break after trtgrpnum / skip;
+	* Introduce some line separations between tests;
+	break before lbtest / summarize style=[background=very light grey FONT_WEIGHT=BOLD];
+	* Avoid repeated labels;
+	compute npctn60;
+		if missing(_break_) then lbtest=' ';
+	endcomp;
+run;
 ```
 
 !!! summary "Check these websites"
