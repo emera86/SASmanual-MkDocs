@@ -47,7 +47,7 @@ OPTIONS NODATE NONUMBER;
 ODS GRAPHICS / NOBORDER;
 ```
 
-## Plots
+## Plot Procedures
 
 ### `GPLOT`
 
@@ -77,6 +77,21 @@ RUN;
 ```
 
 * [Specify the colors/point styles of groups in SAS statistical graphics](http://blogs.sas.com/content/iml/2012/10/17/specify-the-colors-of-groups-in-sas-statistical-graphics.html)
+
+## Type of Plots
+
+[Clinical Graphs using SAS](https://www.lexjansen.com/phuse/2016/dv/DV04.pdf)
+
+### Swimmer plot
+
+A swimmer plot is a graphical tool involving horizontal bars that can be used to show multiple pieces of information about a given data set in one glance. In this example a swimmer plot is used to tell “a story” about the effects of a study treatment on tumor response for individual subjects in an oncology study. Through the use of a swimmer plot we are able to look at our data on an individual subject level rather than an aggregate level that is often done for “time to response” analysis using Kaplan-Meier methods.
+
+!!! summary "Check these websites"
+    * [Swimmer Plot](https://blogs.sas.com/content/graphicallyspeaking/2014/06/22/swimmer-plot/)
+    * [Swimmer Plot: Tell a Graphical Story of Your Time to Response Data Using PROC
+SGPLOT](http://www.pharmasug.org/proceedings/2014/DG/PharmaSUG-2014-DG07.pdf)
+
+### Waterfall plot
 
 ## Miscellanea
 
