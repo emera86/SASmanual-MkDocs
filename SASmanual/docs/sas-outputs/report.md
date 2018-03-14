@@ -66,7 +66,7 @@ proc report data=test nowindows headline style(header)={background=very light gr
         if flag eq 1 then call define('firstdate',"style","style={background=yellow}");
     endcomp;
 
-	compute color2;
+    compute color2;
         if flag eq 2 then call define('lastdate',"style","style={background=yellow}");
     endcomp;
 run;
