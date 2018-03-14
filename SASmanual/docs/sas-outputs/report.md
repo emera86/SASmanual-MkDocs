@@ -71,7 +71,8 @@ proc report data=test nowindows headline style(header)={background=very light gr
     endcomp;
 run;
 ```
-![Example of cell's style based on value](proc-report-style-cell.png)
+
+![Example of cell's style based on value](../images/proc-report-style-cell.png "Example of cell's style based on value")
 
 ### Specify the `STYLE` of Your Global Header
 
