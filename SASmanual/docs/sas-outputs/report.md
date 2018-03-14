@@ -52,6 +52,9 @@ RUN;
     * [Creating a Plan for Your Reports and Avoiding Common Pitfalls in `REPORT` Procedure Coding](http://support.sas.com/resources/papers/proceedings13/366-2013.pdf)
     * [Turn Your Plain Report into a Painted Report Using ODS Styles](http://support.sas.com/resources/papers/proceedings10/133-2010.pdf)
     
+!!! tip
+    Remember, `PROC REPORT` builds each row from left to right, so the value used as a condition to define the style must be to the left of the values whose style/format you want to change. 
+    
 ### Working with `ACROSS`
 
 * Simple example:
