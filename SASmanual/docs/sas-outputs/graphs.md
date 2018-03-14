@@ -80,7 +80,9 @@ RUN;
 
 ## Type of Plots
 
-[Clinical Graphs using SAS](https://www.lexjansen.com/phuse/2016/dv/DV04.pdf)
+!!! summary "Check these websites"
+    * [Clinical Graphs using SAS](https://www.lexjansen.com/phuse/2016/dv/DV04.pdf)
+    * [Graphical Results in Clinical Oncology Studies](http://support.sas.com/resources/papers/proceedings16/7520-2016.pdf)
 
 ### Swimmer plot
 
@@ -94,6 +96,17 @@ A swimmer plot is a graphical tool involving horizontal bars that can be used to
 SGPLOT](http://www.pharmasug.org/proceedings/2014/DG/PharmaSUG-2014-DG07.pdf)
 
 ### Waterfall plot
+
+A waterfall chart is commonly used in the Oncology domain to track the change in tumor size for subjects in a study by treatment. The graph displays the change in tumor size for each subject in the study by descending percent change from baseline. A bar is displayed for each subject in decreasing order. Each bar is classified by the treatment. The response category is displayed at the end of the bar. Reference lines are drawn at RECIST threshold of -30% and at 20%.
+
+![Waterfall plot](../images/waterfall-plot.png "Waterfall plot")
+
+!!! summary "Check these websites"
+    * [Clinical graphs: Waterfall plot ++](https://blogs.sas.com/content/graphicallyspeaking/2017/07/30/clinical-graphs-waterfall-plot/)
+    * [Create a waterfall plot in SAS](https://blogs.sas.com/content/iml/2015/04/20/waterfall-plot.html)
+    * [Waterfall plot: two different approaches, one beautiful graph](https://www.lexjansen.com/pharmasug/2016/DG/PharmaSUG-2016-DG03.pdf)
+    * [Waterfall Charts in Oncology Trials - Ride the Wave}(https://www.pharmasug.org/proceedings/2012/DG/PharmaSUG-2012-DG13.pdf)
+    * [A 3D waterfall chart](https://blogs.sas.com/content/graphicallyspeaking/2018/01/11/3d-waterfall-chart/)
 
 ## Miscellanea
 
