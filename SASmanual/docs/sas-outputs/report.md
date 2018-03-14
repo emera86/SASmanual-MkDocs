@@ -125,3 +125,14 @@ PROC REPORT DATA=DATA2REPORT3 NOWINDOWS HEADLINE STYLE(HEADER)={BACKGROUND=VERY 
 	ENDCOMP;
 RUN;
 ```
+
+### Defining your own variables
+
+```
+DEFINE obs / COMPUTED; 
+
+COMPUTE obs;
+	dsobs + 1;
+	obs = dsobs;
+ENDCOMPUTE;
+```
