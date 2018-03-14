@@ -37,6 +37,42 @@ RUN;
 * `DEFINE` the variables involved in your conditional structure before the variable to which you want to apply the new format 
 * `DEFINE` your variables as `DISPLAY NOPRINT` if you want to use them for the conditional structure but you don't want them to appear in your table
 
+!!! tip
+    Remember, `PROC REPORT` builds each row from left to right, so the value used as a condition to define the style must be to the left of the values whose style/format you want to change. 
+    
+```
+data test;
+	input flag pt $ firstdate $ lastdate $ ;
+	datalines;
+0 X1 XX-XX-XXXX XX-XX-XXXX
+1 X2 XX-XX-XXXX XX-XX-XXXX
+0 X3 XX-XX-XXXX XX-XX-XXXX
+0 X4 XX-XX-XXXX XX-XX-XXXX
+0 X5 XX-XX-XXXX XX-XX-XXXX
+2 X6 XX-XX-XXXX XX-XX-XXXX
+;
+run;
+
+proc report data=test nowindows headline style(header)={background=very light grey} missing split='*';
+	column ("First and Last Dates in the Study" ('Patient' pt) ('First Study Date' firstdate) ('Last Study Date' lastdate) flag color1 color2);
+	define pt / '' display order=internal;
+	define firstdate / '' display;
+	define lastdate / '' display;
+	define flag / display noprint;
+	define color1 / computed noprint;
+	define color2 / computed noprint;
+
+    compute color1;
+        if flag eq 1 then call define('firstdate',"style","style={background=yellow}");
+    endcomp;
+
+	compute color2;
+        if flag eq 2 then call define('lastdate',"style","style={background=yellow}");
+    endcomp;
+run;
+```
+![Example of cell's style based on value](proc-report-style-cell.png)
+
 ### Specify the `STYLE` of Your Global Header
 
 ```
@@ -51,9 +87,6 @@ RUN;
     * [Beyond the Basics: Advanced `PROC REPORT` Tips and Tricks](http://support.sas.com/rnd/papers/sgf07/sgf2007-report.pdf)
     * [Creating a Plan for Your Reports and Avoiding Common Pitfalls in `REPORT` Procedure Coding](http://support.sas.com/resources/papers/proceedings13/366-2013.pdf)
     * [Turn Your Plain Report into a Painted Report Using ODS Styles](http://support.sas.com/resources/papers/proceedings10/133-2010.pdf)
-    
-!!! tip
-    Remember, `PROC REPORT` builds each row from left to right, so the value used as a condition to define the style must be to the left of the values whose style/format you want to change. 
     
 ### Working with `ACROSS`
 
