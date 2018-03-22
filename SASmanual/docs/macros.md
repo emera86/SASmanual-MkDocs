@@ -183,8 +183,10 @@ options label;
 
 ```
 DATA test-SAS-data-set;
-	SET %if %sysfunc(exist(SAS-data-set-part1)) %then %do; SAS-data-set-part1%end;
-	    SAS-data-set-part2;
+	SET 	%if %sysfunc(exist(SAS-data-set-part1)) %then %do; 
+			SAS-data-set-part1
+		%end;
+	    		SAS-data-set-part2;
 RUN;
 ```
 
