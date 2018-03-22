@@ -179,6 +179,15 @@ title;
 options label;
 ```
 
+### Checking if a data set is exists
+
+```
+DATA test-SAS-data-set;
+	SET %if %sysfunc(exist(SAS-data-set-part1)) %then %do; SAS-data-set-part1%end;
+	    SAS-data-set-part2;
+RUN;
+```
+
 ## Macro's Sources
 
 * [Les macros SAS de Dominique Ladiray](http://www.unige.ch/ses/sococ/eda/sas/)
