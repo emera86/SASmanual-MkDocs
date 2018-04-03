@@ -58,6 +58,7 @@ RUN;
 
 !!! tip "One-line-to-Many Merge"
     If you have a data set that is just one line that you would like to joint to all the observations of a different data set you can do it in a single `DATA` step:
+    
     ```
     DATA result-data-set;
 	SET multiple-observations-data-set;
@@ -66,11 +67,13 @@ RUN;
 	END;
     RUN;
     ```
+    
     If you want to perform a cross join which is functionally the same as a Cartesian product join instead you can do it in a single `PROC SQL`:
+    
     ```
     PROC SQL;
 	CREATE TABLE result-data-set AS SELECT var1, var2 FROM data-set1 AS alias1 CROSS JOIN data-set2 AS alias2;
-    RUN;
+    QUIT;
     ```
 
 ### Merging SAS Data Sets that Have Non-Matches
