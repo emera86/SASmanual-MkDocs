@@ -6,6 +6,7 @@ click derecho en el workflow, create as code, template, save code
 !!! summary "Check these websites"
     * [Demo: DATA Step Debugging in Enterprise Guide](http://video.sas.com/sasgf17/detail/videos/general-sessions/video/5383313949001/demo:-data-step-debugging-in-enterprise-guide)
     * [Using the DATA step debugger in SAS Enterprise Guide](https://blogs.sas.com/content/sasdummy/2016/11/30/data-step-debugger-sas-eg/)
+    * [Step through Your DATA Step: Introducing the DATA Step Debugger in SAS Enterprise Guide](https://support.sas.com/resources/papers/proceedings17/SAS0447-2017.pdf)
     * [An Animated Guide: The SAS Data Step Debugger](http://www2.sas.com/proceedings/forum2007/121-2007.pdf)
     
 This tool is for debugging `DATA` step code. It can't be used to debug `PROC SQL` or `PROC IML` or SAS macro programs. 
