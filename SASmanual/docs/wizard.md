@@ -28,10 +28,10 @@ It can't be used to debug `DATA` steps that read data from `CARDS` or `DATALINES
    * [`QUIT`](http://documentation.sas.com/?docsetId=basess&docsetTarget=p1q0lqpobxkqaxn1wexgtpq9f73r.htm&docsetVersion=9.4&locale=es) terminates a debugger session
    * [`SET`](http://documentation.sas.com/?docsetId=basess&docsetTarget=p16f8ld3w72rn7n1fkr3ud0hzl9z.htm&docsetVersion=9.4&locale=es) assigns a new value to a specified variable
    * [`STEP`](http://documentation.sas.com/?docsetId=basess&docsetTarget=p03samiyetemuun1m3v7spm9mrhp.htm&docsetVersion=9.4&locale=es) executes statements one at a time in the active program
-   * [`SWAP`](http://documentation.sas.com/?docsetId=basess&docsetTarget=n05gwfgzb50fysn10os9gvmjin6a.htm&docsetVersion=9.4&locale=es) switches control between the SOURCE window and the **LOG** window
+   * [`SWAP`](http://documentation.sas.com/?docsetId=basess&docsetTarget=n05gwfgzb50fysn10os9gvmjin6a.htm&docsetVersion=9.4&locale=es) switches control between the **SOURCE** window and the **LOG** window
    * [`TRACE`](http://documentation.sas.com/?docsetId=basess&docsetTarget=p0e1gr0riclt9kn1767jf9p4ska9.htm&docsetVersion=9.4&locale=es) controls whether the debugger displays a continuous record of the `DATA` step execution
    * [`WATCH`](http://documentation.sas.com/?docsetId=basess&docsetTarget=p1p7wyve105lmnn1kqhnijcbswwp.htm&docsetVersion=9.4&locale=es) suspends execution when the value of a specified variable changes
 
 !!! note "Examples"
-    `break 8 when (running_price > 10000)` will break on line 8 when the value of running_price exceeds 10,000
+    `break 8 when (running_price > 100)` will break on line 8 when the value of running_price exceeds 100
     `break 8 after 5` will break on line 8 after 5 passes through the `DATA` step
