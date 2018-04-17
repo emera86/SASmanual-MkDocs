@@ -173,3 +173,15 @@ COMPUTE obs;
 	obs = dsobs;
 ENDCOMPUTE;
 ```
+
+### Including a footnote
+
+```
+PROC REPORT DATA=SAS-data-set;
+	(...)
+	COMPUTE AFTER / STYLE=[JUST=L FOREGROUND=black FONT_SIZE=8pt];
+             LINE "This is the first line of your footnote.";
+	     LINE "This is the last line of your footnote.";
+        ENDCOMP; 
+RUN;
+```
