@@ -70,10 +70,5 @@ markdown_extensions:
     - admonition
     - codehilite(linenums=true)
     - toc(permalink=true)
-    - pymdownx.superfences:
-      custom_fences:
-        - name: flow
-          class: uml-flowchart
-          format: !!python/name:pymdownx.superfences.fence_code_format
 
 theme: 'material'
