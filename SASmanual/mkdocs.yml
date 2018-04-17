@@ -22,6 +22,15 @@ pages:
       - 'Categorical Data Analysis': 'statistics/categorical-data.md'
       - 'Model Building and Scoring for Prediction': 'statistics/prediction.md'
       - 'Miscellanea': 'statistics/miscellanea.md'
+    - SAS vs R: 
+      - 'Introduction': 'sasvsr/introduction.md'
+      - 'Importing and Reporting Data': 'sasvsr/importing-reporting.md'
+      - 'Creating New Variables, Functions and Data Tables': 'sasvsr/variables-functions.md'
+      - 'Random Number Generation and Plotting': 'sasvsr/random-plotting.md'
+      - 'Descriptive Procedures, Output Delivery System and Macros': 'sasvsr/proc-ods-macros.md'
+      - 'Analyzing the Data via Inferential Procedures': 'inferential.md'
+      - 'Interactive Matrix Language (IML)': 'sasvsr/iml.md'
+      - 'A Bridge Between SAS and R': 'sasvsr/bridge.md'
     - Other Analysis:
       - 'Dealing with Missing Data': 'other-analysis/missing-data.md'
       - 'Interim Analysis Design': 'other-analysis/interim-analysis.md'
@@ -46,7 +55,6 @@ pages:
     - Using Macros: macros.md
     - Using Wizard Menus: wizard.md
     - SAS Visual Analytics: sasvi.md
-    - SAS vs R: sasvsr.md
     - Miscellanea: 
       - 'Working with Arrays': 'miscellanea/arrays.md'
       - 'Execution time': 'miscellanea/execution-time.md'
