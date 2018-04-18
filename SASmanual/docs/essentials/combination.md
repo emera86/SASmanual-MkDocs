@@ -98,7 +98,7 @@ DATA SAS-data-set;
 RUN;
 ```
 
-* When you spefify the `IN` option after an input data set in the `MERGE` statement, SAS creates a **temporary numeric variable** that indicates whether the data set contributed data to the current observation (0 = it did not contribute to the current observation, 1 = it did contribute)
+* When you specify the `IN` option after an input data set in the `MERGE` statement, SAS creates a **temporary numeric variable** that indicates whether the data set contributed data to the current observation (0 = it did not contribute to the current observation, 1 = it did contribute)
 * These variables are only available **during execution**
 
 ```
