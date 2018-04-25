@@ -99,7 +99,7 @@ RUN;
     3. You can only use the `<` symbol to define a non-inclusive range.
 
 ```
-OPTIONS FMTSEARCH = (libref1 libref2... librefn)
+OPTIONS FMTSEARCH = (libref1 libref2... librefn);
 ```
 
 * The `FMTSEARCH` system option controls the order in which format catalogs are searched until the desired member is found.
