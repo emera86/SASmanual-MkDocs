@@ -89,7 +89,7 @@ run;
 
 ![Example of cell's style based on value](../images/proc-report-style-cell.png "Example of cell's style based on value")
 
-### Break Option to Change the Style
+### Introducing Line Breaks
 
 ```
 PROC REPORT DATA=SAS-data-set NOWINDOWS HEADLINE STYLE(HEADER)={BACKGROUND=VERY LIGHT GREY} MISSING SPLIT='*';
@@ -161,30 +161,6 @@ run;
 !!! summary "Check these websites"
     * [Sailing Over the `ACROSS` Hurdle in `PROC REPORT`](https://www.sas.com/content/dam/SAS/support/en/technical-papers/SAS388-2014.pdf)
     
-### Introducing Line Breaks
-
-```
-PROC REPORT DATA=DATA2REPORT3 NOWINDOWS HEADLINE STYLE(HEADER)={BACKGROUND=VERY LIGHT GREY} MISSING SPLIT='*';
-	COLUMN("&TITLE." &TIMEVAR. ('SHIFT' SHIFT) &STRATAVAR., NVAL);
-	DEFINE &STRATAVAR./ '' ACROSS NOZERO ORDER=DATA;
-	DEFINE &TIMEVAR./ F=&TIMEVARFMT. '' GROUP ORDER=INTERNAL; 
-	DEFINE SHIFT/ F=SHIFTFMT. '' GROUP ORDER=INTERNAL;
-	DEFINE NVAL/ '' GROUP;
-	* INTRODUCE SOME LINE SEPARATIONS BETWEEN VISITS;
-	BREAK BEFORE &TIMEVAR. / SUMMARIZE STYLE=[BACKGROUND=VERY LIGHT GREY];
-	* MAKE THE GLOBAL SHIFT TO BE IN BOLD;
-	COMPUTE &TIMEVAR.;
-		IF &TIMEVAR. EQ '99999' AND _BREAK_ EQ "&TIMEVAR." THEN DO;
-			CALL DEFINE (_ROW_,'STYLE', 'STYLE=[FONT_WEIGHT=BOLD]');
-		END;
-	ENDCOMP;
-	* AVOID REPEATED LABELS;
-	COMPUTE NVAL;
- 		IF MISSING(_BREAK_) THEN &TIMEVAR.=' ';
-	ENDCOMP;
-RUN;
-```
-
 ### Defining your own variables
 
 ```
@@ -194,16 +170,4 @@ COMPUTE obs;
 	dsobs + 1;
 	obs = dsobs;
 ENDCOMPUTE;
-```
-
-### Including a footnote
-
-```
-PROC REPORT DATA=SAS-data-set;
-	(...)
-	COMPUTE AFTER / STYLE=[JUST=L FOREGROUND=black FONT_SIZE=8pt];
-             LINE "This is the first line of your footnote.";
-	     LINE "This is the last line of your footnote.";
-        ENDCOMP; 
-RUN;
 ```
