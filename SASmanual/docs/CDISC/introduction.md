@@ -1,3 +1,7 @@
+!!! summary "Check these websites"
+    * [CDISC Official Site](https://www.cdisc.org/)
+    * [CDISC Standards](https://www.cdisc.org/standards)
+
 ## ¿Qué es CDISC?
 
 ## Diferencias entre CDASH, SDTM/SEND y ADAM
