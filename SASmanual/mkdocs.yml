@@ -55,6 +55,8 @@ pages:
     - Using Macros: macros.md
     - Using Wizard Menus: wizard.md
     - SAS Visual Analytics: sasvi.md
+    - CDISC:
+      - 'Introduction': 'CDISC/introduction.md'
     - Miscellanea: 
       - 'Working with Arrays': 'miscellanea/arrays.md'
       - 'Execution time': 'miscellanea/execution-time.md'
