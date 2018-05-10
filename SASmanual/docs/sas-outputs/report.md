@@ -89,6 +89,22 @@ RUN;
     * [Creating a Plan for Your Reports and Avoiding Common Pitfalls in `REPORT` Procedure Coding](http://support.sas.com/resources/papers/proceedings13/366-2013.pdf)
     * [Turn Your Plain Report into a Painted Report Using ODS Styles](http://support.sas.com/resources/papers/proceedings10/133-2010.pdf)
     
+### Footnote Definition
+
+```
+PROC REPORT DATA=SAS-data-set HEADSKIP HEADLINE NOWINDOWS STYLE(header)={ASIS=on BACKGROUND=very light grey FONTWEIGHT=BOLD};
+	COLUMN (...);
+	DEFINE ... / DISPLAY;
+	DEFINE ... / DISPLAY;
+	
+	COMPUTE AFTER / STYLE=[JUST=L FOREGROUND=black FONT_SIZE=8pt];
+        	LINE 'First line of comments.';
+		LINE 'Second line of comments.';
+		LINE 'And so on and so forth.';
+        ENDCOMP; 
+RUN;
+```
+    
 ### Working with `ACROSS`
 
 * Simple example:
