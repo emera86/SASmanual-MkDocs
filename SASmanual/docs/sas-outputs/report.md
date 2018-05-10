@@ -19,6 +19,21 @@ PROC REPORT DATA=sashelp.cars;
 RUN;
 ```
 
+### Specify the `STYLE` of Your Global Header
+
+```
+PROC REPORT DATA=SAS-data-set HEADSKIP HEADLINE NOWINDOWS STYLE(header)={ASIS=on BACKGROUND=very light grey FONTWEIGHT=BOLD};
+	COLUMN ("Style of this global header" var1 var2);
+	DEFINE var1 / DISPLAY 'Parameters' LEFT STYLE=[FONTWEIGHT=BOLD];
+	DEFINE var2 / DISPLAY 'Values' CENTER;
+RUN;
+```
+
+!!! summary "Check these websites"
+    * [Beyond the Basics: Advanced `PROC REPORT` Tips and Tricks](http://support.sas.com/rnd/papers/sgf07/sgf2007-report.pdf)
+    * [Creating a Plan for Your Reports and Avoiding Common Pitfalls in `REPORT` Procedure Coding](http://support.sas.com/resources/papers/proceedings13/366-2013.pdf)
+    * [Turn Your Plain Report into a Painted Report Using ODS Styles](http://support.sas.com/resources/papers/proceedings10/133-2010.pdf)
+
 ### Specify the `STYLE` of a Cell Based on Other Cell's Value
 
 ```
@@ -74,37 +89,28 @@ run;
 
 ![Example of cell's style based on value](../images/proc-report-style-cell.png "Example of cell's style based on value")
 
-### Specify the `STYLE` of Your Global Header
+### Break Option to Change the Style
 
 ```
-PROC REPORT DATA=SAS-data-set HEADSKIP HEADLINE NOWINDOWS STYLE(header)={ASIS=on BACKGROUND=very light grey FONTWEIGHT=BOLD};
-	COLUMN ("Style of this global header" var1 var2);
-	DEFINE var1 / DISPLAY 'Parameters' LEFT STYLE=[FONTWEIGHT=BOLD];
-	DEFINE var2 / DISPLAY 'Values' CENTER;
+PROC REPORT DATA=SAS-data-set NOWINDOWS HEADLINE STYLE(HEADER)={BACKGROUND=VERY LIGHT GREY} MISSING SPLIT='*';
+	COLUMN ("Sample report" var1 var2 var3);
+	DEFINE var1 / 'Label 1' GROUP ORDER=INTERNAL;
+	DEFINE var2 / 'Label 2' DISPLAY;
+	DEFINE var3 / 'Label 3' DISPLAY;
+
+	* Introduce some line separations between var1 values;
+	BREAK BEFORE var1 / SUMMARIZE STYLE=[BACKGROUND=VERY LIGHT GREY];
+	* Avoid repeated labels;
+	COMPUTE var2;
+		 IF MISSING(_BREAK_) THEN var1=' ';
+	ENDCOMP;
 RUN;
 ```
 
-!!! summary "Check these websites"
-    * [Beyond the Basics: Advanced `PROC REPORT` Tips and Tricks](http://support.sas.com/rnd/papers/sgf07/sgf2007-report.pdf)
-    * [Creating a Plan for Your Reports and Avoiding Common Pitfalls in `REPORT` Procedure Coding](http://support.sas.com/resources/papers/proceedings13/366-2013.pdf)
-    * [Turn Your Plain Report into a Painted Report Using ODS Styles](http://support.sas.com/resources/papers/proceedings10/133-2010.pdf)
-    
-### Footnote Definition
-
-```
-PROC REPORT DATA=SAS-data-set HEADSKIP HEADLINE NOWINDOWS STYLE(header)={ASIS=on BACKGROUND=very light grey FONTWEIGHT=BOLD};
-	COLUMN (...);
-	DEFINE ... / DISPLAY;
-	DEFINE ... / DISPLAY;
-	
-	COMPUTE AFTER / STYLE=[JUST=L FOREGROUND=black FONT_SIZE=8pt];
-        	LINE 'First line of comments.';
-		LINE 'Second line of comments.';
-		LINE 'And so on and so forth.';
-        ENDCOMP; 
-RUN;
-```
-    
+!!! tip
+    If the variable is numeric a `.` will apear in the break row. You need to create a format to assign `'            '` to `.`.
+    If you describe the new value of `.` as `' '` your numbers will be truncated.
+       
 ### Working with `ACROSS`
 
 * Simple example:
