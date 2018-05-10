@@ -38,10 +38,11 @@ Validar que tus data sets cumplen todas las reglas y estándares que impone CDIS
 ## Diferentes tipos de dominios
 
 ### Dominios de propósito especial
-		○ CO (Comments)
-		○ DM (Demographics): una de las pocas tablas que es plana, se recogen variables que siempre están en todos los estudios que tienen nombre propio.
-		○ SE (Subject Elements): especifica las visitas que va a tener el paciente a nivel de elemento, el esquema de visitas que debería tener el paciente.
-		○ SV (Subject Visits): fechas de visitas
+
+* CO (Comments)
+* DM (Demographics): una de las pocas tablas que es plana, se recogen variables que siempre están en todos los estudios que tienen nombre propio.
+* SE (Subject Elements): especifica las visitas que va a tener el paciente a nivel de elemento, el esquema de visitas que debería tener el paciente.
+* SV (Subject Visits): fechas de visitas
 	
 ### General Observation Classes
 
