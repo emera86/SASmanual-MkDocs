@@ -4,18 +4,22 @@
 
 ### CDASH
 Clinical Data Acquisition Standards Harmonization
+
 Lograr que los datos sean recogidos de manera más homogénea. No está pensado para presentar los datos sino para recogerlos. Estándar para la recogida de datos. No hay que inspirarse en SDTM (estructura vertical) para diseñar la base de datos sino en CDASH, y luego ya se hará una transformación a SDTM.
 
 ### SDTM
 Study Data Tabulation Model
+
 Depués de la transformación se tiene que reportar sobre el CRF anotado una nueva anotación con las variables SDTM. Esta nueva anotación puede requerir estructuras condicionales para poder reconocer las nuevas variables.
 
 ### ADaM
 Analysis Data Model
+
 Define los estándares de data sets y metadata de cara a un análisis y presentación de resultados. Permite una generación eficiente, replicación y revisión de los datos usados para realizar análisis estadísticos en ensayos clínicos.
 
 ### SEND
 Standard for Exchange of Nonclinical Data
+
 Una implementación menos restrictiva de SDTM para estudios no clínicos que tienen más variabilidad.
 	
 ## ¿Qué es el CDI?
@@ -28,7 +32,7 @@ SAS Clinical Data Integration. Te permite hacer un mapeo de tu base de datos ori
 ### Dominios
 Conjuntos de variables. Los estándares definen qué variables tiene cada uno, cuales son obligatorias, opcionales o recomendables y cuales se deben enviar. En algunas te tienes que limitar a una estructura restringida y tienes que meter la información extra en un dominio suplementario que va ligado al principal, pero otros dominios son un poco más flexibles. Hay información que te puede cuadrar en varios dominios, ahí entra ya la interpretación del sponsor o del que mapea la base de datos. El estándar no está totalmente cerrado y hay cosas que hay que decidir y será necesario justificar las decisiones.
 
-###Pinacle21/OpenCDISC
+### Pinacle21/OpenCDISC
 Validar que tus data sets cumplen todas las reglas y estándares que impone CDISC. Te presenta un informe en excel de los errores.
 
 ## Diferentes tipos de dominios
