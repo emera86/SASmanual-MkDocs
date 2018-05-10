@@ -1,7 +1,30 @@
+## Endpoints in Clinical Trials Related to Survival Analysis
+
+### Overall Survival
+
+OS is the **gold standard for demonstrating clinical benefit**. Defined as the time from **randomization to death**, this endpoint is unambiguous and is not subject to investigator interpretation. Survival is a direct clinical benefit to patients, and assessment can be calculated to the day. Patient benefit can be described as superior survival or noninferior survival after consideration of toxicity and the magnitude of benefit. A noninferiority analysis ensures that a survival advantage associated with an approved drug will not be lost with a new agent.
+
+**Survival analysis requires a large sample size and may require long follow-up**. Survival analysis may be confounded because of subsequent therapies administered after a study drug is discontinued. OS should be evaluated in randomized, controlled trials.
+
+### Time to Tumor Progression and Progression-Free Survival
+
+**Time to tumor progression (TTP)**, is defined as the time from **randomization to time of progressive disease**. The **progression-free survival (PFS)** duration is defined as the time from **randomization to objective tumor progression or death**. Compared with TTP, PFS may be a preferred regulatory endpoint because it includes death and may correlate better with OS. In TTP analysis, deaths are censored either at the time of death or at an earlier visit. 
+
+Assessment of either PFS or TTP needs to be conducted in randomized trials. Because of the subjectivity that may be introduced in endpoint assessment, blinding of trials or the use of an external blinded review committee is recommended. In assessing TTP or PFS, patients must be evaluated on a regular basis in all treatment arms, and an assessment of all disease sites should be performed. To reduce bias, the same assessment technique should be used at each follow-up, and the same evaluation schedule should be consistently used.
+
+### Time to Treatment Failure
+
+**Time to treatment failure (TTF)** is defined as the time from **randomization to treatment discontinuation for any reason**, including disease progression, treatment toxicity, patient preference, or death. From a regulatory point of view, TTF is generally not accepted as a valid endpoint. TTF is a composite endpoint influenced by factors unrelated to efficacy. Discontinuation may be a result of toxicity, patient preference, or a physician's reluctance to continue therapy. These factors are not a direct assessment of the effectiveness of a drug.
+
+
+## What Is Survival Analysis?
+
 !!! summary "Check these websites"
     * [Análisis de supervivencia](https://www.sgapeio.es/INFORMEST/VICongreso/taller/applets/biomates/super/super.htm)
 
 Survival analysis is a branch of statistics for analyzing the expected duration of **time until one or more events happen**. Survival analysis attempts to answer questions such as: what is the proportion of a population which will survive past a certain time? Of those that survive, at what rate will they die or fail? Can multiple causes of death or failure be taken into account? How do particular circumstances or characteristics increase or decrease the probability of survival? To answer such questions, it is necessary to define **lifetime** with [`PROC LIFETEST`](http://support.sas.com/documentation/cdl/en/statug/68162/HTML/default/viewer.htm#statug_lifetest_toc.htm).
+
+
 
 ```
 oms = (lastcontact - starttreatment + 1) / 30.45
