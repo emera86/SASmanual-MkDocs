@@ -1,3 +1,6 @@
+!!! summary "Check these websites"
+    * [Análisis de supervivencia](https://www.sgapeio.es/INFORMEST/VICongreso/taller/applets/biomates/super/super.htm)
+
 Survival analysis is a branch of statistics for analyzing the expected duration of **time until one or more events happen**. Survival analysis attempts to answer questions such as: what is the proportion of a population which will survive past a certain time? Of those that survive, at what rate will they die or fail? Can multiple causes of death or failure be taken into account? How do particular circumstances or characteristics increase or decrease the probability of survival? To answer such questions, it is necessary to define **lifetime** with [`PROC LIFETEST`](http://support.sas.com/documentation/cdl/en/statug/68162/HTML/default/viewer.htm#statug_lifetest_toc.htm).
 
 ```
