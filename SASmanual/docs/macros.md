@@ -1,6 +1,7 @@
 You can learn about macros in the **SAS Macro Language 1: Essentials course**.
 
-[Here](http://jiangtanghu.com/blog/2011/11/08/my-collection-of-sas-macro-repositories/) you have some macro repositories.
+!!! summary "Check these Websites"
+    * [Developing Large SAS Macro Applications](https://www.lexjansen.com/pharmasug/2018/AD/PharmaSUG-2018-AD01.pdf)
 
 How to define [optional macro arguments](https://communities.sas.com/t5/Base-SAS-Programming/how-to-define-optional-macro-parameters/td-p/259131).
  
@@ -194,4 +195,5 @@ RUN;
 
 * [Les macros SAS de Dominique Ladiray](http://www.unige.ch/ses/sococ/eda/sas/)
 * [Mayo Clinic: Locally written SAS macros](http://www.mayo.edu/research/departments-divisions/department-health-sciences-research/division-biomedical-statistics-informatics/software/locally-written-sas-macros)
+* [Here](http://jiangtanghu.com/blog/2011/11/08/my-collection-of-sas-macro-repositories/) you have some macro repositories.
 * [Kaplan-Meier Survival Plotting Macro %NEWSURV](http://player.slideplayer.com/39/10943335/#)
