@@ -26,6 +26,31 @@ Assessment of either PFS or TTP needs to be conducted in randomized trials. Beca
 
 **Time to treatment failure (TTF)** is defined as the time from **randomization to treatment discontinuation for any reason**, including disease progression, treatment toxicity, patient preference, or death. From a regulatory point of view, TTF is generally not accepted as a valid endpoint. TTF is a composite endpoint influenced by factors unrelated to efficacy. Discontinuation may be a result of toxicity, patient preference, or a physician's reluctance to continue therapy. These factors are not a direct assessment of the effectiveness of a drug.
 
+## Understanding the Basis of Survival Analysis
+
+Understanding the mechanics behind survival analysis is aided by facility with the distributions used, which can be derived from the **probability density function** and **cumulative density functions** of survival times.
+
+### The Probability Density Function
+
+Imagine we have a random variable, $Time$, which records survival times. The function that describes likelihood of observing $Time$ at time $t$ relative to all other survival times is known as the probability density function (**pdf**), or $f(t)$. Integrating the pdf over a range of survival times gives the probability of observing a survival time within that interval. For example, if the survival times were known to be exponentially distributed, then the probability of observing a survival time within the interval $\left [ a,b \right ]$ is 
+$Pr\left ( a \leq Time \leq b \right )=\int_{a}^{b}f(t)dt=\int_{a}^{b} \lambda e^{-\lambda t}dt$, 
+where $\lambda$ is the rate parameter of the exponential distribution and is equal to the reciprocal of the mean survival time.
+
+Most of the time we will not know *a priori* the distribution generating our observed survival times, but we can get and idea of what it looks like using nonparametric methods in SAS with `PROC UNIVARIATE`. 
+
+```
+PROC UNIVARIATE DATA=SAS-data-set(WHERE=(censoring-variable=1));
+	VAR survival-time-variable;
+	HISTOGRAM survival-time-variable / kernel;
+RUN;
+```
+
+In the graph above we see the correspondence between pdfs and histograms. Density functions are essentially histograms comprised of bins of vanishingly small widths. Technically, because there are no times less than $0$, there should be no graph to the left $Time=0$.
+
+### The Cumulative Distribution Function
+
+The cumulative distribution function (**cdf**), $F(t)$, describes the probability of observing Time less than or equal to some time t, or Pr(Timelet). Above we described that integrating the pdf over some range yields the probability of observing Time in that range. Thus, we define the cumulative distribution function as:
+
 ## Nonparametric Methods ([`PROC LIFETEST`](http://support.sas.com/documentation/cdl/en/statug/68162/HTML/default/viewer.htm#statug_lifetest_toc.htm))
 
 ```
@@ -95,7 +120,11 @@ RUN;
 
 ## Cox Proportional Hazards Regression Model ([`PROC PHREG`](http://support.sas.com/documentation/cdl/en/statug/68162/HTML/default/viewer.htm#statug_phreg_overview.htm))
 
-## Informative Censoring
+## Censoring
+
+* **Right-censoring**: for some subjects we do not know when they died after the issue, but we do know at least how many days they survived.
+
+### Informative Censoring
 
 !!! summary "Check these papers"
     * [Censoring in survival analysis: Potential for bias](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3275994/)
