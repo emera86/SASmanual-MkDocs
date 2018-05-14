@@ -1,3 +1,6 @@
+!!! summary "Check these websites"
+    * [Generating Receiver Operating Characteristic (ROC) curve using SAS Macros](https://www.lexjansen.com/pharmasug/2018/AA/PharmaSUG-2018-AA19.pdf)
+
 In statistics, a **receiver operating characteristic curve (ROC curve)**, is a graphical plot that illustrates the diagnostic ability of a binary classifier system as its discrimination threshold is varied. The ROC curve is created by plotting the **true positive rate (TPR) against the false positive rate (FPR)** at various threshold settings. The true-positive rate is also known as **sensitivity**. The false-positive rate is also known as the fall-out and can be calculated as **(1 − specificity)**.
 
 ROC analysis provides tools to **select possibly optimal models and to discard suboptimal ones** independently from (and prior to specifying) the cost context or the class distribution.
