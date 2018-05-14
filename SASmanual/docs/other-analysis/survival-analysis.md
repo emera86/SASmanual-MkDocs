@@ -113,7 +113,9 @@ Let us again think of the hazard function, $h(t)$, as the rate at which failures
 Using the equations, $h(t)=\frac{f(t)}{S(t)}$ and $f(t)=−\frac{dS}{dt}$, we can derive the following relationships between the cumulative hazard function and the other survival functions:
 
 $S(t)=exp(-H(t))$
+
 $F(t)=1-exp(-H(t))$
+
 $f(t)=h(t) \cdot exp(-H(t))$
 
 From these equations we can see that the cumulative hazard function $H(t)$ and the survival function $S(t)$ have a simple monotonic relationship, such that when the Survival function is at its maximum at the beginning of analysis time, the cumulative hazard function is at its minimum. As time progresses, the Survival function proceeds towards it minimum, while the cumulative hazard function proceeds to its maximum. From these equations we can also see that we would expect the pdf, $f(t)$, to be high when $h(t)$ the hazard rate is high (its location depends on the study) and when the cumulative hazard $H(t)$ is low (the beginning, for all studies). In other words, we would expect to find a lot of failure times in a given time interval if 
