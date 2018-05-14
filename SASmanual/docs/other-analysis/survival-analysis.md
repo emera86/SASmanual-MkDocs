@@ -27,6 +27,8 @@ Assessment of either PFS or TTP needs to be conducted in randomized trials. Beca
 
 Survival analysis models factors that influence the time to an event. Ordinary least squares regression methods fall short because the time to event is typically not normally distributed, and the model cannot handle censoring, very common in survival data, without modification. **Nonparametric methods** ([`PROC LIFETEST`](http://support.sas.com/documentation/cdl/en/statug/68162/HTML/default/viewer.htm#statug_lifetest_toc.htm)) provide simple and quick looks at the survival experience, and the **Cox proportional hazards regression model** ([`PROC PHREG`](http://support.sas.com/documentation/cdl/en/statug/68162/HTML/default/viewer.htm#statug_phreg_overview.htm)) remains the dominant analysis method.
 
+## Nonparametric Methods ([`PROC LIFETEST`](http://support.sas.com/documentation/cdl/en/statug/68162/HTML/default/viewer.htm#statug_lifetest_toc.htm))
+
 ```
 oms = (lastcontact - starttreatment + 1) / 30.45
 if exdate = . then censor = 1;
@@ -44,7 +46,7 @@ RUN;
 !!! tip
     If you are performing a survival analysis which only applies to part of your population but you need the probabilities to be referred to the total population just define the excluded subpopulation as having event at time = 0. This way your plot will not start at 1/0. This applies, for example, to **locoregional control time** plots on which patients without complete response are excluded (event at time = 0) and 
 
-## P-value of a Lifetest Analysis
+## P-value Calculation
 
 We select only 2 groups from the test data set (High and Low risk):
 
@@ -92,7 +94,9 @@ PROC FREQ DATA=bmt600;
 RUN;
 ```
 
-## Informative censoring
+## Cox Proportional Hazards Regression Model ([`PROC PHREG`](http://support.sas.com/documentation/cdl/en/statug/68162/HTML/default/viewer.htm#statug_phreg_overview.htm))
+
+## Informative Censoring
 
 !!! summary "Check these papers"
     * [Censoring in survival analysis: Potential for bias](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3275994/)
