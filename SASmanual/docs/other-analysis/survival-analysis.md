@@ -22,7 +22,7 @@ Assessment of either PFS or TTP needs to be conducted in randomized trials. Beca
 !!! summary "Check these websites"
     * [Análisis de supervivencia](https://www.sgapeio.es/INFORMEST/VICongreso/taller/applets/biomates/super/super.htm)
     * [Introduction to survival analysis in SAS](https://stats.idre.ucla.edu/sas/seminars/sas-survival/)
-    * [A SAS Macro to Generate Information Rich Kaplan-Meier Plots] (https://www.lexjansen.com/pharmasug/2018/AD/PharmaSUG-2018-AD25.pdf)
+    * [A SAS Macro to Generate Information Rich Kaplan-Meier Plots](https://www.lexjansen.com/pharmasug/2018/AD/PharmaSUG-2018-AD25.pdf)
     * [Kaplan-Meier Survival Plotting Macro %NEWSURV](http://www.sascommunity.org/wiki/Kaplan-Meier_Survival_Plotting_Macro_%25NEWSURV)
 
 Survival analysis models factors that influence the time to an event. Ordinary least squares regression methods fall short because the time to event is typically not normally distributed, and the model cannot handle censoring, very common in survival data, without modification. **Nonparametric methods** ([`PROC LIFETEST`](http://support.sas.com/documentation/cdl/en/statug/68162/HTML/default/viewer.htm#statug_lifetest_toc.htm)) provide simple and quick looks at the survival experience, and the **Cox proportional hazards regression model** ([`PROC PHREG`](http://support.sas.com/documentation/cdl/en/statug/68162/HTML/default/viewer.htm#statug_phreg_overview.htm)) remains the dominant analysis method.
