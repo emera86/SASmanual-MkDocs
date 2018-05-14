@@ -10,6 +10,7 @@ If this is your starting point with SAS programming, maybe these readings could 
 
 * [Getting Started with SAS Programming](https://support.sas.com/edu/OLTRN/ECPRG193/m411/m411_5_a_sum.htm)
 * [Working with SAS Programs](https://support.sas.com/edu/OLTRN/ECPRG193/m412/m412_3_a_sum.htm)
+* [SAS proceedings papers repository](https://www.lexjansen.com/cgi-bin/saspapers_query.php)
 * [Interesting configuration tips and tricks](http://support.sas.com/resources/papers/proceedings14/SAS331-2014.pdf)
 * Print out the available SAS packages according to your license and the expiration dates: 
 
