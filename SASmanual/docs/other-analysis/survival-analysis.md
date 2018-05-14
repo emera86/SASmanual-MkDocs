@@ -137,6 +137,21 @@ PROC SGPLOT DATA=PLE;
 RUN;
 ```
 
+## Data Preparation and Exploration
+
+### Structure of the Data
+
+To work with `PROC LIFETEST` and `PROC PHREG` for survival analysis, data can be structured in one of these 2 ways:
+
+1. **One row of data per subject**, with one outcome variable representing the time to event, one variable that codes for whether the event occurred or not (censored), and explanatory variables of interest, each with fixed values across follow up time. Both `PROC LIFETEST` and `PROC PHREG` will accept data structured this way.
+2. **Multiple rows of data per subject** (only accepted by `PROC PHREG`) following the "counting process" style of input. For each subject, the whole follow up period is partitioned into intervals, each defined by a "start" and "stop" time. Covariates are permitted to change value between intervals. Additionally, another variable counts the number of events occurring in each interval (either 0 or 1 in Cox regression, same as the censoring variable). This structuring allows the modeling of time-varying covariates, or explanatory variables whose values change across follow-up time. 
+
+Data that are structured in the first, single-row way can be modified to be structured like the second, multi-row way, but the reverse is typically not true.
+
+### Data Exploration with `PROC UNIVARIATE` and `PROC CORR`
+
+Any serious endeavor into data analysis should begin with data exploration, in which the researcher becomes familiar with the distributions and typical values of each variable individually, as well as relationships between pairs or sets of variables. Within SAS, [`PROC UNIVARIATE`]() provides easy, quick looks into the distributions of each variable, whereas [`PROC CORR`]() can be used to examine bivariate relationships.
+
 ## Nonparametric Methods ([`PROC LIFETEST`](http://support.sas.com/documentation/cdl/en/statug/68162/HTML/default/viewer.htm#statug_lifetest_toc.htm))
 
 ```
