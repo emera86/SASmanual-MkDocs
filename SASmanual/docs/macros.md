@@ -193,3 +193,4 @@ RUN;
 ## Macro's Sources
 
 * [Les macros SAS de Dominique Ladiray](http://www.unige.ch/ses/sococ/eda/sas/)
+* [Mayo Clinic: Locally written SAS macros](http://www.mayo.edu/research/departments-divisions/department-health-sciences-research/division-biomedical-statistics-informatics/software/locally-written-sas-macros)
