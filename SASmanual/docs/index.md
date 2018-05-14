@@ -10,6 +10,7 @@ Enjoy! :)
     * [Getting Started with SAS Programming](https://support.sas.com/edu/OLTRN/ECPRG193/m411/m411_5_a_sum.htm)
     * [Working with SAS Programs](https://support.sas.com/edu/OLTRN/ECPRG193/m412/m412_3_a_sum.htm)
     * [SAS proceedings papers repository](https://www.lexjansen.com/cgi-bin/saspapers_query.php)
+    * [SAS seminars by the UCLA Statistical Consulting Group](https://stats.idre.ucla.edu/other/mult-pkg/seminars/#SAS)
     * [Interesting configuration tips and tricks](http://support.sas.com/resources/papers/proceedings14/SAS331-2014.pdf)
 
 * Print out the available SAS packages according to your license and the expiration dates: 
@@ -31,8 +32,6 @@ RUN;
 * How to [compare SAS programs](http://blogs.sas.com/content/sasdummy/2015/04/03/compare-sas-programs-in-sas-enterprise-guide/) in SAS Enterprise Guide
 
 * Send an [email](http://support.sas.com/documentation/cdl/en/lestmtsref/63323/HTML/default/viewer.htm#n0ig2krarrz6vtn1aw9zzvtez4qo.htm) with some coding
-
-* [SAS seminars by the UCLA Statistical Consulting Group](https://stats.idre.ucla.edu/other/mult-pkg/seminars/#SAS)
 
 ### Shortcuts
 
