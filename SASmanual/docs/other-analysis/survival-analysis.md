@@ -43,7 +43,7 @@ Most of the time we will not know *a priori* the distribution generating our obs
 ```
 PROC UNIVARIATE DATA=SAS-data-set(WHERE=(censoring-variable=1));
 	VAR survival-time-variable;
-	HISTOGRAM survival-time-variable / kernel;
+	HISTOGRAM survival-time-variable / KERNEL;
 RUN;
 ```
 
@@ -51,7 +51,89 @@ In the graph above we see the correspondence between pdfs and histograms. Densit
 
 ### The Cumulative Distribution Function
 
-The cumulative distribution function (**cdf**), $F(t)$, describes the probability of observing Time less than or equal to some time t, or Pr(Timelet). Above we described that integrating the pdf over some range yields the probability of observing Time in that range. Thus, we define the cumulative distribution function as:
+The cumulative distribution function (**cdf**), $F(t)$, describes the probability of observing $Time$ less than or equal to some time $t$, or $Pr(Time \le t)$. Above we described that integrating the pdf over some range yields the probability of observing $Time$ in that range. Thus, we define the cumulative distribution function as:
+
+$F(t)=\int_{0}^{t}f(t)dt$
+
+The above relationship between the cdf and pdf also implies:
+
+$f(t)=\frac{dF(t)}{dt}$
+
+In SAS, we can graph an estimate of the cdf using `PROC UNIVARIATE`.
+
+```
+PROC UNIVARIATE DATA=SAS-data-set(WHERE=(censoring-variable=1));
+	VAR survival-time-variable;
+	CDFPLOT survival-time-variable;
+RUN;
+```
+
+In the graph produced with the code above we can check the probability of surviving a number of days. In intervals where event times are more probable, the cdf will increase faster.
+
+### The Survival Function
+
+A simple transformation of the cumulative distribution function produces the survival function, $S(t)$:
+
+$S(t) = 1 - F(T)$.
+
+The survivor function, $S(t)$, describes the probability of surviving past time $t$, or $Pr(Time > t)$. If we were to plot the estimate of $S(t)$, we would see that it is a reflection of $F(t)$ (about $y=0$ and shifted up by $1$). We can use `PROC LIFETEST` to graph $S(t)$.
+
+```
+PROC LIFETEST DATA=SAS-data-set(WHERE=(censoring-variable=1)) PLOTS=SURVIVAL(ATRISK);
+	TIME survival-time-variable*censoring-variable(0);
+RUN; 
+```
+
+The probability of surviving beyond a number of days according to this survival plot can be confirmed by the cdf produced above, where the probability of surviving a number of days or fewer is equivalent.
+
+### The Hazard Function
+
+The primary focus of survival analysis is typically to **model the hazard rate**, which has the following relationship with the $f(t)$ and $S(t)$:
+
+$h(t)=\frac{f(t)}{S(t)}$
+
+The hazard function, then, describes the relative likelihood of the event occurring at time $t(f(t))$, conditional on the subject’s survival up to that time $t(S(t))$. The hazard rate thus describes the instantaneous rate of failure at time $t$ and ignores the accumulation of hazard up to time $t$ (unlike $F(t)$ and $S(t)$). We can estimate the hazard function is SAS as well using `PROC LIFETEST`:
+
+```
+PROC LIFETEST DATA=SAS-data-set(WHERE=(censoring-variable=1)) PLOTS=HAZARD(BW=200); /* BW = Bandwidth*/
+	TIME survival-time-variable*censoring-variable(0);
+RUN; 
+```
+
+The plot shows the Estimated Hazard Rate which is the expected number of failures per time unit (per day in our example).
+
+### The Cumulative Hazard Function
+
+Also useful to understand is the cumulative hazard function, which as the name implies, cumulates hazards over time. It is calculated by integrating the hazard function over an interval of time:
+
+$H(t)=\int_{0}^{t}h(u)du$
+
+Let us again think of the hazard function, $h(t)$, as the rate at which failures occur at time $t$. Let us further suppose, for illustrative purposes, that the hazard rate stays constant at $\frac{x}{t}$ ($x$ number of failures per unit time $t$) over the interval $[0,t]$. Summing over the entire interval, then, we would expect to observe $x$ failures, as $\frac{x}{t} t = x$, (assuming repeated failures are possible, such that failing does not remove one from observation). One interpretation of the cumulative hazard function is thus the expected number of failures over time interval $[0,t]$. It is not at all necessary that the hazard function stay constant for the above interpretation of the cumulative hazard function to hold, but for illustrative purposes it is easier to calculate the expected number of failures since integration is not needed. Expressing the above relationship as $\frac{d}{dt}H(t)=h(t)$, we see that the hazard function describes the rate at which hazards are accumulated over time.
+
+Using the equations, $h(t)=\frac{f(t)}{S(t)}$ and $f(t)=−\frac{dS}{dt}$, we can derive the following relationships between the cumulative hazard function and the other survival functions:
+
+$S(t)=exp(-H(t))$
+$F(t)=1-exp(-H(t))$
+$f(t)=h(t) \cdot exp(-H(t))$
+
+From these equations we can see that the cumulative hazard function $H(t)$ and the survival function $S(t)$ have a simple monotonic relationship, such that when the Survival function is at its maximum at the beginning of analysis time, the cumulative hazard function is at its minimum. As time progresses, the Survival function proceeds towards it minimum, while the cumulative hazard function proceeds to its maximum. From these equations we can also see that we would expect the pdf, $f(t)$, to be high when $h(t)$ the hazard rate is high (its location depends on the study) and when the cumulative hazard $H(t)$ is low (the beginning, for all studies). In other words, we would expect to find a lot of failure times in a given time interval if 
+
+1. the hazard rate is high and 
+2. there are still a lot of subjects at-risk.
+
+We can estimate the cumulative hazard function using `PROC LIFETEST`, the results of which we send to `PROC SGPLOT` for plotting. 
+
+```
+ODS OUTPUT ProductLimitEstimates=PLE;
+
+PROC LIFETEST DATA=SAS-data-set whas500(WHERE=(censoring-variable=1)) NELSON OUTS=output-name;
+	TIME survival-time-variable*censoring-variable(0);
+RUN;
+
+PROC SGPLOT DATA=PLE;
+	SERIES x = survival-time-variable y = CumHaz;
+RUN;
+```
 
 ## Nonparametric Methods ([`PROC LIFETEST`](http://support.sas.com/documentation/cdl/en/statug/68162/HTML/default/viewer.htm#statug_lifetest_toc.htm))
 
