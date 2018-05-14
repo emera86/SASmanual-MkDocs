@@ -46,7 +46,7 @@ RUN;
 !!! tip
     If you are performing a survival analysis which only applies to part of your population but you need the probabilities to be referred to the total population just define the excluded subpopulation as having event at time = 0. This way your plot will not start at 1/0. This applies, for example, to **locoregional control time** plots on which patients without complete response are excluded (event at time = 0) and 
 
-## P-value Calculation
+### P-value Calculation
 
 We select only 2 groups from the test data set (High and Low risk):
 
