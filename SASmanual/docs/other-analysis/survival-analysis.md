@@ -33,7 +33,9 @@ Understanding the mechanics behind survival analysis is aided by facility with t
 ### The Probability Density Function
 
 Imagine we have a random variable, $Time$, which records survival times. The function that describes likelihood of observing $Time$ at time $t$ relative to all other survival times is known as the probability density function (**pdf**), or $f(t)$. Integrating the pdf over a range of survival times gives the probability of observing a survival time within that interval. For example, if the survival times were known to be exponentially distributed, then the probability of observing a survival time within the interval $\left [ a,b \right ]$ is 
+
 $Pr\left ( a \leq Time \leq b \right )=\int_{a}^{b}f(t)dt=\int_{a}^{b} \lambda e^{-\lambda t}dt$, 
+
 where $\lambda$ is the rate parameter of the exponential distribution and is equal to the reciprocal of the mean survival time.
 
 Most of the time we will not know *a priori* the distribution generating our observed survival times, but we can get and idea of what it looks like using nonparametric methods in SAS with `PROC UNIVARIATE`. 
