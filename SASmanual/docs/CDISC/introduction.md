@@ -1,6 +1,7 @@
 !!! summary "Check these websites"
     * [CDISC Official Site](https://www.cdisc.org/)
     * [CDISC Standards](https://www.cdisc.org/standards)
+    * [Macro-Supported Metadata-Driven Process for Mapping SDTM VISIT and VISITNUM](https://www.lexjansen.com/pharmasug/2018/AD/PharmaSUG-2018-AD09.pdf)
 
 ## ¿Qué es CDISC?
 
