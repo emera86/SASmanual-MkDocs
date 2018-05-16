@@ -28,7 +28,7 @@ pages:
       - 'Creating New Variables, Functions and Data Tables': 'sasvsr/variables-functions.md'
       - 'Random Number Generation and Plotting': 'sasvsr/random-plotting.md'
       - 'Descriptive Procedures, Output Delivery System and Macros': 'sasvsr/proc-ods-macros.md'
-      - 'Analyzing the Data via Inferential Procedures': 'inferential.md'
+      - 'Analyzing the Data via Inferential Procedures': 'sasvsr/inferential.md'
       - 'Interactive Matrix Language (IML)': 'sasvsr/iml.md'
       - 'A Bridge Between SAS and R': 'sasvsr/bridge.md'
     - Other Analysis:
