@@ -25,6 +25,16 @@ server <- function(input, output) {}
 shinyApp(ui = ui, server = server)
 ```
 
+## Loading Data
+
+The first step in the following example is to load the libraries and data to be used.
+
+```r
+library(shiny)
+library(ggplot2)
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_4850/datasets/movies.Rdata"))
+```
+
 ## User Interface
 
 The user interface, that we'll refer to as the UI going forward, defines and lays out the inputs of your app where users can make their selections. It also lays out the outputs.
@@ -95,7 +105,16 @@ At the outermost layer we define our **server function** which takes two argumen
 In the following example of server function has only one output, a plot, so it contains the logic necessary to build this plot. The **`renderPlot`** function specifies how the plot output should be updated through some **ggplot2** code. The definition of the variables comes from the input list that is built in the UI.
 
 ```r
-
+# Define server function required to create the scatterplot
+server <- function(input, output) {
+  
+  # Create the scatterplot object the plotOutput function is expecting
+  output$scatterplot <- renderPlot({
+    ggplot(data = movies, aes_string(x = input$x, y = input$y,
+                                     color = input$z)) +
+      geom_point()
+  })
+}
 ```
 
 There are three rules of building server functions:
@@ -109,9 +128,21 @@ Just like various inputs, Shiny also provides a wide selection of output types, 
 | `render*()` function | `*Output()` function            |
 |----------------------|---------------------------------|
 | `renderDataTable()`  | `dataTableOutput()`             |
-| `renderingImage()`   | `imageOutput()`                 |
+| `renderImage()`      | `imageOutput()`                 |
 | `renderPlot()`       | `plotOutput()`                  |
 | `renderPrint()`      | `verbatimTextOutput()`          |
 | `renderTable()`      | `tableOutput()`                 |
 | `renderText()`       | `textOutput()`                  |
 | `renderUI()`         | `uiOutput()` or `htmlOutput()`  |
+
+!!! tip
+    It's easy to build interactive applications with Shiny, but to get the most out of it, you'll need to understand the **reactive programming** scheme used by Shiny: it automatically updates outputs, such as plots, when inputs that go into them change.
+
+## Building the Shiny app object
+
+The last component of each Shiny app is a call to the application named **`shinyApp`** function, which puts the UI and the server pieces together to create a Shiny app object.
+
+```r
+# Create a Shiny app object
+shinyApp(ui = ui, server = server)
+```
