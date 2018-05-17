@@ -61,11 +61,11 @@ pages:
       - 'Working with Arrays': 'miscellanea/arrays.md'
       - 'Execution time': 'miscellanea/execution-time.md'
       - 'Patient identification': 'miscellanea/patient-identification.md'
-    - Shiny
-      - 'Introduction and Shiny basics' : '/introduction.md'
-      - 'Inputs, outputs, and rendering functions' : '/input-output.md'
-      - 'Reactive programming' : '/reactive.md'
-      - 'Customizing appearance' : '/custom.md'
+    - R with Shiny:
+      - 'Introduction and Shiny basics' : 'R-with-Shiny/introduction.md'
+      - 'Inputs, outputs, and rendering functions' : 'R-with-Shiny/input-output.md'
+      - 'Reactive programming' : 'R-with-Shiny/reactive.md'
+      - 'Customizing appearance' : 'R-with-Shiny/custom.md'
 
 extra_javascript: 
     - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
