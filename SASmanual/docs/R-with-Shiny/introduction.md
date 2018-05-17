@@ -89,3 +89,23 @@ ui <- fluidPage(
 ## Server Function
 
 The server function calculates outputs and performs any other calculations needed for the outputs.
+
+At the outermost layer we define our **server function** which takes two arguments: **an input and an output**. Both of these are named lists. The server function accesses inputs selected by the user to perform computations and specifies how outputs laid out in the UI should be updated. The server function can take on one more argument, **session**, which is an environment that can be used to access information and functionality relating to the session.
+
+In the following example of server function has only one output, a plot, so it contains the logic necessary to build this plot. The **`renderPlot`** function specifies how the plot output should be updated through some **ggplot2** code. The definition of the variables comes from the input list that is built in the UI.
+
+```r
+
+```
+
+There are three rules of building server functions:
+
+1. Always save objects to display to the named output list, in other words, something of the form `output$plot-to-display`
+2. Build objects to display with one of the render functions (`render*()`), like we built our plot with **`renderPlor`**
+3. Use input values from the named input list, with `output$plot-to-display`
+
+Just like various inputs, Shiny also provides a wide selection of output types, each of which works with a render function. 
+
+-----------------------------------------------
+| `render*()` function | `*Output()` function |
+-----------------------------------------------
