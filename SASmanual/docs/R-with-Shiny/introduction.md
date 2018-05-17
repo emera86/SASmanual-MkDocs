@@ -9,7 +9,7 @@
 1. We start by **loading any necessary packages** one of which is necessarily Shiny (we also **load the data** before the ui and server definitions so that it can be used in both)
 2. Then we lay out the **user interface** with the UI object that controls the appearance of our app 
 3. We define the **server function** that contains instructions needed to build the app
-4. We end each Shiny app script with a call to the **shinyApp()** function that puts these two components together to create the Shiny app object
+4. We end each Shiny app script with a call to the **`shinyApp()`** function that puts these two components together to create the Shiny app object
 
 ```r
 library(shiny)
@@ -29,9 +29,47 @@ shinyApp(ui = ui, server = server)
 
 The user interface, that we'll refer to as the UI going forward, defines and lays out the inputs of your app where users can make their selections. It also lays out the outputs.
 
-1. At the outermost layer of out UI definition we begin with the **fluidPage** function. This function creates a fluid page layout consisting of **rows and columns**. Rows make sure that elements in them appear on the same line and columns within these rows define how much horizontal space each element should occupy. Fluid pages scale their components in realtime to fill all available browser width, which means the app developer don't need to worry about defininf relative widths for individual app components. 
-2. We **define the layout** of our app. Shiny includes a number of options for laying out the components of an application. The **default layout is a layout with a sidebar** that you can define with the **sidebarLayout** function. Under the hood, Shiny implements layout features available in Bootstrap 2, which is a popular HTML/CSS framework, although no prior experience with Bootstrap is necessary. 
+1. At the outermost layer of out UI definition we begin with the **`fluidPage`** function. This function creates a fluid page layout consisting of **rows and columns**. Rows make sure that elements in them appear on the same line and columns within these rows define how much horizontal space each element should occupy. Fluid pages scale their components in realtime to fill all available browser width, which means the app developer don't need to worry about defininf relative widths for individual app components. 
+2. We **define the layout** of our app. Shiny includes a number of options for laying out the components of an application. The **default layout is a layout with a sidebar** that you can define with the **`sidebarLayout`** function. Under the hood, Shiny implements layout features available in Bootstrap 2, which is a popular HTML/CSS framework, so no prior experience with Bootstrap is necessary. 
 3. We define out **sidebar panel** that will contain the input controls in the following example. There are two dropdown menus created with the **`selectInput`** function.
+4. The final component of our UI is the **`mainPanel`**. In the example, the main panel contains only one component, a plot output.
+
+```r
+# Define UI for application that plots features of movies
+ui <- fluidPage(
+  
+  # Sidebar layout with a input and output definitions
+  sidebarLayout(
+    
+    # Inputs
+    sidebarPanel(
+      
+      # Select variable for y-axis
+      selectInput(inputId = "y", 
+                  label = "Y-axis:",
+                  choices = c("imdb_rating", "imdb_num_votes", "critics_score", "audience_score", "runtime"), 
+                  selected = "audience_score"),
+      
+      # Select variable for x-axis
+      selectInput(inputId = "x", 
+                  label = "X-axis:",
+                  choices = c("imdb_rating", "imdb_num_votes", "critics_score", "audience_score", "runtime"), 
+                  selected = "critics_score"),
+      
+      # Select variable for color
+      selectInput(inputId = "___", 
+                  label = "____",
+                  choices = c(___),
+                  selected = "___")
+    ),
+    
+    # Outputs
+    mainPanel(
+      plotOutput(outputId = "scatterplot")
+    )
+  )
+)
+```
 
 !!! summary "Check these websites"
     To learn more about various layouts check the [Application Layout Guide](https://shiny.rstudio.com/articles/layout-guide.html).
