@@ -1,10 +1,10 @@
-## General tips
+## General Tips
 
 * Always run the entire script, not just up to the point where you're developing code
 * Sometimes the best way to see what's wrong it is to run the app and review the error
 * Watch out for commas!
 
-## Anatomy of a Shiny app
+## Anatomy of a Shiny App
 
 1. We start by **loading any necessary packages** one of which is necessarily Shiny (we also **load the data** before the ui and server definitions so that it can be used in both)
 2. Then we lay out the **user interface** with the UI object that controls the appearance of our app
