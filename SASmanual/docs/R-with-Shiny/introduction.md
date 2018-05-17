@@ -72,7 +72,8 @@ ui <- fluidPage(
                               "MPAA rating" = "mpaa_rating", 
                               "Critics rating" = "critics_rating", 
                               "Audience rating" = "audience_rating"), 
-                  selected = "mpaa_rating"),
+                  selected = "mpaa_rating")
+    ),
     
     # Output
     mainPanel(
