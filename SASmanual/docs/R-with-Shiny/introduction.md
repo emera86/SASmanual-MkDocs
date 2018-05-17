@@ -106,13 +106,12 @@ There are three rules of building server functions:
 
 Just like various inputs, Shiny also provides a wide selection of output types, each of which works with a render function. 
 
-| `render*()` function | `*Output()` function |
-|----------------------|----------------------|
-| a                    | a                    |
-| a                    | a                    |
-| a                    | a                    |
-| a                    | a                    |
-| a                    | a                    |
-| a                    | a                    |
-| a                    | a                    |
-| a                    | a                    |
+| `render*()` function | `*Output()` function            |
+|----------------------|---------------------------------|
+| `renderDataTable()`  | `dataTableOutput()`             |
+| `renderingImage()`   | `imageOutput()`                 |
+| `renderPlot()`       | `plotOutput()`                  |
+| `renderPrint()`      | `verbatimTextOutput()`          |
+| `renderTable()`      | `tableOutput()`                 |
+| `renderText()`       | `textOutput()`                  |
+| `renderUI()`         | `uiOutput()` or `htmlOutput()`  |
