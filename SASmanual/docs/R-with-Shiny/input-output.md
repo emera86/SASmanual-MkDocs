@@ -111,3 +111,24 @@ server <- function(input, output) {
 # Create the Shiny app object
 shinyApp(ui = ui, server = server)
 ```
+
+## UI Inputs
+
+Shiny provides a wide selection of input widgets:
+
+### **`checkboxInput`**
+Add a checkbox input to specify whether the data plotted should be shown in a data table.
+
+1. **UI**: Add an input widget that the user can interact with to check/uncheck the box
+2. **UI**: Add an output defining where the data table should appear
+3. **Server**: Add a reactive expression that creates the data table *if* the checkbox is checked
+
+```r
+
+```
+
+### **` `**
+
+### **` `**
+
+### **` `**
