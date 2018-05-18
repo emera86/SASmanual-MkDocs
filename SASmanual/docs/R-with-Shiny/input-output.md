@@ -124,10 +124,122 @@ Add a checkbox input to specify whether the data plotted should be shown in a da
 3. **Server**: Add a reactive expression that creates the data table *if* the checkbox is checked
 
 ```r
+library(shiny)
+library(dplyr)
+library(DT)
 
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_4850/datasets/movies.Rdata"))
+
+n_total <- nrow(movies)
+
+# Define UI for application that plots features of movies
+ui <- fluidPage(
+  
+  # Sidebar layout with a input and output definitions
+  sidebarLayout(
+    
+    # Inputs
+    sidebarPanel(
+      
+      # Text instructions
+      HTML(paste("Enter a value between 1 and", n_total)),
+      
+      # Numeric input for sample size
+      numericInput(inputId = "n",
+                   label = "Sample size:",
+                   min = 1,
+                   max = n_total,
+                   value = 30,
+                   step = 1)
+      
+    ),
+    
+    # Output: Show data table
+    mainPanel(
+      DT::dataTableOutput(outputId = "moviestable")
+    )
+  )
+)
+
+# Define server function required to create the scatterplot
+server <- function(input, output) {
+  
+  # Create data table
+  output$moviestable <- DT::renderDataTable({
+    req(input$n)
+    movies_sample <- movies %>%
+      sample_n(input$n) %>%
+      select(title:studio)
+    DT::datatable(data = movies_sample, 
+                  options = list(pageLength = 10), 
+                  rownames = FALSE)
+  })
+  
+}
+
+# Create a Shiny app object
+shinyApp(ui = ui, server = server)
 ```
 
-### **` `**
+![checkboxInput][shiny-img/checkboxInput.png]
+
+!!! tip "The `req()` function
+    If you delete the numeric value from the checkbox, you will encounter an error: `Error: size is not a numeric or integer vector`. In order to avoid such errors, which users of your app could very easily encounter, we need to hold back the output from being calculated if the input is missing. The [`req` function](https://shiny.rstudio.com/reference/shiny/latest/req.html) is the simplest and best way to do this, it ensures that values are available ("truthy") before proceeding with a calculation or action. If any of the given values is not truthy, the operation is stopped by raising a "silent" exception (not logged by Shiny, nor displayed in the Shiny app's UI).
+
+The following app can be used to display movies from selected studios. There are 211 unique studios represented in this dataset, we need a better way to select than to scroll through such a long list, and we address that with the `selectize` option, which will suggest names of studios as you type them.
+
+```r
+library(shiny)
+library(ggplot2)
+library(dplyr)
+library(DT)
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_4850/datasets/movies.Rdata"))
+all_studios <- sort(unique(movies$studio))
+
+# UI
+ui <- fluidPage(
+    sidebarLayout(
+    
+    # Input(s)
+    sidebarPanel(
+      selectInput(inputId = "studio",
+                  label = "Select studio:",
+                  choices = all_studios,
+                  selected = "20th Century Fox",
+                  multiple = TRUE,
+                  selectize = TRUE)
+    ),
+    
+    # Output(s)
+    mainPanel(
+      DT::dataTableOutput(outputId = "moviestable")
+    )
+  )
+)
+
+# Server
+server <- function(input, output) {
+  
+  # Create data table
+  output$moviestable <- DT::renderDataTable({
+    req(input$studio)
+    movies_from_selected_studios <- movies %>%
+      filter(studio %in% input$studio) %>%
+      select(title:studio)
+    DT::datatable(data = movies_from_selected_studios, 
+                  options = list(pageLength = 10), 
+                  rownames = FALSE)
+  })
+  
+}
+
+# Create a Shiny app object
+shinyApp(ui = ui, server = server)
+```
+
+![Selecting multiple options with selectize][shiny-img/selectize-multiple.PNG]
+
+### Convert **`dateInput`** to **`dateRangeInput`** 
 
 ### **` `**
 
