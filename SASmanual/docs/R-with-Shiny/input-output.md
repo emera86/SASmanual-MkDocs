@@ -183,7 +183,7 @@ shinyApp(ui = ui, server = server)
 
 ![checkboxInput](../shiny-img/checkboxInput.png "checkboxInput")
 
-!!! tip "The `req()` function
+!!! tip "The `req()` function"
     If you delete the numeric value from the checkbox, you will encounter an error: `Error: size is not a numeric or integer vector`. In order to avoid such errors, which users of your app could very easily encounter, we need to hold back the output from being calculated if the input is missing. The [`req` function](https://shiny.rstudio.com/reference/shiny/latest/req.html) is the simplest and best way to do this, it ensures that values are available ("truthy") before proceeding with a calculation or action. If any of the given values is not truthy, the operation is stopped by raising a "silent" exception (not logged by Shiny, nor displayed in the Shiny app's UI).
 
 The following app can be used to display movies from selected studios. There are 211 unique studios represented in this dataset, we need a better way to select than to scroll through such a long list, and we address that with the `selectize` option, which will suggest names of studios as you type them.
@@ -239,7 +239,67 @@ shinyApp(ui = ui, server = server)
 
 ![Selecting multiple options with selectize](../shiny-img/selectize-multiple.png "Selecting multiple options with selectize")
 
-### Convert **`dateInput`** to **`dateRangeInput`** 
+### **`dateRangeInput`** 
+
+The following app is coded to show the selected movies between two given dates using `dateRangeInput`. This input will yield a vector (`input$date`) of length two, the first element is the start date and the second is the end date. 
+
+```r
+library(shiny)
+library(dplyr)
+library(ggplot2)
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_4850/datasets/movies.Rdata"))
+
+min_date <- min(movies$thtr_rel_date)
+max_date <- max(movies$thtr_rel_date)
+
+# UI
+ui <- fluidPage(
+    sidebarLayout(
+    
+    # Input(s)
+    sidebarPanel(
+      
+      # Explanatory text
+      HTML(paste0("Movies released between the following dates will be plotted. 
+                  Pick dates between ", min_date, " and ", max_date, ".")),
+      
+      # Break for visual separation
+      br(), br(),
+      
+      # Date input
+      dateRangeInput(inputId = "date",
+                label = "Select dates:",
+                start = "2013-01-01",
+                end= "2014-01-01",
+                startview = "year",
+                min = min_date, max = max_date)
+    ),
+    
+    # Output(s)
+    mainPanel(
+      plotOutput(outputId = "scatterplot")
+    )
+  )
+)
+
+# Server
+server <- function(input, output) {
+  
+  # Create the plot
+  output$scatterplot <- renderPlot({
+    req(input$date)
+    movies_selected_date <- movies %>%
+      filter(thtr_rel_date >= as.POSIXct(input$date[1]) & thtr_rel_date <= as.POSIXct(input$date[2]))
+    ggplot(data = movies_selected_date, aes(x = critics_score, y = audience_score, color = mpaa_rating)) +
+      geom_point()
+  })
+  
+}
+# Create a Shiny app object
+shinyApp(ui = ui, server = server)
+```
+
+![dateRangeInput](../shiny-img/dateRangeInput.png "dateRangeInput")
 
 ### **` `**
 
