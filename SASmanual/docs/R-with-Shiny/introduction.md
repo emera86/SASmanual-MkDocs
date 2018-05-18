@@ -136,7 +136,7 @@ Just like various inputs, Shiny also provides a wide selection of output types, 
 
 | `render*()` function | `*Output()` function            |
 |----------------------|---------------------------------|
-| `renderDataTable()`  | `dataTableOutput()`             |
+| `DT::renderDataTable()`  | `dataTableOutput()`             |
 | `renderImage()`      | `imageOutput()`                 |
 | `renderPlot()`       | `plotOutput()`                  |
 | `renderPrint()`      | `verbatimTextOutput()`          |
