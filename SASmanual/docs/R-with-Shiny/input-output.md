@@ -518,3 +518,215 @@ shinyApp(ui = ui, server = server)
 ```
 
 ![Hover](../shiny-img/hover.png "Hover")
+
+### **`verbatimtextOutput`**
+
+```r
+library(shiny)
+library(dplyr)
+library(ggplot2)
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_4850/datasets/movies.Rdata"))
+
+# UI
+ui <- fluidPage(
+  sidebarLayout(
+    
+    # Input(s)
+    sidebarPanel(
+      
+      # Select variable for y-axis
+      selectInput(inputId = "y",
+                  label = "Y-axis:",
+                  choices = c("imdb_rating", "imdb_num_votes", "critics_score", "audience_score", "runtime"),
+                  selected = "audience_score"),
+      
+      # Select variable for x-axis
+      selectInput(inputId = "x",
+                  label = "X-axis:",
+                  choices = c("imdb_rating", "imdb_num_votes", "critics_score", "audience_score", "runtime"),
+                  selected = "critics_score")
+      
+    ),
+    
+    # Output(s)
+    mainPanel(
+      plotOutput(outputId = "scatterplot"),
+      textOutput(outputId = "avg_x"), # avg of x
+      textOutput(outputId = "avg_y"), # avg of y
+      verbatimTextOutput(outputId = "lmoutput") # regression output
+    )
+  )
+)
+
+# Server
+server <- function(input, output) {
+  
+  # Create scatterplot
+  output$scatterplot <- renderPlot({
+    ggplot(data = movies, aes_string(x = input$x, y = input$y)) +
+      geom_point()
+  })
+  
+  # Calculate average of x
+  output$avg_x <- renderText({
+    avg_x <- movies %>% pull(input$x) %>% mean() %>% round(2)
+    paste("Average", input$x, "=", avg_x)
+  })
+  
+  # Calculate average of y
+  output$avg_y <- renderText({
+    avg_y <- movies %>% pull(input$y) %>% mean() %>% round(2)
+    paste("Average", input$y, "=", avg_y)
+  })
+  
+  # Create regression output
+  output$lmoutput <- renderPrint({
+    x <- movies %>% pull(input$x)
+    y <- movies %>% pull(input$y)
+    summ <- summary(lm(y ~ x, data = movies)) 
+    print(summ, digits = 3, signif.stars = FALSE)
+  })
+  
+}
+
+# Create a Shiny app object
+shinyApp(ui = ui, server = server)
+```
+
+![verbatimtextOutput](../shiny-img/verbatimtextOutput.png "verbatimtextOutput")
+
+### **`htmlOutput`**
+
+In the previous example the app reported averages of selected `x` and `y` variables as two separate outputs. An alternative approach would be to combine them into a single, multi-line output. For this purpose, in the next example values calculated in app chunk in the paste() command are used to create customized HTML output with specified formatting obtaining the same result.
+
+```r
+library(shiny)
+library(dplyr)
+library(ggplot2)
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_4850/datasets/movies.Rdata"))
+
+# UI
+ui <- fluidPage(
+  sidebarLayout(
+    
+    # Input(s)
+    sidebarPanel(
+      
+      # Select variable for y-axis
+      selectInput(inputId = "y",
+                  label = "Y-axis:",
+                  choices = c("imdb_rating", "imdb_num_votes", "critics_score", "audience_score", "runtime"),
+                  selected = "audience_score"),
+      
+      # Select variable for x-axis
+      selectInput(inputId = "x",
+                  label = "X-axis:",
+                  choices = c("imdb_rating", "imdb_num_votes", "critics_score", "audience_score", "runtime"),
+                  selected = "critics_score")
+      
+    ),
+    
+    # Output(s)
+    mainPanel(
+      plotOutput(outputId = "scatterplot"),
+      htmlOutput(outputId = "avgs"),
+      verbatimTextOutput(outputId = "lmoutput") # regression output
+    )
+  )
+)
+
+# Server
+server <- function(input, output) {
+  
+  # Create scatterplot
+  output$scatterplot <- renderPlot({
+    ggplot(data = movies, aes_string(x = input$x, y = input$y)) +
+      geom_point()
+  })
+  
+  # Calculate average of x
+  output$avgs <- renderUI({
+    avg_x <- movies %>% pull(input$x) %>% mean() %>% round(2)
+    str_x <- paste("Average", input$x, "=", avg_x)
+    avg_y <- movies %>% pull(input$y) %>% mean() %>% round(2)
+    str_y <- paste("Average", input$y, "=", avg_y)
+    HTML(paste(str_x, str_y, sep = '<br/>'))
+  })
+
+  # Create regression output
+  output$lmoutput <- renderPrint({
+    x <- movies %>% pull(input$x)
+    y <- movies %>% pull(input$y)
+    print(summary(lm(y ~ x, data = movies)), digits = 3, signif.stars = FALSE)
+  })
+  
+}
+
+# Create a Shiny app object
+shinyApp(ui = ui, server = server)
+```
+
+### Download data with **`downloadButton`**
+
+In this app you get to specify the file type and the variables included in the file you will download. For downloading from a Shiny app we use the `downloadHandler` function in the server and `downloadButton` or `downloadLink` function in the UI.
+
+```r
+library(shiny)
+library(dplyr)
+library(readr)
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_4850/datasets/movies.Rdata"))
+
+# UI
+ui <- fluidPage(
+  sidebarLayout(
+    
+    # Input(s)
+    sidebarPanel(
+      
+      # Select filetype
+      radioButtons(inputId = "filetype",
+                   label = "Select filetype:",
+                   choices = c("csv", "tsv"),
+                   selected = "csv"),
+      
+      # Select variables to download
+      checkboxGroupInput(inputId = "selected_var",
+                  label = "Select variables:",
+                  choices = names(movies),
+                  selected = c("title"))
+      
+    ),
+    
+    # Output(s)
+    mainPanel(
+      HTML("Select filetype and variables, then hit 'Download data'."),
+      downloadButton("download_data", "Download data")
+    )
+  )
+)
+
+# Server
+server <- function(input, output) {
+  
+  # Download file
+  output$download_data <- downloadHandler(
+    filename = function() {
+      paste0("movies.", input$filetype)
+      },
+    content = function(file) { 
+      if(input$filetype == "csv"){ 
+        write_csv(movies %>% select(input$selected_var), file) 
+        }
+      if(input$filetype == "tsv"){ 
+        write_tsv(movies %>% select(input$selected_var), file) 
+        }
+    }
+  )
+  
+}
+
+# Create a Shiny app object
+shinyApp(ui = ui, server = server)
+```
+
+![downloadButton](../shiny-img/downloadButton.png "downloadButton")
