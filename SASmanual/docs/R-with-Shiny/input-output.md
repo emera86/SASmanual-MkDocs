@@ -321,7 +321,7 @@ Add a table beneath the plot displaying summary statistics for a new variable: `
 
 ### **` `**
 
-## Recap of Output/Rendering Functions
+### Recap of Output/Rendering Functions
 
 * Shiny has a variety of `render*` functions with corresponding `*Ourput` functions to create and display outputs
 * `render*` functions can take on multiple arguments, the first being the expression for the desired output
