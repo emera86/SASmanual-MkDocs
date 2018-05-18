@@ -597,7 +597,7 @@ shinyApp(ui = ui, server = server)
 
 ### **`htmlOutput`**
 
-In the previous example the app reported averages of selected `x` and `y` variables as two separate outputs. An alternative approach would be to combine them into a single, multi-line output. For this purpose, in the next example values calculated in app chunk in the paste() command are used to create customized HTML output with specified formatting obtaining the same result.
+In the previous example the app reported averages of selected `x` and `y` variables as two separate outputs. An alternative approach would be to combine them into a single, multi-line output. For this purpose, in the next example values calculated in app chunk in the `paste()` command are used to create customized HTML output with specified formatting obtaining the same result.
 
 ```r
 library(shiny)
