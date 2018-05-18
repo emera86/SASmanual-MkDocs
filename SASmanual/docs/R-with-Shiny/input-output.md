@@ -319,7 +319,7 @@ Add a table beneath the plot displaying summary statistics for a new variable: `
 
 ```
 
-### **`renderText `**
+### **`renderText`**
 
 In this app the user selects `x` and `y` variables for the scatterplot and also a `textOutput` which prints the correlation between the two selected variables as well as some informational text.
 
@@ -376,6 +376,8 @@ server <- function(input, output) {
 # Create a Shiny app object
 shinyApp(ui = ui, server = server)
 ```
+
+![renderText](../shiny-img/renderText.png "renderText")
 
 ### Recap of Output/Rendering Functions
 
