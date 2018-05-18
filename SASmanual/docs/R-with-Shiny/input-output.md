@@ -312,11 +312,47 @@ Add a table beneath the plot displaying summary statistics for a new variable: `
 
 1. Calculate the new variable
 2. **UI**: Add an input widget that the user can interact with to check boxes for selected title types
-2. **UI**: Add an output defining where the summary table should appear
-3. **Server**: Add a reactive expression that creates the summary table
+3. **UI**: Add an output defining where the summary table should appear
+4. **Server**: Add a reactive expression that creates the summary table
 
 ```r
+(...)
 
+# Create new variable:
+# ratio of critics and audience scores
+movies <- movies %>%
+ mutate(score_ratio = audience_score / critics_score)
+ 
+(...)
+ 
+# Subset for title types
+checkboxGroupInput(inputId = "selected_title_type",
+ label = "Select title type:",
+ choices = levels(movies$title_type),
+ selected = levels(movies$title_type))
+ 
+(...)
+ 
+mainPanel(
+ # Show scatterplot
+ plotOutput(outputId = "scatterplot"),
+ # Show data table
+ tableOutput(outputId = "summarytable")
+)
+
+(...)
+
+output$summarytable <- renderTable(
+ {movies %>%
+ filter(title_type %in% input$selected_title_type) %>%
+ group_by(mpaa_rating) %>%
+ summarise(Mean = mean(score_ratio), SD = sd(score_ratio), n = n())},
+ striped = TRUE, spacing = "l", align = "lccr", digits = 4, width = "90%",
+ caption = "Score ratio (audience / critics' scores) summary statistics by
+MPAA rating."
+)
+
+(...)
 ```
 
 ### **`renderText`**
@@ -383,3 +419,102 @@ shinyApp(ui = ui, server = server)
 * Shiny has a variety of `render*` functions with corresponding `*Ourput` functions to create and display outputs
 * `render*` functions can take on multiple arguments, the first being the expression for the desired output
 * The expression in the `render*` function should be wrapped in curly braces
+
+## UI Outputs
+
+### **`plotOutput`**
+
+Select points on the plot via brushing, and report the selected points in a data table underneath the plot. Brushing means that the user will be able to draw a rectangle in the plotting area and drag it around.
+
+1. **UI**: Add functionality to `plotOutput` to select points via brushing
+2. **UI**: Add an output defining where the data table should appear
+3. **Server**: Add a reactive expression that creates the data table for the selected points
+
+```r
+(...)
+
+# Show scatterplot with brushing capability
+plotOutput(outputId = "scatterplot", brush = "plot_brush")
+
+(...)
+
+# Show data table
+DT::dataTableOutput(outputId = "moviestable")
+
+(...)
+
+ # Print data table
+ output$moviestable <- DT::renderDataTable({
+ brushedPoints(movies, input$plot_brush) %>%
+ select(title, audience_score, critics_score)
+ })
+ 
+ (...)
+```
+
+![Brush](../shiny-img/brush.png "Brush")
+
+In addition to brushing, users can also interact with plots by hovering over them as in the following example. 
+
+```r
+# Load packages
+library(shiny)
+library(ggplot2)
+library(tidyverse)
+library(DT)
+
+# Load data
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_4850/datasets/movies.Rdata"))
+
+# Define UI for application that plots features of movies
+ui <- fluidPage(
+
+  br(),
+    
+  # Sidebar layout with a input and output definitions
+  sidebarLayout(
+    # Inputs
+    sidebarPanel(
+      # Select variable for y-axis
+      selectInput(inputId = "y", label = "Y-axis:",
+                  choices = c("imdb_rating", "imdb_num_votes", "critics_score", "audience_score", "runtime"),
+                  selected = "audience_score"),
+      # Select variable for x-axis
+      selectInput(inputId = "x", label = "X-axis:",
+                  choices = c("imdb_rating", "imdb_num_votes", "critics_score", "audience_score", "runtime"),
+                  selected = "critics_score")
+    ),
+
+    # Output:
+    mainPanel(
+      # Show scatterplot with brushing capability
+      plotOutput(outputId = "scatterplot", hover = "plot_hover"),
+      # Show data table
+      dataTableOutput(outputId = "moviestable"),
+      br()
+    )
+  )
+)
+
+# Define server function required to create the scatterplot
+server <- function(input, output) {
+
+  # Create scatterplot object the plotOutput function is expecting
+  output$scatterplot <- renderPlot({
+    ggplot(data = movies, aes_string(x = input$x, y = input$y)) +
+      geom_point()
+  })
+  
+  # Create data table
+  output$moviestable <- DT::renderDataTable({
+    nearPoints(movies, input$plot_hover) %>% 
+      select(title, audience_score, critics_score)
+  })
+  
+}
+
+# Create a Shiny app object
+shinyApp(ui = ui, server = server)
+```
+
+![Hover](../shiny-img/hover.png "Hover")
