@@ -186,6 +186,8 @@ shinyApp(ui = ui, server = server)
 !!! tip "The `req()` function"
     If you delete the numeric value from the checkbox, you will encounter an error: `Error: size is not a numeric or integer vector`. In order to avoid such errors, which users of your app could very easily encounter, we need to hold back the output from being calculated if the input is missing. The [`req` function](https://shiny.rstudio.com/reference/shiny/latest/req.html) is the simplest and best way to do this, it ensures that values are available ("truthy") before proceeding with a calculation or action. If any of the given values is not truthy, the operation is stopped by raising a "silent" exception (not logged by Shiny, nor displayed in the Shiny app's UI).
 
+### **`selectInput`**: Multiple Selection 
+
 The following app can be used to display movies from selected studios. There are 211 unique studios represented in this dataset, we need a better way to select than to scroll through such a long list, and we address that with the `selectize` option, which will suggest names of studios as you type them.
 
 ```r
@@ -301,6 +303,26 @@ shinyApp(ui = ui, server = server)
 
 ![dateRangeInput](../shiny-img/dateRangeInput.png "dateRangeInput")
 
-### **` `**
+## Rendering Functions
+
+Shiny provides a wide selection of input widgets, each of which works with a render function:
+
+### **`renderTable`**
+Add a table beneath the plot displaying summary statistics for a new variable: `score_ratio = audience_score / critics_score`.
+
+1. Calculate the new variable
+2. **UI**: Add an input widget that the user can interact with to check boxes for selected title types
+2. **UI**: Add an output defining where the summary table should appear
+3. **Server**: Add a reactive expression that creates the summary table
+
+```r
+
+```
 
 ### **` `**
+
+## Recap of Output/Rendering Functions
+
+* Shiny has a variety of `render*` functions with corresponding `*Ourput` functions to create and display outputs
+* `render*` functions can take on multiple arguments, the first being the expression for the desired output
+* The expression in the `render*` function should be wrapped in curly braces
