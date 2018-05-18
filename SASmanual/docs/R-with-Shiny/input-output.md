@@ -181,7 +181,7 @@ server <- function(input, output) {
 shinyApp(ui = ui, server = server)
 ```
 
-![checkboxInput][../shiny-img/checkboxInput.png]
+![checkboxInput](../shiny-img/checkboxInput.png "checkboxInput")
 
 !!! tip "The `req()` function
     If you delete the numeric value from the checkbox, you will encounter an error: `Error: size is not a numeric or integer vector`. In order to avoid such errors, which users of your app could very easily encounter, we need to hold back the output from being calculated if the input is missing. The [`req` function](https://shiny.rstudio.com/reference/shiny/latest/req.html) is the simplest and best way to do this, it ensures that values are available ("truthy") before proceeding with a calculation or action. If any of the given values is not truthy, the operation is stopped by raising a "silent" exception (not logged by Shiny, nor displayed in the Shiny app's UI).
@@ -237,7 +237,7 @@ server <- function(input, output) {
 shinyApp(ui = ui, server = server)
 ```
 
-![Selecting multiple options with selectize][../shiny-img/selectize-multiple.PNG]
+![Selecting multiple options with selectize](../shiny-img/selectize-multiple.png "Selecting multiple options with selectize")
 
 ### Convert **`dateInput`** to **`dateRangeInput`** 
 
