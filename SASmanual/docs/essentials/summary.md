@@ -116,6 +116,17 @@ Format options:
 ![Descriptive statistics](../images/descriptive_statistics.PNG "Descriptive statistics")
 ![Quantile statistics](../images/quantile_statistics.PNG "Quantile statistics")
 
+!!! note "Sums and counts by group"
+    ```
+    ODS EXCLUDE ALL;
+    PROC MEANS DATA=SAS-data-set SUM;
+      CLASS classification-variable;
+      VAR var1 var2 var3 var4;
+      ODS OUTPUT SUMMARY=name-output-data-set;
+    RUN;
+    ODS EXCLUDE NONE;
+    ```
+
 ## How to Use these Procedures for Data Validation
 
 ### `PROC FREQ`
