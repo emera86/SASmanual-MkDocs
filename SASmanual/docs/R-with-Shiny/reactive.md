@@ -355,6 +355,8 @@ output$scatterplot <- renderPlot({
 })
 ```
 
+`isolate()` is then used to stop a reaction.
+
 ### Triggering Reactions
 
 Why might one want to explicitly trigger a reaction? Somethimes you might want to wait for a specific action to be taken from the user, like clicking an `actionButton`, before calculating an expression or taking an action. A reactive value or expression that is used to trigger other calculations in this way is called an **event**. 
@@ -400,4 +402,4 @@ movies_sample <- eventReactive(input$get_new_sample, {
 * `observeEvent()` is to perform an action in response to an event
 * `eventReactive()` is used to create a calculated value that only updates in response to an event
 
-This pair of functions also seem similar to the observe/reactive pair, however, the main differences between them is that `observe()` and `reactive()` functions automatically trigger on whatever they access while `observeEvent()` and `eventReactive()` functions need to be explicitly told what triggers them
+This pair of functions also seem similar to the observe/reactive pair, however, the main differences between them is that `observe()` and `reactive()` functions automatically trigger on whatever they access while `observeEvent()` and `eventReactive()` functions need to be explicitly told what triggers them.
