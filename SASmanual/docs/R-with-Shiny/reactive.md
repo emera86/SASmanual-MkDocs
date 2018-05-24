@@ -340,3 +340,64 @@ Here we discuss implementations of the three different types of reactive objects
 |------------------|------------------|-----------------|
 | **Purpose**      | Calculations     | Actions         |
 | **Side effects** | Forbidden        | Allowed         |
+
+## Stop-Trigger-Delay 
+
+### Isolating Reactions
+
+Suppose your app has an input widget where users can enter text for the title of the plot. However, you only want the title to update if any ot the other inputs that go into the plot change. You can achieve this by isolating the plot title such that when `input$x` or `input$y` changes, the plot, along with the title, will update. But when only the title input changes, the plot will not update.
+
+```r
+output$scatterplot <- renderPlot({
+  ggplot(data = movies_subset(), aes_string(x = input$x, y = input$y)) + 
+  geom_point() +
+  labs(title = isolate({ input$plot_title }) )
+})
+```
+
+### Triggering Reactions
+
+Why might one want to explicitly trigger a reaction? Somethimes you might want to wait for a specific action to be taken from the user, like clicking an `actionButton`, before calculating an expression or taking an action. A reactive value or expression that is used to trigger other calculations in this way is called an **event**. 
+
+These events can be the **first argument** in the `observeEvent` function. This arguments can be a simple reactive value like an input, a call to a reactive expression, or a complex expresion provided wrapped in curly braces. The **second argument** is the expression to call whenever the first argument is invalidated. This is similar to saying if event expression happens, call handler expression.
+
+```r
+observeEvent(eventExpr, handlerExpr, ...)
+```
+
+Suppose your app allows for taking a random sample of the data based on a sample size numeric input. Suppose also that you want to add functionality for the userd to download the random sample they generated *if* they press an action button requesting to do so. In the UI we create an action button and in the server we condition the `observeEvent` on the `inputId` of that action button. This way R knows to call the expression given in the second argument of `observeEvent` when the user presses the action button. And finally we can delay reactions with `eventReactive`, which takes similar arguments as `observeEvent`.
+
+```r
+# UI
+actionButton(inputId = "write_csv", label = "Write CSV")
+
+# Server
+observeEvent(input$write_csv, {
+            filename <- paste0("movies_",
+                               str_replace_all(Sys.time(), ":|\ ", "_"),
+                               ".csv")
+            write_csv(movies_sample(), path = filename)
+            }
+```
+
+Suppose your goal is to change how users take random samples in your app (you only want them to get a new sample when an action button that says "get new sample" is pressed, not when other things like numeric input defining the size of the sample changes). In the event reactive function, the first argument is the input associated with the action button and the second argument is the sampling code. Then we add one more argument, `ignoreNull`, which tells R what to do (or what not to do) when the event expression evaluates to Null. For example, what should the app do when the app is first launched and the user has not even interacted with the app yet? If this is set to FALSE, the app will initially perform the action or calculation and then the user can re-initiate it.
+
+```r
+# UI
+actionButton(inputId = "get_new_sample", label = "Get new sample")
+
+# Server
+movies_sample <- eventReactive(input$get_new_sample, {
+            req(input$n_samp)
+            sample_n(movies_subset(), input$n_samp)
+            },
+            ignoreNULL = FALSE
+)
+```
+
+`observeEvent()` and `eventReactive()` look and feel very similar. They have the same syntax, same arguments, but they're actually not the same at all!
+
+* `observeEvent()` is to perform an action in response to an event
+* `eventReactive()` is used to create a calculated value that only updates in response to an event
+
+This pair of functions also seem similar to the observe/reactive pair, however, the main differences between them is that `observe()` and `reactive()` functions automatically trigger on whatever they access while `observeEvent()` and `eventReactive()` functions need to be explicitly told what triggers them
