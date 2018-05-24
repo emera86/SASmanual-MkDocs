@@ -589,4 +589,4 @@ server <- function(input, output, session) {
 shinyApp(ui = ui, server = server)
 ```
 
-![eventReactive](../shiny-img/eventReactive.png "eventReactive")
+![eventReactive](../shiny-img/eventReactive.PNG "eventReactive")
