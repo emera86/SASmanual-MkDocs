@@ -316,8 +316,13 @@ Here we discuss implementations of the three different types of reactive objects
 
 ![Reactive Flow](../shiny-img/reactive-flow.PNG "Reactive Flow")
 
-### Implementation of Reactive Sources
+* **Implementation of Reactive Sources**: An implementation of reactive sources is **`reactiveValues()`**. One example of this is user inputs. The input object is a reactive value that looks like a list and contains many individual reactive values that are set by input from the web browser.
+* **Implementation of Reactive**: The implementation of reactive conductors is a **`reactive()`** expression that you can create with the reactive function. An example is the reactive data frame subsets created in the previous example. 
+    * Reactive expressions can access reactive values or other reactive expressions and they return a value. 
+    * They are useful for caching the results of any procedure that happens in response to user input.
+* **Implementation of Reactive**: The implementation of reactive endpoints is **`observe()`**. For example, an output object is a reactive observer. Actually, under the hood, a render function returns a reactive expression, and when you assing this reactive expression to an output value, Shiny automatically creates an observer that uses the reactive expression. 
+    * Observers can access reactive sources and reactive expressions, but they don't return a value.
+    * Instead they are used for their side effects, which typically involves sending data to the web browser.
 
-### Implementation of Reactive 
+### Reactives vs Observers
 
-### Implementation of Reactive 
