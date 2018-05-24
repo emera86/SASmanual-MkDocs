@@ -6,46 +6,79 @@ There are three kinds of objects in reactive programming:
 * **Reactive Endpoints**: something that appears in the user's browser window, such as a plot or a table of values. A reactive source can be connected to multiple endpoints, and vice versa.
 * **Reactive Conductors**: reactive component between a source and an endpoint. It can be a dependetn (child) and have dependents (parent) while **sources can only be parents** and **endpoints can only be children**
 
-We can create a reactive data set using the **`reactive()`** function which creates a **cached expression** that knows it is out of date when input changes as in the following example:
+We can create a reactive data set using the **`reactive()`** function which creates a **cached expression** that knows it is out of date when input changes. Remember to check the availability of the predefined input with the `req()` function before doing any calculations that depends on it and surround the expression with curly braces. When you refer to a reactive data set you need to use parentheses after its name, that is, a cached expression, meaning that it only rerun when its inputs change.
 
 ```r
-# Create a subset fo data filtering
+library(shiny)
+library(dplyr)
+library(readr)
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_4850/datasets/movies.Rdata"))
 
-movies_subset <- reactive({
-  req(input$selected_type)
-  filter(movies, title_type %in% input$selected_type)
-})
-```
-
-Before we do any calculations that depends on a predefined input, we check its availability with the `req()` function and we surround the expression with curly braces.
-
-When you refer to a reactive data set you need to use parentheses after its name, that is, a cached expression, meaning that it only rerun when its inputs change.
-
-```r
-mainPanel(
-(...)
-# Print number of obs plotted
-uiOutput(outputID = "n"),
-(...)
+# UI
+ui <- fluidPage(
+  sidebarLayout(
+    
+    # Input(s)
+    sidebarPanel(
+      
+      # Select filetype
+      radioButtons(inputId = "filetype",
+                   label = "Select filetype:",
+                   choices = c("csv", "tsv"),
+                   selected = "csv"),
+      
+      # Select variables to download
+      checkboxGroupInput(inputId = "selected_var",
+                         label = "Select variables:",
+                         choices = names(movies),
+                         selected = c("title"))
+      
+    ),
+    
+    # Output(s)
+    mainPanel(
+      DT::dataTableOutput(outputId = "moviestable"),
+      downloadButton("download_data", "Download data")
+    )
+  )
 )
 
-(...)
-# Create scatterplot
+# Server
+server <- function(input, output) {
+  
+  # Create reactive data frame
+  movies_selected <- reactive({
+    req(input$selected_var)
+    movies %>% select(input$selected_var)
+  })
+  
+  # Create data table
+  output$moviestable <- DT::renderDataTable({
+    req(input$selected_var)
+    DT::datatable(data = movies_selected(), 
+                  options = list(pageLength = 10), 
+                  rownames = FALSE)
+  })
+  
+  # Download file
+  output$download_data <- downloadHandler(
+    filename = function() {
+      paste0("movies.", input$filetype)
+    },
+    content = function(file) { 
+      if(input$filetype == "csv"){ 
+        write_csv(movies_selected(), file) 
+      }
+      if(input$filetype == "tsv"){ 
+        write_tsv(movies_selected(), file) 
+      }
+    }
+  )
+  
+}
 
-output$scatterplot <- renderPlot({
-  ggplot(data = movies_subset(),
-    aes_string(x = input$x, y = input$y)) + geom_point()
-})
-
-# Server - Print number of movies selected
-
-output$n <- renderUI({
-  HTML(paste0("The plot displays the relationship between the <br>
-              audience and critics' scores of <br>",
-              nrow(movies_subset()),
-              " <b>", input$selected_type, "</b> movies."))
-})
-(...)
+# Create a Shiny app object
+shinyApp(ui = ui, server = server)
 ```
 
 !!! tip
