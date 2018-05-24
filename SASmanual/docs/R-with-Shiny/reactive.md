@@ -83,4 +83,21 @@ shinyApp(ui = ui, server = server)
 
 !!! tip
     The obvious choice for creating a text output would be `renderText` but if you want to get a little fancier including some HTML to use some text decoration, like bolding and line breaks in the text output, we need a rendering function that generates HTML, which is `renderUI`.
+    
+![reactive-data-set](../shiny-img/reactive-data-set.png "Reactive data set")
 
+## Why Using Reactives?
+
+By using a reactive expression for the subsetted data frame, we were able to get away with subsetting once and then using the result twice.
+
+In general, reactive conductors let you not repeat yourself (i.e. avoid copy-and-paste code) and decompose large, complex calculations into smaller pieces to make them more understandable. This benefits are similar to decomposing a large complex R script into a series of small functions that build on each other.
+
+### Functions vs Reactives
+
+Each time you call a function, R will revaluate it. However, reactive expressions are lazy, they only get executed when their input changes. This means that even if you call a reactive expression multiple times, it only re-executes when its input(s) change(s).
+
+Using many reactive expressions in your app can create a complicated dependency structure. The **`reactlog`** is a graphical representation of this dependency structure, and it also gives you very detailed information about what's happening under the hood as Shiny evaluates your application. To view the **`reactlog`**:
+
+* In a fresh R session and run `options(shiny.reactlog = TRUE)` 
+* Then, launch your app as you normally would
+* In the app, pres **Ctrl+F3**
