@@ -326,3 +326,17 @@ Here we discuss implementations of the three different types of reactive objects
 
 ### Reactives vs Observers
 
+* Similarities: they both store expressions that can be executed
+* Differences:
+    * Reactive expressions return values, but observers don't
+    * Observers (and endpoints in general) eagerly respond to changes in their dependences, but reactive expressions (and conductors in general) do not
+    * Reactive expressions must not have side effects, while observers are only useful for their side effects
+* Most importantly:
+    * The **`reactive()`** function is used when calculating values, without side effects
+    * The **`observe()`** function is used to perform actions, with side effects
+    * Do not use an **`observe()`** function when calculating a value, and especially don't use **`reactive()`** for performing actions with side effects
+    
+|---------------|--------------|--------------|
+|               | **`reactive()`** | **`observe()`** |
+| **Purpose** | Calculations | Actions |
+| **Side effects** | Forbidden | Allowed |
