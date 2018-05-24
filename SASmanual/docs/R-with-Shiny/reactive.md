@@ -205,4 +205,4 @@ server <- function(input, output) {
 shinyApp(ui = ui, server = server)
 ```
 
-![Reactive Elements](../shiny-img/reactive-elements.png "Reactive Elements")
+![Reactive Elements](../shiny-img/reactive-elements.PNG "Reactive Elements")
