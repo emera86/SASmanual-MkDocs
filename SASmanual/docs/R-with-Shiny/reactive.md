@@ -183,7 +183,6 @@ server <- function(input, output) {
   
   # Convert plot_title toTitleCase
   pretty_plot_title <- reactive({
-    req(input$plot_title)
     toTitleCase(input$plot_title)
   })
   
@@ -205,3 +204,5 @@ server <- function(input, output) {
 # Create the Shiny app object
 shinyApp(ui = ui, server = server)
 ```
+
+![Reactive Elements](../shiny-img/reactive-elements.png "Reactive Elements")
