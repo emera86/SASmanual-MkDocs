@@ -489,4 +489,4 @@ server <- function(input, output, session) {
 shinyApp(ui = ui, server = server)
 ```
 
-![Isolate](../shiny-img/isolate.PNG "Isolate")
+![Isolate](../shiny-img/isolate.png "Isolate")
