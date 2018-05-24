@@ -336,7 +336,8 @@ Here we discuss implementations of the three different types of reactive objects
     * The **`observe()`** function is used to perform actions, with side effects
     * Do not use an **`observe()`** function when calculating a value, and especially don't use **`reactive()`** for performing actions with side effects
     
-|---------------|--------------|--------------|
+
 |               | **`reactive()`** | **`observe()`** |
+|---------------|--------------|--------------|
 | **Purpose** | Calculations | Actions |
 | **Side effects** | Forbidden | Allowed |
