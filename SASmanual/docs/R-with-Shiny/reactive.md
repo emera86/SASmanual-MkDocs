@@ -590,3 +590,11 @@ shinyApp(ui = ui, server = server)
 ```
 
 ![eventReactive](../shiny-img/eventReactive.png "eventReactive")
+
+In the following example, `observeEvent()` is used to make things happen when an action button is clicked: a message is printed to the console stating how many records are shown and a table is generated with those records.
+
+```r
+
+```
+
+![observeEvent](../shiny-img/observeEvent.png "observeEvent")
