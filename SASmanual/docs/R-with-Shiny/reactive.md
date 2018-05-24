@@ -403,3 +403,90 @@ movies_sample <- eventReactive(input$get_new_sample, {
 * `eventReactive()` is used to create a calculated value that only updates in response to an event
 
 This pair of functions also seem similar to the observe/reactive pair, however, the main differences between them is that `observe()` and `reactive()` functions automatically trigger on whatever they access while `observeEvent()` and `eventReactive()` functions need to be explicitly told what triggers them.
+
+```r
+library(shiny)
+library(ggplot2)
+library(tools)
+load(url("http://s3.amazonaws.com/assets.datacamp.com/production/course_4850/datasets/movies.Rdata"))
+
+# UI
+ui <- fluidPage(
+  sidebarLayout(
+    
+    # Input
+    sidebarPanel(
+      
+      # Select variable for y-axis
+      selectInput(inputId = "y", 
+                  label = "Y-axis:",
+                  choices = c("IMDB rating" = "imdb_rating", 
+                              "IMDB number of votes" = "imdb_num_votes", 
+                              "Critics Score" = "critics_score", 
+                              "Audience Score" = "audience_score", 
+                              "Runtime" = "runtime"), 
+                  selected = "audience_score"),
+      
+      # Select variable for x-axis
+      selectInput(inputId = "x", 
+                  label = "X-axis:",
+                  choices = c("IMDB rating" = "imdb_rating", 
+                              "IMDB number of votes" = "imdb_num_votes", 
+                              "Critics Score" = "critics_score", 
+                              "Audience Score" = "audience_score", 
+                              "Runtime" = "runtime"), 
+                  selected = "critics_score"),
+      
+      # Select variable for color
+      selectInput(inputId = "z", 
+                  label = "Color by:",
+                  choices = c("Title Type" = "title_type", 
+                              "Genre" = "genre", 
+                              "MPAA Rating" = "mpaa_rating", 
+                              "Critics Rating" = "critics_rating", 
+                              "Audience Rating" = "audience_rating"),
+                  selected = "mpaa_rating"),
+      
+      # Set alpha level
+      sliderInput(inputId = "alpha", 
+                  label = "Alpha:", 
+                  min = 0, max = 1, 
+                  value = 0.5),
+      
+      # Set point size
+      sliderInput(inputId = "size", 
+                  label = "Size:", 
+                  min = 0, max = 5, 
+                  value = 2),
+      
+      # Enter text for plot title
+      textInput(inputId = "plot_title", 
+                label = "Plot title", 
+                placeholder = "Enter text to be used as plot title")
+
+    ),
+    
+    # Output:
+    mainPanel(
+      plotOutput(outputId = "scatterplot")
+    )
+  )
+)
+
+# Define server function required to create the scatterplot-
+server <- function(input, output, session) {
+  
+  # Create scatterplot object the plotOutput function is expecting 
+  output$scatterplot <- renderPlot({
+    ggplot(data = movies, aes_string(x = input$x, y = input$y, color = input$z)) +
+      geom_point(alpha = input$alpha, size = input$size) +
+      labs(title = isolate({toTitleCase(input$plot_title)}) )
+  })
+  
+}
+
+# Create a Shiny app object
+shinyApp(ui = ui, server = server)
+```
+
+![Isolate](../shiny-img/isolate.PNG "Isolate")
