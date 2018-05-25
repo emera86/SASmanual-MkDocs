@@ -645,3 +645,33 @@ shinyApp(ui = ui, server = server)
 ```
 
 ![observeEvent](../shiny-img/observeEvent.png "observeEvent")
+
+## Reactivity Summary
+
+1. Reactives are equivalent to no argument functions. Think about them as functions, think about them as variables that can depend on user input and other reactives.
+2. Reactives are for reactive values and expressions, observers are for their side effects.
+3. Do not define a `reactive()` inside a `render*()` function.
+4. Be careful with missing parentheses when calling reactive expressions.
+
+````r
+library(shiny)
+
+ui <- fluidPage(
+  titlePanel("Add 2"),
+  sidebarLayout(
+    sidebarPanel( sliderInput("x", "Select x", min = 1, max = 50, value = 30) ),
+    mainPanel( textOutput("x_updated") )
+  )
+)
+
+add_2 <- function(x) { x + 2 }
+
+server <- function(input, output) {
+  current_x        <- reactive({add_2(input$x)})
+  output$x_updated <- renderText({ current_x() })
+}
+
+shinyApp(ui, server)
+```
+
+![Addition](../shiny-img/addition.png "Addition")
