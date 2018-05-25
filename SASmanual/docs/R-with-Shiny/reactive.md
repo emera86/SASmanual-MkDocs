@@ -674,4 +674,4 @@ server <- function(input, output) {
 shinyApp(ui, server)
 ```
 
-![Addition](../shiny-img/addition.png "Addition")
+![Addition](../shiny-img/addition.PNG "Addition")
