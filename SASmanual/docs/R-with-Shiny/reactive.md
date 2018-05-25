@@ -653,7 +653,7 @@ shinyApp(ui = ui, server = server)
 3. Do not define a `reactive()` inside a `render*()` function.
 4. Be careful with missing parentheses when calling reactive expressions.
 
-````r
+```r
 library(shiny)
 
 ui <- fluidPage(
