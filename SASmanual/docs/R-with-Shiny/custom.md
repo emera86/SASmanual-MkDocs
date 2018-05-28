@@ -181,4 +181,4 @@ server <- function(input, output, session) {
 shinyApp(ui = ui, server = server)
 ```
 
-![HTML tags](../shiny-img/htmltags.PNG "HTML tags")
+![HTML tags](../shiny-img/htmltags.png "HTML tags")
