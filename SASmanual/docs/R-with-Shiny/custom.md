@@ -180,3 +180,5 @@ server <- function(input, output, session) {
 # Create Shiny app object
 shinyApp(ui = ui, server = server)
 ```
+
+![HTML tags](../shiny-img/htmltags.PNG "HTML tags")
