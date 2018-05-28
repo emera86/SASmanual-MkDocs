@@ -373,7 +373,7 @@ To ease the interpretation of the classification variable levels, text labels ca
 
 Appliying a format requires a change in the `PROC LOGISTIC` step. In the `CLASS` statement when you use the `REF=` option with a variable that has either a temporary or a permanent format assigned to it, you must **specify the formatted value of the level instead of the stored value**.
 
-### Interaction betweeen Variables
+### Interaction between Variables
 
 When you fit a multiple logistic regression model, the simplest approach is to consider only the main effects (each predictor individually) on the response. In other words, this approach assumes that each variable has the same effect on the outcome regardless of the levels of the other variables. However, sometimes the effect of one variable on the outcome depends on the observed level of another variable. When this happens, we say that **there is an interaction**.
 
