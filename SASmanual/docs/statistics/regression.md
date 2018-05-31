@@ -199,9 +199,7 @@ Clearly the `PROC GLM` contour fit plot is **more useful**. However, if you do n
 
 The brute force approach to find a good model is to start including all the predictor variables available and rerun the model **removing the least significant remaining term** each time **until** you're left with a model where **only significant terms remain**. With a small number of predictor variables a manual approach isn't too difficult but with a large number of predictor variables it's very tedious. Fortunately, if you specify the model selection technique to use, SAS finds good candidate models in an automatic way.
 
----
-
-***All-possible regression methods***
+### All-possible regression methods
 
 SAS computes all possible models and ranks the results. Then, to evaluate the models, you compare statistics side by side ($R^2$, adjusted $R^2$ and $C_p$ statistic).
 
@@ -226,9 +224,7 @@ QUIT;
 
 Each **star** represents the **best model** for a given number of parameters. The solid **blue line** represents **Mallows' criterion** for $C_p$, so using this line helps us find a good candidate model for prediction. Because we want the **smallest model possible**, we start at the left side of the graph, with the fewest number of parameters moving to the right until we find the **first model that falls below the solid blue line**. To find models for parameter estimation we have to look for models that falls below the **red solid line** which represent the **Hocking's criterion** for $C_p$ parameter estimation. If we hover over the star, we can see which variables are included in this model.
 
----
-
-***Stepwise selection methods***
+### Stepwise selection methods
 
 Here you choose a selection method (**stepwise**, **forward** or **backward** approaches) and SAS constructs a model based on that method. When you have a **large number of potential predictor variables**, the stepwise regression methods might be a better option. You can use either the **REG** procedure or the **GLMSELECT** procedure to perform stepwise selection methods
 
@@ -254,6 +250,17 @@ How can you **avoid these issues**?
 
 * You can hold out some of your data in order to perform an honest assessment of how well your model performs on a different sample of data (**holdout/validation data**) than you use to develop the model (**training data**)
 * Other honest assessment approaches include **cross-validation** (if your data set is not large enough to split) or **bootstraping** (a resampling method that tries to approximate the distribution of the parameter estimates to estimate the standard error and p-values)
+
+### Using Lasso for Predictor Selection
+
+The most widely researched and implemented modern method is the **least absolute shrinkage and selection operator (Lasso)**, which fits within the broader **least angle regression framework (LARS)** that can estimate Lasso with the computational complexity of ordinary least squares (OLS). Despite the overwhelming support for modern methods like Lasso in the statistical literature, **more traditional methods such as p values or automatic selection methods such as forward, backward, or stepwise selection are still widely used** even though short-comings of these methods have been disseminated for over a decade.
+
+When fitting any type of regression model, random noise can become entangled with signal, especially with small or moderate sample sizes. This can lead to estimates that overstate the impact of particular predictor variables and attribute more predictive power to the model than is present in the population. When this occurs, the model is said to be **overfit** with the consequence that **regression coefficients have inflated magnitude, standard errors are underestimated, p values are consequently too small, $R^2$ values are consequently too large compared to their population values**, and the model is not parsimonious because extraneous predictors may be seen as important.
+
+!!! tip 
+    A widely quoted rule is that [you need 10 or 15 observations per independent variable](https://en.wikipedia.org/wiki/One_in_ten_rule) in a regression model.
+    To avoid over-fitting in a binary logistic regression model, you need to focus on the number of events per variable (EPV), not the total number of cases (i.e. events plus non-events). An event is defined as the outcome category (0 or 1) with the lower frequency. For example, if a sample of 200 patients are studied and 180 patients die during the study (so that 20 patients survive), only two pre-specified predictors can reliably be fitted to the total data. Similarly, if 120 patients die during the study (so that 80 patients survive), eight pre-specified predictors (based on the smallest of the two counts, being 80) can be fitted reliably. If more are fitted, overfitting is likely and the results will not predict well outside the training data. Sometimes this rule is too conservative and [can be relaxed](https://doi.org/10.1093/aje/kwk052).
+    Notice that having a sample size large enough to avoid over-fitting is not the same thing as having a sample size large enough to ensure adequate power. That's a separate issue.
 
 ### `PROC GLMSELECT`
 
