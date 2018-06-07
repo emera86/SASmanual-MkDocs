@@ -89,6 +89,27 @@ run;
 
 ![Example of cell's style based on value](../images/proc-report-style-cell.png "Example of cell's style based on value")
 
+### Control Output Table Width
+
+If the margins of the page are defined
+
+```
+options topmargin=.98in bottommargin=.98in leftmargin=1.18in rightmargin=.98in;
+```
+
+and you 
+
+```
+proc report data=LEDDall2report_ago split='*' nowd colwidth=10 headline headskip missing spanrows style(report)={width=100%};
+			column ("Dosis equivalente de levodopa diaria y número de fármacos de agonistas dopaminérgicos: descripción del cambio respecto a basal" ind texto param grupo1 grupo2 grupo3 grupo4 pvalor flag flag2);
+			define ind / order noprint;
+			define texto / '' style(column)=[width=7%];
+			define param / '' style(column)=[width=5%];
+			define grupo1 / "Visita 1 * (N=59)" style(column)=[width=5%];
+			(...)
+run;
+``` 
+
 ### Introducing Line Breaks
 
 ```
