@@ -25,7 +25,7 @@ The `LAR` algorithm starts with no predictors in the model and adds a predictor 
 * LASSO multiple regression with LARS algorithm k=10 fold validation;
 PROG GLMSELECT DATA=SAS-data-set PLOTS=ALL SEED=12345;
   PARTITION ROLE=selected(train='1' test='0');
-  MODEL response = predictor1 predictor2 ... predictorN / SELECTION = LAR(CHOOSE=CV STOP=NONE) CVMETHOD=RANDOM(10);
+  MODEL response=predictor1 predictor2 ... predictorN / SELECTION=LAR(CHOOSE=CV STOP=NONE) CVMETHOD=RANDOM(10);
 RUN;
 ```
 
