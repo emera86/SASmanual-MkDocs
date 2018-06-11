@@ -1,7 +1,7 @@
 ## Penalized Regression Methods for Linear Models
 
 ### Least Absolute Selection Shrinkage Operator (LASSO)
-Lasso regression is what is called the Penalized regression method, often used in machine learning to select the subset of variables. It is a supervised machine learning method. Specifically, `LASSO` is a Shrinkage and Variable Selection method for linear regression models. 
+Lasso regression is what is called the Penalized regression method, often used in machine learning to select the subset of variables. It is a supervised machine learning method. Specifically, `LASSO` is a **Shrinkage and Variable Selection method for linear regression models**. 
 
 The `LASSO` algorithm **imposes a constraint on the sum of the absolute values of the model parameters**, where the sum has a specified constant as an upper bound. This constraint **causes regression coefficients for some variables to shrink towards zero** allowing for a better interpretation of the model and to identifiying the variables most strongly associated with the response variable by obtaining the subset of predictors that minimizes prediction error. 
 
@@ -17,3 +17,15 @@ Although Lasso Regression models can handle categorical variables with more than
 ### Least Angle Regression (LAR)
 
 The `LAR` algorithm starts with no predictors in the model and adds a predictor at each step. It first adds a predictor that is most correlated with the response variable and moves it towards least square estimate, until there is another predictor that is equally correlated with the model residual. It adds this predictor to the model and starts the least square estimation process over again, with both variables. The `LAR` algorithm continues with this process until it has tested all the predictors.
+
+### Code Example
+
+```
+* LASSO multiple regression with LARS algorithm k=10 fold validation;
+PROG GLMSELECT DATA=SAS-data-set PLOTS=ALL SEED=12345;
+  PARTITION ROLE=SELECTED(train='1' test='0');
+  MODEL response = predictor1 predictor2 ... predictorN / SELECTION = LAR(CHOOSE=CV STOP=NONE) CVMETHOD=RANDOM(10);
+RUN;
+```
+
+### `LASSO` Regression Limitations
