@@ -1,3 +1,8 @@
+!!! note "Check these websites"
+    * [The GLMSELECT Procedure](https://support.sas.com/documentation/onlinedoc/stat/141/glmselect.pdf)
+    * [Introducing the GLMSELECT Procedure for Model Selection](http://www2.sas.com/proceedings/sugi31/207-31.pdf)
+    * [Penalized Regression Methods for Linear Models in SAS](https://support.sas.com/rnd/app/stat/papers/2015/PenalizedRegression_LinearModels.pdf)
+
 ## Traditional Model Selection Algoritms
 
 The `GLMSELECT` procedure extends the familiar forward, backward, and stepwise methods as implemented in the `REG` procedure to GLM-type models. Quite simply, `FORWARD` selection adds parameters one at a time, `BACKWARD` elimination deletes them, and `STEPWISE` selection switches between adding and deleting them.
