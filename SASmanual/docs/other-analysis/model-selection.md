@@ -19,7 +19,7 @@ Although `LASSO` regression models can handle categorical variables with more th
 
 The `LAR` algorithm starts with no predictors in the model and adds a predictor at each step. It first adds a predictor that is most correlated with the response variable and moves it towards least square estimate, until there is another predictor that is equally correlated with the model residual. It adds this predictor to the model and starts the least square estimation process over again, with both variables. The `LAR` algorithm continues with this process until it has tested all the predictors. Parameter estimates at any step are shrunk and predictors with coefficients that are shrunk to zero are removed from the model so the process starts all over again. 
 
-### Code Example
+### Code Examples
 
 ```
 * LASSO multiple regression with LARS algorithm k=10 fold validation;
@@ -53,3 +53,15 @@ As with any statistical methods, the `LASSO` regression has some limitations.
 5. There's no guarantee that the model selected by the `LASSO` regression will not be overfitted or the best model. 
 
 If you find yourself in a position which you have a large number of potential predictors of a response variable, what do you do? The best solution may be **a combination of machine learning, human intervention, and independent application**. 
+
+## Model Selection Algorithms Pros and Cons
+
+Note that while the model selection question seems reasonable, trying to answer it for real data can lead to problematic pitfalls, including
+
+* The selected model is not guaranteed to be the "best"; there may be other, more parsimonious or more intuitively reasonable models that may provide nearly as good or even better models, but which the particular heuristic method employed does not find
+* Model selection may be unduly affected by outliers
+* There is a "selection bias" because a parameter is more likely to be selected if it is above its expected value than if it is below its expected value
+* Standard methods of inference for the final model are invalid in the model selection context
+
+However, certain features of `GLMSELECT`, in particular the procedure’s [extensive capabilities for customizing the selection and its flexibility and power in specifying complex potential effects](http://www2.sas.com/proceedings/sugi31/207-31.pdf), can partially mitigate these problems.
+
