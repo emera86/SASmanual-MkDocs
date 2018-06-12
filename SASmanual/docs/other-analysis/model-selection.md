@@ -8,12 +8,40 @@ It is important to keep in mind that forward selection bases the decision about 
 
 Note that in the case where all effects are variables (that is, effects with one degree of freedom and no hierarchy), using `ADJRSQ`, `AIC`, `AICC`, `BIC`, `CP`, `RSQUARE`, or `SBC` as the selection criterion for forward selection produces the same sequence of additions. However, if the degrees of freedom contributed by different effects are not constant, or if an out-of-sample prediction-based criterion is used, then different sequences of additions might be obtained.
 
+### Backward Method (`BACKWARD`)
+
+The backward elimination technique starts from the full model including all independent effects. Then effects are deleted one by one until a stopping condition is satisfied. At each step, the effect showing the smallest contribution to the model is deleted. In traditional implementations of backward elimination, the contribution of an effect to the model is assessed by using an `F` statistic. At any step, the predictor producing the least significant `F` statistic is dropped and the process continues until all effects remaining in the model have `F` statistics significant at a stay significance level (`SLS`).
+
+### Stepwise Method (`STEPWISE`)
+
+In the traditional implementation of stepwise selection method, the same entry and removal F statistics for the forward selection and backward elimination methods are used to assess contributions of effects as they are added to or removed from a model. If at a step of the stepwise method, any effect in the model is not significant at the SLSTAY= level, then the least significant of these effects is removed from the model and the algorithm proceeds to the next step. This ensures that no effect can be added to a model while some effect currently in the model is not deemed significant. Only after all necessary deletions have been accomplished can another effect be added to the model.
+
+For selection criteria other than significance level, `PROC GLMSELECT` optionally supports a further modification in the stepwise method. In the standard stepwise method, no effect can enter the model if removing any effect currently in the model would yield an improved value of the selection criterion. In the modification, you can use the `DROP=COMPETITIVE` option to specify that addition and deletion of effects should be treated competitively. The selection criterion is evaluated for all models obtained by deleting an effect from the current model or by adding an effect to this model. The action that most improves the selection criterion is the action taken.
+
 ### Code Examples
 
-Forward selection terminates at the step where the effect to be added at the next step would produce a model with an `AIC` statistic larger than the `AIC` statistic of the current model:
+```
+selection=forward
+```
+adds effects that at each step give the lowest value of the SBC statistic and stops at the step where adding any
+effect would increase the SBC statistic.
+
+```
+selection=forward(select=SL)
+```
+adds effects based on significance level and stops when all candidate effects for entry at a step have a
+significance level greater than the default entry significance level of 0.50.
+
+```
+selection=forward(select=ADJRSQ stop=SL SLE=0.2)
+```
+adds effects that at each step give the largest value of the adjusted R-square statistic and stops at the step
+where the significance level corresponding to the addition of this effect is greater than 0.2.
+
 ```
 selection=forward(select=SL stop=AIC)
 ```
+terminates at the step where the effect to be added at the next step would produce a model with an `AIC` statistic larger than the `AIC` statistic of the current model.
 
 Provided that the entry significance level is large enough that the local extremum of the named criterion occurs before the final step, specifying any of these options the same model is selected, but more steps are done in the second case:
 ```
@@ -37,7 +65,29 @@ selection=forward(stop=AICC choose=PRESS)
 ```
 selection=forward(select=CP)
 ```
+
 You can use `SELECT=` together with `CHOOSE=` and `STOP=`. If you specify only the `SELECT=` criterion, then this criterion is also used as the stopping criterion. In the previous example where only the selection criterion is specified, not only do effects enter based on the Mallows’ $C_p$ statistic, but the selection terminates when the $C_p$ statistic first increases.
+
+```
+selection=backward
+```
+removes effects that at each step produce the largest value of the Schwarz Bayesian information criterion (`SBC`) statistic and stops at the step where removing any effect increases the `SBC` statistic.
+
+```
+selection=backward(stop=press)
+```
+
+removes effects based on the `SBC` statistic and stops at the step where removing any effect increases the predicted residual sum of squares (`PRESS`).
+
+```
+selection=backward(select=SL)
+```
+removes effects based on significance level and stops when all candidate effects for removal at a step have a significance level less than the default stay significance level of 0.10.
+
+```
+selection=backward(select=SL choose=validate SLS=0.1)
+```
+removes effects based on significance level and stops when all effects in the model are significant at the 0.1 level. Finally, from the sequence of models generated, choose the one that gives the smallest average square error when scored on the validation data.
 
 ## Penalized Regression Methods for Linear Models
 
