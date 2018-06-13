@@ -75,3 +75,16 @@ a1=timepart(a0);
 b1=timepart(b0);
 hour=intck('hour',a1,b1);
 ```
+
+### The `INTNX` Function
+
+This function increments a date, time, or datetime value by a given interval or intervals, and returns a date, time, or datetime value.
+
+```
+format day week month_ year date9.;
+ 
+day=intnx('day', '01FEB2010'd, 7); /* +7 days */
+week=intnx('week', '01FEB2010'd, 1); /* 01 of Feb 2010 is Monday*/
+month_=intnx('month', '01FEB2010'd, 2); /* +2 month */
+year=intnx('year', '01FEB2010'd, 1); /* +1 year */
+```
