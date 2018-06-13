@@ -1,7 +1,7 @@
 ## Time periods in months or years
 ```
 * In years;
-interval = YRDIF(inidat,enddat,'age')*12;
+interval = YRDIF(inidat,enddat,'age');
 
 * In months;
 interval = YRDIF(inidat,enddat,'age')*12;
