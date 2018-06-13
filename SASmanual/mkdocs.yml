@@ -61,6 +61,7 @@ pages:
     - Miscellanea: 
       - 'Working with Arrays': 'miscellanea/arrays.md'
       - 'Execution time': 'miscellanea/execution-time.md'
+      - 'Time intervals': 'miscellanea/time-intervals.md'
       - 'Patient identification': 'miscellanea/patient-identification.md'
     - R with Shiny:
       - 'Introduction and Shiny basics' : 'R-with-Shiny/introduction.md'
