@@ -146,3 +146,15 @@ PROC SQL;
 					ORDER BY COHORT, AEBODSY, AEDECOD;
 QUIT;
 ```
+
+### Selecting First and Last Dates Related to a Patient
+
+```
+proc sql;
+	create table firstlastdates as 
+		select min(STARTDATE) as date1, max(ENDDATE) as date2, pt, visit
+			from origin-SAS-data-set 
+			group by pt, visit;
+quit; 
+
+```
