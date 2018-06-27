@@ -1,6 +1,9 @@
 !!! summary "Check these websites"
     * Check out [this review](http://www.edmeasurement.net/surveydata/Tsikriktsis%202005.pdf) on techniques for treating missing data.
     * [A Conceptual Strategy and Macro Approach for Partial Date Handling in Data De-Identification](https://www.lexjansen.com/pharmasug/2018/BB/PharmaSUG-2018-BB05.pdf)
+    
+!!! tip "Did you know?"
+    Missing values can be "formatted". `.A` thru `.Z` are all valid missing values just as `.`.
 
 ## Missing Data Mechanisms and Patterns
 
