@@ -23,3 +23,16 @@ patient = substr(patient_code,max(1,length(patient_code)-3));
 ```
 patient = PUT(nsite,z2.) || PUT(npatient,z2.);
 ```
+
+## Number of Patients into Macrovariable
+
+```
+proc sql noprint;
+	select count(distinct pt) 
+	into : npat
+	from library-name.index(where=(ITT eq '1'));
+quit;
+
+%let npatients = %left(%trim(&npat.));
+%put npatients=&npatients;
+```
