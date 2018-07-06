@@ -178,8 +178,17 @@ RUN;
 
 ### `PROC MEANS`
 
-* The `MIN`/`MAX` values can be useful to check if the data is within a range
 * `NMISS` option displays the number of observations with missing values
+* The `MIN`/`MAX` values can be useful to check if the data is within a range
+
+To get the `MIN`/`MAX` values per group and the number of observations per group follow the next example:
+```
+PROC MEANS DATA=SAS-data-set MIN MAX;
+	CLASS grouping-variable;
+	VAR evaluation-variable;
+	ODS OUTPUT SUMMARY=SAS-output-data-set;
+RUN;
+```
 
 ### `PROC UNIVARIATE`
 
