@@ -101,5 +101,5 @@ By default SPSS and SAS compute the SD as an inferential statistic (i.e., S) rat
 %mend;
 
 *%effectsize(scorelist=varname1$varname2$varname3,
-			scorelablist=Variable label 1$Variable label 2$Variable label 3);
+	     scorelablist=Variable label 1$Variable label 2$Variable label 3);
 ```
