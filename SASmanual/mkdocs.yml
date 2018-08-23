@@ -32,7 +32,7 @@ pages:
       - 'Interactive Matrix Language (IML)': 'sasvsr/iml.md'
       - 'A Bridge Between SAS and R': 'sasvsr/bridge.md'
     - Other Analysis:
-      - 'Model Selection' : 'other-analysis/model-selection.md'
+      - 'Model Selection': 'other-analysis/model-selection.md'
       - 'Dealing with Missing Data': 'other-analysis/missing-data.md'
       - 'Interim Analysis Design': 'other-analysis/interim-analysis.md'
       - 'Normality Tests': 'other-analysis/normality-tests.md'
