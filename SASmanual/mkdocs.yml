@@ -43,7 +43,7 @@ pages:
       - 'Survival Analysis': 'other-analysis/survival-analysis.md'
       - 'Clustering': 'other-analysis/clustering.md'
     - Specific Procedures:
-      - 'General Notes on Regression procedures': 'procedures/regression-models.md'
+      - 'General Notes on Regression Procedures': 'procedures/regression-models.md'
       - 'PROC GLIMMIX': 'procedures/glimmix.md'
       - 'PROC MIXED': 'procedures/mixed.md'
       - 'PROC SQL': 'procedures/sql.md'
