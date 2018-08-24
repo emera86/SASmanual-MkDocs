@@ -7,7 +7,12 @@
     * [Kaplan-Meier Survival Plotting Macro %NEWSURV](http://www.sascommunity.org/wiki/Kaplan-Meier_Survival_Plotting_Macro_%25NEWSURV)
     * [Application of Survival Analysis in Multiple Events Using SAS](https://www.lexjansen.com/pharmasug/2018/EP/PharmaSUG-2018-EP02.pdf)
 
-Survival analysis models factors that influence the time to an event. Ordinary least squares regression methods fall short because the time to event is typically not normally distributed, and the model cannot handle censoring, very common in survival data, without modification. **Nonparametric methods** ([`PROC LIFETEST`](http://support.sas.com/documentation/cdl/en/statug/68162/HTML/default/viewer.htm#statug_lifetest_toc.htm)) provide simple and quick looks at the survival experience and the **Cox proportional hazards regression model** ([`PROC PHREG`](http://support.sas.com/documentation/cdl/en/statug/68162/HTML/default/viewer.htm#statug_phreg_overview.htm)) remains the dominant analysis method.
+In many cancer studies, the main outcome under assessment is the time to an event of interest. The generic name for the time is
+*survival time*, although it may be applied to the time ‘survived’ from complete remission to relapse or progression as equally as to
+the time from diagnosis to death. If the **event occurred in all individuals, many methods of analysis would be applicable**. However,
+it is usual that at the end of follow-up some of the individuals **have not had the event of interest**, and thus their true time to event is unknown. Further, survival data are **rarely Normally distributed**, but are skewed and comprise typically of many early events and relatively few late ones. It is these features of the data that make the special methods called survival analysis necessary.
+
+**Nonparametric methods** ([`PROC LIFETEST`](http://support.sas.com/documentation/cdl/en/statug/68162/HTML/default/viewer.htm#statug_lifetest_toc.htm)) provide simple and quick looks at the survival experience and the **Cox proportional hazards regression model** ([`PROC PHREG`](http://support.sas.com/documentation/cdl/en/statug/68162/HTML/default/viewer.htm#statug_phreg_overview.htm)) remains the dominant analysis method.
 
 ## Endpoints in Clinical Trials Related to Survival Analysis
 
@@ -28,6 +33,13 @@ Assessment of either PFS or TTP needs to be conducted in randomized trials. Beca
 **Time to treatment failure (TTF)** is defined as the time from **randomization to treatment discontinuation for any reason**, including disease progression, treatment toxicity, patient preference, or death. From a regulatory point of view, TTF is generally not accepted as a valid endpoint. TTF is a composite endpoint influenced by factors unrelated to efficacy. Discontinuation may be a result of toxicity, patient preference, or a physician's reluctance to continue therapy. These factors are not a direct assessment of the effectiveness of a drug.
 
 ## Understanding the Basis of Survival Analysis
+
+Survival data are generally described and modelled in terms of two related probabilities, namely **survival** and **hazard**. 
+
+* The **survival** probability (which is also called the survivor function) $S(t)$ is the probability that an individual survives from the time origin to a specified future time $t$. It is fundamental to a survival analysis because survival probabilities for different values of $t$ provide crucial summary information from time to event data. These values describe directly the survival experience of a study cohort.
+* The **hazard** is usually denoted by $h(t)$ or $l(t)$ and is the probability that an individual who is under observation at a time $t$ has an event at that time. Put another way, it represents the instantaneous event rate for an individual who has already survived to time $t$. Note that, in contrast to the survivor function, which focuses on not having an event, the hazard function focuses on the event occurring. It is of interest because it provides insight into the conditional failure rates and provides a vehicle for specifying a survival model. 
+
+In summary, the hazard relates to the incident (current) event rate, while survival reflects the cumulative non-occurrence.
 
 Understanding the mechanics behind survival analysis is aided by facility with the distributions used, which can be derived from the **probability density function** and **cumulative density functions** of survival times.
 
