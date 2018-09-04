@@ -54,6 +54,7 @@ pages:
       - 'PROC REPORT': 'sas-outputs/report.md'
       - 'PROC TABULATE': 'sas-outputs/tabulate.md'
       - 'PROC TEMPLATE': 'sas-outputs/template.md'
+      - 'Export to Excel file': 'sas-outputs/excel.md'
     - Using Macros: macros.md
     - Using Wizard Menus: wizard.md
     - SAS Visual Analytics: sasvi.md
