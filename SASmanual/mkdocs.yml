@@ -66,6 +66,7 @@ pages:
       - 'Time intervals': 'miscellanea/time-intervals.md'
       - 'Patient identification': 'miscellanea/patient-identification.md'
     - Medical terms:
+      - 'General' : 'medical/general.md'
       - 'Laboratory test': 'medical/labs.md'
     - R with Shiny:
       - 'Introduction and Shiny basics' : 'R-with-Shiny/introduction.md'
