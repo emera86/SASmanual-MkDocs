@@ -8,11 +8,11 @@ The three main types of blood cells are:
 
 * **Red blood cells (RBC)** contain **haemoglobin (HGB)**, which carries oxygen from the lungs to all the cells in our body.
 * **Platelets (PLAT)** help the blood to clot and prevent bleeding and bruising.
-* **white blood cells (WBC) or leucocytes** fight and prevent infection.
+* **White blood cells (WBC) or leucocytes** fight and prevent infection.
 
 There are two main types of white blood cell. These are called **neutrophils** and **lymphocytes**. Neutrophils are the most common. You will hear your doctor or nurse talk about your neutrophil count during your treatment.
 
-### Normal Levels
+### Normal Ranges' Rule of Thumb 
 
 | **Type of blood cell** | **Levels**                             |
 |------------------------|----------------------------------------|
