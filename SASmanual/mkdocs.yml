@@ -65,6 +65,8 @@ pages:
       - 'Execution time': 'miscellanea/execution-time.md'
       - 'Time intervals': 'miscellanea/time-intervals.md'
       - 'Patient identification': 'miscellanea/patient-identification.md'
+    - Medical terms:
+      - 'Laboratory test': 'medical/labs.md'
     - R with Shiny:
       - 'Introduction and Shiny basics' : 'R-with-Shiny/introduction.md'
       - 'Inputs, outputs, and rendering functions' : 'R-with-Shiny/input-output.md'
