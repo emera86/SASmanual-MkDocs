@@ -12,9 +12,9 @@ The three main types of blood cells are:
 
 * **Platelets (PLAT) or thrombocytes** help the blood to clot and prevent bleeding and bruising.
 * **White blood cells (WBC) or leucocytes** fight and prevent infection.
-    * **Neutrophils**
     * **Basophils**
     * **Eosinophils**
+    * **Neutrophils**
     * **Monocytes**
     * **Lymphocytes**
 
