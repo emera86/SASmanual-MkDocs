@@ -32,6 +32,9 @@ The three main types of blood cells are:
 | Neutrophils            | 10^9/L     | 2.0-7.5                          |
 | Lymphocytes            | 10^9/L     | 1.5-4.5                          |
 
+!!! summary "Check these websites"
+* [http://globalrph.com/laboratory-values/](Laboratory values)
+
 ### Blood-Related Anomalies
 
 * **Leucocytosis**, often defined as an elevated white blood cell (WBC) count greater than $11000/mm^3$ ($11.0 \cdot 10^9/L$) in nonpregnant adults, is a relatively common finding with a wide differential. It is important for clinicians to be able to distinguish malignant from nonmalignant etiologies, and to differentiate between the most common nonmalignant causes of leukocytosis. Leukocytosis in the range of approximately $50-100 \cdot 10^9/L$ is sometimes referred to as a **leukemoid reaction**. This level of elevation can occur in some severe infections, such as Clostridium difficile infection, sepsis, organ rejection, or in patients with solid tumors. Leukocytosis greater than $100 \cdot 10^9/L$ is almost always caused by leukemias or myeloproliferative disorders.
