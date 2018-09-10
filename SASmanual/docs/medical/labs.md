@@ -10,7 +10,7 @@ The three main types of blood cells are:
 * **Platelets (PLAT)** help the blood to clot and prevent bleeding and bruising.
 * **White blood cells (WBC) or leucocytes** fight and prevent infection.
 
-![Blood cells](../images/blood.png "Blood cells")
+![Blood cells](../images/blood.PNG "Blood cells")
 
 There are two main types of white blood cell. These are called **neutrophils** and **lymphocytes**. Neutrophils are the most common. You will hear your doctor or nurse talk about your neutrophil count during your treatment.
 
