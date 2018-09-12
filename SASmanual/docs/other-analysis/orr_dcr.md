@@ -12,18 +12,18 @@ The **disease control rate (DCR)** or **clinical benefit rate (CBR)** is defined
 data orr_dcr;
    	input pt $ bestresp $ orr dcr c_orr $ c_dcr $;
    	datalines;
-0213 PD 0 0 N N
-0214 SD 0 1 N Y
-0107 SD 0 1 N Y
-0215 PD 0 0 N N
-0301 PD 0 0 N N 
-0302 PD 0 0 N N 
-0216 SD 0 1 N Y
-0217 SD 0 1 N Y
-0219 PD 0 0 N N 
-0304 SD 0 1 N Y
-0305 PR 1 1 Y Y 
-0220 PR 1 1 Y Y 
+001 PD 0 0 N N
+002 SD 0 1 N Y
+003 SD 0 1 N Y
+004 PD 0 0 N N
+005 PD 0 0 N N 
+006 PD 0 0 N N 
+007 SD 0 1 N Y
+008 SD 0 1 N Y
+009 PD 0 0 N N 
+010 SD 0 1 N Y
+011 PR 1 1 Y Y 
+012 PR 1 1 Y Y 
 ;
 run;
 
