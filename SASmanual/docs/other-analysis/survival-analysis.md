@@ -16,6 +16,9 @@ it is usual that at the end of follow-up some of the individuals **have not had 
 
 ## Endpoints in Clinical Trials Related to Survival Analysis
 
+!!! summary "Check these websites"
+* [Efficacy Endpoints in Oncology Clinical Trials](https://www.biooncology.com/clinical-trials/efficacy-endpoints.html)
+
 ### Overall Survival
 
 OS is the **gold standard for demonstrating clinical benefit**. Defined as the time from **randomization to death**, this endpoint is unambiguous and is not subject to investigator interpretation. Survival is a direct clinical benefit to patients, and assessment can be calculated to the day. Patient benefit can be described as superior survival or noninferior survival after consideration of toxicity and the magnitude of benefit. A noninferiority analysis ensures that a survival advantage associated with an approved drug will not be lost with a new agent.
@@ -31,6 +34,12 @@ Assessment of either PFS or TTP needs to be conducted in randomized trials. Beca
 ### Time to Treatment Failure
 
 **Time to treatment failure (TTF)** is defined as the time from **randomization to treatment discontinuation for any reason**, including disease progression, treatment toxicity, patient preference, or death. From a regulatory point of view, TTF is generally not accepted as a valid endpoint. TTF is a composite endpoint influenced by factors unrelated to efficacy. Discontinuation may be a result of toxicity, patient preference, or a physician's reluctance to continue therapy. These factors are not a direct assessment of the effectiveness of a drug.
+
+### Duration of Response
+
+**Duration of response (DoR)** is usually measured as the time from documentation of tumor response to disease progression or death. Patients whose first documented response assessment is disease progression will be exluded from the DoR analysis.
+
+It can be assessed in single-arm trials, requires a smaller population and can be assessed earlier (compared to survival trials) and its effect is attributable directly to the drug, not the natural history of the disease. However, is not a comprehensive measure of drug activity.
 
 ## Understanding the Basis of Survival Analysis
 
