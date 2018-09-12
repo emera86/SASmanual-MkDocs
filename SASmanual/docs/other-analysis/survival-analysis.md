@@ -27,7 +27,8 @@ OS is the **gold standard for demonstrating clinical benefit**. Defined as the t
 
 ### Time to Tumor Progression and Progression-Free Survival
 
-**Time to tumor progression (TTP)**, is defined as the time from **randomization to time of progressive disease**. The **progression-free survival (PFS)** duration is defined as the time from **randomization to objective tumor progression or death**. Compared with TTP, PFS may be a preferred regulatory endpoint because it includes death and may correlate better with OS. In TTP analysis, deaths are censored either at the time of death or at an earlier visit. 
+**Time to tumor progression (TTP)**, is defined as the time from **randomization to time of progressive disease**. The **progression-free survival (PFS)** duration is defined as the time from **randomization to objective tumor progression or death**. Compared with TTP, PFS may be a preferred regulatory endpoint because it includes death and may correlate better with OS. In TTP analysis, deaths are censored either at the time of death or at an earlier visit representing informative censoring (nonrandom pattern of loss from
+the study). PFS assumes patient deaths are randomly related to tumor progression. However, in situations where the majority of deaths are unrelated to cancer, TTP can be an acceptable endpoint.
 
 Assessment of either PFS or TTP needs to be conducted in randomized trials. Because of the subjectivity that may be introduced in endpoint assessment, blinding of trials or the use of an external blinded review committee is recommended. In assessing TTP or PFS, patients must be evaluated on a regular basis in all treatment arms, and an assessment of all disease sites should be performed. To reduce bias, the same assessment technique should be used at each follow-up, and the same evaluation schedule should be consistently used.
 
