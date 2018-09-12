@@ -1,6 +1,8 @@
 ## Objective Response Rate (ORR)
 
-In medicine, a **response rate** is the percentage of patients whose cancer shrinks or disappears after treatment. When used as a clinical endpoint for clinical trials of cancer treatments, this often called the **objective response rate (ORR)**. The FDA definition of ORR is *"the proportion of patients with tumor size reduction of a predefined amount and for a minimum time period"*.
+In medicine, a **response rate** is the percentage of patients whose cancer shrinks or disappears after treatment. When used as a clinical endpoint for clinical trials of cancer treatments, this often called the **objective response rate (ORR)**. The FDA definition of ORR is *"the proportion of patients with tumor size reduction of a predefined amount and for a minimum time period"*. 
+
+When defined in this manner, ORR is a direct measure of drug antitumor activity, which can be evaluated in a single-arm study. Stable disease should not be a component of ORR. Stable disease can reflect the natural history of disease, whereas tumor reduction is a direct therapeutic effect.
 
 ## Disease Control Rate (DCR)
 
