@@ -41,6 +41,7 @@ pages:
       - 'ROC Curve': 'other-analysis/roc-curve.md'
       - 'Sequence Design': 'other-analysis/sequence-design.md'
       - 'Survival Analysis': 'other-analysis/survival-analysis.md'
+      - 'ORR and DCR': 'other-analysis/orr_dcr.md'
       - 'Clustering': 'other-analysis/clustering.md'
     - Specific Procedures:
       - 'General Notes on Regression Procedures': 'procedures/regression-models.md'
