@@ -11,7 +11,7 @@ The **disease control rate (DCR)** or **clinical benefit rate (CBR)** is defined
 ## Calculation
 
 !!! tip "Remember"
-ORR and DCR are usually calculated both taking into account **not evaluable (NE)** best responses and without them included in the total number of patients.
+    ORR and DCR are usually calculated both taking into account **not evaluable (NE)** best responses and without them included in the total number of patients.
 
 ```
 data orr_dcr;
