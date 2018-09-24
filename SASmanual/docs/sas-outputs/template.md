@@ -197,6 +197,34 @@ RUN;
 ODS PATH sasuser.templat(update) sashelp.tmplmst(read);
 ```
 
+## `PROC TEMPLATE` Features
+
+### Include an Image as the Header
+
+```
+PROC TEMPLATE;
+	DEFINE STYLE template_header_image;
+		PARENT = styles.default;
+		(...)
+		STYLE SYSTEMTITLE /
+			TEXTALIGN=l 
+			VERTICALALIGN=t
+			PREIMAGE="c:\path-to-your-file\header-image.png" 
+			FOREGROUND = #ffffff;
+	END;
+RUN;
+
+ODS PDF DPI=700 STYLE=template_header_image FILE="your-path\your-file (&sysdate).pdf";
+
+TITLE "";
+(...)
+
+ODS PDF CLOSE;
+```
+
+* `DPI` needs to be increased to show the `PREIMAGE` logo with good definition
+* You need to specify `TITLE "";` for the `PREIMAGE` to appear
+
 ## Other Related Topics
 
 * Solve the error *"[unable to write to the template store](http://support.sas.com/techsup/notes/v8/4/739.html)"*:
