@@ -225,6 +225,28 @@ ODS PDF CLOSE;
 * `DPI` needs to be increased to show the `PREIMAGE` logo with good definition
 * You need to specify `TITLE "";` for the `PREIMAGE` to appear
 
+### Cell Values Alignment
+
+```
+PROC TEMPLATE;
+	DEFINE STYLE template_header_image;
+		PARENT = styles.default;
+		(...)
+		CLASS CELL /
+	    		PADDINGRIGHT = 15   /* Controls the horizontal spacing between one cell and the next one */
+			TEXTALIGN = left;
+	  	CLASS HEADER /        /* Centers all headers (including rowheaders) */
+			TEXTALIGN=center;
+	  	CLASS ROWHEADER /     /* Takes rowheaders back to left alignment */
+	    		TEXTALIGN=left;
+	  	CONTEXT '.header' /   /* Activates the bottom border of the header fields */
+			BORDERBOTTOMSTYLE = solid
+			BORDERBOTTOMCOLOR = black
+			BORDERBOTTOMWIDTH = 1px;
+	END;
+RUN;
+```
+
 ## Other Related Topics
 
 * Solve the error *"[unable to write to the template store](http://support.sas.com/techsup/notes/v8/4/739.html)"*:
