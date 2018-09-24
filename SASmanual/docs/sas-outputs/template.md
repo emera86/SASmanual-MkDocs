@@ -231,9 +231,6 @@ ODS PDF CLOSE;
 ```
 ERROR: Template 'xxxxx' was unable to write to the template store!
 
-ods path show;
-ods path(prepend) work.templat(update);
+ODS PATH SHOW;
+ODS PATH(PREPEND) work.templat(UPDATE);
 ```
-
-
-
