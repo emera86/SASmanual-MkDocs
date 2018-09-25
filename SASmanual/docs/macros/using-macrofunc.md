@@ -44,6 +44,7 @@ The `%SCAN` function enables you to extract words from a macro variable or text 
 ```
 
 If you omit the optional delimiter information, `%SCAN` uses a default set of delimiters shown below.
+
 | Encoding | Type	| Default Delimiters |
 |:-----:|-----|-----|
 | ASCII	| blank | . < ( + & ! $ * ) ; ^ - / , % | |
