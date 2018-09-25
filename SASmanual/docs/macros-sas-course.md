@@ -20,7 +20,7 @@ Automatic macro variables contain system information such as the date and time t
 | SYSDAY	      | Day of the week when the current SAS session began	| Friday |
 | SYSSCP	      | Abbreviation for the operating system being used	| OS, WIN, HP 64 |
 | SYSTIME	      | Time that the current SAS session began	| 13:39 |
-| SYSUSERID	    | The user ID or login of the current SAS process	- MyUserid |
+| SYSUSERID	    | The user ID or login of the current SAS process	| MyUserid |
 | SYSVER	      | Release of SAS software being used	| 9.4 |
 
 Other automatic macro variables have values that change automatically, based on the SAS statements that you submit.
