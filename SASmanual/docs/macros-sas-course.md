@@ -58,9 +58,9 @@ You can add one of the following optional arguments to the `%PUT` statement:
 
 | Argument	| Result in the SAS Log |
 |:----:|-----|
-| _ALL_	| Lists the values of all macro variables |
-| _AUTOMATIC_ | Lists the value of all automatic macro variables |
-| _USER_ | Lists the values of all user-defined macro variables |
+| `_ALL_`	| Lists the values of all macro variables |
+| `_AUTOMATIC_` | Lists the value of all automatic macro variables |
+| `_USER_` | Lists the values of all user-defined macro variables |
 
 #### Using the `SYMBOLGEN` system option 
 
