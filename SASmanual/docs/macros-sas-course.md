@@ -11,10 +11,13 @@ Macro variables substitute text into your SAS programs. The macro facility enabl
 
 ## Automatic Macro Variables
 
-If you need to reference a macro variable within quotation marks, such as in a title, you must use double quotation marks.
 Automatic macro variables contain system information such as the date and time that the current SAS session began. Some automatic macro variables have fixed values that SAS defines when the session starts. This table shows several common automatic macro variables:
-Name	- Description	- Example:
-SYSDATE	- date when the current SAS session began (DATE7.)	- 16JAN13
+
+|---------------|---------------|---------------|
+| Name	        | Description   | Example       |
+|---------------|---------------|---------------|
+| SYSDATE	      | date when the current SAS session began (DATE7.)	| 16JAN13 |
+
 SYSDATE9	- date when the current SAS session began (DATE9.)	- 16JAN2013
 SYSDAY	- day of the week when the current SAS session began	- Friday
 SYSSCP	- abbreviation for the operating system being used	- OS, WIN, HP 64
@@ -27,3 +30,7 @@ SYSLAST	- Name of the most recently created data set in the form libref.name. If
 SYSPARM	- Value specified at SAS invocation
 SYSERR	- SAS DATA or PROC step return code (0=success)
 SYSLIBRC - LIBNAME statement return code (0=success)
+
+## Tips
+
+If you need to reference a macro variable within quotation marks, such as in a title, you must use double quotation marks.
