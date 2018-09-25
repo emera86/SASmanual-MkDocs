@@ -1,10 +1,3 @@
-* describe what macro variables store and where macro variables are stored
-* identify selected automatic macro variables
-* create user-defined macro variables
-* display macro variables in the SAS log
-* identify tokens in a SAS program
-* place a macro variable reference adjacent to text or another macro variable reference
-
 ## Basic Concepts
 
 Macro variables substitute text into your SAS programs. The macro facility enables you to create and resolve macro variables anywhere within a SAS program. There are two types of macro variables: **automatic macro variables**, which SAS provides, and **user-defined macro variables**, which you create and define.
@@ -47,8 +40,32 @@ When assigning values to macro variables in the `%LET` statement, SAS does the f
 
 To **reference a user-defined macro variable**, you precede the name of the macro variable with an ampersand (`&macrovariable`). When you submit the program, the macro processor resolves the reference and substitutes the macro variable's value before the program compiles and executes.
 
+!!! tip
+    If you need to reference a macro variable within quotation marks, such as in a title, you must use double quotation marks.
+
 Macro variables remain in the global symbol table until they are deleted or the session ends. To **delete macro variables**, you use the `%SYMDEL` statement followed by the name or names of the macro variables that you want to delete.
 
-## Tips
+### Displaying Macro Variables in the SAS Log
 
-If you need to reference a macro variable within quotation marks, such as in a title, you must use double quotation marks.
+There are several methods that you can use to display the values of macro variables in the SAS log.
+
+#### Using the `%PUT` Statement
+
+You can use the `%PUT` statement to write your own messages, including macro variable values, to the SAS log: `%PUT The value of the macro variable is: &macrovar;` or `%PUT &=macrovar;`.
+
+You can add one of the following optional arguments to the `%PUT` statement:
+  %PUT <text | _ALL_ / _AUTOMATIC_ / _USER_>;
+
+Argument	- Result in the SAS Log
+_ALL_	- lists the values of all macro variables
+_AUTOMATIC_	- lists the value of all automatic macro variables
+_USER_	- lists the values of all user-defined macro variables
+
+
+/* 3.2 Using the SYMBOLGEN system option */
+You can also use the SYMBOLGEN system option to display the values of macro variables.
+  OPTIONS SYMBOLGEN | NOSYMBOLGEN;
+
+The default option is NOSYMBOLGEN. When you turn the SYMBOLGEN system option on, SAS writes macro variable values to the SAS log as they are resolved. The message states the macro variable name and the resolved value.
+
+Because SYMBOLGEN is a system option, its setting remains in effect until you modify it or until you end your SAS session.
