@@ -25,7 +25,7 @@ Other automatic macro variables have values that change automatically, based on 
 | SYSERR	| SAS `DATA` or `PROC` step return code (0=success) |
 | SYSLIBRC | `LIBNAME` statement return code (0=success) |
 
-### User-defined Macro Variables
+## Creating User-defined Macro Variables
 
 You use the `%LET` statement to create a macro variable and assign a value to it. Macro variable names **start with a letter or an underscore** and can be followed by letters, digits, or underscores. The prefixes **AF, DMS, SQL, and SYS are not recommended** because they are frequently used in SAS software when creating macro variables. If you assign a macro variable name that isn't valid, SAS writes an error message to the log.
 
@@ -45,11 +45,11 @@ To **reference a user-defined macro variable**, you precede the name of the macr
 
 Macro variables remain in the global symbol table until they are deleted or the session ends. To **delete macro variables**, you use the `%SYMDEL` statement followed by the name or names of the macro variables that you want to delete.
 
-### Displaying Macro Variables in the SAS Log
+## Displaying Macro Variables in the SAS Log
 
 There are several methods that you can use to display the values of macro variables in the SAS log.
 
-#### Using the `%PUT` Statement
+### Using the `%PUT` Statement
 
 You can use the `%PUT` statement to write your own messages, including macro variable values, to the SAS log: `%PUT The value of the macro variable is: &macrovar;` or `%PUT &=macrovar;`.
 
@@ -62,7 +62,7 @@ You can add one of the following optional arguments to the `%PUT` statement:
 | `_AUTOMATIC_` | Lists the value of all automatic macro variables |
 | `_USER_` | Lists the values of all user-defined macro variables |
 
-#### Using the `SYMBOLGEN` system option 
+### Using the `SYMBOLGEN` system option 
 
 You can also use the `SYMBOLGEN` system option to display the values of macro variables.
 ```
@@ -73,7 +73,7 @@ The default option is `NOSYMBOLGEN`. When you turn the `SYMBOLGEN` system option
 
 Because `SYMBOLGEN` is a system option, its setting remains in effect until you modify it or until you end your SAS session.
 
-### Processing Macro Variables
+## Processing Macro Variables
 
 When you submit a SAS program, it's copied to an area of memory called the input stack. The word scanner reads the text and breaks the text into fundamental units, called tokens, and passes the tokens, one at time, to the appropriate compiler upon demand. The compiler requests tokens until it receives a semicolon and then performs a syntax check on the statement. The compiler repeats this process for each additional statement.
 
@@ -81,23 +81,14 @@ SAS suspends compilation when a step boundary (`RUN` statements or the beginning
 
 | Class	 | Description	| Example |
 |:------:|--------------|---------|
-|name |	a character string that begins with a letter or underscore and continues with underscores, letters, or numerals | infile _n_ dollar10.2 |
-| special |	any character, or combination of characters, other than a letter, numeral, or underscore | * / + ** ; $ ( ) . & % |
-| literal |	a string of characters enclosed in single or double quotation marks | 'Report for May' "Sydney Office" |
-| number | integer numbers, including SAS date constants or floating point numbers, that contain a decimal point and/or an exponent | 23  109 5e8 42.7 '01jan2012'd |
+|name |	A character string that begins with a letter or underscore and continues with underscores, letters, or numerals | infile _n_ dollar10.2 |
+| special |	Any character, or combination of characters, other than a letter, numeral, or underscore | * / + ** ; $ ( ) . & % |
+| literal |	A string of characters enclosed in single or double quotation marks | 'Report for May' "Sydney Office" |
+| number | Integer numbers, including SAS date constants or floating point numbers, that contain a decimal point and/or an exponent | 23  109 5e8 42.7 '01jan2012'd |
 
-`%LET` statements and macro variable references are part of the macro language. The macro processor is responsible for handling all macro language elements.
+Certain token sequences, known as **macro triggers**, alert the word scanner that the subsequent code should be sent to the macro processor. The word scanner recognizes the following token sequences as macro triggers and passes the code to the macro processor for evaluation:
 
-  `%name-token`
-  `&name-token`
-Certain token sequences, known as macro triggers, alert the word scanner that the subsequent code should be sent to the macro processor. The word scanner recognizes the following token sequences as macro triggers and passes the code to the macro processor for evaluation:
-a percent sign followed immediately by a name token (such as %LET)
-an ampersand followed immediately by a name token (such as &Amount)
-The macro processor requests tokens until a semicolon is encountered.
+* A percent sign followed immediately by a name token (such as `%LET`)
+* An ampersand followed immediately by a name token (such as `&macrovar`)
+
 A macro variable reference triggers the macro processor to search the symbol table for the reference. The macro processor resolves the macro variable reference by replacing it with the value in the symbol table.
-Combining Macro Variable References with Text
-You can reference macro variables anywhere in your program. Some situations might require you to place a macro variable reference adjacent to leading text or trailing text. You might need to reference a macro variable between text or perhaps even adjacent macro variables.
-When you combine macro variable references and text, remember how SAS interprets tokens. A token ends when the word scanner detects either the beginning of a new token or a blank after a token.
-You can place text immediately before a macro variable reference.
-You can also reference adjacent macro variables.
-You can place text immediately after a macro variable reference as long as the macro variable name can still be tokenized correctly.
