@@ -13,9 +13,8 @@ Macro variables substitute text into your SAS programs. The macro facility enabl
 
 Automatic macro variables contain system information such as the date and time that the current SAS session began. Some automatic macro variables have fixed values that SAS defines when the session starts. This table shows several common automatic macro variables:
 
-|---------------|---------------|---------------|
 | Name	        | Description   | Example       |
-|---------------|---------------|---------------|
+|:-------------:|---------------|:-------------:|
 | SYSDATE	      | date when the current SAS session began (DATE7.)	| 16JAN13 |
 
 SYSDATE9	- date when the current SAS session began (DATE9.)	- 16JAN2013
