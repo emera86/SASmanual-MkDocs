@@ -35,12 +35,12 @@ pages:
       - 'ORR and DCR': 'other-analysis/orr-dcr.md'
       - 'Clustering': 'other-analysis/clustering.md'
     - Using Macros: 
-      - 'Introducing Macro Variables': 'macro/.md'
-      - 'Using Macro Functions': 'macro/.md'
-      - 'Creating Macro Variables at Execution Time': 'macro/.md'
-      - 'Creating and Using Macro Programs': 'macro/.md'
-      - 'Using Conditional and Iterative Processing in Macro Programs': 'macro/.md'
-      - 'More on Macro Programming': 'macro/.md'
+      - 'Introducing Macro Variables': 'macros/introducing-macrovar.md.md'
+      - 'Using Macro Functions': 'macros/using-macrofunc.md'
+      - 'Creating Macro Variables at Execution Time': 'macros/macrovar-at-execution-time.md'
+      - 'Creating and Using Macro Programs': 'macros/macroprog.md'
+      - 'Using Conditional and Iterative Processing in Macro Programs': 'macros/macroprog-processing.md'
+      - 'More on Macro Programming': 'macros/more-macro.md'
       - 'Miscellanea': 'macros/macros-misc.md'
     - Specific Procedures:
       - 'General Notes on Regression Procedures': 'procedures/regression-models.md'
