@@ -2,23 +2,28 @@
 
 ### Macro functions 
 
-Macro functions enable you to manipulate text strings that SAS inserts in your code.When you submit a program, SAS executes the macro functions before the program compiles.
-To use a macro function, specify the function name, which starts with a percent sign. Enclose the function arguments in parentheses, separated by commas.
-  %function-name (argument-1<, argument-n>)
+Macro functions enable you to manipulate text strings that SAS inserts in your code. When you submit a program, SAS executes the macro functions before the program compiles. To use a macro function, specify the function name, which starts with a percent sign. Enclose the function arguments in parentheses, separated by commas.
+```
+%function-name (argument-1<, argument-n>)
+```
 The arguments can include:
-- constant text (S&P 500),
-- macro variable references (&sysdate9),
-- macro functions ( %lenght(&var) ),
-- and macro calls (%time).
-When you use constant text, do not enclose the text in quotation marks.
-  %upcase(text-argument)
-If you do include them, they'll become part of the argument.
-You can use all macro functions in both open code and macro definitions.
-Macro functions are categorized in four types:
-- macro character functions,
-- macro evaluation functions,
-- macro quoting functions,
-- and other macro functions.
+
+* Constant text (S&P 500)
+* Macro variable references (&sysdate9)
+* Macro functions ( %lenght(&var) )
+* Macro calls (%time)
+
+When you use constant text, do not enclose the text in quotation marks. If you do include them, they'll become part of the argument.
+```
+%upcase(text-argument)
+```
+
+You can use all macro functions in both open code and macro definitions. Macro functions are categorized in four types:
+
+* Macro character functions
+* Macro evaluation functions
+* Macro quoting functions
+* Other macro functions
 
 ## Using Macro Character Functions
 
@@ -26,35 +31,23 @@ Macro character functions enable you to manipulate character strings or obtain i
 
 ### `%SUBSTR` Function 
 
-%SUBSTR extracts a substring of characters from an argument consisting of a character string or text expression. Position specifies where the extraction should begin. n specifies the number of characters to extract. If you don't specify n, the remainder of the string is extracted.
-  %SUBSTR (argument, position <, n>)
-Question:
-What is the value of second_wd after this %LET statement executes?
-     %let second_wd = %substr("Four score and seven", 6, 5);
-   a.  score
-	 b.  and
-	 c.  scor (Correct)
-	 d.  core
-Because the first quotation mark is counted as position 1, score is at position 7. Thus %SUBSTR extracts the space preceding the word score, and the first four characters of score, for a total of five characters. When the value is assigned in a %LET statement, the leading blank is removed.
-So the correct answer is scor, without the leading space.
+`%SUBSTR` extracts a substring of characters from an argument consisting of a character string or text expression. Position specifies where the extraction should begin. n specifies the number of characters to extract. If you don't specify n, the remainder of the string is extracted.
+```
+%SUBSTR (argument, position <, n>)
+```
 
 ### `%SCAN` Function
 
-The %SCAN function enables you to extract words from a macro variable or text expression. %SCAN returns the nth word in an argument, where the words in the argument are separated by delimiters. If n is greater than the number of words in the argument, the function returns a null string. Delimiters refers to the characters that separate words or text expressions.
-  %SCAN (argument, n <, delimiters>)
-If you omit the optional delimiter information, %SCAN uses a default set of delimiters shown below.
-Encoding Type	Default Delimiters
-ASCII	blank . < ( + & ! $ * ) ; ^ - / , % |
-EBCDIC	blank . < ( + | & ! $ * ) ; ¬ - / , % ¦ ¢
-Code Challenge:
-As shown in the global symbol table below, the value of the macro variable location is composed of multiple words that are separated by asterisks. Write a statement that extracts the second word from location, and assigns this value to a new macro variable named area2.
-------------------------------------------------------
-Global Symbol Table
-location -->	Southeast*Southwest*Northeast*Northwest
-------------------------------------------------------
-The correct answer is:
-  %let area2=%scan(&location,2,*);
-You specify the keyword %LET and the macro variable name area2 in order to create the new macro variable. To obtain the second word from the value of location, you use the %SCAN function. Specify n as 2 and the delimiter as an asterisk.
+The `%SCAN` function enables you to extract words from a macro variable or text expression. `%SCAN` returns the nth word in an argument, where the words in the argument are separated by delimiters. If n is greater than the number of words in the argument, the function returns a null string. Delimiters refers to the characters that separate words or text expressions.
+```
+%SCAN (argument, n <, delimiters>)
+```
+
+If you omit the optional delimiter information, `%SCAN` uses a default set of delimiters shown below.
+| Encoding | Type	| Default Delimiters |
+|:-----:|-----|-----|
+| ASCII	| blank | . < ( + & ! $ * ) ; ^ - / , % | |
+| EBCDIC | blank | . < ( + | & ! $ * ) ; ¬ - / , % ¦ ¢ |
 
 ### `%UPCASE` Function
 
