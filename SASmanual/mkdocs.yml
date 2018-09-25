@@ -22,15 +22,6 @@ pages:
       - 'Categorical Data Analysis': 'statistics/categorical-data.md'
       - 'Model Building and Scoring for Prediction': 'statistics/prediction.md'
       - 'Miscellanea': 'statistics/miscellanea.md'
-    - SAS vs R: 
-      - 'Introduction': 'sasvsr/introduction.md'
-      - 'Importing and Reporting Data': 'sasvsr/importing-reporting.md'
-      - 'Creating New Variables, Functions and Data Tables': 'sasvsr/variables-functions.md'
-      - 'Random Number Generation and Plotting': 'sasvsr/random-plotting.md'
-      - 'Descriptive Procedures, Output Delivery System and Macros': 'sasvsr/proc-ods-macros.md'
-      - 'Analyzing the Data via Inferential Procedures': 'sasvsr/inferential.md'
-      - 'Interactive Matrix Language (IML)': 'sasvsr/iml.md'
-      - 'A Bridge Between SAS and R': 'sasvsr/bridge.md'
     - Other Analysis:
       - 'Model Selection': 'other-analysis/model-selection.md'
       - 'Dealing with Missing Data': 'other-analysis/missing-data.md'
@@ -43,6 +34,14 @@ pages:
       - 'Survival Analysis': 'other-analysis/survival-analysis.md'
       - 'ORR and DCR': 'other-analysis/orr-dcr.md'
       - 'Clustering': 'other-analysis/clustering.md'
+    - Using Macros: 
+      - 'Introducing Macro Variables': 'macro/.md'
+      - 'Using Macro Functions': 'macro/.md'
+      - 'Creating Macro Variables at Execution Time': 'macro/.md'
+      - 'Creating and Using Macro Programs': 'macro/.md'
+      - 'Using Conditional and Iterative Processing in Macro Programs': 'macro/.md'
+      - 'More on Macro Programming': 'macro/.md'
+      - 'Miscellanea': 'macros/macros-misc.md'
     - Specific Procedures:
       - 'General Notes on Regression Procedures': 'procedures/regression-models.md'
       - 'PROC GLIMMIX': 'procedures/glimmix.md'
@@ -57,7 +56,15 @@ pages:
       - 'PROC TEMPLATE': 'sas-outputs/template.md'
       - 'Write to pdf file': 'sas-outputs/pdf.md'
       - 'Export to Excel file': 'sas-outputs/excel.md'
-    - Using Macros: macros.md
+    - SAS vs R: 
+      - 'Introduction': 'sasvsr/introduction.md'
+      - 'Importing and Reporting Data': 'sasvsr/importing-reporting.md'
+      - 'Creating New Variables, Functions and Data Tables': 'sasvsr/variables-functions.md'
+      - 'Random Number Generation and Plotting': 'sasvsr/random-plotting.md'
+      - 'Descriptive Procedures, Output Delivery System and Macros': 'sasvsr/proc-ods-macros.md'
+      - 'Analyzing the Data via Inferential Procedures': 'sasvsr/inferential.md'
+      - 'Interactive Matrix Language (IML)': 'sasvsr/iml.md'
+      - 'A Bridge Between SAS and R': 'sasvsr/bridge.md'
     - Using Wizard Menus: wizard.md
     - SAS Visual Analytics: sasvi.md
     - CDISC:
