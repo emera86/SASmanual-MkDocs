@@ -3,8 +3,7 @@ You can learn about macros in the **SAS Macro Language 1: Essentials course**.
 !!! summary "Check these Websites"
     * [Developing Large SAS Macro Applications](https://www.lexjansen.com/pharmasug/2018/AD/PharmaSUG-2018-AD01.pdf)
     * [The Fundamentals of Macro Quoting Functions](https://www.lexjansen.com/pharmasug/2018/BB/PharmaSUG-2018-BB20.pdf)
-
-How to define [optional macro arguments](https://communities.sas.com/t5/Base-SAS-Programming/how-to-define-optional-macro-parameters/td-p/259131).
+    * How to define [optional macro arguments](https://communities.sas.com/t5/Base-SAS-Programming/how-to-define-optional-macro-parameters/td-p/259131).
  
 ## Remove element/string from macro variable 
 
