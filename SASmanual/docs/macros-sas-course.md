@@ -15,20 +15,22 @@ Automatic macro variables contain system information such as the date and time t
 
 | Name	        | Description   | Example       |
 |:-------------:|---------------|:-------------:|
-| SYSDATE	      | date when the current SAS session began (DATE7.)	| 16JAN13 |
+| SYSDATE	      | Date when the current SAS session began (DATE7.)	| 16JAN13 |
+| SYSDATE9	    | Date when the current SAS session began (DATE9.)	| 16JAN2013 |
+| SYSDAY	      | Day of the week when the current SAS session began	| Friday |
+| SYSSCP	      | Abbreviation for the operating system being used	| OS, WIN, HP 64 |
+| SYSTIME	      | Time that the current SAS session began	| 13:39 |
+| SYSUSERID	    | The user ID or login of the current SAS process	- MyUserid |
+| SYSVER	      | Release of SAS software being used	| 9.4 |
 
-SYSDATE9	- date when the current SAS session began (DATE9.)	- 16JAN2013
-SYSDAY	- day of the week when the current SAS session began	- Friday
-SYSSCP	- abbreviation for the operating system being used	- OS, WIN, HP 64
-SYSTIME	- time that the current SAS session began	- 13:39
-SYSUSERID	- the user ID or login of the current SAS process	- MyUserid
-SYSVER	- release of SAS software being used	- 9.4
 Other automatic macro variables have values that change automatically, based on the SAS statements that you submit.
-Name - Description:
-SYSLAST	- Name of the most recently created data set in the form libref.name. If no data set has been created, the value is _NULL_.
-SYSPARM	- Value specified at SAS invocation
-SYSERR	- SAS DATA or PROC step return code (0=success)
-SYSLIBRC - LIBNAME statement return code (0=success)
+
+| Name | Description |
+|:-----:|------------|
+| SYSLAST	| Name of the most recently created data set in the form `libref.name`; if no data set has been created, the value is `_NULL_`|
+| SYSPARM	| Value specified at SAS invocation |
+| SYSERR	| SAS DATA or PROC step return code (0=success) |
+| SYSLIBRC | LIBNAME statement return code (0=success) |
 
 ## Tips
 
