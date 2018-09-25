@@ -54,18 +54,50 @@ There are several methods that you can use to display the values of macro variab
 You can use the `%PUT` statement to write your own messages, including macro variable values, to the SAS log: `%PUT The value of the macro variable is: &macrovar;` or `%PUT &=macrovar;`.
 
 You can add one of the following optional arguments to the `%PUT` statement:
-  %PUT <text | _ALL_ / _AUTOMATIC_ / _USER_>;
+  `%PUT <text | _ALL_ / _AUTOMATIC_ / _USER_>;`
 
-Argument	- Result in the SAS Log
-_ALL_	- lists the values of all macro variables
-_AUTOMATIC_	- lists the value of all automatic macro variables
-_USER_	- lists the values of all user-defined macro variables
+| Argument	| Result in the SAS Log |
+|:----:|-----|
+| _ALL_	| Lists the values of all macro variables |
+| _AUTOMATIC_ | Lists the value of all automatic macro variables |
+| _USER_ | Lists the values of all user-defined macro variables |
 
+#### Using the `SYMBOLGEN` system option 
 
-/* 3.2 Using the SYMBOLGEN system option */
-You can also use the SYMBOLGEN system option to display the values of macro variables.
-  OPTIONS SYMBOLGEN | NOSYMBOLGEN;
+You can also use the `SYMBOLGEN` system option to display the values of macro variables.
+```
+OPTIONS SYMBOLGEN | NOSYMBOLGEN;
+```
 
-The default option is NOSYMBOLGEN. When you turn the SYMBOLGEN system option on, SAS writes macro variable values to the SAS log as they are resolved. The message states the macro variable name and the resolved value.
+The default option is `NOSYMBOLGEN`. When you turn the `SYMBOLGEN` system option on, SAS writes macro variable values to the SAS log as they are resolved. The message states the macro variable name and the resolved value.
 
-Because SYMBOLGEN is a system option, its setting remains in effect until you modify it or until you end your SAS session.
+Because `SYMBOLGEN` is a system option, its setting remains in effect until you modify it or until you end your SAS session.
+
+### Processing Macro Variables
+
+When you submit a SAS program, it's copied to an area of memory called the input stack. The word scanner reads the text and breaks the text into fundamental units, called tokens, and passes the tokens, one at time, to the appropriate compiler upon demand. The compiler requests tokens until it receives a semicolon and then performs a syntax check on the statement. The compiler repeats this process for each additional statement.
+
+SAS suspends compilation when a step boundary (`RUN` statements or the beginning of a new `DATA`/`PROC` step) is encountered. If there are no compilation errors, SAS executes the compiled code. This process is repeated for each program step. A token is the fundamental unit that the word scanner passes to the compiler. The word scanner recognizes the four classes of tokens shown in the table below.
+
+| Class	 | Description	| Example |
+|:------:|--------------|---------|
+|name |	a character string that begins with a letter or underscore and continues with underscores, letters, or numerals | infile _n_ dollar10.2 |
+| special |	any character, or combination of characters, other than a letter, numeral, or underscore | * / + ** ; $ ( ) . & % |
+| literal |	a string of characters enclosed in single or double quotation marks | 'Report for May' "Sydney Office" |
+| number | integer numbers, including SAS date constants or floating point numbers, that contain a decimal point and/or an exponent | 23  109 5e8 42.7 '01jan2012'd |
+
+`%LET` statements and macro variable references are part of the macro language. The macro processor is responsible for handling all macro language elements.
+
+  `%name-token`
+  `&name-token`
+Certain token sequences, known as macro triggers, alert the word scanner that the subsequent code should be sent to the macro processor. The word scanner recognizes the following token sequences as macro triggers and passes the code to the macro processor for evaluation:
+a percent sign followed immediately by a name token (such as %LET)
+an ampersand followed immediately by a name token (such as &Amount)
+The macro processor requests tokens until a semicolon is encountered.
+A macro variable reference triggers the macro processor to search the symbol table for the reference. The macro processor resolves the macro variable reference by replacing it with the value in the symbol table.
+Combining Macro Variable References with Text
+You can reference macro variables anywhere in your program. Some situations might require you to place a macro variable reference adjacent to leading text or trailing text. You might need to reference a macro variable between text or perhaps even adjacent macro variables.
+When you combine macro variable references and text, remember how SAS interprets tokens. A token ends when the word scanner detects either the beginning of a new token or a blank after a token.
+You can place text immediately before a macro variable reference.
+You can also reference adjacent macro variables.
+You can place text immediately after a macro variable reference as long as the macro variable name can still be tokenized correctly.
