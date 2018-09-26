@@ -1,4 +1,32 @@
-## Debugging During Compilation
+## Minimizing Errors in Your Macros
+
+You should use a **five-step approach** to developing macro programs that generate SAS code. This approach will streamline your development and debugging process:
+
+* Write and debug the SAS program without macro coding.
+* Generalize by replacing hardcoded values with macro variable references.
+* Create a macro definition with macro parameters.
+* Add macro-level programming for conditional and iterative processing.
+* Add data-driven customization.
+
+There are several system options that are useful for macro debugging:
+
+| Option | Description |
+|:-----:|-----|
+| MCOMPILENOTE | Issues a note to the SAS log after a macro completes compilation |
+| MLOGIC | Writes messages that trace macro execution to the SAS log |
+| MPRINT | Specifies that the text that is sent to the compiler when a macro executes is printed in the SAS log |
+| SYMBOLGEN | Displays the values of macro variables as they resolve |
+
+Your macros might benefit from comments. Comments can be especially helpful if you plan to save your macros permanently or share them with other users.
+```
+%* comment;
+```
+
+To use the macro comment statement, specify the percent sign, followed by an asterisk and then your comment. The comment can be any text. Like other SAS statements, each macro comment statement ends with a semicolon.
+
+You can also use the comment symbols `/ *` and `* /` inside a macro. When these symbols appear, the macro processor ignores the text within the comment.
+
+## Debugging During Macro Compilation
 
 ### `MCOMPILENOTE=` Option
 
