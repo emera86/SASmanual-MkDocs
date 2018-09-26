@@ -76,7 +76,7 @@ proc print data=schedule;
 run;
 ```
 
-You precede the macro variable name city with **two ampersands**. Then you add a reference to the macro variable `crsloc` immediately after the first reference in order to build a new token.
+You precede the macro variable name `city` with **two ampersands**. Then you add a reference to the macro variable `crsloc` immediately after the first reference in order to build a new token.
 
 You need to use **three ampersands** in front of a macro variable name when its value exactly **matches the name of a second macro variable**.
 
