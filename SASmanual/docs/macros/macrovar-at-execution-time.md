@@ -18,7 +18,7 @@ data _null_;
 run;
 ```
 
-The value of foot is 'No Internet Orders'. Word scanning begins. The `%LET` is executed by the macro processor. The step boundary is reached and the `DATA` step executes. `SYMPUTX` changes the value of foot.
+The value of `foot` is 'No Internet Orders'. Word scanning begins. The `%LET` is executed by the macro processor. The step boundary is reached and the `DATA` step executes. `SYMPUTX` changes the value of foot.
 
 ### Using `SYMPUTX` with a `DATA` Step Variable
 
