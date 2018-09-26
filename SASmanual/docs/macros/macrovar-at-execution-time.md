@@ -34,68 +34,67 @@ CALL SYMPUTX(macro-variable, DATA-step-variable);
 
 ### Using `SYMPUTX` with a `DATA` Step Expression
 
-The second argument to the SYMPUTX routine can also be an expression, and it can include arithmetic operations or function calls to manipulate data.
-  CALL SYMPUTX(macro-variable, expression);
-You can use the PUT function as part of the call to the SYMPUTX routine in a DATA step to explicitly convert a numeric value to a character value.
-  PUT (source, format.);
-Example:
-  CALL SYMPUTX ('date', PUT(Begin_Date, mmddyy10.));
-This CALL statement assigns the value of the DATA step variable Begin_Date to the macro variable date. The PUT function explicitly converts the value of Begin_Date to a character value using the MMDDYY10. format. The conversion occurs before the value is assigned to the macro variable.
-Code Challenge:
-Write a statement that uses the SYMPUTX routine to create a macro variable named daily_fee whose value is the cost of a class per day of instruction according to the data set shown below. Use the DOLLAR6. format.
-courses
-Course_Code	  | Course_Title	       | Days	| Fee
-C003	        | Local Area Networks	 | 3	  | 650
-C004	        | Database Design	     | 2	  | 375
-The correct answer is
-  CALL SYMPUTX('daily_fee', PUT(fee/days, dollar6.));
-You specify the keywords CALL SYMPUTX first. Then you enclose the macro variable name in quotation marks. To assign a value, you use the PUT function to format the expression fee per days.
+The second argument to the `SYMPUTX` routine can also be an expression, and it can include arithmetic operations or function calls to manipulate data.
+```
+CALL SYMPUTX(macro-variable, expression);
+```
+You can use the `PUT` function as part of the call to the SYMPUTX routine in a `DATA` step to explicitly convert a numeric value to a character value.
+```
+PUT (source, format.);
 
+/* Example: */
+CALL SYMPUTX ('date', PUT(Begin_Date, mmddyy10.));
+```
+
+This `CALL` statement assigns the value of the `DATA` step variable `Begin_Date` to the macro variable date. The `PUT` function explicitly converts the value of `Begin_Dat`e to a character value using the `MMDDYY10.` format. The conversion occurs before the value is assigned to the macro variable.
 
 ## Passing Data between Steps
 
-### Passing Data between Steps
-
-You can use a `DATA _NULL_` step with the `SYMPUTX` routine to create macro variables and pass data between program steps.
+!!! tip
+    You can use a `DATA _NULL_` step with the `SYMPUTX` routine to create macro variables and pass data between program steps.
 
 ### Creating Indirect References to Macro Variables
-You can use the `SYMPUTX` routine with `DATA` step expressions for both arguments to create a series of macro variables, each with a unique name.
 
-To create an indirect reference, you precede a name token with multiple ampersands.
+You can use the `SYMPUTX` routine with `DATA` step expressions for both arguments to create a series of macro variables, each with a unique name. 
 
-When the macro processor encounters two ampersands, it resolves them to one ampersand and continues to rescan from left to right, from the point where the multiple ampersands begin. This action is known as the Forward Rescan Rule.
+To create an **indirect reference**, you precede a name token with **multiple ampersands**. When the macro processor encounters two ampersands, it resolves them to one ampersand and continues to rescan from left to right, from the point where the multiple ampersands begin. This action is known as the **Forward Rescan Rule**.
 
-Code Challenge:
-Given the macro variables and values shown in the following global symbol table, complete the PROC PRINT step so that it will print all classes that are taught in a particular city. Construct your statement in such a way that you would need to change only the value of crsloc in order for the PROC PRINT step to print classes that are taught in a different city.
-Global Symbol Table
-Name	Value
-city1	Dallas
-city2	Boston
-city3	Seattle
+**Example:** Given the macro variables and values shown in the following global symbol table, the `PROC PRINT` step will print all classes that are taught in a particular city. The statement is written in such a way that you would need to change only the value of `crslo`c in order for the `PROC PRINT` step to print classes that are taught in a different city.
 
-  %let crsloc=2;
-  proc print data=schedule;
-      where location= ... ;
-        run;
+*Global Symbol Table*
 
-The correct answer is
-      where location="&&city&crsloc"
-You precede the macro variable name city with two ampersands. Then you add a reference to the macro variable crsloc immediately after the first reference in order to build a new token.
+| Name	| Value |
+|:---:|:---:|
+| city1	| Dallas |
+| city2	| Boston |
+| city3 | Seattle |
 
-You need to use three ampersands in front of a macro variable name when its value exactly matches the name of a second macro variable.
+```
+%let crsloc=2;
+proc print data=schedule;
+    where location="&&city&crsloc";
+run;
+```
 
-Question:
-Given the macro variables and values shown in this global symbol table, match each macro variable reference on the left to its resolved value on the right by typing the correct letter in each box.
-Global Symbol Table
-Name	| Value
+You precede the macro variable name city with **two ampersands**. Then you add a reference to the macro variable `crsloc` immediately after the first reference in order to build a new token.
+
+You need to use **three ampersands** in front of a macro variable name when its value exactly **matches the name of a second macro variable**.
+
+**Example:** Given the macro variables and values shown in this global symbol table, the correspondance between each macro variable reference and its resolved value.
+
+*Global Symbol Table*
+
+| Name	| Value |
+|:---:|:---:|
 cat100	| Outerwear
 cat120	| Accessories
 sale	| cat100
 
-c <- &sale	 	  a. Outerwear
-c <- &&sale	 	  b. Accessories
-a <- &&&sale	 	c. cat100
- 	 	 	          d. sale
+```
+&sale   => cat100 	 	 
+&&sale	=> cat100 	  
+&&&sale => Outerwear	 	
+```
 
 ## Creating Macro Variables Using PROC SQL
 
