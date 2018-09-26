@@ -18,6 +18,8 @@ QUIT;
 
 ### Macrovariable Creation 
 
+Check more information in [this section](../macros/macrovar-at-execution-time.md#creating-macro-variables-using-proc-sql).
+
 In this code a macrovariable is created containing a list of a variable distinct values (`list`). Another macrovariable is also created whose value is the number of elements in the list (`nelements`).
 
 ```
