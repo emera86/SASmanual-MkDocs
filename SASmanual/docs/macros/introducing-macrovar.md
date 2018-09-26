@@ -81,7 +81,7 @@ SAS suspends compilation when a step boundary (`RUN` statements or the beginning
 
 | Class	 | Description	| Example |
 |:------:|--------------|---------|
-|name |	A character string that begins with a letter or underscore and continues with underscores, letters, or numerals | infile _n_ dollar10.2 |
+|name |	A character string that begins with a letter or underscore and continues with underscores, letters, or numerals | infile `_n_` dollar10.2 |
 | special |	Any character, or combination of characters, other than a letter, numeral, or underscore | * / + ** ; $ ( ) . & % |
 | literal |	A string of characters enclosed in single or double quotation marks | 'Report for May' "Sydney Office" |
 | number | Integer numbers, including SAS date constants or floating point numbers, that contain a decimal point and/or an exponent | 23  109 5e8 42.7 '01jan2012'd |
