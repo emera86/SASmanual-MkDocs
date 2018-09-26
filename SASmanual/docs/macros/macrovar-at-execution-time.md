@@ -90,11 +90,11 @@ cat100	| Outerwear
 cat120	| Accessories
 sale	| cat100
 
-```
-&sale   => cat100 	 	 
-&&sale	=> cat100 	  
-&&&sale => Outerwear	 	
-```
+| Macro variable | Resolved value |
+|:---:|:---:|
+| `&sale` | cat100 |	 	 
+| `&&sale` | cat100 |	  
+| `&&&sale` | Outerwear |	 	
 
 ## Creating Macro Variables Using PROC SQL
 
