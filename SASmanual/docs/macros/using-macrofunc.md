@@ -1,6 +1,6 @@
 ## Overview of Macro Functions
 
-### Macro functions 
+### Macro Functions 
 
 Macro functions enable you to manipulate text strings that SAS inserts in your code. When you submit a program, SAS executes the macro functions before the program compiles. To use a macro function, specify the function name, which starts with a percent sign. Enclose the function arguments in parentheses, separated by commas.
 ```
@@ -99,7 +99,7 @@ The `%EVAL` function evaluates arithmetic and logical expressions.
 /*result 0*/
 ```
 
-### `%SYSEVALF` function
+### `%SYSEVALF` Function
 
 The `%SYSEVALF` function evaluates arithmetic and logical expressions using floating-point arithmetic and returns a value that is formatted using the `BEST32.` format (meaning that decimal contributions are not accounted in the operation). The result of the evaluation is always text.
 
@@ -116,7 +116,7 @@ You can use `%SYSEVALF` with an optional conversion type (`BOOLEAN`, `CEIL`, `FL
 
 ## Using SAS Functions with Macro Variables
 
-### `%SYSFUNC` macro function
+### `%SYSFUNC` Function
 
 You can use the `%SYSFUNC` macro function to execute SAS functions within the macro facility.
 ```
