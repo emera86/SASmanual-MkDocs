@@ -10,7 +10,7 @@ CALL SYMPUTX(macro-variable, value);
 
 To invoke a SAS `CALL` routine, you specify the name of the routine after the keyword `CALL` in the `CALL` statement. The first argument to `SYMPUTX` is the name of the macro variable to be created or modified. It can be a character literal, a variable, or an expression that resolves to a valid macro variable name. The second argument is the value to be assigned to the macro variable. It can be a character or numeric constant, a variable, or an expression. If character literals are used as arguments, they must be quoted.
 
-**Example:** What is the value of foot after execution of this DATA step?
+**Example:** What is the value of `foot` after execution of this `DATA` step?
 ```
 data _null_;
     call symputx('Foot','No Internet orders');
