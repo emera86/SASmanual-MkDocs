@@ -42,7 +42,6 @@ pages:
       - 'Using Conditional and Iterative Processing in Macro Programs': 'macros/macroprog-processing.md'
       - 'Debugging Options': 'macros/debugging-options.md'
       - 'More on Macro Programming': 'macros/more-macro.md'
-      - 'Miscellanea': 'macros/macros-misc.md'
     - Specific Procedures:
       - 'General Notes on Regression Procedures': 'procedures/regression-models.md'
       - 'PROC GLIMMIX': 'procedures/glimmix.md'
