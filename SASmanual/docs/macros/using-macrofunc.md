@@ -75,10 +75,10 @@ The `%EVAL` function evaluates arithmetic and logical expressions.
   
 | Arithmetic Expressions	|  Logical Expressions |
 |:---:|----|
-|  1 + 2	                  |  &DAY = FRIDAY |
-|  4 * 3	                  |  A < a |
-|  4 / 2	                  |  1 < &INDEX |
-|  00FFx - 003Ax	          |  &START NE &END |
+|  `1 + 2`	                  |  `&DAY = FRIDAY` |
+|  `4 * 3`	                  |  `A < a` |
+|  `4 / 2`	                  |  `1 < &INDEX` |
+|  `00FFx - 003Ax`	          |  `&START NE &END` |
   
 * When `%EVAL` evaluates an **arithmetic expression**, it temporarily converts operands to numeric values and performs an integer arithmetic operation. If the result of the expression is noninteger, `%EVAL` truncates the value to an integer. The result is expressed as text. The %EVAL function generates an error message in the log when it encounters an expression that contains noninteger values.
 
