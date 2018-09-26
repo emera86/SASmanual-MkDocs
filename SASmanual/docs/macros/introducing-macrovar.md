@@ -27,7 +27,7 @@ Other automatic macro variables have values that change automatically, based on 
 
 ## Creating User-defined Macro Variables
 
-You use the `%LET` statement to create a macro variable and assign a value to it. Macro variable names **start with a letter or an underscore** and can be followed by letters, digits, or underscores. The prefixes **AF, DMS, SQL, and SYS are not recommended** because they are frequently used in SAS software when creating macro variables. If you assign a macro variable name that isn't valid, SAS writes an error message to the log.
+You use the `%LET` statement to create a macro variable and assign a value to it. Macro variable names **start with a letter or an underscore** and can be followed by letters, digits, or underscores. The prefixes **`AF`, `DMS`, `SQL`, and `SYS` are not recommended** because they are frequently used in SAS software when creating macro variables. If you assign a macro variable name that isn't valid, SAS writes an error message to the log.
 
 When assigning values to macro variables in the `%LET` statement, SAS does the following:
 
