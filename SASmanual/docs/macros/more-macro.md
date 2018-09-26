@@ -1,19 +1,25 @@
-/*******************************************************************************
-1. Processing Statements Conditionally
-*******************************************************************************/
-/* 1.1 global symbol table*/
-/*
-The global symbol table is created during SAS initialization, initialized with automatic macro variables and their values, and deleted at the end of the session. The values of user-defined macro variables are often stored in the global symbol table as well.
-Macro variables stored in the global symbol table are called global macro variables.To create a global macro variable, you can use a %LET statement anywhere in a program, except within a macro definition. You can also call the SYMPUTX routine in a DATA step or use a SELECT statement that contains an INTO clause in a PROC SQL step.
-The %GLOBAL statement enables you to create one or more global macro variables. You specify the keyword %GLOBAL, followed by a list of the macro variables that you want to create, separated by spaces.
-  %GLOBAL macro-variable-1 ...macro-variable-n;
-You can use the %GLOBAL statement anywhere in a SAS program, either inside or outside a macro definition. If the named variables do not exist in the global symbol table, SAS creates them and assigns a null value. If the macro variables already exist, then this statement does not change their values.
-To delete a macro variable from the global symbol table, you use the %SYMDEL statement.
-  %SYMDEL macro-variables;
-*/
+## Processing Statements Conditionally
 
-/* 1.2. Working with Local Macro Variables*/
-/*
+### Global Symbol Table
+
+The **global symbol table** is created during SAS initialization, initialized with automatic macro variables and their values, and deleted at the end of the session. The values of user-defined macro variables are often stored in the global symbol table as well.
+
+Macro variables stored in the global symbol table are called global macro variables. To create a global macro variable, you can use a `%LET` statement anywhere in a program, except within a macro definition. You can also call the `SYMPUTX` routine in a `DATA` step or use a `SELECT` statement that contains an `INTO` clause in a `PROC SQL` step.
+
+The `%GLOBAL` statement enables you to create one or more global macro variables. You specify the keyword `%GLOBAL`, followed by a list of the macro variables that you want to create, separated by spaces.
+```
+%GLOBAL macro-variable-1 ...macro-variable-n;
+```
+
+You can use the `%GLOBAL` statement anywhere in a SAS program, either inside or outside a macro definition. If the named variables do not exist in the global symbol table, SAS creates them and assigns a null value. If the macro variables already exist, then this statement does not change their values.
+
+To delete a macro variable from the global symbol table, you use the %SYMDEL statement.
+```
+%SYMDEL macro-variables;
+```
+
+### Working with Local Macro Variables
+
 SAS creates a local symbol table when you call a macro that includes a parameter list or when a local macro variable is created during macro execution.
 You should use local macro variables instead of global macro variables whenever possible. Local macro variables exist only while the macro is executing. When the macro ends, SAS deletes the local symbol table and the memory used by that table can be reused.
 To create local macro variables, you can use parameters in a macro definition or you can use one of the following methods inside a macro definition: a %LET statement, the SYMPUTX routine in a DATA step, or a SELECT statement that contains an INTO clause in a PROC SQL step.
@@ -27,13 +33,9 @@ If you define a macro program that calls another macro program, and if both macr
 You can use the SYMPUTX routine with an optional third argument, scope, in order to specify where a macro variable should be stored.
   CALL SYMPUTX(macro-variable, value <,scope>);
 You specify either a scope of G to indicate that the macro variable is to be created in the global symbol table, or a scope of L to indicate that the macro variable is to be created in the local symbol table. If no local symbol table exists for the current macro, then one will be created.
-*/
 
-/*******************************************************************************
-2. Writing Utility Macros
-*******************************************************************************/
-/* 2.1  */
-/*
+## Writing Utility Macros
+
 Sometimes there are routine tasks that you need to do repeatedly. It can be useful to define a macro so that the program code for these tasks can be easily reused.
 To save these utility macros so that you can reuse them in the future, you can store the compiled macro definitions in a permanent SAS catalog.
 Setting the two system options, MSTORED and SASMSTORE=, enables you to store macros in a permanent library and specifies that the macro facility will search for compiled macros in the SAS data library that is referenced by the SASMSTORE= option. This libref cannot be work.
@@ -47,13 +49,9 @@ To access a stored compiled macro, you must set the MSTORED and SASMSTORE= syste
 OPTIONS MSTORED;
 OPTIONS SAMSTORE=libref;
 %macro-name
-*/
 
-/*******************************************************************************
-3. Minimizing Errors in Your Macros
-*******************************************************************************/
-/* 3.1  */
-/*
+## Minimizing Errors in Your Macros
+
 You should use a five-step approach to developing macro programs that generate SAS code. This approach will streamline your development and debugging process:
 Write and debug the SAS program without macro coding.
 Generalize by replacing hardcoded values with macro variable references.
@@ -70,4 +68,3 @@ Your macros might benefit from comments. Comments can be especially helpful if y
 %* comment;
 To use the macro comment statement, specify the percent sign, followed by an asterisk and then your comment. The comment can be any text. Like other SAS statements, each macro comment statement ends with a semicolon.
 You can also use the comment symbols / * and * / inside a macro. When these symbols appear, the macro processor ignores the text within the comment.
-*/
