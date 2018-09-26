@@ -166,3 +166,15 @@ Note that `%STR` does not mask the characters `&` or `%`.
 ```
 %NSTR (argument)
 ```
+
+## `%INCLUDE` Is Not a Macro Language Statement
+
+The `%INCLUDE` statement retrieves SAS source code from an external file and places it on the input stack. It is a global SAS statement, not a macro language statement, and it can be used only on a statement boundary.
+
+```
+%INCLUDE file-specification </SOURCE2 >;
+```
+
+To use the `%INCLUDE` statement, you specify the keyword `%INCLUDE`, followed by a file specification. The file-specification value is the physical name or fileref of the file to be retrieved. 
+
+You can optionally specify `SOURCE2` following the file specification. `SOURCE2` causes the SAS statements that are inserted into the input stack to be displayed in the SAS log. If you don't specify `SOURCE2` in the `%INCLUDE` statement, the setting of the SAS system option `SOURCE2` controls whether the inserted code is displayed.
