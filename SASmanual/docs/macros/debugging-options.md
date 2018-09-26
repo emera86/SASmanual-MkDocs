@@ -17,15 +17,6 @@ There are several system options that are useful for macro debugging:
 | MPRINT | Specifies that the text that is sent to the compiler when a macro executes is printed in the SAS log |
 | SYMBOLGEN | Displays the values of macro variables as they resolve |
 
-Your macros might benefit from comments. Comments can be especially helpful if you plan to save your macros permanently or share them with other users.
-```
-%* comment;
-```
-
-To use the macro comment statement, specify the percent sign, followed by an asterisk and then your comment. The comment can be any text. Like other SAS statements, each macro comment statement ends with a semicolon.
-
-You can also use the comment symbols `/ *` and `* /` inside a macro. When these symbols appear, the macro processor ignores the text within the comment.
-
 ## Debugging During Macro Compilation
 
 ### `MCOMPILENOTE=` Option
@@ -60,3 +51,14 @@ When the `MLOGIC` system option is in effect, the messages that SAS displays in 
 When you're working with a program that uses SAS macro language, you should typically turn the `MLOGIC` option, along with the `MPRINT` option and the `SYMBOLGEN` option
 * `on` for development and debugging purposes
 * `off` when the program is in production mode
+
+## Comment your Macros
+
+Your macros might benefit from comments. Comments can be especially helpful if you plan to save your macros permanently or share them with other users.
+```
+%* comment;
+```
+
+To use the macro comment statement, specify the percent sign, followed by an asterisk and then your comment. The comment can be any text. Like other SAS statements, each macro comment statement ends with a semicolon.
+
+You can also use the comment symbols `/ *` and `* /` inside a macro. When these symbols appear, the macro processor ignores the text within the comment.
