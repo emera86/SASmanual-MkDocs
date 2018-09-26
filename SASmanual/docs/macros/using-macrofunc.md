@@ -13,10 +13,8 @@ The arguments can include:
 * Macro functions (`%lenght(&var)`)
 * Macro calls (`%time`)
 
-When you use constant text, do not enclose the text in quotation marks. If you do include them, they'll become part of the argument.
-```
-%upcase(text-argument)
-```
+!!! tip
+    When you use constant text, do not enclose the text in quotation marks. If you do include them, they'll become part of the argument.
 
 You can use all macro functions in both open code and macro definitions. Macro functions are categorized in four types:
 
