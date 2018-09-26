@@ -40,6 +40,7 @@ pages:
       - 'Creating Macro Variables at Execution Time': 'macros/macrovar-at-execution-time.md'
       - 'Creating and Using Macro Programs': 'macros/macroprog.md'
       - 'Using Conditional and Iterative Processing in Macro Programs': 'macros/macroprog-processing.md'
+      - 'Debugging Options': 'macros/debugging-options.md'
       - 'More on Macro Programming': 'macros/more-macro.md'
       - 'Miscellanea': 'macros/macros-misc.md'
     - Specific Procedures:
