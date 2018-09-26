@@ -131,3 +131,27 @@ CALL SYMPUTX(macro-variable, value <,scope>);
 ```
 
 You specify either a scope of `G` to indicate that the macro variable is to be created in the global symbol table, or a scope of `L` to indicate that the macro variable is to be created in the local symbol table. If no local symbol table exists for the current macro, then one will be created.
+
+## Writing Utility Macros
+
+Sometimes there are routine tasks that you need to do repeatedly. It can be useful to define a macro so that the program code for these tasks can be easily reused. To save these utility macros so that you can reuse them in the future, **you can store the compiled macro definitions in a permanent SAS catalog**.
+
+Setting the two system options, `MSTORED` and `SASMSTORE=`, enables you to store macros in a permanent library and specifies that the macro facility will search for compiled macros in the SAS data library that is referenced by the `SASMSTORE=` option. This libref cannot be work.
+```
+OPTIONS MSTORED | NOMSTORED;
+OPTIONS SAMSTORE=libref;
+```
+
+To create a permanently stored compiled macro, you use the `STORE` option in the `%MACRO` statement when you submit the macro definition. You can assign a descriptive title for the macro entry in the SAS catalog, by specifying the `DES=` option.
+```
+%MACRO macro-name <(parameter-list)> / STORE <DES='description'>;
+        text
+%MEND <macro-name>;
+```
+
+To access a stored compiled macro, you must set the `MSTORED` and `SASMSTORE=` system options, if they are not already set, and then simply call the macro.
+```
+OPTIONS MSTORED;
+OPTIONS SAMSTORE=libref;
+%macro-name
+```
