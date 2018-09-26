@@ -47,8 +47,8 @@ If you omit the optional delimiter information, `%SCAN` uses a default set of de
 
 | Encoding | Type	| Default Delimiters |
 |:-----:|-----|-----|
-| ASCII	| blank | . < ( + & ! $ * ) ; ^ - / , % | |
-| EBCDIC | blank | . < ( + | & ! $ * ) ; ¬ - / , % ¦ ¢ |
+| ASCII	| blank | . < ( + & ! $ * ) ; ^ - / , % &#124; |
+| EBCDIC | blank | . < ( + &#124; & ! $ * ) ; ¬ - / , % ¦ ¢ |
 
 ### `%UPCASE` Function
 
