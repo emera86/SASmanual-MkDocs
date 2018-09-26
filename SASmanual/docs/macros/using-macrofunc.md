@@ -8,10 +8,10 @@ Macro functions enable you to manipulate text strings that SAS inserts in your c
 ```
 The arguments can include:
 
-* Constant text (S&P 500)
-* Macro variable references (&sysdate9)
-* Macro functions ( %lenght(&var) )
-* Macro calls (%time)
+* Constant text (`S&P 500`)
+* Macro variable references (`&sysdate9`)
+* Macro functions (`%lenght(&var)`)
+* Macro calls (`%time`)
 
 When you use constant text, do not enclose the text in quotation marks. If you do include them, they'll become part of the argument.
 ```
