@@ -96,65 +96,51 @@ sale	| cat100
 | `&&sale` | cat100 |	  
 | `&&&sale` | Outerwear |	 	
 
-## Creating Macro Variables Using PROC SQL
+## Creating Macro Variables Using `PROC SQL`
 
-### Creating Macro Variables Using PROC SQ 
+### Creating Multiple Macro Variables at a Time
 
-You can also create or update macro variables during the execution of a PROC SQL step.
+You can also create or update macro variables during the execution of a `PROC SQL` step.
+
+```
 PROC SQL;
       SELECT column-1<,column-2,…>
             INTO :macro-variable-1<, :macro-variable-2,…>
             FROM table-1 | view-1
             <WHERE expression>
-                   <other clauses>;
-QUIT;
-
-In PROC SQL, the SELECT statement generates a report by selecting one or more columns from a table. The INTO clause in a SELECT statement enables you to create or update macro variables. The values of the selected columns are assigned to the new macro variables.
-
-You specify the keyword INTO, followed by a colon and then the name of the macro variable(s) to be created. Separate multiple macro variables with commas; each must start with a colon. The colon doesn't become part of the name.
-Unlike the %LET statement and the SYMPUTX routine, the PROC SQL INTO clause doesn't remove leading and trailing blanks from the values. You can use a %LET statement to remove any leading or trailing blanks that are stored in the value.
-
-You can use the PROC SQL NOPRINT option to suppress the report if you don't want output to be displayed.
-PROC SQL NOPRINT;
-      SELECT column-1
-            INTO :macro-variable-1 - :macro-variable-n
-            FROM table-1 | view-1
-            <WHERE expression>
             <ORDER BY order-by-item <,...order-by-item>>
             <other clauses>;
 QUIT;
-Code Challenge:
-Complete the following statement so that it will create a macro variable named price with a value that is equal to the value of the data set variable Fee in the first observation of the courses data set.
-  proc sql;
-   select fee
-      into ....;
-      from courses;
-    quit;
-The correct answer is
-      into :price
-You specify the keyword INTO, then you precede the macro variable name with a colon. Remember, you don't end the INTO clause with a semicolon.
+```
 
-Code Challenge:
-Complete the following SELECT statement so that it creates a series of macro variables named place1, place2, place3, and so on. This statement should create as many new macro variables as are needed so that each new macro variable will be assigned a value of a distinct city and state where a student lives (as provided in the data set variable City_State).
-The first SELECT statement uses the N function to count the number of distinct city_state values and assigns this number to the macro variable numlocs.
-  proc sql;
+* The `SELECT` statement generates a report by selecting one or more columns from a table
+* The `INTO` clause in a `SELECT` statement enables you to create or update macro variables. The values of the selected columns are assigned to the new macro variables. You specify the keyword `INTO`, followed by a colon and then the name of the macro variable(s) to be created. Separate multiple macro variables with commas; each must start with a colon. The **colon doesn't become part of the name**.
+
+Unlike the `%LET` statement and the `SYMPUTX` routine, the `PROC SQL INTO` clause doesn't remove leading and trailing blanks from the values. You can use a `%LET` statement to remove any leading or trailing blanks that are stored in the value.
+
+!!! tip 
+    You can use the `PROC SQL NOPRINT` option to suppress the report if you don't want output to be displayed.
+
+**Example:** The following `SELECT` statement creates a series of macro variables named `place1`, `place2`, `place3`, and so on (as many new macro variables as are needed so that each new macro variable will be assigned a value of a distinct city and state where a student lives as provided in the data set variable `City_State`). The first `SELECT` statement uses the `N` function to count the number of distinct `city_state` values and assigns this number to the macro variable `numlocs`.
+
+```
+proc sql;
     select N(distinct city_state)
       into :numlocs
     from students;
 
     %let numlocs=&numlocs;
     select distinct city_state
-      into ...
-    from students;
-  quit;
-The correct answer is
       into :place1-:place&numlocs
-You specify :place1 as the first new macro variable name. Then you use a reference to the macro variable numlocs combined with :place in order to specify the final new macro variable in the series.
+    from students;
+quit;
+```
 
 ### Storing a List of Values in a Macro Variable 
 
-You can use the INTO clause in a PROC SQL step to create one new macro variable for each row in the result of the SELECT statement.
-You can use an alternate form of the INTO clause in order to take all values of a column (variable) and concatenate them into the value of one macro variable.
+You can use the `INTO` clause in a `PROC SQL` step to create one new macro variable for each row in the result of the `SELECT` statement. You can use an alternate form of the `INTO` clause in order to take all values of a column (variable) and concatenate them into the value of one macro variable.
+
+```
 PROC SQL NOPRINT;
       SELECT <DISTINCT>column-1
             INTO :macro-variable-1
@@ -164,20 +150,10 @@ PROC SQL NOPRINT;
             <other clauses>;
 QUIT;
 
+%PUT &=macro-variable-1;
+```
 
-The INTO clause names the macro variable to be created. The SEPARATED BY clause specifies the character that will be used as a delimiter in the value of the macro variable. Notice that the character is enclosed in quotation marks.
-
-The DISTINCT keyword eliminates duplicates by selecting unique values of the selected column.
-
-After you execute the PROC SQL step, you can use the %PUT statement to write the values to the log.
-
-Code Challenge:
-Complete the following SELECT statement so that it creates a macro variable named location that stores all distinct cities in which students live, separated by an asterisk delimiter.
-  proc sql;
-    select distinct city_state
-      ...
-      from students;
-    quit;
-The correct answer is
-      into :location separated by '*'
-You specify the keyword INTO and precede the macro variable name with a colon. Then you specify the keywords SEPARATED BY and enclose the asterisk in quotation marks.
+* The `INTO` clause names the macro variable to be created
+* The `SEPARATED BY` clause specifies the character that will be used as a delimiter in the value of the macro variable (notice that the character is enclosed in quotation marks)
+* The `DISTINCT` keyword eliminates duplicates by selecting unique values of the selected column
+* After you execute the `PROC SQL` step, you can use the `%PUT` statement to write the values to the log
