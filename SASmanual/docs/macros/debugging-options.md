@@ -2,11 +2,11 @@
 
 You should use a **five-step approach** to developing macro programs that generate SAS code. This approach will streamline your development and debugging process:
 
-* Write and debug the SAS program without macro coding.
-* Generalize by replacing hardcoded values with macro variable references.
-* Create a macro definition with macro parameters.
-* Add macro-level programming for conditional and iterative processing.
-* Add data-driven customization.
+1. Write and debug the SAS program without macro coding
+2. Generalize by replacing hardcoded values with macro variable references
+3. Create a macro definition with macro parameters
+4. Add macro-level programming for conditional and iterative processing
+5. Add data-driven customization
 
 There are several system options that are useful for macro debugging:
 
