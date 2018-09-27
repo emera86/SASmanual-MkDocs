@@ -69,3 +69,27 @@ With the iterative `%DO` statement, you can repeatedly execute macro programming
 
 !!! warning
     `%DO` and `%END` statements are valid **only inside a macro definition**.
+
+### Generating Repetitive Pieces of Text Using `%DO` Loops
+
+To generate repetitive pieces of text, use an iterative `%DO` loop. For example, the following macro, `NAMES`, uses an iterative `%DO` loop to create a series of names to be used in a `DATA` statement:
+
+```
+%macro names(name= ,number= );
+   %do n=1 %to &number;
+      &name&n
+   %end;
+%mend names;
+```
+
+The macro `NAMES` creates a series of names by concatenating the value of the parameter `NAME` and the value of the macro variable `N`. You supply the stopping value for `N` as the value of the parameter `NUMBER`, as in the following `DATA` statement:
+
+```
+data %names(name=dsn,number=5);
+```
+
+Submitting this statement produces the following complete `DATA` statement:
+
+```
+data dsn1 dsn2 dsn3 dsn4 dsn5;
+```
