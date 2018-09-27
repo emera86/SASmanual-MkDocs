@@ -81,7 +81,7 @@ You can execute a `%DO` loop conditionally with `%DO %WHILE` and `%DO %UNTIL` st
   text and macro program statements
 %END;
 
-/* Example */
+/* Example: Removing Markup Tags from a Title */
 %macro untag(title);
       %let stbk=%str(<);
       %let etbk=%str(>);
@@ -109,15 +109,40 @@ title "&title";
 %mend untag;
 
 %untag(<title>Total <emph>Overdue </emph>Accounts</title>)
-
-TITLE "Total Overdue Accounts";
+/* TITLE "Total Overdue Accounts"; */
 ```
 
 * `%DO %UNTIL`: executes a section of a macro repetitively until a condition is true
 
 ```
+%DO %UNTIL (expression); 
+   text and macro language statements
+%END;
 
-/* Example */
+/* Example: Validating a Parameter */
+%macro grph(type);
+   %let type=%upcase(&type);
+   %let options=BLOCK HBAR VBAR;
+   %let i=0;
+   %do %until (&type=%scan(&options,&i) or (&i>3)) ;
+      %let i = %eval(&i+1);
+   %end;
+   %if &i>3 %then %do;
+      %put ERROR: &type type not supported;
+   %end;
+   %else %do;
+      proc chart;&type sex / group=dept;
+      run;
+   %end;
+%mend grph;
+
+%macro grph(HBAR);
+/* PROC CHART;
+HBAR SEX / GROUP=DEPT;
+RUN;*/
+
+%macro grph(PIE);
+/* ERROR: PIE type not supported */
 ```
 
 ### Generating Repetitive Pieces of Text Using `%DO` Loops
