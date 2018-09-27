@@ -70,6 +70,56 @@ With the iterative `%DO` statement, you can repeatedly execute macro programming
 !!! warning
     `%DO` and `%END` statements are valid **only inside a macro definition**.
 
+### Other Flavors of `%DO` Loops
+
+You can execute a `%DO` loop conditionally with `%DO %WHILE` and `%DO %UNTIL` statements.
+
+* `%DO %WHILE`: executes a section of a macro repetitively while a condition is true
+
+```
+%DO %WHILE (expression); 
+  text and macro program statements
+%END;
+
+/* Example */
+%macro untag(title);
+      %let stbk=%str(<);
+      %let etbk=%str(>);
+      /* Do loop while tags exist  */
+   %do %while (%index(&title,&stbk)>0) ;
+      %let pretag=;
+      %let posttag=;
+      %let pos_et=%index(&title,&etbk);
+      %let len_ti=%length(&title);
+          /* Is < first character? */
+      %if (%qsubstr(&title,1,1)=&stbk) %then %do;
+         %if (&pos_et ne &len_ti) %then
+            %let posttag=%qsubstr(&title,&pos_et+1);
+      %end;
+      %else %do;
+         %let pretag=%qsubstr(&title,1,(%index(&title,&stbk)-1));
+            /* More characters beyond end of tag (>) ? */
+         %if (&pos_et ne &len_ti) %then
+            %let posttag=%qsubstr(&title,&pos_et+1);
+      %end;
+         /* Build title with text before and after tag */
+      %let title=&pretag&posttag;
+   %end;
+title "&title";
+%mend untag;
+
+%untag(<title>Total <emph>Overdue </emph>Accounts</title>)
+
+TITLE "Total Overdue Accounts";
+```
+
+* `%DO %UNTIL`: executes a section of a macro repetitively until a condition is true
+
+```
+
+/* Example */
+```
+
 ### Generating Repetitive Pieces of Text Using `%DO` Loops
 
 To generate repetitive pieces of text, use an iterative `%DO` loop. For example, the following macro, `NAMES`, uses an iterative `%DO` loop to create a series of names to be used in a `DATA` statement:
