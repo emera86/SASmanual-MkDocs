@@ -109,7 +109,7 @@ A period `.` is used as delimiter that defines the end of a macro variable. It i
 /* Correct */
 ```
 
-You can even need to use two `.` at certain cases:
+You can even need to use two `.` in certain cases:
 
 ```
 %LET library = library-name;
