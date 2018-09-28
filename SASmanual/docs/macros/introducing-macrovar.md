@@ -92,3 +92,29 @@ Certain token sequences, known as **macro triggers**, alert the word scanner tha
 * An ampersand followed immediately by a name token (such as `&macrovar`)
 
 A macro variable reference triggers the macro processor to search the symbol table for the reference. The macro processor resolves the macro variable reference by replacing it with the value in the symbol table.
+
+### Referencing Macro Variables Using `.`
+
+A period `.` is used as delimiter that defines the end of a macro variable. It is usually not necessary but there are cases on which it can be really useful.
+
+```
+%LET firstletter = a;
+%LET thirdletter = c;
+
+%LET abc = &firstletterb&thirdletter;
+/* Wrong */
+/* WARNING: Apparent symbolic reference FIRSTLETTERB not resolved. */
+
+%LET abc = &firstletter.b&thirdletter;
+/* Correct */
+```
+
+You can even need to use two `.` at certain cases:
+
+```
+%LET library = library-name;
+%LET dataset = dataset-name;
+
+PROC PRINT DATA=&library..&dataset;
+RUN;
+```
