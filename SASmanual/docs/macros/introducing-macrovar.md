@@ -95,6 +95,24 @@ Certain token sequences, known as **macro triggers**, alert the word scanner tha
 
 A macro variable reference triggers the macro processor to search the symbol table for the reference. The macro processor resolves the macro variable reference by replacing it with the value in the symbol table.
 
+### Using Double Quoting to Reference Macro Variables
+
+You need to use double quotes, not single, to reference a macro variable in the code, otherwise the macro variable won't be resolved by the Macro Processor.
+
+```
+%LET firstletter = a;
+
+PROC PRINT DATA=SAS-dat-set;
+    WHERE letter='&firstletter';
+RUN;
+/* Wrong */
+
+PROC PRINT DATA=SAS-dat-set;
+    WHERE letter="&firstletter";
+RUN;
+/* Correct */
+```
+
 ### Referencing Macro Variables Using `.`
 
 A period `.` is used as delimiter that defines the end of a macro variable. It is usually not necessary but there are cases on which it can be really useful.
