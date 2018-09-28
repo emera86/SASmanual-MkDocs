@@ -77,6 +77,8 @@ Because `SYMBOLGEN` is a system option, its setting remains in effect until you 
 
 When you submit a SAS program, it's copied to an area of memory called the input stack. The word scanner reads the text and breaks the text into fundamental units, called tokens, and passes the tokens, one at time, to the appropriate compiler upon demand. The compiler requests tokens until it receives a semicolon and then performs a syntax check on the statement. The compiler repeats this process for each additional statement.
 
+![Macro program flow](../images/program-flow.png "Program flow")
+
 SAS suspends compilation when a step boundary (`RUN` statements or the beginning of a new `DATA`/`PROC` step) is encountered. If there are no compilation errors, SAS executes the compiled code. This process is repeated for each program step. A token is the fundamental unit that the word scanner passes to the compiler. The word scanner recognizes the four classes of tokens shown in the table below.
 
 | Class	 | Description	| Example |
