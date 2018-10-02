@@ -139,7 +139,7 @@ Sometimes there are routine tasks that you need to do repeatedly. It can be usef
 Setting the two system options, `MSTORED` and `SASMSTORE=`, enables you to store macros in a permanent library and specifies that the macro facility will search for compiled macros in the SAS data library that is referenced by the `SASMSTORE=` option. This libref cannot be work.
 ```
 OPTIONS MSTORED | NOMSTORED;
-OPTIONS SAMSTORE=libref;
+OPTIONS SASMSTORE=libref;
 ```
 
 To create a permanently stored compiled macro, you use the `STORE` option in the `%MACRO` statement when you submit the macro definition. You can assign a descriptive title for the macro entry in the SAS catalog, by specifying the `DES=` option.
