@@ -46,7 +46,7 @@ PUT (source, format.);
 CALL SYMPUTX ('date', PUT(Begin_Date, mmddyy10.));
 ```
 
-This `CALL` statement assigns the value of the `DATA` step variable `Begin_Date` to the macro variable date. The `PUT` function explicitly converts the value of `Begin_Dat`e to a character value using the `MMDDYY10.` format. The conversion occurs before the value is assigned to the macro variable.
+This `CALL` statement assigns the value of the `DATA` step variable `Begin_Date` to the macro variable date. The `PUT` function explicitly converts the value of `Begin_Date` to a character value using the `MMDDYY10.` format. The conversion occurs before the value is assigned to the macro variable.
 
 ## Passing Data between Steps
 
