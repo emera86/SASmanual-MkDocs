@@ -110,7 +110,7 @@ The `%SYSEVALF` function evaluates arithmetic and logical expressions using floa
 /* result 10.5+20.8 = 30 */
 ```
 
-You can use `%SYSEVALF` with an optional conversion type (`BOOLEAN`, `CEIL`, `FLOOR`, or `INTEGER`) that tailors the value returned by `%SYSEVALF`.
+You can use `%SYSEVALF` with an optional conversion type (`BOOLEAN`, `CEIL`, `FLOOR`, or `INTEGER`) that tailors the value returned.
 
 ## Using SAS Functions with Macro Variables
 
