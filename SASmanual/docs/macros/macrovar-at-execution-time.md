@@ -59,7 +59,7 @@ You can use the `SYMPUTX` routine with `DATA` step expressions for both argument
 
 To create an **indirect reference**, you precede a name token with **multiple ampersands**. When the macro processor encounters two ampersands, it resolves them to one ampersand and continues to rescan from left to right, from the point where the multiple ampersands begin. This action is known as the **Forward Rescan Rule**.
 
-**Example:** Given the macro variables and values shown in the following global symbol table, the `PROC PRINT` step will print all classes that are taught in a particular city. The statement is written in such a way that you would need to change only the value of `crslo`c in order for the `PROC PRINT` step to print classes that are taught in a different city.
+**Example:** Given the macro variables and values shown in the following global symbol table, the `PROC PRINT` step will print all classes that are taught in a particular city. The statement is written in such a way that you would need to change only the value of `crsloc` in order for the `PROC PRINT` step to print classes that are taught in a different city.
 
 *Global Symbol Table*
 
