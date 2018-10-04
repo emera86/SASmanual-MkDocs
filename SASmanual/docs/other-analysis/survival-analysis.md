@@ -242,13 +242,21 @@ PROC FREQ DATA=bmt600;
 RUN;
 ```
 
-## Cox Proportional Hazards Regression Model ([`PROC PHREG`](http://support.sas.com/documentation/cdl/en/statug/68162/HTML/default/viewer.htm#statug_phreg_overview.htm))
+## Comparing survival curves of two groups using the log rank test
+
+Comparison of two survival curves can be done using a statistical hypothesis test called the log rank test. It is used to test the null hypothesis that **there is no difference between the population survival curves**.
+
+The test statistic is compared with a $\chi^2$ distribution with 1 degree of freedom.
+
+An assumption for the log rank test is that of proportional hazards. **Small departures from this assumption, however, do not invalidate the test**.
+
+## Cox's Proportional Hazards Regression Model ([`PROC PHREG`](http://support.sas.com/documentation/cdl/en/statug/68162/HTML/default/viewer.htm#statug_phreg_overview.htm))
 
 The log rank test is used to test whether there is a difference between the survival times of different groups but it does not allow other explanatory variables to be taken into account.
 
-Cox's proportional hazards model is analogous to a multiple regression model and enables the difference between survival times of particular groups of patients to be tested while allowing for other factors. In this model, the response (dependent) variable is the 'hazard'. The hazard is the probability of dying (or experiencing the event in question) given that patients have survived up to a given point in time, or the risk for death at that moment.
+Cox's proportional hazards model is analogous to a **multiple regression model** and enables the **difference between survival times of particular groups of patients to be tested while allowing for other factors**. In this model, the response (dependent) variable is the 'hazard'. The hazard is the probability of dying (or experiencing the event in question) given that patients have survived up to a given point in time, or the risk for death at that moment.
 
-In Cox’s model no assumption is made about the probability distribution of the hazard. However, it is assumed that if the risk for dying at a particular point in time in one group is, say, twice that in the other group, then at any other time it will still be twice that in the other group. In other words, the hazard ratio does not depend on time.
+In Cox's model no assumption is made about the probability distribution of the hazard. However, it is **assumed that the hazard ratio does not depend on time**.
 
 ## Censoring
 
