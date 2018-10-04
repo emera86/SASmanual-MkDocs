@@ -1,3 +1,0 @@
-https://cran.r-project.org/web/views/Survival.html
-
-https://www.openintro.org/stat/surv.php
