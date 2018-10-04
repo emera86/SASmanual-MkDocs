@@ -242,6 +242,14 @@ PROC FREQ DATA=bmt600;
 RUN;
 ```
 
+## Estimating the survival curve using the Kaplan–Meier method
+
+As it's been said, in analyzing survival data, two functions that are dependent on time are of particular interest: the survival function and the hazard function. The survival function $S(t)$ is defined as the probability of surviving at least to time $t$. The hazard function $h(t)$ is the conditional probability of dying at time $t$ having survived to that time.
+
+The graph of $S(t)$ against t is called the survival curve. The Kaplan–Meier method can be used to estimate this curve from the observed survival times without the assumption of an underlying probability distribution. The method is based on the basic idea that the probability of surviving $k$ or more periods from entering the study is a product of the $k$ observed survival rates for each period (i.e. the cumulative proportion surviving), given by the following:
+
+$S(k)=p_1 \times p_2 \times p_3 \times ... \times p_k$
+
 ## Comparing survival curves of two groups using the log rank test
 
 Comparison of two survival curves can be done using a statistical hypothesis test called the log rank test. It is used to test the null hypothesis that **there is no difference between the population survival curves**.
