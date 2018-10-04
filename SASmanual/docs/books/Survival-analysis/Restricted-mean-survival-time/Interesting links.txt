@@ -1,5 +1,0 @@
-Workshop:
-https://healthpolicy.duke.edu/events/public-workshop-oncology-clinical-trials-presence-non-proportional-hazards
-
-SAS program:
-http://bcb.dfci.harvard.edu/~huno/computer-program/restricted-mean-survival-2.html
