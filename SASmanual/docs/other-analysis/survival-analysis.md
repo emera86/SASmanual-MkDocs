@@ -244,6 +244,12 @@ RUN;
 
 ## Cox Proportional Hazards Regression Model ([`PROC PHREG`](http://support.sas.com/documentation/cdl/en/statug/68162/HTML/default/viewer.htm#statug_phreg_overview.htm))
 
+The log rank test is used to test whether there is a difference between the survival times of different groups but it does not allow other explanatory variables to be taken into account.
+
+Cox's proportional hazards model is analogous to a multiple regression model and enables the difference between survival times of particular groups of patients to be tested while allowing for other factors. In this model, the response (dependent) variable is the 'hazard'. The hazard is the probability of dying (or experiencing the event in question) given that patients have survived up to a given point in time, or the risk for death at that moment.
+
+In Cox’s model no assumption is made about the probability distribution of the hazard. However, it is assumed that if the risk for dying at a particular point in time in one group is, say, twice that in the other group, then at any other time it will still be twice that in the other group. In other words, the hazard ratio does not depend on time.
+
 ## Censoring
 
 * **Right-censoring**: for some subjects we do not know when they died after the issue, but we do know at least how many days they survived.
