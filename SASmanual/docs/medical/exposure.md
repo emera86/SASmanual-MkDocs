@@ -6,9 +6,13 @@ In comparing various protocols you will find that not only do doses vary from on
 
 The concept of **Dose Intensity (DI)** may allow a rough comparison. Dose Intensity is the total amount of drug given in a fixed unit of time (usually 1 week), thus is a function of dose and frequency of administration.
 
+$DI = \frac{sum \ of \ all \ administered \ doses}{(last \ dose \ date - 1^{st} \  dose \ date + planned \ cycle \ duration)/ 7} $
+
 ### Relative Dose Intensity
 
 The **Relative Dose Intensity (RDI)** is the ratio of *delivered* respect to the *planned* dose intensity and can be expressed as a percentage. An RDI of 100% indicates that the drug was administered at the dose planned per protocol, without delay and without cancellations.
+
+$RDI = \frac{sum \ of \ all \ administered \ doses}{(last \ dose \ date - 1^{st} \  dose \ date + planned \ cycle \ duration)/ 7} \cdot \left (\frac{planned \ dose \ per \ cycle}{planned \ cycle \ duration / 7}  \right )^{-1} \cdot 100 = \frac{sum \ of \ all \ administered \ doses}{planned \ dose \ per \ cycle} \cdot \frac{planned \ cycle \ duration}{last \ dose \ date - 1^{st} \  dose \ date + planned \ cycle \ duration} \cdot 100$
 
 ### Derived Variables
 
@@ -18,7 +22,7 @@ Key derived variables for exposure derived datasets could be:
 * The **Planned Treatment Duration** ($days$) is the planned time between two consecutive administrations, i.e. the planned cycle duration
 * The **Treatment Duration** ($weeks$) is calculated as: (date of last administration of trial drug - date of first administration of trial drug + Planned Duration)/ 7
 * The **Dose Intensity (DI)** ($mg/week$) is calculated as: Cumulative dose ($mg$) / Treatment duration ($weeks$)
-* The **Planned Dose Intensity (PDI)** ($mg/week$) is calculated as: Cumulative planned dose ($mg$) / Planned Treatment duration ($weeks$)
+* The **Planned Dose Intensity (PDI)** ($mg/week$) is calculated as: Cumulative planned dose per cycle ($mg$) / (Planned Treatment duration/7) ($weeks$)
 * The **Relative Dose Intensity (RDI)** ($%$) is calculated as: 100 * DI ($mg/week$) / PDI ($mg/week$)
 
 Related considerations:
