@@ -33,7 +33,7 @@ Related considerations:
 * Both DI and RDI together with Cumulative Dose and Treatment Duration, are described by means of descriptive statistics for continuos variables. Additionally frequency distribution together with % of number of Administered Cycle is also provided
 * In combination studies, when applicable, the above information is derived and presented for each drug administered taking into account that the treatment duration may be different for each one of them
 
-## Delays, Reductions and Interruptions of Treatment
+## Treatment Delays, Reductions and Interruptions
 
 If it's not explicitely defined in the protocol, in oncology clinical trials a delay of more than 3 days will be considered as a relevant delay. Delays of less than 3 days will be considered as if the treatment was given at the right date. This standard definition is stablished to account for weekends as non-working days.
 
