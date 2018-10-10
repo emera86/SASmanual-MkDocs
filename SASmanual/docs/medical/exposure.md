@@ -19,12 +19,11 @@ Key derived variables for exposure derived datasets could be:
 * The **Treatment Duration** ($weeks$) is calculated as: (date of last administration of trial drug - date of first administration of trial drug + Planned Duration)/ 7
 * The **Dose Intensity (DI)** ($mg/week$) is calculated as: Cumulative dose ($mg$) / Treatment duration ($weeks$)
 * The **Planned Dose Intensity (PDI)** ($mg/week$) is calculated as: Cumulative planned dose ($mg$) / Planned Treatment duration ($weeks$)
-* The **Relative Dose Intensity (RDI)** ($%$) is calculated as: 100 * DI ($mg/week$) / PDI ($mg/week$). 
+* The **Relative Dose Intensity (RDI)** ($%$) is calculated as: 100 * DI ($mg/week$) / PDI ($mg/week$)
 
+Related considerations:
 
-An RDI of 100% indicates that the drug was administered at the right dose within the planned timeframe.
-
-Dose may also measured as mg/m2 when treatment are infused, in this case the total dose expressed in 'mg' is divided by the subject BSA (m2) measured at the time of the drug administration.
-Both Dose Intensity and Relative Dose Intensity together with Cumulative Dose and Treatment Duration, are described by means of descriptive statistics for continuos variables.
-Additionally frequency distribution together with % of Nr. of Administered Cycle is also provided.
-In combination studies, when applicable, the above information are derived and presented for each drugs administered.
+* An RDI of 100% indicates that the drug was administered at the right dose within the planned timeframe
+* Dose may also measured as $mg/m^2$ when treatment are infused, in this case the total dose expressed in $mg$ is divided by the subject **body surface area (BSA)** ($m^2$) measured at the time of the drug administration
+* Both DI and RDI together with Cumulative Dose and Treatment Duration, are described by means of descriptive statistics for continuos variables. Additionally frequency distribution together with % of number of Administered Cycle is also provided.
+* In combination studies, when applicable, the above information are derived and presented for each drugs administered.
