@@ -76,12 +76,13 @@ pages:
       - 'Patient identification': 'miscellanea/patient-identification.md'
     - Medical terms:
       - 'General': 'medical/general.md'
-      - 'Laboratory test': 'medical/labs.md'
+      - 'Laboratory Test': 'medical/labs.md'
+      - 'Treatment Exposure': 'medical/exposure.md'
     - R with Shiny:
-      - 'Introduction and Shiny basics': 'R-with-Shiny/introduction.md'
-      - 'Inputs, outputs, and rendering functions': 'R-with-Shiny/input-output.md'
-      - 'Reactive programming': 'R-with-Shiny/reactive.md'
-      - 'Customizing appearance': 'R-with-Shiny/custom.md'
+      - 'Introduction and Shiny Basics': 'R-with-Shiny/introduction.md'
+      - 'Inputs, Outputs, and Rendering Functions': 'R-with-Shiny/input-output.md'
+      - 'Reactive Programming': 'R-with-Shiny/reactive.md'
+      - 'Customizing Appearance': 'R-with-Shiny/custom.md'
 
 extra_javascript: 
     - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
