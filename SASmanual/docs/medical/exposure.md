@@ -28,6 +28,13 @@ Key derived variables for exposure derived datasets could be:
 Related considerations:
 
 * An RDI of 100% indicates that the drug was administered at the right dose within the planned timeframe
-* Dose may also measured as $mg/m^2$ when treatment are infused, in this case the total dose expressed in $mg$ is divided by the subject **body surface area (BSA)** ($m^2$) measured at the time of the drug administration
-* Both DI and RDI together with Cumulative Dose and Treatment Duration, are described by means of descriptive statistics for continuos variables. Additionally frequency distribution together with % of number of Administered Cycle is also provided.
-* In combination studies, when applicable, the above information are derived and presented for each drugs administered.
+* Dose may also be measured as $mg/m^2$ when treatment are infused, in this case the total dose expressed in $mg$ is divided by the subject **body surface area (BSA)** ($m^2$) measured at the time of the drug administration
+* For some study drugs the doses may also be measured as $mg/kg$
+* Both DI and RDI together with Cumulative Dose and Treatment Duration, are described by means of descriptive statistics for continuos variables. Additionally frequency distribution together with % of number of Administered Cycle is also provided
+* In combination studies, when applicable, the above information is derived and presented for each drug administered taking into account that the treatment duration may be different for each one of them
+
+## Delays, Reductions and Interruptions of Treatment
+
+If it's not explicitely defined in the protocol, in oncology clinical trials a delay of more than 3 days will be considered as a relevant delay. Delays of less than 3 days will be considered as if the treatment was given at the right date. This standard definition is stablished to account for weekends as non-working days.
+
+Other point that must be defined in the protocol is if delays are permitted or not, so you wouldn't/would need to include 0-dose cycles when computing the DI or RDI.
