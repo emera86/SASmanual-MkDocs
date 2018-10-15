@@ -61,22 +61,15 @@ The `SELECT` statement ends in a semicolon (there is only one semicolon in an en
 
 To check your program syntax efficiently, you can tell SAS to compile a `PROC SQL` statement or step without executing it. To check `PROC SQL` syntax without executing a statement or step, you can use the `VALIDATE` statement or the `NOEXEC` option.
 
+### Checking Query Syntax by Using the `VALIDATE` Statement
+
 The `VALIDATE` statement must appear just before a `SELECT` statement, followed immediately by a query-expression. If your `PROC SQL` program contains multiple queries, you must specify the `VALIDATE` statement before each query that you want to validate.
 
 ```
 VALIDATE query-expression;
 ```
-To check the syntax of all statements in your `PROC SQL` program without executing the program, you can specify the `NOEXEC` option in the `PROC SQL` statement.
 
-```
-PROC SQL NOEXEC;
-```
-Like all `PROC SQL` options, the `NOEXEC` option stays in effect until `PROC SQL` encounters a step boundary or until you issue a `RESET` statement within the `PROC SQL` step.
-
-## Sample Programs
-
-### Checking Query Syntax by Using the `VALIDATE` Statement
-
+**Example:**
 ```
 proc sql;
 validate
@@ -91,8 +84,18 @@ select Employee_ID, Employee_Name,
 quit;
 ```
 
-### Checking `PROC SQL` Syntax by Using the `NOEXEC` Option 
+### Checking `PROC SQL` Syntax by Using the `NOEXEC` Option
 
+To check the syntax of all statements in your `PROC SQL` program without executing the program, you can specify the `NOEXEC` option in the `PROC SQL` statement.
+
+```
+PROC SQL NOEXEC;
+```
+
+Like all `PROC SQL`
+options, the `NOEXEC` option stays in effect until `PROC SQL` encounters a step boundary or until you issue a `RESET` statement within the `PROC SQL` step.
+
+**Example:**
 ```
 proc sql noexec;
 select Order_ID, Product_ID
