@@ -47,20 +47,21 @@ Here is the benchmarking process and a few more guidelines:
 The following options control the resource usage statistics that SAS writes to the log for each SAS step:
 
 * **`STIMER`**: On by default in all operating environments. This option prints the familiar statistics for real time and CPU time in the SAS log after each step.
-* **`FULLSTIMER`** (called `FULLSTATS` in z/OS): More useful than STIMER for benchmarking; writes all available system performance statistics to the SAS log. The statistics shown vary by SAS version and operating environment.
-STATS and MEMRPT (z/OS only): Used to control the statistics that are printed. STATS controls whether any statistics are listed, and MEMRPT specifies whether memory usage statistics are written to the SAS log.
-Here’s the syntax for specifying options to track resource usage in different operating environments:
+* **`FULLSTIMER`** (called **`FULLSTATS`** in z/OS): More useful than `STIMER` for benchmarking; writes all available system performance statistics to the SAS log. The statistics shown vary by SAS version and operating environment.
+* **`STATS`** and **`MEMRPT**` (z/OS only): Used to control the statistics that are printed. `STATS` controls whether any statistics are listed, and `MEMRPT` specifies whether memory usage statistics are written to the SAS log.
 
-Windows and UNIX
+Here's the syntax for specifying options to track resource usage in different operating environments:
+
+**Windows and UNIX**
+```
 OPTIONS STIMER | NOSTIMER;
-
 OPTIONS FULLSTIMER | NOFULLSTIMER;
+```
 
-z/OS
+**z/OS**
+```
 OPTIONS FULLSTATS | NOFULLSTATS;
-
 OPTIONS STATS | NOSTATS;
-
 OPTIONS MEMRPT | NOMEMRPT;
-
-STIMER | NOSTIMER (invocation only)
+STIMER | NOSTIMER (invocation only);
+```
