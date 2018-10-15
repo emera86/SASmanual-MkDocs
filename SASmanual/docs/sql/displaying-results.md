@@ -72,11 +72,11 @@ Titles appear at the top and footnotes appear at the bottom of each page of SAS 
 
 In HTML output, titles appear at the top and footnotes appear at the bottom of the output no matter how long the output is. Listing output is divided into pages of a specified size, and your titles and footnotes appear at the top and bottom of each page, respectively.
 
-TITLE and FOOTNOTE statements remain in effect until they are redefined or cancelled. Redefining a title or footnote line with the same or smaller number cancels any highernumbered lines. To cancel all previous titles or footnotes, specify a null TITLE or FOOTNOTE statement. A null TITLE or FOOTNOTE statement has no line number and no text following the keyword.
+`TITLE` and `FOOTNOTE` statements remain in effect until they are redefined or cancelled. Redefining a title or footnote line with the same or smaller number cancels any highernumbered lines. To cancel all previous titles or footnotes, specify a null `TITLE` or `FOOTNOTE` statement (no line number and no text following the keyword).
 
 In listing and HTML output, any lines for which you do not specify a title appear blank.
 
-While the TITLE statement with the largest number appears on the last title line, footnote lines are "pushed up" from the bottom. The FOOTNOTE statement with the smallest number appears on top and the footnote statement with the largest number appears on the bottom line.
+While the `TITLE` statement with the largest number appears on the last title line, footnote lines are "pushed up" from the bottom. The `FOOTNOTE` statement with the smallest number appears on top and the footnote statement with the largest number appears on the bottom line.
 
 ```
 SELECT object-item <, ...object-item>
@@ -84,7 +84,21 @@ SELECT object-item <, ...object-item>
       FROM from-list;
 ```
 
-Remember that a constant, sometimes called a literal, is a number or character string that indicates a fixed value. The SELECT clause can use constants as expressions.
+Remember that a constant, sometimes called a literal, is a number or character string that indicates a fixed value. The `SELECT` clause can use constants as expressions.
+
+**Example:**
+```
+proc sql;
+title 'Annual Bonuses for Active Employees';
+select Employee_ID label='Employee Number',
+       'Bonus is:',
+       Salary *.05 format=comma12.2
+   from orion.employee_payroll
+   where Employee_Term_Date is missing
+   order by Salary desc;
+quit;
+title;
+```
 
 ### Controlling PROC SQL Output
 
@@ -270,23 +284,10 @@ Boolean expressions are expressions that evaluate to one of two values:
 
 ## Sample Programs
 
-
-
 **Example:**
 ```
 ```
 
-/* 3. Adding Titles, Footnotes, and Constant Text */
-proc sql;
-title 'Annual Bonuses for Active Employees';
-select Employee_ID label='Employee Number',
-       'Bonus is:',
-       Salary *.05 format=comma12.2
-   from orion.employee_payroll
-   where Employee_Term_Date is missing
-   order by Salary desc;
-quit;
-title;
 
 
 /* 4. Controlling PROC SQL Output */
