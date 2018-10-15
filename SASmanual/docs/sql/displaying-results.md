@@ -201,26 +201,29 @@ FREQ(argument)
 N(argument)
 ```
 
-To count the number of rows in a table or in a subset, you can use the ANSI COUNT function, the ANSI FREQ function, or the SAS N function.
+To count the number of rows in a table or in a subset, you can use the ANSI `COUNT` function, the ANSI `FREQ` function, or the SAS `N` function.
 
-The COUNT function argument can be either a column name or an asterisk:
-If you specify a column name, the COUNT function counts the number of rows in the table or in a subset of rows that have a nonmissing value for that column.
-If you specify an asterisk, the COUNT function returns the total number of rows in a table or in a group of rows.
-The FREQ and N functions cannot accept an asterisk as an argument.
+The `COUNT` function argument can be either a column name or an asterisk:
+
+* If you specify a column name, the `COUNT` function counts the number of rows in the table or in a subset of rows that have a nonmissing value for that column
+* If you specify an asterisk, the `COUNT` function returns the total number of rows in a table or in a group of rows
+* The `FREQ` and `N` functions cannot accept an asterisk as an argument
 
 ### Calculating Summary Statistics for Groups of Data
 
 `PROC SQL` processes non-summarized columns and summarized columns differently:
 
-For non-summarized columns, PROC SQL generates one row of output for each row that the query processes.
-For summarized columns, PROC SQL reduces multiple input rows to a single row of output.
-When the SELECT clause list contains at least one column that a summary function creates and a column that is not summarized, and the query has no GROUP BY clause to group the output data by the non-summarized column, PROC SQL remerges the data by default.
+* For non-summarized columns, `PROC SQL` generates one row of output for each row that the query processes
+* For summarized columns, `PROC SQL` reduces multiple input rows to a single row of output
+
+When the `SELECT` clause list contains at least one column that a summary function creates and a column that is not summarized, and the query has no `GROUP BY` clause to group the output data by the non-summarized column, `PROC SQL` remerges the data by default.
 
 Remerging data requires two passes through the table, which takes additional processing time. Here is a simplified description of the process of remerging:
 
-In the first pass through the data, PROC SQL calculates the value of any summary functions for the subset of rows specified in the WHERE clause, and then returns a single value for each summary column.
-In the second pass, PROC SQL selects any non-summarized column values from the rows specified in the WHERE clause. PROC SQL then appends the summary column values to each row to create the output.
-There is one type of non-summarized column that you can combine with a summarized column in the SELECT clause to generate one row of output: a column that contains a constant value.
+* In the first pass through the data, `PROC SQL` calculates the value of any summary functions for the subset of rows specified in the `WHERE` clause, and then returns a single value for each summary column.
+* In the second pass, `PROC SQL` selects any non-summarized column values from the rows specified in the `WHERE` clause. `PROC SQL` then appends the summary column values to each row to create the output.
+
+There is one type of non-summarized column that you can combine with a summarized column in the `SELECT` clause to generate one row of output: a column that contains a constant value.
 
 ```
 OPTIONS SQLREMERGE | NOSQLREMERGE;
