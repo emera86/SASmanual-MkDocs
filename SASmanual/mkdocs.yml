@@ -22,6 +22,24 @@ pages:
       - 'Categorical Data Analysis': 'statistics/categorical-data.md'
       - 'Model Building and Scoring for Prediction': 'statistics/prediction.md'
       - 'Miscellanea': 'statistics/miscellanea.md'
+   - Using Macros: 
+      - 'Introducing Macro Variables': 'macros/introducing-macrovar.md.md'
+      - 'Using Macro Functions': 'macros/using-macrofunc.md'
+      - 'Creating Macro Variables at Execution Time': 'macros/macrovar-at-execution-time.md'
+      - 'Creating and Using Macro Programs': 'macros/macroprog.md'
+      - 'Using Conditional and Iterative Processing in Macro Programs': 'macros/macroprog-processing.md'
+      - 'Debugging Options': 'macros/debugging-options.md'
+      - 'More on Macro Programming': 'macros/more-macro.md'
+    - SQL:
+      - 'Getting Started with the SQL Procedure': 'sql/getting-started.md'
+      - 'Writing Basic Queries': 'sql/basic-queries.md'
+      - 'Displaying Query Results': 'sql/displaying-results.md'
+      - 'Working with SQL Joins': 'sql/joins.md'
+      - 'Working with Nested Queries': 'sql/nested-queries.md'
+      - 'Working with Set Operators': 'sql/set-operators.md'
+      - 'Creating Tables and Views': 'sql/tables-views.md'
+      - 'Using Advanced PROC SQL Features': 'sql/advanced.md'
+      - 'Miscellanea': 'sql/miscellanea.md'
     - Other Analysis:
       - 'Model Selection': 'other-analysis/model-selection.md'
       - 'Dealing with Missing Data': 'other-analysis/missing-data.md'
@@ -34,19 +52,11 @@ pages:
       - 'Survival Analysis': 'other-analysis/survival-analysis.md'
       - 'ORR and DCR': 'other-analysis/orr-dcr.md'
       - 'Clustering': 'other-analysis/clustering.md'
-    - Using Macros: 
-      - 'Introducing Macro Variables': 'macros/introducing-macrovar.md.md'
-      - 'Using Macro Functions': 'macros/using-macrofunc.md'
-      - 'Creating Macro Variables at Execution Time': 'macros/macrovar-at-execution-time.md'
-      - 'Creating and Using Macro Programs': 'macros/macroprog.md'
-      - 'Using Conditional and Iterative Processing in Macro Programs': 'macros/macroprog-processing.md'
-      - 'Debugging Options': 'macros/debugging-options.md'
-      - 'More on Macro Programming': 'macros/more-macro.md'
+
     - Specific Procedures:
       - 'General Notes on Regression Procedures': 'procedures/regression-models.md'
       - 'PROC GLIMMIX': 'procedures/glimmix.md'
       - 'PROC MIXED': 'procedures/mixed.md'
-      - 'PROC SQL': 'procedures/sql.md'
     - SAS Outputs:
       - 'Output Delivery System': 'sas-outputs/ods.md'
       - 'Graphs and Plots': 'sas-outputs/graphs.md'
