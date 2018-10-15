@@ -32,7 +32,7 @@ pages:
       - 'More on Macro Programming': 'macros/more-macro.md'
     - SQL:
       - 'Getting Started with the SQL Procedure': 'sql/getting-started.md'
-      - 'Writing Basic Queries': 'sql/basic-queries.md'
+      - 'Measuring Efficiencies': 'sql/efficiencies.md'
       - 'Displaying Query Results': 'sql/displaying-results.md'
       - 'Working with SQL Joins': 'sql/joins.md'
       - 'Working with Nested Queries': 'sql/nested-queries.md'
