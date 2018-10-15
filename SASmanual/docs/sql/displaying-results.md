@@ -10,13 +10,13 @@
                              <,... order-by-item <DESC>>;
 ```
 
-The SQL processor determines the order in which PROC SQL writes the rows to the output. The processor might not output the rows in the same order as they are encountered in the table. To guarantee the order of the rows in the output, you must use an ORDER BY clause.
+The SQL processor determines the order in which `PROC SQL` writes the rows to the output. The processor might not output the rows in the same order as they are encountered in the table. To guarantee the order of the rows in the output, you must use an `ORDER BY` clause.
 
-When you use an ORDER BY clause, you change the order of the output but not the order of the rows that are stored in the table. By default, PROC SQL sorts in ascending order from the lowest value to the highest. To sort in descending order, you specify the keyword DESC following the column name that you want to sort in descending order.
+When you use an `ORDER BY` clause, you change the order of the output but not the order of the rows that are stored in the table. By default, `PROC SQL` sorts in ascending order from the lowest value to the highest. To sort in descending order, you specify the keyword `DESC` following the column name that you want to sort in descending order.
 
-The ORDER BY clause treats missing values as the smallest possible value, regardless of whether the values are character or numeric. So, when you sort in ascending order, missing values appear first in query results.
+The `ORDER BY` clause treats missing values as the smallest possible value, regardless of whether the values are character or numeric. So, when you sort in ascending order, missing values appear first in query results.
 
-When you specify multiple columns in the ORDER BY clause, PROC SQL sorts the rows by the values of the first column. The values of the following columns represent secondary sorts and PROC SQL sorts the rows that have the same value for the primary sort by using the secondary value.
+When you specify multiple columns in the `ORDER BY` clause, `PROC SQL` sorts the rows by the values of the first column. The values of the following columns represent secondary sorts and `PROC SQL` sorts the rows that have the same value for the primary sort by using the secondary value.
 
 ### Specifying Labels and Formats
 
