@@ -164,16 +164,16 @@ To calculate summary columns in your query output, you add summary functions to 
 
 Some of the most commonly used summary functions are shown below:
 
-**ANSI**    | **SAS**| **Returned Value**
-------------|--------|------------------------------
-AVG	        | MEAN	 | Mean (average) value
-COUNT, FREQ	| N	     | Number of nonmissing values
-MAX	        | MAX	   | Largest value
-MIN	        | MIN	   | Smallest nonmissing value
-SUM	        | SUM	   | Sum of nonmissing values
-            | NMISS	 | Number of missing values
-            | STD	   | Standard deviation
-            | VAR	   | Variance
+| **ANSI**    | **SAS**| **Returned Value**
+|------------|--------|------------------------------
+| `AVG`	        | `MEAN`	 | Mean (average) value
+| `COUNT`, `FREQ`	| `N`	     | Number of nonmissing values
+| `MAX`	        | `MAX`	   | Largest value
+| `MIN`	        | `MIN`	   | Smallest nonmissing value
+| `SUM`	        | `SUM`	   | Sum of nonmissing values
+|            | `NMISS`	 | Number of missing values
+|            | `STD`   | Standard deviation
+|            | `VAR`	   | Variance
 
 SAS and ANSI summary functions do not work exactly the same way. The main difference is in the number of arguments that each can accept. An argument of a summary function is often a column name, although there are other types of arguments as well.
 
