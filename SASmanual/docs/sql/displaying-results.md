@@ -100,47 +100,57 @@ quit;
 title;
 ```
 
-### Controlling PROC SQL Output
+### Controlling `PROC SQL` Output
 
 ```
 PROC SQL<option(s)>;
 ```
 
-Options that are included in the PROC SQL statement are temporary and apply only to that PROC SQL step. If multiple queries are specified, PROC SQL applies the options to all of the statements in the step.
+Options that are included in the `PROC SQL` statement are temporary and apply only to that `PROC SQL` step. If multiple queries are specified, `PROC SQL` applies the options to all of the statements in the step.
 
-After you specify an option, it remains in effect until SAS encounters the beginning of another PROC SQL step or or you change the option.
+After you specify an option, it remains in effect until SAS encounters the beginning of another `PROC SQL` step or or you change the option.
 
 ```
 RESET<option(s)>;
 ```
 
-The RESET statement enables you to add, drop, or change the options in the PROC SQL step without restarting the procedure. The RESET statement is useful to change options and add additional options not previously listed in the PROC SQL statement.
+The `RESET` statement enables you to add, drop, or change the options in the `PROC SQL` step without restarting the procedure. The `RESET` statement is useful to change options and add additional options not previously listed in the `PROC SQL` statement.
 
-`OUTOBS=n`
+```
+OUTOBS=n
+```
 
-The OUTOBS= option restricts the number of rows that a query outputs to a report or writes to a table.
+The `OUTOBS=` option restricts the number of rows that a query outputs to a report or writes to a table.
 
-`NONUMBER | NUMBER`
+```
+NONUMBER | NUMBER
+```
 
-The NUMBER or NONUMBER option controls whether the SELECT statement includes a column named ROW, which displays row numbers as the first column of query output.This option has no effect on the underlying table.
+The `NUMBER` or `NONUMBER` option controls whether the `SELECT` statement includes a column named `ROW`, which displays row numbers as the first column of query output.This option has no effect on the underlying table. The `NONUMBER` option is the default setting.
 
-The NONUMBER option is the default setting.
+```
+NODOUBLE | DOUBLE
+```
 
-`NODOUBLE | DOUBLE`
+The `DOUBLE` or `NODOUBLE` option defines the spacing between lines for an output destination that has a physical page limitation. The `DOUBLE` option double-spaces the report, which places a blank line between the rows. The `NODOUBLE` option single-spaces the report and is the default setting.
 
-The DOUBLE or NODOUBLE option defines the spacing between lines for an output destination that has a physical page limitation. The DOUBLE option double-spaces the report, which places a blank line between the rows.
+The `DOUBLE|NODOUBLE` option primarily affects the `LISTING` destination and has no effect on other output destinations such as `PDF`, `RTF`, and `HTML`.
 
-The NODOUBLE option single-spaces the report and is the default setting.
+```
+NOFLOW | FLOW<=n<m>>
+```
 
-The DOUBLE|NODOUBLE option primarily affects the LISTING destination and has no effect on other output destinations such as PDF, RTF, and HTML.
+The `FLOW` or `NOFLOW` option defines whether character columns with long values wrap, or flow, within the column or the row wraps around to additional lines of output to display all columns. The `FLOW` option causes text to wrap or flow within column limitations rather than wrapping an entire row. The `NOFLOW` option is the default setting. The `FLOW` option affects output destinations with a physical page limitation.
 
-`NOFLOW | FLOW<=n<m>>`
-
-The FLOW or NOFLOW option defines whether character columns with long values wrap, or flow, within the column or the row wraps around to additional lines of output to display all columns. The FLOW option causes text to wrap or flow within column limitations rather than wrapping an entire row.
-
-The NOFLOW option is the default setting.
-
-The FLOW option affects output destinations with a physical page limitation.
+**Example:**
+```
+proc sql flow=5 20 double number outobs=10;
+title "Sample Report";
+select *
+   from orion.employee_organization;
+quit;
+title;
+```
 
 ## Producing Summary Statistics
 
@@ -289,14 +299,6 @@ Boolean expressions are expressions that evaluate to one of two values:
 ```
 
 
-
-/* 4. Controlling PROC SQL Output */
-proc sql flow=5 20 double number outobs=10;
-title "Sample Report";
-select *
-   from orion.employee_organization;
-quit;
-title;
 
 /* 5. Summarizing Across a Row */
 proc sql;
