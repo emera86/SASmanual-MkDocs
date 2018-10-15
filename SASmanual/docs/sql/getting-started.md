@@ -60,7 +60,7 @@ The SELECT statement generates a report by default.
 
 When you submit a PROC SQL query, the SQL processor analyzes your query and determines the most efficient way to process it.
 
-/* 2.2 Checking Query Syntax without Executing the Program */
+### Checking Query Syntax without Executing the Program 
 
 To check your program syntax efficiently, you can tell SAS to compile a PROC SQL statement or step without executing it. To check PROC SQL syntax without executing a statement or step, you can use the VALIDATE statement or the NOEXEC option.
 
@@ -72,10 +72,11 @@ To check the syntax of all statements in your PROC SQL program without executing
 PROC SQL NOEXEC;
 Like all PROC SQL options, the NOEXEC option stays in effect until PROC SQL encounters a step boundary or until you issue a RESET statement within the PROC SQL step.
 
-/*******************************************************************************
-Sample Programs
-*******************************************************************************/
-/* 1. Checking Query Syntax by Using the VALIDATE Statement */
+## Sample Programs
+
+### Checking Query Syntax by Using the VALIDATE Statement
+
+```
 proc sql;
 validate
 select Employee_ID, Job_Title
@@ -87,8 +88,11 @@ select Employee_ID, Employee_Name,
    where Postal_Code contains '33'
    order by Postal_Code;
 quit;
+```
 
-/* 2. Checking PROC SQL Syntax by Using the NOEXEC Option */
+### Checking PROC SQL Syntax by Using the NOEXEC Option 
+
+```
 proc sql noexec;
 select Order_ID, Product_ID
    from orion.order_fact
@@ -96,3 +100,4 @@ select Order_ID, Product_ID
 select Product_ID, Product_Name
    from orion.product_dim;
 quit;
+```
