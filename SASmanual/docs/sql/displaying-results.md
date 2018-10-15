@@ -18,19 +18,48 @@ The `ORDER BY` clause treats missing values as the smallest possible value, rega
 
 When you specify multiple columns in the `ORDER BY` clause, `PROC SQL` sorts the rows by the values of the first column. The values of the following columns represent secondary sorts and `PROC SQL` sorts the rows that have the same value for the primary sort by using the secondary value.
 
+**Example:**
+```
+proc sql;
+select Employee_ID,
+       max(Qtr1,Qtr2,Qtr3,Qtr4)
+   from orion.employee_donations
+   where Paid_By="Cash or Check"
+   order by 2 desc, Employee_ID;
+quit;
+```
+
 ### Specifying Labels and Formats
 
-`'label'`
+```
+'label'
+```
 
-By default, PROC SQL formats output by using column attributes that are already saved in the table or, if there are no permanent attributes, by using the default attributes. However, you can use the ANSI standard column modifier to create a label that is displayed as the heading for the column in the output. The label can be stored permanently when creating or altering a table. The text can be up to 256 characters and must be enclosed in quotation marks.
+By default, `PROC SQL` formats output by using column attributes that are already saved in the table or, if there are no permanent attributes, by using the default attributes. However, you can use the ANSI standard column modifier to create a label that is displayed as the heading for the column in the output. The label can be stored permanently when creating or altering a table. The text can be up to 256 characters and must be enclosed in quotation marks.
 
-`LABEL='label'`
+```
+LABEL='label'
+```
 
-You can take advantage of SAS enhancements, such as the LABEL= column modifier. You can specify the LABEL= column modifier after any column name or expression that is specified in the SELECT clause. You can specify up to 256 characters for the text. Generally, using the SAS method makes your code easier to read and follow.
+You can take advantage of SAS enhancements, such as the `LABEL=` column modifier. You can specify the `LABEL=` column modifier after any column name or expression that is specified in the `SELECT` clause. You can specify up to 256 characters for the text. Generally, using the SAS method makes your code easier to read and follow.
 
-`FORMAT=formatw.d`
+```
+FORMAT=formatw.d
+```
 
-To make data values easier to read in output, you can use the FORMAT= column modifier to associate formats with column values. The FORMAT= column modifier is also a SAS enhancement. A format is an instruction that SAS uses to write data values. Formats specified in the SELECT clause affect only how the data values appear in the output, not how the actual data values are stored in the table.
+To make data values easier to read in output, you can use the FORMAT= column modifier to associate formats with column values. The `FORMAT=` column modifier is also a SAS enhancement. A format is an instruction that SAS uses to write data values. Formats specified in the `SELECT` clause affect only how the data values appear in the output, not how the actual data values are stored in the table.
+
+**Example:**
+```
+proc sql;
+select Employee_ID 'Employee ID',
+       max(Qtr1,Qtr2,Qtr3,Qtr4)
+          label='Maximum' format=dollar5.
+   from orion.employee_donations
+   where Paid_By="Cash or Check"
+   order by 2 desc, Employee_ID;
+quit;
+```
 
 ### Adding Titles, Footnotes, and Constant Text
 
@@ -241,24 +270,11 @@ Boolean expressions are expressions that evaluate to one of two values:
 
 ## Sample Programs
 
-/* 1. Ordering Rows */
-proc sql;
-select Employee_ID,
-       max(Qtr1,Qtr2,Qtr3,Qtr4)
-   from orion.employee_donations
-   where Paid_By="Cash or Check"
-   order by 2 desc, Employee_ID;
-quit;
 
-/* 2. Specifying Labels and Formats */
-proc sql;
-select Employee_ID 'Employee ID',
-       max(Qtr1,Qtr2,Qtr3,Qtr4)
-          label='Maximum' format=dollar5.
-   from orion.employee_donations
-   where Paid_By="Cash or Check"
-   order by 2 desc, Employee_ID;
-quit;
+
+**Example:**
+```
+```
 
 /* 3. Adding Titles, Footnotes, and Constant Text */
 proc sql;
