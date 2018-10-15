@@ -76,8 +76,7 @@ validate
 select Employee_ID, Job_Title
    from orion.staff;
 validate
-select Employee_ID, Employee_Name,
-       Postal_Code
+select Employee_ID, Employee_Name, Postal_Code
    from orion.employee_addresses
    where Postal_Code contains '33'
    order by Postal_Code;
