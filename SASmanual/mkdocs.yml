@@ -52,7 +52,6 @@ pages:
       - 'Survival Analysis': 'other-analysis/survival-analysis.md'
       - 'ORR and DCR': 'other-analysis/orr-dcr.md'
       - 'Clustering': 'other-analysis/clustering.md'
-
     - Specific Procedures:
       - 'General Notes on Regression Procedures': 'procedures/regression-models.md'
       - 'PROC GLIMMIX': 'procedures/glimmix.md'
