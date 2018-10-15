@@ -36,6 +36,8 @@ There are some differences between the syntax of a `PROC SQL` step and the synta
 * Following the `PROC SQL` statement are one or more other statements that perform tasks such as querying data. When SAS executes the `PROC SQL` statement, the SQL procedure starts to run. SAS executes each statement in the `PROC SQL` step immediately, so no `RUN` statement is needed.
 * `PROC SQL` continues to run until it encounters a step boundary and stops running. At the end of a `PROC SQL` step, you can specify a `QUIT` statement as an explicit step boundary. The beginning of another step – a `PROC` step or a `DATA` step – is also a step boundary.
 
+The `SELECT` statement, also called a query, retrieves data from one or more tables and creates a report that displays the data. It can contain a combination of two to six clauses, which **must appear in the order shown above**. The first two clauses – `SELECT` and `FROM` – are the only required clauses. The function of each clause is listed below:
+
 ```
 SELECT object-item <, ...object-item>
   FROM from-list
@@ -45,8 +47,6 @@ SELECT object-item <, ...object-item>
   <ORDER BY order-by-item <DESC>
     <, ...order-by-item>>;
 ```
-
-The `SELECT` statement, also called a query, retrieves data from one or more tables and creates a report that displays the data. It can contain a combination of two to six clauses, which **must appear in the order shown above**. The first two clauses – `SELECT` and `FROM` – are the only required clauses. The function of each clause is listed below:
 
 * The `SELECT` clause specifies the columns that you want to appear in the output and indicates the order in which you want them to appear.
 * The `FROM` clause specifies one or more tables that contain the data you need.
