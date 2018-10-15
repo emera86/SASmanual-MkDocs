@@ -46,35 +46,36 @@ SELECT object-item <, ...object-item>
     <, ...order-by-item>>;
 ```
 
-The `SELECT` statement, also called a query, retrieves data from one or more tables and creates a report that displays the data.
+The `SELECT` statement, also called a query, retrieves data from one or more tables and creates a report that displays the data. It can contain a combination of two to six clauses, which **must appear in the order shown above**. The first two clauses – `SELECT` and `FROM` – are the only required clauses. The function of each clause is listed below:
 
-The SELECT statement can contain a combination of two to six clauses, which must appear in the order shown above. The first two clauses – SELECT and FROM – are the only required clauses. The function of each clause is listed below:
+* The `SELECT` clause specifies the columns that you want to appear in the output and indicates the order in which you want them to appear.
+* The `FROM` clause specifies one or more tables that contain the data you need.
+* The `WHERE` clause selects a subset of rows to be processed. 
+* The `GROUP BY` clause classifies the data into groups. 
+* The `HAVING` clause subsets groups of data.
+* The `ORDER BY` clause sorts rows by the values of one or more columns.
 
-The SELECT clause specifies the columns that you want to appear in the output and indicates the order in which you want them to appear.
-The FROM clause specifies one or more tables that contain the data you need.
-The WHERE clause selects a subset of rows to be processed. o The GROUP BY clause classifies the data into groups. o The HAVING clause subsets groups of data.
-The ORDER BY clause sorts rows by the values of one or more columns.
-The SELECT statement ends in a semicolon – there is only one semicolon in an entire SELECT statement.
-
-The SELECT statement generates a report by default.
-
-When you submit a PROC SQL query, the SQL processor analyzes your query and determines the most efficient way to process it.
+The `SELECT` statement ends in a semicolon (there is only one semicolon in an entire `SELECT` statement). When you submit a `PROC SQL` query, the `SQL` processor analyzes your query and determines the most efficient way to process it. By default, a report is generated.
 
 ### Checking Query Syntax without Executing the Program 
 
-To check your program syntax efficiently, you can tell SAS to compile a PROC SQL statement or step without executing it. To check PROC SQL syntax without executing a statement or step, you can use the VALIDATE statement or the NOEXEC option.
+To check your program syntax efficiently, you can tell SAS to compile a `PROC SQL` statement or step without executing it. To check `PROC SQL` syntax without executing a statement or step, you can use the `VALIDATE` statement or the `NOEXEC` option.
 
-The VALIDATE statement must appear just before a SELECT statement, followed immediately by a query-expression. If your PROC SQL program contains multiple queries, you must specify the VALIDATE statement before each query that you want to validate.
+The `VALIDATE` statement must appear just before a `SELECT` statement, followed immediately by a query-expression. If your `PROC SQL` program contains multiple queries, you must specify the `VALIDATE` statement before each query that you want to validate.
 
+```
 VALIDATE query-expression;
-To check the syntax of all statements in your PROC SQL program without executing the program, you can specify the NOEXEC option in the PROC SQL statement.
+```
+To check the syntax of all statements in your `PROC SQL` program without executing the program, you can specify the `NOEXEC` option in the `PROC SQL` statement.
 
+```
 PROC SQL NOEXEC;
-Like all PROC SQL options, the NOEXEC option stays in effect until PROC SQL encounters a step boundary or until you issue a RESET statement within the PROC SQL step.
+```
+Like all `PROC SQL` options, the `NOEXEC` option stays in effect until `PROC SQL` encounters a step boundary or until you issue a `RESET` statement within the `PROC SQL` step.
 
 ## Sample Programs
 
-### Checking Query Syntax by Using the VALIDATE Statement
+### Checking Query Syntax by Using the `VALIDATE` Statement
 
 ```
 proc sql;
@@ -90,7 +91,7 @@ select Employee_ID, Employee_Name,
 quit;
 ```
 
-### Checking PROC SQL Syntax by Using the NOEXEC Option 
+### Checking `PROC SQL` Syntax by Using the `NOEXEC` Option 
 
 ```
 proc sql noexec;
