@@ -57,7 +57,7 @@ SELECT object-item <, ...object-item>
 
 The `SELECT` statement ends in a semicolon (there is only one semicolon in an entire `SELECT` statement). When you submit a `PROC SQL` query, the `SQL` processor analyzes your query and determines the most efficient way to process it. By default, a report is generated.
 
-### Checking Query Syntax without Executing the Program 
+## Checking Query Syntax without Executing the Program 
 
 To check your program syntax efficiently, you can tell SAS to compile a `PROC SQL` statement or step without executing it. To check `PROC SQL` syntax without executing a statement or step, you can use the `VALIDATE` statement or the `NOEXEC` option.
 
