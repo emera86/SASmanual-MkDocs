@@ -262,6 +262,19 @@ title;
 
 To summarize data by groups, you use a `GROUP BY` clause. In the `GROUP BY` clause, you specify one or more columns that you want to use to categorize the data for summarizing. As in the `ORDER BY` clause, you can specify a column name, a column alias, or an expression. You separate multiple columns with commas. In the `GROUP BY` clause, you can specify columns that are calculated in the `SELECT` clause, **except for columns that are created by a summary function**.
 
+**Example:** Grouping Data by Using the `GROUP BY` Clause
+```
+proc sql;
+select Employee_Gender as Gender,
+       Marital_Status as M_Status,
+       avg(Salary) as Average
+   from orion.employee_information
+   where Employee_Term_Date is missing
+   group by Employee_Gender,
+             Marital_Status;
+quit;
+```
+
 To select a set of rows before the query processes them, you use a `WHERE` clause. You cannot use a `WHERE` clause to subset grouped rows by referring to a summary column that is calculated in the `SELECT` clause. In a `WHERE` clause, you cannot use summary functions that specify a single argument.
 
 ```
@@ -283,19 +296,6 @@ Unlike the `WHERE` clause, the `HAVING` clause can refer to the following:
 
 Unlike the `GROUP BY` clause, the `HAVING` clause can use an expression that contains a summary function or that references a column that a summary function created.
 
-**Example:** Grouping Data by Using the `GROUP BY` Clause
-```
-proc sql;
-select Employee_Gender as Gender,
-       Marital_Status as M_Status,
-       avg(Salary) as Average
-   from orion.employee_information
-   where Employee_Term_Date is missing
-   group by Employee_Gender,
-             Marital_Status;
-quit;
-```
-
 **Example:** Selecting Groups with the `HAVING` Clause
 ```
 proc sql;
@@ -310,16 +310,17 @@ quit;
 FIND(string, substring <, modifier(s)> <,startpos>)
 ```
 
-The FIND function searches for a specific substring of characters within a character string and then performs one of the following actions:
-- If the FIND function finds all of the characters in the specified substring, the function returns an integer that represents the starting position of the substring within the string.
-- If the FIND function does not find the substring, the function returns a value of 0.
+The `FIND` function searches for a specific substring of characters within a character string and then performs one of the following actions:
+* If the `FIND` function finds all of the characters in the specified substring, the function returns an integer that represents the starting position of the substring within the string.
+* If the `FIND` function does not find the substring, the function returns a value of `0`.
 
-The FIND function has four arguments, which are separated by commas. The first two arguments – string and substring – are required, and the other two are optional. The arguments are described below:
-- string is what the function searches to locate the first occurrence of the substring. string can be a constant, a variable, or an expression that resolves to a character string.
-- substring is what you're looking for. Like the string, the substring can be a constant, a variable, or an expression that resolves to a character string.
-- There are two modifiers, and you can specify one or both of them.
-  The modifier i tells the FIND function to ignore case when searching for a substring.
-  The modifier t tells the FIND function to trim any trailing blanks from both the string and the substring before searching. If you specify both modifiers, you enclose them in a single set of quotation marks. The modifiers are not case sensitive.
+The `FIND` function has four arguments, which are separated by commas. The first two arguments –  **string and substring** – **are required**, and the other two are optional. The arguments are described below:
+
+* **`string`** is what the function searches to locate the first occurrence of the substring. `string` can be a constant, a variable, or an expression that resolves to a character string.
+* **`substring`** is what you're looking for. Like the `string`, the `substring` can be a constant, a variable, or an expression that resolves to a character string.
+* There are two `modifiers`, and you can specify one or both of them:
+  * The modifier `i` tells the `FIND` function to ignore case when searching for a substring.
+  * The modifier `t` tells the `FIND` function to trim any trailing blanks from both the string and the substring before searching. If you specify both modifiers, you enclose them in a single set of quotation marks. The modifiers are not case sensitive.
 - startpos is an integer that specifies both a starting position for the search and the direction of the search. A positive integer causes the FIND function to search from left to right. A negative integer causes the FIND function to search from right to left. By default, if you do not specify startpos, the FIND function starts at the first position in the string and searches from left to right.
 
 Boolean expressions are expressions that evaluate to one of two values:
