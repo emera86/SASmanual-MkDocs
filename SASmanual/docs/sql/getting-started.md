@@ -1,75 +1,52 @@
-/*******************************************************************************
+## Understanding the Basics about `PROC SQL`
 
-Getting Started with the SQL Procedure - a collection of snippets
+`PROC SQL` is a procedure that implements **Structured Query Language** on which you can take advantage of SAS enhancements such as formats, labels, and functions. It is a tool for retrieving, manipulating and managing data. For example, you can retrieve data by selecting the variables and observations that you want to analyze (*query the data*). `PROC SQL` complements but does not replace the `DATA` step. 
 
-from Summary of Lesson 1: Getting Started with the SQL Procedure
-ECSQL193 - SAS SQL 1 - Essentials
-
-- describe the key features of the SQL procedure
-- describe the inputs and outputs of the SQL procedure
-- describe the differences between the SQL procedure and the DATA step
-- compare the basic terminology of SAS, data processing, and the SQL procedure
-- describe the key features of PROC SQL syntax
-- describe the clauses in a SELECT statement
-*******************************************************************************/
-
-
-/*******************************************************************************
-1. Understanding the Basics about PROC SQL
-*******************************************************************************/
-/*
-PROC SQL is a procedure in Base SAS that implements Structured Query Language. PROC SQL conforms to the ANSI standard for SQL and also extends beyond that standard. In PROC SQL, you can take advantage of SAS enhancements such as formats, labels, and functions.
-
-PROC SQL is a tool for retrieving, manipulating, and managing data. One of the main tasks that you perform by using PROC SQL is to retrieve data by selecting the variables and observations that you want to analyze (query the data).
-
-PROC SQL can read two types of SAS data sets – SAS data files and SAS data views – as well as database management system (DBMS) tables.
-
-PROC SQL complements but does not replace the DATA step. Each method has advantages.
+`PROC SQL` can read two types of SAS data sets – **SAS data files** and **SAS data views** – as well as **database management system (DBMS) tables**.
 
 SQL and SAS use different terminology, as shown below:
 
-SAS	    | Data Processing	| SQL
+**SAS**	    | **Data Processing**	| **SQL**
+:-----:|:-----:|:-----:
 data set	    | file	    | table
 observation	  | record	  | row
 variable	    | field	    | column
 
-When you use PROC SQL in your SAS programs, you follow the same basic process that you use to create any SAS program:
-1. Define the business need.
-2. Plan the output.
-3. Identify the data.
-4. Write the program.
-5. Run the program.
-6. Review the results.
-7. Debug or modify the program.
+When you use `PROC SQL` in your SAS programs, you follow the same basic process that you use to create any SAS program:
 
+1. Define the business need
+2. Plan the output
+3. Identify the data
+4. Write the program
+5. Run the program
+6. Review the results
+7. Debug or modify the program
 
-/*******************************************************************************
-2. Understanding PROC SQL Syntax
-*******************************************************************************/
-/*
+## Understanding PROC SQL Syntax
 
-  PROC SQL<options>;
-        <additional statement(s);>
-  QUIT;
+```
+PROC SQL <options>;
+  <additional statement(s);>
+QUIT;
+```
 
-There are some differences between the syntax of a PROC SQL step and the syntax of other PROC steps.
+There are some differences between the syntax of a `PROC SQL` step and the syntax of other `PROC` steps. 
 
-To start the SQL procedure, you specify the PROC SQL statement.
+* To start the `SQL` procedure, you specify the `PROC SQL` statement. 
+* Following the `PROC SQL` statement are one or more other statements that perform tasks such as querying data. When SAS executes the `PROC SQL` statement, the SQL procedure starts to run. SAS executes each statement in the `PROC SQL` step immediately, so no `RUN` statement is needed.
+* `PROC SQL` continues to run until it encounters a step boundary and stops running. At the end of a `PROC SQL` step, you can specify a `QUIT` statement as an explicit step boundary. The beginning of another step – a `PROC` step or a `DATA` step – is also a step boundary.
 
-Following the PROC SQL statement are one or more other statements that perform tasks such as querying data.
+```
+SELECT object-item <, ...object-item>
+  FROM from-list
+  <WHERE sql-expression>
+  <GROUP BY object-item <, ...object-item>>
+  <HAVING sql-expression>
+  <ORDER BY order-by-item <DESC>
+    <, ...order-by-item>>;
+```
 
-When SAS executes the PROC SQL statement, the SQL procedure starts to run. SAS executes each statement in the PROC SQL step immediately, so no RUN statement is needed.
-
-PROC SQL continues to run until it encounters a step boundary and stops running. At the end of a PROC SQL step, you can specify a QUIT statement as an explicit step boundary. The beginning of another step – a PROC step or a DATA step – is also a step boundary.
-  SELECT object-item <, ...object-item>
-        FROM from-list
-        <WHERE sql-expression>
-        <GROUP BY object-item <, ...object-item>>
-        <HAVING sql-expression>
-        <ORDER BY order-by-item <DESC>
-                            <, ...order-by-item>>;
-
-The SELECT statement, also called a query, retrieves data from one or more tables and creates a report that displays the data.
+The `SELECT` statement, also called a query, retrieves data from one or more tables and creates a report that displays the data.
 
 The SELECT statement can contain a combination of two to six clauses, which must appear in the order shown above. The first two clauses – SELECT and FROM – are the only required clauses. The function of each clause is listed below:
 
