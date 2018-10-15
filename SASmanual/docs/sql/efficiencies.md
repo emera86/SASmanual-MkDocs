@@ -7,7 +7,7 @@ You should consider various programming techniques based on their ability to con
 CPU	| The amount of time that the central processing unit, or CPU, uses to perform tasks such as calculations, reading and writing data, conditional logic, and iterative logic
 I/O |	A measurement of the Read and Write operations that the computer performs as it copies data and programs from a storage device to memory (input and output)
 memory | The size of the work area in volatile memory the computer requires for holding executable program modules, data, and buffers
-data storage space	Physical space on mass storage devices
+data storage space	| Physical space on mass storage devices
 network bandwidth	| The available throughput for data communications
 
 To determine which efficiency trade-offs to make, you'll have to consider your SAS programs, the data that you read and create, and the characteristics of your site. Examples of trade-offs include the following:
