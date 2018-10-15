@@ -230,11 +230,24 @@ OPTIONS SQLREMERGE | NOSQLREMERGE;
 PROC SQL REMERGE | NOREMERGE;
 ```
 
-Although SAS remerges summary statistics by default, most database management systems do not. Instead, these other systems generate an error.
+Although SAS **remerges summary statistics by default**, most database management systems do not. Instead, these other systems generate an error. To prevent SAS from remerging summary statistics in every `PROC SQL` step in the current session, you can specify the SAS system option `NOSQLREMERGE` in the `OPTIONS` statement. Remember that SAS system options remain in effect until you change them or until the end of your session.
 
-To prevent SAS from remerging summary statistics in every PROC SQL step in the current session, you can specify the SAS system option NOSQLREMERGE in the OPTIONS statement. Remember that SAS system options remain in effect until you change them or until the end of your session.
+If you want to prevent SAS from remerging summary statistics in individual queries or individual `PROC SQL` steps, you can specify the `NOREMERGE` option in the `PROC SQL` statement instead of using the SAS system option. Remember that `PROC SQL` options remain in effect until you change or reset them, or until `PROC SQL` reaches a step boundary, such as a `QUIT` statement.
 
-If you want to prevent SAS from remerging summary statistics in individual queries or individual PROC SQL steps, you can specify the NOREMERGE option in the PROC SQL statement instead of using the SAS system option. Remember that PROC SQL options remain in effect until you change or reset them, or until PROC SQL reaches a step boundary, such as a QUIT statement.
+**Example:** Using Remerged Summary Statistics
+```
+proc sql;
+title "Male Employee Salaries";
+select Employee_ID, Salary format=comma12.,
+       Salary / sum(Salary)
+       'PCT of Total' format=percent6.2
+   from orion.employee_payroll
+   where Employee_Gender='M'
+         and Employee_Term_Date is missing
+   order by 3 desc;
+quit;
+title;
+```
 
 ### Grouping Data
 
@@ -247,15 +260,9 @@ If you want to prevent SAS from remerging summary statistics in individual queri
                              <,... order-by-item <DESC>>;
 ```
 
-To summarize data by groups, you use a `GROUP BY` clause. In the GROUP BY clause, you specify one or more columns that you want to use to categorize the data for summarizing. As in the ORDER BY clause, you can specify a column name, a column alias, or an expression. You separate multiple columns with commas.
+To summarize data by groups, you use a `GROUP BY` clause. In the `GROUP BY` clause, you specify one or more columns that you want to use to categorize the data for summarizing. As in the `ORDER BY` clause, you can specify a column name, a column alias, or an expression. You separate multiple columns with commas. In the `GROUP BY` clause, you can specify columns that are calculated in the `SELECT` clause, **except for columns that are created by a summary function**.
 
-In the GROUP BY clause, you can specify columns that are calculated in the SELECT clause, except for columns that are created by a summary function.
-
-To select a set of rows before the query processes them, you use a WHERE clause.
-
-You cannot use a WHERE clause to subset grouped rows by referring to a summary column that is calculated in the SELECT clause.
-
-In a WHERE clause, you cannot use summary functions that specify a single argument.
+To select a set of rows before the query processes them, you use a `WHERE` clause. You cannot use a `WHERE` clause to subset grouped rows by referring to a summary column that is calculated in the `SELECT` clause. In a `WHERE` clause, you cannot use summary functions that specify a single argument.
 
 ```
 SELECT object-item <, ...object-item>
@@ -267,13 +274,14 @@ SELECT object-item <, ...object-item>
                            <,... order-by-item <DESC>>;
 ```
 
-To select groups to appear in the output, you use the HAVING clause. PROC SQL processes the HAVING clause after grouping rows. Following the keyword HAVING is an expression that PROC SQL uses to subset the grouped rows that appear in the output. Expressions in the HAVING clause follow most of the same rules as expressions in the WHERE clause.
+To select groups to appear in the output, you use the `HAVING` clause. `PROC SQL` processes the `HAVING` clause after grouping rows. Following the keyword `HAVING` is an expression that `PROC SQL` uses to subset the grouped rows that appear in the output. Expressions in the `HAVING` clause follow most of the same rules as expressions in the `WHERE` clause.
 
-Unlike the WHERE clause, the HAVING clause can refer to the following:
-- the column alias of a calculated column without using the keyword CALCULATED
-- the column alias of a column that was created by a summary function with a single argument
+Unlike the `WHERE` clause, the `HAVING` clause can refer to the following:
 
-Unlike the GROUP BY clause, the HAVING clause can use an expression that contains a summary function or that references a column that a summary function created.
+* the column alias of a calculated column without using the keyword `CALCULATED`
+* the column alias of a column that was created by a summary function with a single argument
+
+Unlike the `GROUP BY` clause, the `HAVING` clause can use an expression that contains a summary function or that references a column that a summary function created.
 
 **Example:** Grouping Data by Using the `GROUP BY` Clause
 ```
@@ -358,8 +366,7 @@ quit;
 ## Sample Programs
 
 
-/* 5. Summarizing Across a Row */
-**Example:**
+**Example:** Summarizing Across a Row
 ```
 proc sql;
 select Employee_ID
@@ -370,8 +377,7 @@ select Employee_ID
 quit;
 ```
 
-/* 6. Summarizing Down a Column */
-**Example:**
+**Example:** Summarizing Down a Column
 ```
 proc sql;
 select sum(Qtr1)
@@ -380,8 +386,7 @@ select sum(Qtr1)
 quit;
 ```
 
-/* 7. Calculating Multiple Summary Columns */
-**Example:**
+**Example:** Calculating Multiple Summary Columns
 ```
 proc sql;
 select sum(Qtr1)
@@ -392,8 +397,7 @@ select sum(Qtr1)
 quit;
 ```
 
-/* 8. Counting the Number of Rows That Have a Missing Value */
-**Example:**
+**Example:** Counting the Number of Rows That Have a Missing Value
 ```
 proc sql;
 select Employee_ID
@@ -402,8 +406,7 @@ select Employee_ID
 quit;
 ```
 
-/* 9. Combining Summarized and Non-Summarized Columns */
-**Example:**
+**Example:** Combining Summarized and Non-Summarized Columns
 ```
 proq sql;
 select Employee_Gender as Gender, avg(Salary) as Average
@@ -412,18 +415,4 @@ select Employee_Gender as Gender, avg(Salary) as Average
 quit;
 ```
 
-/* 10. Using Remerged Summary Statistics */
-**Example:**
-```
-proc sql;
-title "Male Employee Salaries";
-select Employee_ID, Salary format=comma12.,
-       Salary / sum(Salary)
-       'PCT of Total' format=percent6.2
-   from orion.employee_payroll
-   where Employee_Gender='M'
-         and Employee_Term_Date is missing
-   order by 3 desc;
-quit;
-title;
-```
+
