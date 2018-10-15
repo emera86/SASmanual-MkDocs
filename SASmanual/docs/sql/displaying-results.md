@@ -272,6 +272,29 @@ Unlike the WHERE clause, the HAVING clause can refer to the following:
 
 Unlike the GROUP BY clause, the HAVING clause can use an expression that contains a summary function or that references a column that a summary function created.
 
+**Example:** Grouping Data by Using the `GROUP BY` Clause
+```
+proc sql;
+select Employee_Gender as Gender,
+       Marital_Status as M_Status,
+       avg(Salary) as Average
+   from orion.employee_information
+   where Employee_Term_Date is missing
+   group by Employee_Gender,
+             Marital_Status;
+quit;
+```
+
+**Example:** Selecting Groups with the `HAVING` Clause
+```
+proc sql;
+select Department, count(*) as Count
+   from orion.employee_information
+   group by Department
+   having Count ge 25;
+quit;
+```
+
 ```
 FIND(string, substring <, modifier(s)> <,startpos>)
 ```
@@ -293,7 +316,44 @@ Boolean expressions are expressions that evaluate to one of two values:
 * `TRUE` (or 1)
 * `FALSE` (or 0)
 
+**Example:** Identifying Rows That Meet a Criterion by Using the `FIND` Function
+```
+proc sql;
+select Department, Job_Title,
+       find(Job_Title,"manager","i")
+          as Position
+   from orion.employee_organization;
+quit;
+```
+
+**Example:** Counting Rows by Using Boolean Expressions
+```
+proc sql;
+select Department,
+       sum(find(Job_Title,"manager","i")>0)
+          as Managers,
+       sum(find(Job_Title,"manager","i")=0)
+          as Employees
+   from orion.employee_information
+   group by Department;
+quit;
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Sample Programs
+
 
 /* 5. Summarizing Across a Row */
 **Example:**
@@ -363,54 +423,4 @@ select Employee_ID, Salary format=comma12.,
    order by 3 desc;
 quit;
 title;
-```
-
-/* 11. Grouping Data by Using the GROUP BY Clause */
-**Example:**
-```
-proc sql;
-select Employee_Gender as Gender,
-       Marital_Status as M_Status,
-       avg(Salary) as Average
-   from orion.employee_information
-   where Employee_Term_Date is missing
-   group by Employee_Gender,
-             Marital_Status;
-quit;
-```
-
-/* 12. Selecting Groups with the HAVING Clause */
-**Example:**
-```
-proc sql;
-select Department, count(*) as Count
-   from orion.employee_information
-   group by Department
-   having Count ge 25;
-quit;
-```
-
-/* 13. Identifying Rows That Meet a Criterion by Using the FIND Function */
-**Example:**
-```
-proc sql;
-select Department, Job_Title,
-       find(Job_Title,"manager","i")
-          as Position
-   from orion.employee_organization;
-quit;
-```
-
-/* 14. Counting Rows by Using Boolean Expressions */
-**Example:**
-```
-proc sql;
-select Department,
-       sum(find(Job_Title,"manager","i")>0)
-          as Managers,
-       sum(find(Job_Title,"manager","i")=0)
-          as Employees
-   from orion.employee_information
-   group by Department;
-quit;
 ```
