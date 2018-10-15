@@ -156,11 +156,11 @@ title;
 
 ### Understanding Summary Functions
 
-Using PROC SQL, you can summarize data in a variety of ways: across rows, down a column across an entire table, or down a column by groups of rows.
+Using `PROC SQL`, you can summarize data in a variety of ways: across rows, down a column across an entire table, or down a column by groups of rows.
 
 To summarize data, your query must create one or more summary columns that appear in the output.
 
-To calculate summary columns in your query output, you add summary functions to expressions in the SELECT clause. Summary functions are also called aggregate functions. Summary functions reduce all the values in each row or column in a table to one summarizing or aggregate value.
+To calculate summary columns in your query output, you add summary functions to expressions in the `SELECT` clause. Summary functions are also called aggregate functions. Summary functions reduce all the values in each row or column in a table to one summarizing or aggregate value.
 
 Some of the most commonly used summary functions are shown below:
 
@@ -177,20 +177,21 @@ SUM	        | SUM	   | Sum of nonmissing values
 
 SAS and ANSI summary functions do not work exactly the same way. The main difference is in the number of arguments that each can accept. An argument of a summary function is often a column name, although there are other types of arguments as well.
 
-  SUM(argument)
-  SUM(argument-1 <,argument-n>)
+```
+SUM(argument)
+SUM(argument-1 <,argument-n>)
+```
 
 Both ANSI functions and SAS summary functions can accept a single argument. If a summary function specifies only one column as an argument, the summary function calculates a single summary value for that column, using the values from one or more rows.
 
 SAS summary functions can accept multiple arguments, but ANSI summary functions cannot. If a SAS summary function specifies multiple columns as arguments, the summary function calculates the statistic across each row, using the values in the listed columns. ANSI summary functions cannot summarize across rows.
 
-When you specify one argument for a summary function that has the same ANSI and SAS name, PROC SQL executes the ANSI summary function.
+When you specify one/multiple argument/s for a summary function that has the same ANSI and SAS name, `PROC SQL` executes the ANSI summary function.
 
-When you specify multiple arguments for a summary function that has the same ANSI and SAS name, PROC SQL executes the SAS summary function.
+If you specify multiple arguments for an ANSI summary function, `PROC SQL` does the following:
 
-If you specify multiple arguments for an ANSI summary function, PROC SQL does the following:
-If a SAS function has the specified name, PROC SQL runs it.
-If no SAS function exists, PROC SQL generates an error.
+* If a SAS function has the specified name, `PROC SQL` runs it.
+* If no SAS function exists, `PROC SQL` generates an error.
 
 ### Producing Summary Statistics
 
@@ -294,13 +295,9 @@ Boolean expressions are expressions that evaluate to one of two values:
 
 ## Sample Programs
 
+/* 5. Summarizing Across a Row */
 **Example:**
 ```
-```
-
-
-
-/* 5. Summarizing Across a Row */
 proc sql;
 select Employee_ID
        label='Employee ID',
@@ -308,15 +305,21 @@ select Employee_ID
        sum(Qtr1,Qtr2,Qtr3,Qtr4)
    from orion.employee_donations;
 quit;
+```
 
 /* 6. Summarizing Down a Column */
+**Example:**
+```
 proc sql;
 select sum(Qtr1)
        'Total Quarter 1 Donations'
    from orion.employee_donations;
 quit;
+```
 
 /* 7. Calculating Multiple Summary Columns */
+**Example:**
+```
 proc sql;
 select sum(Qtr1)
        'Total Quarter 1 Donations',
@@ -324,22 +327,31 @@ select sum(Qtr1)
        'Total Quarter 2 Donations'
    from orion.employee_donations;
 quit;
+```
 
 /* 8. Counting the Number of Rows That Have a Missing Value */
+**Example:**
+```
 proc sql;
 select Employee_ID
    from orion.employee_information
    where Employee_Term_Date is missing;
 quit;
+```
 
 /* 9. Combining Summarized and Non-Summarized Columns */
+**Example:**
+```
 proq sql;
 select Employee_Gender as Gender, avg(Salary) as Average
    from orion.employee_information
    where Employee_Term_Date is missing;
 quit;
+```
 
 /* 10. Using Remerged Summary Statistics */
+**Example:**
+```
 proc sql;
 title "Male Employee Salaries";
 select Employee_ID, Salary format=comma12.,
@@ -351,8 +363,11 @@ select Employee_ID, Salary format=comma12.,
    order by 3 desc;
 quit;
 title;
+```
 
 /* 11. Grouping Data by Using the GROUP BY Clause */
+**Example:**
+```
 proc sql;
 select Employee_Gender as Gender,
        Marital_Status as M_Status,
@@ -362,24 +377,33 @@ select Employee_Gender as Gender,
    group by Employee_Gender,
              Marital_Status;
 quit;
+```
 
 /* 12. Selecting Groups with the HAVING Clause */
+**Example:**
+```
 proc sql;
 select Department, count(*) as Count
    from orion.employee_information
    group by Department
    having Count ge 25;
 quit;
+```
 
 /* 13. Identifying Rows That Meet a Criterion by Using the FIND Function */
+**Example:**
+```
 proc sql;
 select Department, Job_Title,
        find(Job_Title,"manager","i")
           as Position
    from orion.employee_organization;
 quit;
+```
 
 /* 14. Counting Rows by Using Boolean Expressions */
+**Example:**
+```
 proc sql;
 select Department,
        sum(find(Job_Title,"manager","i")>0)
@@ -389,3 +413,4 @@ select Department,
    from orion.employee_information
    group by Department;
 quit;
+```
