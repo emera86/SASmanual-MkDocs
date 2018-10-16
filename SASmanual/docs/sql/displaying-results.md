@@ -193,6 +193,55 @@ If you specify multiple arguments for an ANSI summary function, `PROC SQL` does 
 * If a SAS function has the specified name, `PROC SQL` runs it.
 * If no SAS function exists, `PROC SQL` generates an error.
 
+**Example:** Summarizing Across a Row
+```
+proc sql;
+select Employee_ID
+       label='Employee ID',
+       Qtr1,Qtr2,Qtr3,Qtr4,
+       sum(Qtr1,Qtr2,Qtr3,Qtr4)
+   from orion.employee_donations;
+quit;
+```
+
+**Example:** Summarizing Down a Column
+```
+proc sql;
+select sum(Qtr1)
+       'Total Quarter 1 Donations'
+   from orion.employee_donations;
+quit;
+```
+
+**Example:** Calculating Multiple Summary Columns
+```
+proc sql;
+select sum(Qtr1)
+       'Total Quarter 1 Donations',
+       sum(Qtr2)
+       'Total Quarter 2 Donations'
+   from orion.employee_donations;
+quit;
+```
+
+**Example:** Counting the Number of Rows That Have a Missing Value
+```
+proc sql;
+select Employee_ID
+   from orion.employee_information
+   where Employee_Term_Date is missing;
+quit;
+```
+
+**Example:** Combining Summarized and Non-Summarized Columns
+```
+proq sql;
+select Employee_Gender as Gender, avg(Salary) as Average
+   from orion.employee_information
+   where Employee_Term_Date is missing;
+quit;
+```
+
 ### Producing Summary Statistics
 
 ```
@@ -321,12 +370,7 @@ The `FIND` function has four arguments, which are separated by commas. The first
 * There are two `modifiers`, and you can specify one or both of them:
   * The modifier `i` tells the `FIND` function to ignore case when searching for a substring.
   * The modifier `t` tells the `FIND` function to trim any trailing blanks from both the string and the substring before searching. If you specify both modifiers, you enclose them in a single set of quotation marks. The modifiers are not case sensitive.
-- startpos is an integer that specifies both a starting position for the search and the direction of the search. A positive integer causes the FIND function to search from left to right. A negative integer causes the FIND function to search from right to left. By default, if you do not specify startpos, the FIND function starts at the first position in the string and searches from left to right.
-
-Boolean expressions are expressions that evaluate to one of two values:
-
-* `TRUE` (or 1)
-* `FALSE` (or 0)
+* **`startpos`** is an integer that specifies both a starting position for the search and the direction of the search. A positive integer causes the `FIND` function to search from left to right. A negative integer causes the `FIND` function to search from right to left. By default, if you do not specify `startpos`, the `FIND` function starts at the first position in the string and searches from left to right.
 
 **Example:** Identifying Rows That Meet a Criterion by Using the `FIND` Function
 ```
@@ -337,6 +381,11 @@ select Department, Job_Title,
    from orion.employee_organization;
 quit;
 ```
+
+!!! tip
+    Boolean expressions are expressions that evaluate to one of two values:
+    * `TRUE` (or 1)
+    * `FALSE` (or 0)
 
 **Example:** Counting Rows by Using Boolean Expressions
 ```
@@ -350,70 +399,3 @@ select Department,
    group by Department;
 quit;
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Sample Programs
-
-
-**Example:** Summarizing Across a Row
-```
-proc sql;
-select Employee_ID
-       label='Employee ID',
-       Qtr1,Qtr2,Qtr3,Qtr4,
-       sum(Qtr1,Qtr2,Qtr3,Qtr4)
-   from orion.employee_donations;
-quit;
-```
-
-**Example:** Summarizing Down a Column
-```
-proc sql;
-select sum(Qtr1)
-       'Total Quarter 1 Donations'
-   from orion.employee_donations;
-quit;
-```
-
-**Example:** Calculating Multiple Summary Columns
-```
-proc sql;
-select sum(Qtr1)
-       'Total Quarter 1 Donations',
-       sum(Qtr2)
-       'Total Quarter 2 Donations'
-   from orion.employee_donations;
-quit;
-```
-
-**Example:** Counting the Number of Rows That Have a Missing Value
-```
-proc sql;
-select Employee_ID
-   from orion.employee_information
-   where Employee_Term_Date is missing;
-quit;
-```
-
-**Example:** Combining Summarized and Non-Summarized Columns
-```
-proq sql;
-select Employee_Gender as Gender, avg(Salary) as Average
-   from orion.employee_information
-   where Employee_Term_Date is missing;
-quit;
-```
-
-
