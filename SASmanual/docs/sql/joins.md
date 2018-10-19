@@ -104,8 +104,8 @@ A join on an equal condition is called an **equijoin**. Using `PROC SQL`, you ca
 
 Conceptually, when `PROC SQL` processes an inner join, the SQL processor performs two main steps:
 
-1. builds the Cartesian product of all tables listed in the FROM clause
-2. eliminates the rows that don't meet the join conditions
+1. Builds the Cartesian product of all tables listed in the `FROM` clause
+2. Eliminates the rows that don't meet the join conditions
 
 A `DATA` step merge does not create a Cartesian product.
 
