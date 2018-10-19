@@ -1,21 +1,7 @@
-/*******************************************************************************
+## Querying Dictionary Information and Views
 
-Using Advanced PROC SQL Features
+### Exploring Dictionary Tables
 
-from Summary of Lesson 8: Using Advanced PROC SQL Features
-ECSQL193 - SAS SQL 1 - Essentials
-
-- use dictionary tables and views to obtain information about SAS files
-- use SQL procedure options to control processing details
-- create and use SAS macro variables in PROC SQL
-*******************************************************************************/
-
-
-/*******************************************************************************
-1. Querying Dictionary Information and Views
-*******************************************************************************/
-/* 1.1 Exploring Dictionary Tables */
-/*
 At initialization, SAS creates special read-only dictionary tables and views that contain information about each SAS session or batch job. Dictionary tables contain data or metadata about the SAS session.
 
 SAS assigns the special reserved libref Dictionary to the dictionary tables.
@@ -25,10 +11,10 @@ Within the dictionary tables, SAS stores library and table names in uppercase. B
 When you query a dictionary table, SAS gathers information that is pertinent to that table. The dictionary tables are only accessible with PROC SQL. Because dictionary tables are read-only, you cannot insert rows or columns, alter column attributes, or add integrity constraints to them.
 
 SAS provides PROC SQL views, based on the dictionary tables, that can be used in other SAS programming steps such as the DATA or PROC step. These views are stored in the SASHelp library and are commonly called SASHELP views.
-*/
-/* 1.2 Querying Dictionary Information */
-/*
-To prepare for writing a specific query, you can use a DESCRIBE statement to explore the structure of dictionary tables.
+
+### Querying Dictionary Information
+
+To prepare for writing a specific query, you can use a `DESCRIBE` statement to explore the structure of dictionary tables.
   DESCRIBE TABLE table-1<, ... table-n>;
 
 The output from the DESCRIBE TABLE statement is a CREATE TABLE statement written to the log that contains the column names and attributes.
@@ -61,9 +47,7 @@ Dictionary.Options	--> Information about the current settings of SAS system opti
 Dictionary.Titles	--> Information about the text currently assigned to titles and footnotes
 Dictionary.Extfiles	--> Information about currently assigned filerefs
 
-*/
-/* 1.3 Displaying Specific Metadata */
-/*
+### Displaying Specific Metadata
 
 SELECT object-item <, ...object-item>
       FROM table-1<, ... table-n>;
@@ -77,51 +61,48 @@ If you only want to display results from specific tables, not all tables current
 When you query dictionary tables, you supply values to the WHERE clause in the appropriate case. Remember that library names are stored in dictionary tables in uppercase.
 
 Because different dictionary tables might store similar data using different cases, you might be tempted to use SAS functions, such as UPCASE or LOWCASE. But, the WHERE clause won't process most function calls, such as UPCASE. The functions prevent the WHERE clause from optimizing the condition, which could degrade performance.
-*/
-/* 1.4 Using Dictionary Tables in Other SAS Code */
-/*
+
+### Using Dictionary Tables in Other SAS Code
+
 In SAS procedures and the DATA step, you must refer to sashelp instead of dictionary.
 Remember that PROC SQL views based on the dictionary tables are stored in the sashelp library.
 
 In addition, in PROC and DATA steps, the libref cannot exceed eight characters. Most of the sashelp library dictionary view names are similar to dictionary table names, but they are shortened to eight characters or fewer. They begin with the letter v, and do not end in s. So to run correctly, you change dictionary.tables to sashelp.vtable.
-*/
-/* 1.5 Using Dictionary Views */
-/*
+
+### Using Dictionary Views
+
 To use a dictionary table in a DATA or PROC step, you can reference the views of the dictionary tables, which are available in the SASHelp library.
 
 You can browse the library to determine the name or use the name of the dictionary table to extrapolate the view name.
 
 The names of the views in SASHelp are similar to the dictionary table names, start with the letter v, are eight characters or less, and generally don't have an s on the end.
-*/
 
+## Using SQL Procedure Options
 
-/*******************************************************************************
-2. Using SQL Procedure Options
-*******************************************************************************/
-/*
-PROC SQL options give you finer control over your SQL processes by providing features that allow you to control your processing and your output.
-*/
-/* 2.1 SQL Options: Controlling Processing */
-/*
+`PROC SQL` options give you finer control over your SQL processes by providing features that allow you to control your processing and your output.
+
+### SQL Options: Controlling Processing
+
 Option	--> Effect
 OUTOBS=n	--> Restricts the number of rows that a query outputs.
 INOBS=n	--> Sets a limit of n rows from each source table that contributes to a query.
 NOEXEC	--> Checks syntax for all SQL statements without executing them.
-*/
-/* 2.2 SQL Options: Controlling Display */
-/*
+
+## SQL Options: Controlling Display
+
 Option	--> Effect
 PRINT | NOPRINT	--> Controls whether the results of a SELECT statement are displayed as a report.
 NONUMBER | NUMBER	--> Controls whether the row number is displayed as the first column in the query output.
 NOSTIMER | STIMER	--> Controls whether PROC SQL writes resource utilization statistics to the SAS log.
 NODOUBLE | DOUBLE	--> Controls whether the report is double-spaced.
 NOFLOW | FLOW	--> Controls text wrapping in character columns.
-*/
-/* 2.3 SQL Options: Limiting the Number of Rows That SAS Writes or Reads */
-/*
-OUTOBS=n
 
+## SQL Options: Limiting the Number of Rows That SAS Writes or Reads
+
+```
+OUTOBS=n
 INOBS=n
+```
 
 To limit the number of output rows, you can use the PROC SQL option OUTOBS=. The value n is an integer that specifies the maximum number of rows that PROC SQL writes to output.
 
@@ -132,24 +113,20 @@ The INOBS= option is generally more efficient than the OUTOBS= option. However, 
 If you use an inner join to combine large tables, it's most efficient to use the INOBS= option, if possible. If the join produces no output, try increasing the value of n.
 
 If you use an inner join to combine small tables, using the OUTOBS= option to limit the output rows ensures that you'll get output when matches exist.
-*/
 
+## Using the Macro Language with `PROC SQL`
 
-/*******************************************************************************
-3. Using the Macro Language with PROC SQL
-*******************************************************************************/
-/* 3.1 The Macro Facility */
-/*
+### The Macro Facility
+
 The SAS macro facility consists of the macro processor and the SAS macro language. It is a text processing tool that enables you to automate and customize SAS code.
 
 The SAS macro facility enables you to assign a name to character strings or groups of SAS programming statements. Then, you can work with the names rather than the text itself. SAS inserts the new value of the macro variable throughout your PROC SQL statements automatically. After all macro variables are resolved, the PROC SQL statement executes with the values from those macro variables.
 
 The macro facility is a programming tool that you can use to substitute text in your SAS programs to automatically generate and execute code and write SAS programs that are dynamic.
-*/
 
-/* 3.2 PROC SQL and Macro Variables */
-/*
-In PROC SQL, you can use macro variables to store values returned by a query. You can then reference these macro variables in other PROC SQL statements and steps. Using macro variables in your program enables quick and easy updates, because you need to make the change in only one place.
+### `PROC SQL` and Macro Variables
+
+In `PROC SQL`, you can use macro variables to store values returned by a query. You can then reference these macro variables in other `PROC SQL` statements and steps. Using macro variables in your program enables quick and easy updates, because you need to make the change in only one place.
 
 Macro variables are sometimes referred to as symbolic variables because SAS programs can reference macro variables as symbols for SAS code.
 
@@ -158,16 +135,20 @@ Macro variables can supply a variety of information, including operating system 
 There are two types of macro variables. SAS provides automatic macro variables. You create and define user-defined macro variables.
 
 The name and value of a macro variable are stored in an area of memory called a global symbol table, which is created by SAS at initialization.
-*/
-/* %PUT statement */
-/* You can use the %PUT statement to write your own messages, including macro variable values, to the SAS log.
-  %PUT text;
 
-The macro processor processes %PUT. Remember that the macro processor does not require text to be quoted.
+#### `%PUT` statement
+
+You can use the `%PUT` statement to write your own messages, including macro variable values, to the SAS log.
+```
+%PUT text;
+```
+
+The macro processor processes `%PUT`. Remember that the macro processor does not require text to be quoted.
 
 You can follow the keyword %PUT with optional text, and then the reference to the macro variable. %PUT statements are valid anywhere in a SAS program. The %PUT statement writes only to the SAS log and always writes to a new log line, starting in column one.
 
 You can follow the keyword, %PUT, with optional text, and then the reference to the macro variable.
+
 */
 /* %put _all_ statement*/
 /*
