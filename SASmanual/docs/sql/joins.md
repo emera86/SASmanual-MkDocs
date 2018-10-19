@@ -41,12 +41,15 @@ A Cartesian product is rarely the result that you want when you join tables.
 
 To create a Cartesian product, you use the `SELECT` statement without specifying any conditions for matching rows.
 
+**Example:** Creating a Cartesian Product 
 ```
-SELECT object-item <, ...object-item>
-  FROM table-1 CROSS JOIN table-2;
+proc sql;
+select *
+   from customers, transactions, inventory;
+quit;
 ```
 
-### `Cross Join` (Cartesian product)
+### Cross Join (Cartesian product)
 
 You can also use alternative syntax, called cross join syntax, to produce the Cartesian product of two tables.
 
@@ -75,9 +78,17 @@ The syntax for an inner join requires a `WHERE` clause in addition to the `SELEC
 
 **Example:**
 ```
-SELECT *
-  FROM customers, transactions
-  WHERE customers.ID=transactions.ID;
+proc sql;
+select *
+  from customers, transactions
+  where customers.ID=transactions.ID;
+quit;
+
+proc sql;
+select c.ID, Name, Action, Amount
+   from customers as c, transactions as t
+   where c.ID=t.ID;
+quit;
 ```
 
 The join conditions are specified as expressions. The `WHERE` clause can also contain one or more additional expressions that subset the rows in additional ways.
@@ -141,10 +152,20 @@ In the alternate syntax for an inner join, the `FROM` clause uses the `INNER JOI
 
 **Example:**
 ```
-SELECT c.ID, Name, Action, Amount
-  FROM customers as c
-    INNER JOIN transactions as t
-    ON c.ID=t.ID;
+proc sql;
+select c.ID, Name, Action, Amount
+  from customers as c
+    inner join transactions as t
+    on c.ID=t.ID;
+quit;
+    
+proc sql;
+select c.ID, Name, Action, Amount
+   from customers as c
+        inner join
+        transactions as t
+   on c.ID=t.ID;
+quit;
 ```
 
 ## Working with Outer Joins
@@ -202,7 +223,6 @@ proc sql;
         ON c.ID=t.ID;
 quit;
 ```
-
 In a full outer join, the **order of the tables affects the order of the columns in the result set**. The columns from the left table appear before the columns from the right table.
 
 Outer joins can only process two tables at a time. However, you can stack multiple outer joins in a single query.
@@ -213,29 +233,15 @@ COALESCE(argument-1,argument-2<,argument-n>)
 
 To overlay columns in SQL joins, you can use the `COALESCE` function, which is a SAS function. The `COALESCE` function returns the value of the first nonmissing argument from two or more arguments that you specify. An argument can be a constant, an expression, or a column name. All arguments must be of the same type.
 
-Code Challenge:
-In the SELECT clause, add a function to overlay the ID column in grades on the ID column in majors.
-grades
-ID	GPA
-2136	3.8
-2290	2.5
-5619	3.7
-8834	4.0
------
-majors
-ID	Major
-2136	PSY
-3555	BIO
-5619	BUS
-6001	THE
------
-
-  select ... as ID, GPA, Major
-    from grades full join majors
-      on grades.ID=majors.ID;
-Here are two ways to write the function that overlays the ID column in grades on the ID column in majors:
-  coalesce(grades.ID, majors.ID)
-  coalesce(majors.ID, grades.ID)
+**Example:** Using the `COALESCE` Function to Overlay Columns
+```
+proc sql;
+select coalesce(c.ID,t.ID) as ID,
+       Name, Action, Amount
+   from customers c full join transactions t
+   on c.ID=t.ID;
+quit;
+```
 
 ### Differences between a `PROC SQL` join and a `DATA STEP` merge
 
@@ -275,67 +281,8 @@ Even if the information you need for your report is located in only two tables, 
 
 In order to read from the same table twice, it must be listed in the `FROM` clause twice. A different table alias is required for each listing to distinguish the different uses. This is called a **self-join**, or a reflexive join.
 
-/*******************************************************************************
-##  Sample Programs
-
-/* 1. Creating a Cartesian Product */
-proc sql;
-select *
-   from customers, transactions, inventory;
-quit;
-
-/* 2. Performing an Inner Join */
-proc sql;
-select c.ID, Name, Action, Amount
-   from customers as c, transactions as t
-   where c.ID=t.ID;
-quit;
-
-/* 3. Using Alternative Syntax for an Inner Join */
-proc sql;
-select c.ID, Name, Action, Amount
-   from customers as c
-        inner join
-        transactions as t
-   on c.ID=t.ID;
-quit;
-
-/* 4. Performing a Left Outer Join */
-proc sql;
-select *
-   from customers as c
-        left join
-        transactions as t
-   on c.ID=t.ID;
-quit;
-
-/* 5. Performing a Right Outer Join */
-proc sql;
-select *
-   from customers as c
-        right join
-        transactions as t
-   on c.ID=t.ID;
-quit;
-
-/* 6. Performing a Full Outer Join */
-proc sql;
-select *
-   from customers as c
-        full join
-        transactions as t
-   on c.ID=t.ID;
-quit;
-
-/* 7. Using the COALESCE Function to Overlay Columns */
-proc sql;
-select coalesce(c.ID,t.ID) as ID,
-       Name, Action, Amount
-   from customers c full join transactions t
-   on c.ID=t.ID;
-quit;
-
-/* 8. Performing a Complex Join */
+**Example:** Performing a Complex Join
+```
 proc sql;
 select e.Employee_ID "Employee ID",
           e.Employee_Name "Employee Name",
@@ -350,3 +297,4 @@ select e.Employee_ID "Employee ID",
               Department contains 'Sales'
    order by Country,4,1;
 quit;
+```
