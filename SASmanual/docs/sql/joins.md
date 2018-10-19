@@ -1,7 +1,5 @@
 ## Understanding SQL Joins
 
-### Understanding SQL Joins
-
 If you're working with tables that have different columns, you can combine tables horizontally to combine the columns that you want in your output.
 
 ```
@@ -151,8 +149,6 @@ SELECT c.ID, Name, Action, Amount
 
 ## Working with Outer Joins
 
-### Working with Outer Joins
-
 ```
 SELECT object-item <, ...object-item>
   FROM table-name <<AS> alias>
@@ -166,7 +162,7 @@ The syntax for outer joins is similar to the alternate syntax for inner joins. I
 
 #### Performing a Left Outer Join
 
-Use a left outer join to select all the rows in the customers table and only the matching rows in the transactions table.
+Use a left outer join to select **all the rows in the customers table and only the matching rows in the transactions table**.
 
 **Example:**
 ```
@@ -180,8 +176,8 @@ quit;
 ```
 
 #### Performing a Right Outer Join
-Use a right outer join to select all the rows in the transactions table
-and only the matching rows in the customers table.
+
+Use a right outer join to select **all the rows in the transactions table and only the matching rows in the customers table**.
 
 **Example:**
 ```
@@ -194,7 +190,8 @@ quit;
 ```
 
 #### Performing a Full Outer Join
-We want the query to combine and return all matching rows and also to return the rows from both tables that do not match.
+
+We want the query to combine and return **all matching rows and also to return the rows from both tables that do not match**.
 
 **Example:**
 ```
@@ -206,7 +203,7 @@ proc sql;
 quit;
 ```
 
-In a full outer join, the order of the tables affects the order of the columns in the result set. The columns from the left table appear before the columns from the right table.
+In a full outer join, the **order of the tables affects the order of the columns in the result set**. The columns from the left table appear before the columns from the right table.
 
 Outer joins can only process two tables at a time. However, you can stack multiple outer joins in a single query.
 
@@ -245,6 +242,7 @@ Here are two ways to write the function that overlays the ID column in grades on
 The table below shows the differences between a `PROC SQL` join and a `DATA STEP` merge.
 
 Key Points	                                | SQL Join	    | DATA Step Merge
+:-----:|:-----:|:-----:
 Explicit sorting of data before join/merge	| Not required	| Required
 Same-name columns in join/merge expressions	| Not required	| Required
 Equality in join or merge expressions	      | Not required	| Required
@@ -252,33 +250,34 @@ Equality in join or merge expressions	      | Not required	| Required
 The table below shows the differences between inner and outer joins.
 
 Key Points	| Inner Join	| Outer Join
+:-----:|:-----:|:-----:
 Table Limit	| 256	| 256
 Join Behavior	| Returns matching rows only	| Returns matching and non-matching rows
-Join Options	| Matching rows only	| LEFT, FULL, RIGHT
+Join Options	| Matching rows only	| `LEFT`, `FULL`, `RIGHT`
 
 Syntax Changes  - Inner Join:
-Multiple tables in the FROM clause (separated by commas)
-WHERE clause that specifies join criteria
-Syntax Changes  - Outer Join:
-ON clause that specifies join criteria
 
-/*******************************************************************************
-4. Working with Complex SQL Joins
-*******************************************************************************/
-/* 4.1 Performing a Complex Join*/
-/*
+* Multiple tables in the `FROM` clause (separated by commas)
+* `WHERE` clause that specifies join criteria
+
+Syntax Changes  - Outer Join:
+
+* `ON` clause that specifies join criteria
+
+## Working with Complex SQL Joins
+
 Even if the information you need for your report is located in only two tables, you may need to read the same table twice, or even more times.
+
+```
   FROM table-name-1 <AS> alias-1,
       table-name-1 <AS> alias-2,
-In order to read from the same table twice, it must be listed in the FROM clause twice. A different table alias is required for each listing to distinguish the different uses.
+```
 
-This is called a self-join, or a reflexive join.
-*/
-
+In order to read from the same table twice, it must be listed in the `FROM` clause twice. A different table alias is required for each listing to distinguish the different uses. This is called a **self-join**, or a reflexive join.
 
 /*******************************************************************************
-  Sample Programs
-*******************************************************************************/
+##  Sample Programs
+
 /* 1. Creating a Cartesian Product */
 proc sql;
 select *
