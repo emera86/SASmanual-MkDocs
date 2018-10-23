@@ -119,6 +119,7 @@ To use a dictionary table in a `DATA` or `PROC` step, you can reference the view
 You can browse the library to determine the name or use the name of the dictionary table to extrapolate the view name. The names of the views in SASHelp are similar to the dictionary table names, start with the letter v, are eight characters or less, and generally don't have an s on the end.
 
 **Example:**
+```
 title 'SAS Objects by Library';
 proc tabulate data=sashelp.vmember format=8.;
    class libname memtype;
@@ -128,6 +129,7 @@ proc tabulate data=sashelp.vmember format=8.;
    where libname in ('ORION','SASUSER','SASHELP');
 run;
 title;
+```
 
 ## Using SQL Procedure Options
 
