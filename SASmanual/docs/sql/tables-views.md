@@ -117,6 +117,21 @@ The `SET` clause contains one or more pairs of column names and values. In each 
 
 To insert values into multiple rows, you can specify multiple `SET` clauses in the `INSERT` statement. Multiple `SET` clauses are not separated by commas. Multiple `SET` clauses do not need to list the same columns or list columns in the same order.
 
+**Example:** Using the `SET` Clause to Add Data to a Table 
+```
+proc sql;
+insert into discounts
+   set Product_ID=230100300006,
+       Start_Date='01MAR2013'd,
+       End_Date='15MAR2013'd,
+       Discount=.33
+   set Product_ID=230100600018,
+       Start_Date='16MAR2013'd,
+       End_Date='31MAR2013'd,
+       Discount=.15;
+quit;
+```
+
 ### Specifying an Ordered List of Values in the `VALUES` Clause
 
 In the `INSERT` statement, the `VALUES` clause adds values to the columns in a single row.
@@ -126,10 +141,20 @@ INSERT INTO table-name
         VALUES(value,value, ... );
 ```
 
-After the `VALUES` keyword, you specify a list of one or more values in parentheses.
-Within the list, you separate multiple values with commas. To add more than one row of values to the table, you specify additional `VALUES` clauses. Multiple `VALUES` clauses are not separated by commas.
+After the `VALUES` keyword, you specify a list of one or more values in parentheses. Within the list, you separate multiple values with commas. To add more than one row of values to the table, you specify additional `VALUES` clauses. Multiple `VALUES` clauses are not separated by commas.
 
 By default, in each `VALUES` clause, you specify values for all of the columns in the table, in the order that the columns appear in the table. If you want to specify values in an order that is different from the column order in the table, or if you want to specify values for only a subset of the columns in the table, you must add an optional column list in parentheses after the table name. The order of the columns in the column list is independent of the order of the columns in the table. When you specify a column list, the order of the values in each `VALUES` clause must match the order of the columns in the column list. Any columns that are in the table but do not appear in a column list are given missing values.
+
+**Example:** Using the `VALUES` Clause to Add Data to a Table
+```
+proc sql;
+insert into discounts
+   values (230100300006,'01MAR2013'd,
+          '15MAR2013'd,.33)
+   values (230100600018,'16MAR2013'd,
+          '31MAR2013'd,.15);
+quit;
+```
 
 ### Specifying a Query in the `INSERT` Statement
 
@@ -143,6 +168,19 @@ INSERT INTO table-name
 ```
 
 By default, the `SELECT` clause specifies values for every column in the target table, and the order of the values must match the order of the columns in the target table. If you want to specify values in a different order or for only a subset of the columns in the target table, you can add an optional column list in parentheses after the table name in the `INSERT` statement. The order of the columns in the column list is independent of the order of the columns in the table.
+
+**Example:** Specifying a Query in the `INSERT` Statement
+```
+proc sql;
+insert into discounts
+   (Product_ID,Discount,Start_Date,End_Date)
+   select distinct Product_ID,.35,
+          '01MAR2013'd,'31MAR2013'd
+      from orion.product_dim
+      where Supplier_Name contains
+           'Pro Sportswear Inc';
+quit;
+```
 
 ## Creating `PROC SQL` Views
 
@@ -240,38 +278,11 @@ Sample Programs
 
 
 
-/* 4. Using the SET Clause to Add Data to a Table */
-proc sql;
-insert into discounts
-   set Product_ID=230100300006,
-       Start_Date='01MAR2013'd,
-       End_Date='15MAR2013'd,
-       Discount=.33
-   set Product_ID=230100600018,
-       Start_Date='16MAR2013'd,
-       End_Date='31MAR2013'd,
-       Discount=.15;
-quit;
 
-/* 5. Using the VALUES Clause to Add Data to a Table */
-proc sql;
-insert into discounts
-   values (230100300006,'01MAR2013'd,
-          '15MAR2013'd,.33)
-   values (230100600018,'16MAR2013'd,
-          '31MAR2013'd,.15);
-quit;
 
-/* 6. Specifying a Query in the INSERT Statement */
-proc sql;
-insert into discounts
-   (Product_ID,Discount,Start_Date,End_Date)
-   select distinct Product_ID,.35,
-          '01MAR2013'd,'31MAR2013'd
-      from orion.product_dim
-      where Supplier_Name contains
-           'Pro Sportswear Inc';
-quit;
+
+
+
 
 
 /* 7. Creating, Validating, and Referencing a PROC SQL View */
