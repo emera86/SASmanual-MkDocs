@@ -232,60 +232,8 @@ Technically, you can use any of the optional query clauses in the `CREATE VIEW` 
 
 The `DESCRIBE VIEW` statement prints a description of the view in the log. The syntax of the `DESCRIBE VIEW` statement is similar to the syntax of the `DESCRIBE TABLE` statement.
 
-### Making a View Portable with the `USING` Clause
-
-By using a SAS enhancement to the ANSI standard for SQL, you can create a usable view that is stored in a different physical location than its source tables. In other words, you can make the view portable. To create a portable view, you add a `USING` clause to the query in the `CREATE VIEW` statement.
-
+**Example:** Creating, Validating, and Referencing a `PROC SQL` View
 ```
-CREATE VIEW proc-sql-view AS
-  SELECT ...
-        USING LIBNAME-clause<, ... LIBNAME-clause>;
-```
-
-In the `USING` clause, an embedded `LIBNAME` statement enables you to assign a libref that is used for the source tables. In the syntax, this is called a `LIBNAME` clause because it appears within another clause. To reference source tables in multiple libraries, you can specify multiple `LIBNAME` clauses. In the `FROM` clause, you use two-level names for the tables.
-
-The library definition in the `USING` clause is local to the view so it does not interfere with any other location that is assigned to that libref in the same SAS session. This means that the `USING` clause defines the library only while the view is executing. The `USING` clause libref is deassigned when the stored query finishes running.
-
-In general, when you create a permanent `PROC SQL` view based on data in one or more permanent tables, it is a good practice to make the view portable by adding the `USING` clause.
-
-**Example:** Making a View Portable with the `USING` Clause
-/* Note: To run the following program, you must first replace file-path-1 with the location in which you want to create the view, and file-path-2 with the physical location in which the source data is stored. You must also have write access to the location specified as file-path-1. */
-
-libname orion 'file-path-1';
-proc sql;
-create view orion.tom_zhou as
-   select Employee_Name as Name format=$25.0,
-          Job_Title as Title format=$15.0,
-          Salary "Annual Salary" format=comma10.2,
-          int((today()-Employee_Hire_Date)/365.25)
-             as YOS 'Years of Service'
-      from orion.employee_addresses as a,
-           orion.employee_payroll as p,
-           orion.employee_organization as o
-      where a.Employee_ID=p.Employee_ID and
-            o.Employee_ID=p.Employee_ID and
-            Manager_ID=120102
-      using libname orion 'file-path-2';
-quit;
-
-/*******************************************************************************  
-Sample Programs
-*******************************************************************************/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* 7. Creating, Validating, and Referencing a PROC SQL View */
 proc sql;
 create view orion.tom_zhou as
    select Employee_Name as Name format=$25.0,
@@ -316,6 +264,41 @@ proc means data=orion.tom_zhou min mean max;
    class title;
 run;
 title;
+```
 
+### Making a View Portable with the `USING` Clause
 
+By using a SAS enhancement to the ANSI standard for SQL, you can create a usable view that is stored in a different physical location than its source tables. In other words, you can make the view portable. To create a portable view, you add a `USING` clause to the query in the `CREATE VIEW` statement.
 
+```
+CREATE VIEW proc-sql-view AS
+  SELECT ...
+        USING LIBNAME-clause<, ... LIBNAME-clause>;
+```
+
+In the `USING` clause, an embedded `LIBNAME` statement enables you to assign a libref that is used for the source tables. In the syntax, this is called a `LIBNAME` clause because it appears within another clause. To reference source tables in multiple libraries, you can specify multiple `LIBNAME` clauses. In the `FROM` clause, you use two-level names for the tables.
+
+The library definition in the `USING` clause is local to the view so it does not interfere with any other location that is assigned to that libref in the same SAS session. This means that the `USING` clause defines the library only while the view is executing. The `USING` clause libref is deassigned when the stored query finishes running.
+
+In general, when you create a permanent `PROC SQL` view based on data in one or more permanent tables, it is a good practice to make the view portable by adding the `USING` clause.
+
+**Example:** Making a View Portable with the `USING` Clause
+```
+libname orion 'file-path-1';
+proc sql;
+create view orion.tom_zhou as
+   select Employee_Name as Name format=$25.0,
+          Job_Title as Title format=$15.0,
+          Salary "Annual Salary" format=comma10.2,
+          int((today()-Employee_Hire_Date)/365.25)
+             as YOS 'Years of Service'
+      from orion.employee_addresses as a,
+           orion.employee_payroll as p,
+           orion.employee_organization as o
+      where a.Employee_ID=p.Employee_ID and
+            o.Employee_ID=p.Employee_ID and
+            Manager_ID=120102
+      using libname orion 'file-path-2';
+quit;
+```
+*Note:* `file-path-1` is the location in which you want to create the view, and `file-path-2` is the physical location in which the source data is stored. You must have write access to the location specified as `file-path-1`.
