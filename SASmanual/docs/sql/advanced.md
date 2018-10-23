@@ -158,7 +158,7 @@ INOBS=n
 ```
 
 * To **limit the number of output rows**, you can use the `PROC SQL` option `OUTOBS=`. The value n is an integer that specifies the maximum number of rows that `PROC SQL` writes to output. 
-To **limit the number of rows that `PROC SQL` reads as input**, you can use the `INOBS=` option in the `PROC SQL` statement. n is an integer that specifies the maximum number of rows that `PROC SQL` reads from each source table.
+* To **limit the number of rows that `PROC SQL` reads as input**, you can use the `INOBS=` option in the `PROC SQL` statement. n is an integer that specifies the maximum number of rows that `PROC SQL` reads from each source table.
 
 The `INOBS=` option is generally more efficient than the `OUTOBS=` option. However, the `INOBS=` option might not always produce the desired results.
 
