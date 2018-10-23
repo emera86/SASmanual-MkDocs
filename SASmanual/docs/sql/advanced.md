@@ -35,9 +35,9 @@ Table | Contents
 
 Table | Contents
 ------|------
-`Dictionary.Members`	--> General information about the members of a SAS library
-`Dictionary.Views`	--> Detailed information about all views available in this SAS session
-`Dictionary.Catalogs`	--> Information about catalog entries
+`Dictionary.Members` | General information about the members of a SAS library
+`Dictionary.Views` | Detailed information about all views available in this SAS session
+`Dictionary.Catalogs` | Information about catalog entries
 
 3. Indexes and integrity constraints:
 
