@@ -220,7 +220,7 @@ There are two types of macro variables. SAS provides automatic macro variables. 
 
 The name and value of a macro variable are stored in an area of memory called a global symbol table, which is created by SAS at initialization.
 
-#### `%PUT` statement
+### `%PUT` statement
 
 You can use the `%PUT` statement to write your own messages, including macro variable values, to the SAS log.
 ```
