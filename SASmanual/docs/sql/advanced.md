@@ -21,8 +21,6 @@ The output from the `DESCRIBE TABLE` statement is a `CREATE TABLE` statement wri
 
 Because the libref dictionary is automatically assigned, you don't need to use a `LIBNAME` statement to run this code.
 
-Category:
-
 1. Commonly used dictionary tables:
 
 Table | Contents
