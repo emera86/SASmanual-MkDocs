@@ -262,15 +262,6 @@ Join Behavior	| Returns matching rows only	| Returns matching and non-matching r
 Join Options	| Matching rows only	| `LEFT`, `FULL`, `RIGHT`
 Syntax Changes | Multiple tables in the `FROM` clause (separated by commas); `WHERE` clause that specifies join criteria | `ON` clause that specifies join criteria
 
-Syntax Changes  - Inner Join:
-
-* Multiple tables in the `FROM` clause (separated by commas)
-* `WHERE` clause that specifies join criteria
-
-Syntax Changes  - Outer Join:
-
-* `ON` clause that specifies join criteria
-
 ## Working with Complex SQL Joins
 
 Even if the information you need for your report is located in only two tables, you may need to read the same table twice, or even more times.
