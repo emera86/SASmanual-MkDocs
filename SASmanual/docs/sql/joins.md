@@ -260,6 +260,7 @@ Key Points	| Inner Join	| Outer Join
 Table Limit	| 256	| 256
 Join Behavior	| Returns matching rows only	| Returns matching and non-matching rows
 Join Options	| Matching rows only	| `LEFT`, `FULL`, `RIGHT`
+Syntax Changes | Multiple tables in the `FROM` clause (separated by commas); `WHERE` clause that specifies join criteria | `ON` clause that specifies join criteria
 
 Syntax Changes  - Inner Join:
 
