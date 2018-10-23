@@ -55,7 +55,7 @@ Table | Contents
 `Dictionary.Titles` | Information about the text currently assigned to titles and footnotes
 `Dictionary.Extfiles` | Information about currently assigned filerefs
 
-**Example:** Querying Dictionary Information
+**Example:**
 ```
 proc sql;
     describe table dictionary.tables;
@@ -81,7 +81,7 @@ When you query dictionary tables, you supply values to the `WHERE` clause in the
 
 Because different dictionary tables might store similar data using different cases, you might be tempted to use SAS functions, such as `UPCASE` or `LOWCASE`. But, the `WHERE` clause won't process most function calls, such as `UPCASE`. The functions prevent the `WHERE` clause from optimizing the condition, which could degrade performance.
 
-**Example:** Displaying Specific Metadata
+**Example:**
 ```
 title 'Tables in the ORION Library';
 proc sql;
@@ -100,11 +100,32 @@ Remember that `PROC SQL` views based on the dictionary tables are stored in the 
 
 In addition, in `PROC` and `DATA` steps, the libref **cannot exceed eight characters**. Most of the sashelp library dictionary view names are similar to dictionary table names, but they are shortened to eight characters or fewer. They **begin with the letter v**, and **do not end in s**. So to run correctly, you change `dictionary.tables` to `sashelp.vtable`.
 
+**Example:**
+```
+title 'Tables in the ORION Library';
+proc print data=sashelp.vtable label;
+   var memname nobs nvar;
+   where libname='ORION';
+run;
+title;
+```
+
 ### Using Dictionary Views
 
 To use a dictionary table in a `DATA` or `PROC` step, you can reference the views of the dictionary tables, which are available in the SASHelp library.
 
 You can browse the library to determine the name or use the name of the dictionary table to extrapolate the view name. The names of the views in SASHelp are similar to the dictionary table names, start with the letter v, are eight characters or less, and generally don't have an s on the end.
+
+**Example:**
+title 'SAS Objects by Library';
+proc tabulate data=sashelp.vmember format=8.;
+   class libname memtype;
+   keylabel N=' ';
+   table libname, memtype/rts=10
+         misstext='None';
+   where libname in ('ORION','SASUSER','SASHELP');
+run;
+title;
 
 ## Using SQL Procedure Options
 
@@ -142,6 +163,36 @@ The `INOBS=` option is generally more efficient than the `OUTOBS=` option. Howev
 If you use an inner join to combine large tables, it's most efficient to use the `INOBS=` option, if possible. If the join produces no output, try increasing the value of n.
 
 If you use an inner join to combine small tables, using the `OUTOBS=` option to limit the output rows ensures that you'll get output when matches exist.
+
+**Example:** Limiting the Number of Rows That SAS Writes
+```
+proc sql outobs=10;
+title "10 Most Profitable Customers";
+select Customer_ID, sum(Unit_Sales_Price-Unit_Cost_Price)
+       as Profit_2011 format=comma8.2
+   from orion.price_list as p,
+        orion.order_fact as o
+   where p.Product_ID=o.Product_id
+         and year(Order_date)=2011
+   group by Customer_ID
+   order by Profit_2011 desc;
+quit;
+title;
+```
+
+**Example:** Limiting the Number of Rows That SAS Reads
+```
+proc sql inobs=10;
+title "orion.price_list - INOBS=10";
+select Product_ID,
+       Unit_Cost_price format=comma8.2,
+       Unit_Sales_Price format=comma8.2,
+       Unit_Sales_Price-Unit_Cost_Price
+       as Margin format=comma8.2
+   from orion.price_list;
+quit;
+title;
+```
 
 ## Using the Macro Language with `PROC SQL`
 
@@ -198,6 +249,13 @@ The `%LET` statement removes leading and trailing blanks from the macro variable
 
 SAS stores the user-defined macro variable's name and value in the global symbol table until the end of your SAS session, when they are deleted from memory. Unlike column names in a data table, SAS stores the macro variable names in uppercase, regardless of how the name was created. SAS stores the values as mixed-case text depending on how they were created. But, remember that the values are all character types, even when the characters are digits.
 
+**Example:**
+```
+%let DataSetName=employee_payroll;
+%let BigSalary=100000;
+%let Libname='orion';
+```
+
 ### Resolving User-Defined Macro Variables 
 
 To reference the macro variable, you precede the name of the macro variable with an ampersand.
@@ -212,6 +270,15 @@ You can reference a macro variable anywhere in a SAS program.
 If you need to reference a macro variable within quotation marks, such as in a title, you must use double quotation marks. The macro processor won't resolve macro variable references that appear within single quotation marks. Instead, SAS interprets the macro variable reference as part of the text string.
 
 After the program code is submitted and before the program executes, the macro processor searches for macro triggers such as &. The macro processor finds the stored value for the named macro variable in the global symbol table. Then the macro processor substitutes that value into the program in place of the reference. Finally, the program executes and creates the report.
+
+**Example:**
+```
+proc sql;
+   select Employee_ID, Salary
+      from orion.&DataSetName
+      where Salary>&BigSalary;
+quit;
+```
 
 ### Displaying Macro Variable Values
 
@@ -231,9 +298,32 @@ The `SYMBOLGEN` global system option enables SAS to display the value of the mac
 OPTIONS SYMBOLGEN;
 ```
 
-The default setting for this system option is `NOSYMBOLGEN`.
+The default setting for this system option is `NOSYMBOLGEN`. Because `SYMBOLGEN` is a system option, its setting remains in effect until you modify it or until you end your SAS session.
 
-Because `SYMBOLGEN` is a system option, its setting remains in effect until you modify it or until you end your SAS session.
+**Example:**
+```
+%put The value of BigSalary is &BigSalary;
+%let DataSetName=Employee_Payroll;
+%let BigSalary=100000;
+options symbolgen;
+proc sql;
+title "Salaries > &bigsalary";
+   select Employee_ID, Salary
+      from orion.&DataSetName
+      where Salary > &BigSalary;
+quit;
+title;
+
+%let DataSetName=Employee_Payroll;
+%let BigSalary=100000;
+proc sql feedback;
+title "Salaries > &bigsalary";
+   select  Employee_ID, Salary
+      from orion.&DataSetName
+      where Salary > &BigSalary;
+quit;
+title;
+```
 
 #### FEEDBACK option
 You can use the FEEDBACK option to display the query in the SAS log after it has expanded references, such as macro variables.
@@ -269,126 +359,8 @@ The value from the first column in the `SELECT` list is placed in the first macr
 
 When storing a single value into a macro variable, `PROC SQL` preserves leading or trailing blanks. If the macro variable already exists, the `INTO` clause replaces the existing value with a new value from the `SELECT` clause. Data from additional rows returned by the query is ignored. This method is used most often with queries that return only one row.
 
-#### Creating Multiple Macro Variables
-You can use the same syntax of the `INTO` clause to create multiple macro variables from a single row. To do this, you separate each name with a comma in the `INTO` clause.
+**Example:**
 ```
-SELECT column-1
-        INTO :macro-variable-1 <, ... :macro-variable-n>
-        FROM table|view
-        <additional clauses>;
-```
-
-Remember that macro variables can hold only character values. So, numeric values are converted to character values by using the `BEST8.` format and are right aligned.
-
-#### Second Syntax form
-```
-  SELECT column-a <, column-b, ...>
-        INTO :macro-variable-a_1 - :macro-variable-a_n
-             <, :macro-variable-b_1 - :macro-variable-b_n>
-        FROM table-1|view-1 <table-x|view-x>
-        <additional clauses>;
-```
-
-#### Third Syntax form 
-```
-  SELECT column-1 <, column-2, ...>
-        INTO :macro-variable-1 SEPARATED BY 'delimiter'
-             <, :macro-variable-2 SEPARATED BY 'delimiter'>
-        FROM table-1|view-1 <, ... table-x|view-x>
-        <additional clauses>;
-```
-
-/*******************************************************************************
-  Sample Programs
-*******************************************************************************/
-
-
-
-
-/*3. Using Dictionary Tables in Other SAS Code */
-title 'Tables in the ORION Library';
-proc print data=sashelp.vtable label;
-   var memname nobs nvar;
-   where libname='ORION';
-run;
-title;
-
-/* 4. Using Dictionary Views */
-title 'SAS Objects by Library';
-proc tabulate data=sashelp.vmember format=8.;
-   class libname memtype;
-   keylabel N=' ';
-   table libname, memtype/rts=10
-         misstext='None';
-   where libname in ('ORION','SASUSER','SASHELP');
-run;
-title;
-
-
-/* 5. Limiting the Number of Rows That SAS Writes */
-proc sql outobs=10;
-title "10 Most Profitable Customers";
-select Customer_ID, sum(Unit_Sales_Price-Unit_Cost_Price)
-       as Profit_2011 format=comma8.2
-   from orion.price_list as p,
-        orion.order_fact as o
-   where p.Product_ID=o.Product_id
-         and year(Order_date)=2011
-   group by Customer_ID
-   order by Profit_2011 desc;
-quit;
-title;
-
-/* 6. Limiting the Number of Rows That SAS Reads */
-proc sql inobs=10;
-title "orion.price_list - INOBS=10";
-select Product_ID,
-       Unit_Cost_price format=comma8.2,
-       Unit_Sales_Price format=comma8.2,
-       Unit_Sales_Price-Unit_Cost_Price
-       as Margin format=comma8.2
-   from orion.price_list;
-quit;
-title;
-
-
-/* 7. Creating User-Defined Macro Variables */
-%let DataSetName=employee_payroll;
-%let BigSalary=100000;
-%let Libname='orion';
-
-/* 8. Resolving User-Defined Macro Variables */
-proc sql;
-   select Employee_ID, Salary
-      from orion.&DataSetName
-      where Salary>&BigSalary;
-quit;
-
-/* 9. Displaying Macro Variable Values */
-%put The value of BigSalary is &BigSalary;
-%let DataSetName=Employee_Payroll;
-%let BigSalary=100000;
-options symbolgen;
-proc sql;
-title "Salaries > &bigsalary";
-   select Employee_ID, Salary
-      from orion.&DataSetName
-      where Salary > &BigSalary;
-quit;
-title;
-
-%let DataSetName=Employee_Payroll;
-%let BigSalary=100000;
-proc sql feedback;
-title "Salaries > &bigsalary";
-   select  Employee_ID, Salary
-      from orion.&DataSetName
-      where Salary > &BigSalary;
-quit;
-title;
-
-/* 10. Using a Query to Generate Macro Values */
-/* Creating a Single Macro Variable */
 %let Dept=Sales;
 proc sql noprint;
 select avg(Salary)
@@ -410,8 +382,21 @@ select p.Employee_ID, Salary
          and Salary > &MeanSalary;
 quit;
 title;
+```
 
-/* Creating Multiple Macro Variables */
+#### Creating Multiple Macro Variables
+You can use the same syntax of the `INTO` clause to create multiple macro variables from a single row. To do this, you separate each name with a comma in the `INTO` clause.
+```
+SELECT column-1
+        INTO :macro-variable-1 <, ... :macro-variable-n>
+        FROM table|view
+        <additional clauses>;
+```
+
+Remember that macro variables can hold only character values. So, numeric values are converted to character values by using the `BEST8.` format and are right aligned.
+
+**Example:**
+```
 proc sql noprint;
 select avg(Salary),min(Salary),max(Salary)
    into :MeanSalary, :MinSalary, :MaxSalary
@@ -419,3 +404,22 @@ select avg(Salary),min(Salary),max(Salary)
 %put Mean: &MeanSalary Min: &MinSalary
      Max: &MaxSalary;
 quit;
+```
+
+#### Second Syntax form
+```
+  SELECT column-a <, column-b, ...>
+        INTO :macro-variable-a_1 - :macro-variable-a_n
+             <, :macro-variable-b_1 - :macro-variable-b_n>
+        FROM table-1|view-1 <table-x|view-x>
+        <additional clauses>;
+```
+
+#### Third Syntax form 
+```
+  SELECT column-1 <, column-2, ...>
+        INTO :macro-variable-1 SEPARATED BY 'delimiter'
+             <, :macro-variable-2 SEPARATED BY 'delimiter'>
+        FROM table-1|view-1 <, ... table-x|view-x>
+        <additional clauses>;
+```
