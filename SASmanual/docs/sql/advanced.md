@@ -49,33 +49,36 @@ Dictionary.Extfiles	--> Information about currently assigned filerefs
 
 ### Displaying Specific Metadata
 
+```
 SELECT object-item <, ...object-item>
       FROM table-1<, ... table-n>;
+```
 
 If you only want to select information about specific columns, you indicate the specific columns in the SELECT clause.
 
 If you only want to display results from specific tables, not all tables currently available in this SAS session, you subset the tables using a WHERE clause in the query.
+```
   SELECT object-item <, ...object-item>
       FROM table-1<, ... table-n>;
       WHERE libname='LIB-NAME';
-When you query dictionary tables, you supply values to the WHERE clause in the appropriate case. Remember that library names are stored in dictionary tables in uppercase.
+```
 
-Because different dictionary tables might store similar data using different cases, you might be tempted to use SAS functions, such as UPCASE or LOWCASE. But, the WHERE clause won't process most function calls, such as UPCASE. The functions prevent the WHERE clause from optimizing the condition, which could degrade performance.
+When you query dictionary tables, you supply values to the `WHERE` clause in the appropriate case. Remember that library names are stored in dictionary tables in uppercase.
+
+Because different dictionary tables might store similar data using different cases, you might be tempted to use SAS functions, such as `UPCASE` or `LOWCASE`. But, the `WHERE` clause won't process most function calls, such as `UPCASE`. The functions prevent the `WHERE` clause from optimizing the condition, which could degrade performance.
 
 ### Using Dictionary Tables in Other SAS Code
 
-In SAS procedures and the DATA step, you must refer to sashelp instead of dictionary.
-Remember that PROC SQL views based on the dictionary tables are stored in the sashelp library.
+In SAS procedures and the `DATA` step, you must refer to sashelp instead of dictionary.
+Remember that `PROC SQL` views based on the dictionary tables are stored in the sashelp library.
 
-In addition, in PROC and DATA steps, the libref cannot exceed eight characters. Most of the sashelp library dictionary view names are similar to dictionary table names, but they are shortened to eight characters or fewer. They begin with the letter v, and do not end in s. So to run correctly, you change dictionary.tables to sashelp.vtable.
+In addition, in `PROC` and `DATA` steps, the libref cannot exceed eight characters. Most of the sashelp library dictionary view names are similar to dictionary table names, but they are shortened to eight characters or fewer. They begin with the letter v, and do not end in s. So to run correctly, you change `dictionary.tables` to `sashelp.vtable`.
 
 ### Using Dictionary Views
 
-To use a dictionary table in a DATA or PROC step, you can reference the views of the dictionary tables, which are available in the SASHelp library.
+To use a dictionary table in a `DATA` or `PROC` step, you can reference the views of the dictionary tables, which are available in the SASHelp library.
 
-You can browse the library to determine the name or use the name of the dictionary table to extrapolate the view name.
-
-The names of the views in SASHelp are similar to the dictionary table names, start with the letter v, are eight characters or less, and generally don't have an s on the end.
+You can browse the library to determine the name or use the name of the dictionary table to extrapolate the view name. The names of the views in SASHelp are similar to the dictionary table names, start with the letter v, are eight characters or less, and generally don't have an s on the end.
 
 ## Using SQL Procedure Options
 
@@ -83,19 +86,21 @@ The names of the views in SASHelp are similar to the dictionary table names, sta
 
 ### SQL Options: Controlling Processing
 
-Option	--> Effect
-OUTOBS=n	--> Restricts the number of rows that a query outputs.
-INOBS=n	--> Sets a limit of n rows from each source table that contributes to a query.
-NOEXEC	--> Checks syntax for all SQL statements without executing them.
+**Option** | **Effect**
+------|------
+`OUTOBS=n` | Restricts the number of rows that a query outputs
+`INOBS=n` | Sets a limit of n rows from each source table that contributes to a query
+`NOEXEC` | Checks syntax for all SQL statements without executing them
 
 ## SQL Options: Controlling Display
 
-Option	--> Effect
-PRINT | NOPRINT	--> Controls whether the results of a SELECT statement are displayed as a report.
-NONUMBER | NUMBER	--> Controls whether the row number is displayed as the first column in the query output.
-NOSTIMER | STIMER	--> Controls whether PROC SQL writes resource utilization statistics to the SAS log.
-NODOUBLE | DOUBLE	--> Controls whether the report is double-spaced.
-NOFLOW | FLOW	--> Controls text wrapping in character columns.
+**Option** | **Effect**
+------|------
+`PRINT | NOPRINT` | Controls whether the results of a SELECT statement are displayed as a report
+`NONUMBER | NUMBER` | Controls whether the row number is displayed as the first column in the query output
+`NOSTIMER | STIMER` | Controls whether PROC SQL writes resource utilization statistics to the SAS log
+`NODOUBLE | DOUBLE` | Controls whether the report is double-spaced
+`NOFLOW | FLOW` | Controls text wrapping in character columns
 
 ## SQL Options: Limiting the Number of Rows That SAS Writes or Reads
 
