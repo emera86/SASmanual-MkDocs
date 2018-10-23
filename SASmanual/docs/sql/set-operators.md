@@ -4,10 +4,10 @@
 
 To **vertically combine the results of two queries**, you can use one of four set operators:
 
-* `UNION`  (ANSI standard for SQL),
-* `OUTER UNION`  (SAS enhancement),
-* `EXCEPT`  (ANSI standard for SQL),
-* `INTERSECT`  (ANSI standard for SQL).
+* `UNION`  (ANSI standard for SQL)
+* `OUTER UNION`  (SAS enhancement)
+* `EXCEPT`  (ANSI standard for SQL)
+* `INTERSECT`  (ANSI standard for SQL)
 
 To modify the default behavior of a set operator, you can also use one or both of the modifiers `ALL` and `CORR`.
 
