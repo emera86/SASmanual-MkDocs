@@ -96,11 +96,11 @@ You can browse the library to determine the name or use the name of the dictiona
 
 **Option** | **Effect**
 ------|------
-`PRINT | NOPRINT` | Controls whether the results of a SELECT statement are displayed as a report
-`NONUMBER | NUMBER` | Controls whether the row number is displayed as the first column in the query output
-`NOSTIMER | STIMER` | Controls whether PROC SQL writes resource utilization statistics to the SAS log
-`NODOUBLE | DOUBLE` | Controls whether the report is double-spaced
-`NOFLOW | FLOW` | Controls text wrapping in character columns
+`PRINT &#124; NOPRINT` | Controls whether the results of a SELECT statement are displayed as a report
+`NONUMBER &#124; NUMBER` | Controls whether the row number is displayed as the first column in the query output
+`NOSTIMER &#124; STIMER` | Controls whether PROC SQL writes resource utilization statistics to the SAS log
+`NODOUBLE &#124; DOUBLE` | Controls whether the report is double-spaced
+`NOFLOW &#124; FLOW` | Controls text wrapping in character columns
 
 ## SQL Options: Limiting the Number of Rows That SAS Writes or Reads
 
