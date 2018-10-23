@@ -24,6 +24,7 @@ Because the libref dictionary is automatically assigned, you don't need to use a
 Category:
 
 1. Commonly used dictionary tables:
+
 Table | Contents
 ------|------
 `Dictionary.Dictionaries` | Data about the dictionary tables that are created by SAS
@@ -31,6 +32,7 @@ Table | Contents
 `Dictionary.Columns` | Information such as name, type, length and format about all columns in all tables that are known to the current SAS session
 
 2. SAS libraries and the contents of libraries:
+
 Table | Contents
 ------|------
 `Dictionary.Members`	--> General information about the members of a SAS library
@@ -38,6 +40,7 @@ Table | Contents
 `Dictionary.Catalogs`	--> Information about catalog entries
 
 3. Indexes and integrity constraints:
+
 Table | Contents
 ------|------
 `Dictionary.Indexes` | Information about indexes defined for all tables available in this SAS session
@@ -48,6 +51,7 @@ Table | Contents
 `Dictionary.Constraint_Table_Usage` | Information about tables that use integrity constraints
 
 4. Global macro variables, SAS system options, and more:
+
 Table | Contents
 ------|------
 `Dictionary.Macros` | Information about macro variables’ names and values
