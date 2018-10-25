@@ -12,8 +12,6 @@ SUM(argument1, argument2, ...)
 - The `SUM` function ignores missing values, so if an argument has a missing value, the result of the `SUM` function is the sum of the nonmissing values
 - If you add two values by `+`, if one of them is missing, the result will be a missing value, which makes the `SUM` function a better choice
 
----
-
 ### `DATE` Function
 
 ```
@@ -30,8 +28,6 @@ MDY(month, day, year)
 - The arguments must be numeric values (except from `TODAY()` and `DATE()` functions)
 - You can subtract dates: `Agein2012=(Bday2012-Birth_Date)/365.25;`
 
----
-
 ### `CATX` Concatenation Function
 
 ```
@@ -39,8 +35,6 @@ CATX(' ', First_Name, Last_Name)
 ```
 
 The **CATX** function removes leading and trailing blanks, inserts delimiters, and returns a concatenated character string. In the code, you first specify a character string that is used as a delimiter between concatenated items.
-
----
 
 ### `INTCK` Time Interval Function
 
@@ -87,8 +81,6 @@ ELSE IF expression THEN
     END;
 ```
     
----
-    
 In the `DATA` step, the first reference to a variable determines its length. The first reference to a new variable can be in a `LENGTH` statement, an **assignment** statement, or **another** statement such as an `INPUT` statement. After a variable is created in the PDV, the length of the variable's first value doesn't matter. 
 
 To avoid truncation in a variable defined inside a conditional structure you can:
@@ -96,8 +88,6 @@ To avoid truncation in a variable defined inside a conditional structure you can
 - Define the longer string as the first condition
 - Add some blanks at the end of shorter strings to fit the longer one
 - Define the length explicitly before any other reference to the variable
-
----
 
 ### `SELECT` Group
 
