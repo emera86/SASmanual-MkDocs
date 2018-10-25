@@ -44,6 +44,8 @@ RUN;
 
 ## Enhancing Reports
 
+Check [this section](../sas-outputs/) for more details and examples on reporting results. 
+
 ### Titles and footnotes
 
 ```
@@ -57,10 +59,6 @@ TITLE;                     /* Cancel (erase) all titles */
 
 * The **lines** specifies the line (1-10) on which the title/footnote will appear (line = 1 is the default value)
 * The title/footnote will remain until you **change** it, **cancel** it or you **end your SAS session**
-
-#### Titles and footnotes inside AND outside a graph
-
-***COMPLETE***
 
 ### Labels
 
@@ -78,7 +76,7 @@ RUN;
 * The `LABEL` lengths can go up to 256 characters long
 * You can specify several labels in one `LABEL` statement or use a separate `LABEL` statement for each variable
 
-#### The `SPLIT` option
+### The `SPLIT` option
 
 ```
 PROC PRINT DATA=SAS-data-set SPLIT='*';             
