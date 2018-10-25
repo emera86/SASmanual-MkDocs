@@ -126,13 +126,15 @@ END;
 
 ## Avoiding Duplicates
 
+The dataset `period` has more than one register per patient and the calculation of time periods between each one and the reference.
 ```
-* Period has more than one register per patient and the calculation of time periods between each one and the reference;
 PROC SORT DATA=period;
 	BY pt periodmax periodvisit;
 RUN;
+```
 
-* Keep only highest (last value after the sorting);
+If you want to keep only highest/lowest value (last/first value after the sorting), you need to use the `last.`/`.first` functions.
+```
 DATA maxperiod;
 	SET period;
 	BY pt;
