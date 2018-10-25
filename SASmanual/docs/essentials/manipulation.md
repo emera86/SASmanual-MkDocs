@@ -2,7 +2,7 @@
 
 ## Using SAS Functions
 
-###`SUM` Summation Function
+### `SUM` Summation Function
 
 ```
 SUM(argument1, argument2, ...)
@@ -14,7 +14,7 @@ SUM(argument1, argument2, ...)
 
 ---
 
-###`DATE` Function
+### `DATE` Function
 
 ```
 YEAR(SAS-date)     
