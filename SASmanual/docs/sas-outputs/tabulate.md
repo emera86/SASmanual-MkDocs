@@ -38,7 +38,7 @@ If you do not provide a statistic name, the default statistic produced will be `
 !!! tip
     If a variable name (class or analysis) and a statistic name are the same, then enclose the statistic name in single quotation marks (for example, `'MAX'` ).
 
-Descriptive statistic keywords
+Descriptive statistic keywords:
 
 * Percentages: `PCTN`, `COLPCTN`, `ROWPCTN`, `REPPCTN`, `PAGEPCTN`
 * Additions: `SUM`, `SUMWGT`, `PCTSUM`, `COLPCTSUM`, `ROWPCTSUM`, `REPPCTSUM`, `PAGEPCTSUM`
