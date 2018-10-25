@@ -64,7 +64,7 @@ In the conditional expressions involving strings watch out for possible mixed ca
     When comparing numeric values, you may get unexpected results when the values of your variables seem to be the same (but actually they are not). The key to making sure these issues do not introduce erroneous results lies in understanding how numeric values are actually stored in data sets and in memory. This is referred to as **numeric representation and precision**. Read this article for more information: [Numeric Representation and Precision in SAS and Why it Matters](https://www.pharmasug.org/proceedings/2014/CC/PharmaSUG-2014-CC50.pdf).
     Main solutions to this problem:
     
-    * The `ROUND`function: `A = round(A, 0.01);`
+    * The `ROUND` function: `A = round(A, 0.01);`
     * Character versions of numeric variables: `CharA = put(A, best.);`
     * Options in procedures: `PROC COMPARE BASE=baseds COMPARE=compds CRITERION=0.0000001;`
 
