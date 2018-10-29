@@ -2,15 +2,31 @@
 
 ## Using SAS Functions
 
-### `SUM` Summation Function
+### `CATX` Concatenation Function
 
 ```
-SUM(argument1, argument2, ...)
+CATX(' ', First_Name, Last_Name)
+CATX('-',of array_name(*))
 ```
 
-- The arguments must be numeric values
-- The `SUM` function ignores missing values, so if an argument has a missing value, the result of the `SUM` function is the sum of the nonmissing values
-- If you add two values by `+`, if one of them is missing, the result will be a missing value, which makes the `SUM` function a better choice
+The **CATX** function **removes leading and trailing blanks**, **inserts delimiters**, and returns a concatenated character string. In the code, you first specify a character string that is used as a delimiter between concatenated items.
+
+!!! tip
+    Similar functions are:
+    
+    * **`CAT`**: concatenates character variables similar to the concatenation operator `||` 
+    * **`CATT` (concatenate with `TRIM`)**: similar to the `CAT` function, but it **removes the trailing spaces** before concatenating the variables
+    * **`CATS` (concatenate with `STRIP`)**: similar to the `CAT` function, but it **removes both the leading and trailing spaces** before concatenating the variables
+    * **`CATQ` (concatenate with quotes)**: concatenates character or numeric values by using a **delimiter** to separate items and by **adding quotation marks to strings that contain the delimiter**
+    
+    **Function** | **Equivalent Code**
+    :-----------:|:------------------:
+    `CAT(OF X1-X4) | <code>X1&#124;&#124;X2&#124;&#124;X3&#124;&#124;X4</code>
+    `CATT(OF X1-X4)` | <code>TRIM(X1)&#124;&#124;TRIM(X2)&#124;&#124;TRIM(X3)&#124;&#124;TRIM(X4)</code>
+    `CATS(OF X1-X4)` | <code>TRIM(LEFT(X1))&#124;&#124;TRIM(LEFT(X2))&#124;&#124;TRIM(LEFT(X3))&#124;&#124;TRIM(LEFT(X4))</code>
+    `CATX(SP, OF X1-X4)` | <code>TRIM(LEFT(X1))&#124;&#124;SP&#124;&#124;TRIM(LEFT(X2))&#124;&#124;SP&#124;&#124;TRIM(LEFT(X3))&#124;&#124;SP&#124;&#124;TRIM(LEFT(X4))</code>
+    
+Notice that, although no length IS set for the resultant concatenated variable, the longer values that came later in the step are not truncated. Where the length has not been set, the `CAT` functions will set a **length of 200**. This is another significant advantage over using the `||` operator.
 
 ### `DATE` Function
 
@@ -28,15 +44,6 @@ MDY(month, day, year)
 - The arguments must be numeric values (except from `TODAY()` and `DATE()` functions)
 - You can subtract dates: `Agein2012=(Bday2012-Birth_Date)/365.25;`
 
-### `CATX` Concatenation Function
-
-```
-CATX(' ', First_Name, Last_Name)
-CATX('-',of array_name(*))
-```
-
-The **CATX** function removes leading and trailing blanks, inserts delimiters, and returns a concatenated character string. In the code, you first specify a character string that is used as a delimiter between concatenated items.
-
 ### `INTCK` Time Interval Function
 
 ```
@@ -48,6 +55,16 @@ The `INTCK` function returns the number of interval boundaries of a given kind t
 
 !!! warning "What happens when you define a new variable from another that you are gonna `DROP` in this DATA statement?"
     The `DROP` statement is a compile-time-only statement. SAS sets a drop flag for the dropped variables, but the variables are in the PDV and, therefore, are available for processing.
+    
+### `SUM` Summation Function
+
+```
+SUM(argument1, argument2, ...)
+```
+
+- The arguments must be numeric values
+- The `SUM` function ignores missing values, so if an argument has a missing value, the result of the `SUM` function is the sum of the nonmissing values
+- If you add two values by `+`, if one of them is missing, the result will be a missing value, which makes the `SUM` function a better choice
 
 ## Conditional Processing
 
