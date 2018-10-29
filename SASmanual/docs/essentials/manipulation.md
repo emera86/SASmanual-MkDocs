@@ -76,7 +76,7 @@ DATA diagnostic-results;
 RUN;
 ```
 
-**Search for characters in numeric variables**
+**Search for characters in numeric variables**:
 ```
 DATA final-SAS-data-set;
 	SET origin-SAS-data-set;
