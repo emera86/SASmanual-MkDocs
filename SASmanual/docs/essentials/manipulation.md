@@ -56,11 +56,20 @@ DATA yes;
 RUN;
 ```
 
-**Searching for numeric patterns** (variable whose value starts with '250'):
+**Searching for a single numeric pattern** (variable whose value starts with '250'):
 ```
 DATA diagnostic-results;
 	SET diagnostic-tests;
-	IF FIND(CATX('*', OF dx1-dx5),'250') ne 0;
+	IF FIND(CATX('*', OF diag1-diag5),'250') ne 0;
+RUN;
+```
+
+**Searching for multiple numeric patterns** (variable whose value starts with '250' or '493'):
+```
+DATA diagnostic-results;
+	SET diagnostic-tests;
+	diabetes = (find(catx('*',of dx1-dx5),'250') ne 0);
+	asthma = (find(catx('*',of dx1-dx5),'493') ne 0);
 RUN;
 ```
 
