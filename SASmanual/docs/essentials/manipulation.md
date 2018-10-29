@@ -67,6 +67,7 @@ RUN;
 **Searching for multiple numeric patterns** (variable whose value starts with '250' or '493'):
 ```
 DATA diagnostic-results;
+	LENGTH string $100;
 	SET diagnostic-tests;
 	string = CATX('*', OF diag1-diag5);
 	diabetes = (FIND(string,'250') ne 0);
@@ -75,7 +76,7 @@ DATA diagnostic-results;
 RUN;
 ```
 
-
+**Search for characters in numeric variables**
 ```
 DATA final-SAS-data-set;
 	SET origin-SAS-data-set;
