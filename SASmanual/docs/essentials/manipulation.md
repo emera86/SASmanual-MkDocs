@@ -14,10 +14,10 @@ The **CATX** function **removes leading and trailing blanks**, **inserts delimit
 !!! tip
     Similar functions are:
     
-    * **`CAT`**: concatenates character variables similar to the concatenation operator `||` 
+    * **`CAT`**: concatenates variables similar to the concatenation operator `||` 
     * **`CATT` (concatenate with `TRIM`)**: similar to the `CAT` function, but it **removes the trailing spaces** before concatenating the variables
     * **`CATS` (concatenate with `STRIP`)**: similar to the `CAT` function, but it **removes both the leading and trailing spaces** before concatenating the variables
-    * **`CATQ` (concatenate with quotes)**: concatenates character or numeric values by using a **delimiter** to separate items and by **adding quotation marks to strings that contain the delimiter**
+    * **`CATQ` (concatenate with quotes)**: concatenates variables by using a **delimiter** to separate items and by **adding quotation marks to strings that contain the delimiter**
     
     **Function** | **Equivalent Code**
     :-----------:|:------------------:
@@ -27,6 +27,45 @@ The **CATX** function **removes leading and trailing blanks**, **inserts delimit
     `CATX(SP, OF X1-X4)` | <code>TRIM(LEFT(X1))&#124;&#124;SP&#124;&#124;TRIM(LEFT(X2))&#124;&#124;SP&#124;&#124;TRIM(LEFT(X3))&#124;&#124;SP&#124;&#124;TRIM(LEFT(X4))</code>
     
 Notice that, although no length IS set for the resultant concatenated variable, the longer values that came later in the step are not truncated. Where the length has not been set, the `CAT` functions will set a **length of 200**. This is another significant advantage over using the `||` operator.
+
+Items, or arguments, can be numeric instead of character; numeric arguments are converted to character using `BESTw.` format.
+
+#### Search for Required Values
+
+**Searching for a single character value** (at least one 'Y' answer in a ten-questions questionnaire):
+```
+DATA yes;
+	SET answers;
+	IF FIND(CAT(of a1-a10),'Y');
+RUN;
+```
+
+**Searching for multiple character values** (at least two 'Y' answer in a ten-questions questionnaire):
+```
+DATA yes;
+	SET answers;
+	IF COUNTC(CAT(OF a1-a10),'Y') GE 2;
+RUN;
+```
+
+**Searching for numeric values** ( at least one question answered with the value 5 in a ten-questions questionnaire):
+```
+DATA yes;
+	SET answers;
+	IF FIND(CAT(OF a:),'5');
+RUN;
+```
+
+
+```
+DATA final-SAS-data-set;
+	SET origin-SAS-data-set;
+	ARRAY arrayname(3) item1-item3;
+	DO _N_ = 1 TO 3 UNTIL (search eq 1);
+		search = (CAT(arrayname(_N_)) IN : ('171' '172'));
+	END;
+RUN;
+```
 
 ### `DATE` Function
 
