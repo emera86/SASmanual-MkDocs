@@ -32,6 +32,7 @@ MDY(month, day, year)
 
 ```
 CATX(' ', First_Name, Last_Name)
+CATX('-',of array_name(*))
 ```
 
 The **CATX** function removes leading and trailing blanks, inserts delimiters, and returns a concatenated character string. In the code, you first specify a character string that is used as a delimiter between concatenated items.
