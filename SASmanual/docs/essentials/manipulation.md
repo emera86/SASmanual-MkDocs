@@ -68,8 +68,10 @@ RUN;
 ```
 DATA diagnostic-results;
 	SET diagnostic-tests;
-	diabetes = (find(catx('*',of dx1-dx5),'250') ne 0);
-	asthma = (find(catx('*',of dx1-dx5),'493') ne 0);
+	string = CATX('*', OF diag1-diag5);
+	diabetes = (FIND(string,'250') ne 0);
+	asthma = (FIND(string,'493') ne 0);
+	DROP string;
 RUN;
 ```
 
