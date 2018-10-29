@@ -48,11 +48,19 @@ DATA yes;
 RUN;
 ```
 
-**Searching for numeric values** ( at least one question answered with the value 5 in a ten-questions questionnaire):
+**Searching for numeric values** (at least one question answered with the value 5 in a ten-questions questionnaire):
 ```
 DATA yes;
 	SET answers;
 	IF FIND(CAT(OF a:),'5');
+RUN;
+```
+
+**Searching for numeric patterns** (variable whose value starts with '250'):
+```
+DATA diagnostic-results;
+	SET diagnostic-tests;
+	IF FIND(CATX('*', OF dx1-dx5),'250') ne 0;
 RUN;
 ```
 
