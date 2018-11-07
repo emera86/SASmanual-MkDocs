@@ -1,3 +1,9 @@
+Fuera de contexto pero puede valer para localizar métodos:
+
+http://www.redalyc.org/articulo.oa?id=30235107
+
+ The objective of this study was to compare the ability of the Tukey and Duncan procedures and the Dunnett method (multiple comparisons versus a control) to select means with the methods of Bechhofer and Hsu, which are specifically designed to this end. Comparisons were done in a one-way balanced model using the Bechhofer method as a reference. Results showed that Bechhofer was the most suitable method for selection of means. The Dunnett method coincided in numerical results with that of Hsu (comparisons against the best), and both surpassed Tukey's and Duncan's methods. Hence, Dunnett was a good alternative. Between the Tukey and Duncan methods, Duncan was better since Tukey was too conservative.
+
 In statistics, **family-wise error rate (FWER)** is the probability of making one or more false discoveries, or type I errors when performing multiple hypotheses tests.
 
 https://www.researchgate.net/post/The_choice_of_post-hoc_test
