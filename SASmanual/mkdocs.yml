@@ -49,6 +49,7 @@ pages:
       - 'Effect Size': 'other-analysis/effect-size.md'
       - 'Propensity Score': 'other-analysis/propensity-score.md'
       - 'ROC Curve': 'other-analysis/roc-curve.md'
+      - 'Questionnaires analysis': 'other-analysis/questionnaires.md'
       - 'Sequence Design': 'other-analysis/sequence-design.md'
       - 'Survival Analysis': 'other-analysis/survival-analysis.md'
       - 'Odds Ratio, Hazard Ratio and Relative Risk': 'other-analysis/HR_vs_OR_vs_RR.md'
