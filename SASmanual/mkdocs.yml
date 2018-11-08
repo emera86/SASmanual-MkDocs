@@ -45,12 +45,13 @@ pages:
       - 'Dealing with Missing Data': 'other-analysis/missing-data.md'
       - 'Interim Analysis Design': 'other-analysis/interim-analysis.md'
       - 'Normality Tests': 'other-analysis/normality-tests.md'
+      - 'Post-hoc Tests': 'other-analysis/post-hoc-tests.md'
       - 'Effect Size': 'other-analysis/effect-size.md'
       - 'Propensity Score': 'other-analysis/propensity-score.md'
       - 'ROC Curve': 'other-analysis/roc-curve.md'
       - 'Sequence Design': 'other-analysis/sequence-design.md'
       - 'Survival Analysis': 'other-analysis/survival-analysis.md'
-      - 'ORR and DCR': 'other-analysis/orr-dcr.md'
+      - 'Odds Ratio, Hazard Ratio and Relative Risk': 'other-analysis/HR_vs_OR_vs_RR.md'
       - 'Clustering': 'other-analysis/clustering.md'
     - Specific Procedures:
       - 'General Notes on Regression Procedures': 'procedures/regression-models.md'
@@ -87,6 +88,7 @@ pages:
       - 'General': 'medical/general.md'
       - 'Laboratory Test': 'medical/labs.md'
       - 'Treatment Exposure': 'medical/exposure.md'
+      - 'ORR and DCR': 'medical/orr-dcr.md'
     - R with Shiny:
       - 'Introduction and Shiny Basics': 'R-with-Shiny/introduction.md'
       - 'Inputs, Outputs, and Rendering Functions': 'R-with-Shiny/input-output.md'
