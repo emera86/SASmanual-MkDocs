@@ -16,7 +16,8 @@ The three main types of blood cells are:
     * **Eosinophils (EOS)**
     * **Neutrophils (NEUT)**
     * **Monocytes (MONO)**
-    * **Lymphocytes (LYM)**
+ 
+ * **Lymphocytes (LYM)**
 
 ![Blood cells](../images/blood.PNG "Blood cells")
 
