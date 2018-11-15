@@ -200,18 +200,6 @@ RUN;
     * Specify thickness of spacing around cell: `CELLPADDING=10`
     * Specify width of table: `OUTPUTWIDTH=` 
 
-## Examples
-
-```
-PROC TABULATE DATA=SAS-data-set ORDER=FREQ;
-	VAR var1 var2;
-	CLASS AEencoding;
-	CLASS grade / ORDER=FORMATTED;
-	CLASS treatment / ORDER=FORMATTED;
-	TABLE AEencoding='', treatment='Treatment/Grade'*grade=''*(N='N' var1='%'*SUM='') ALL='Total (N=# cases)'*(N='N' var2='%'*SUM='') / BOX="Preferred MeDDRA Term";
-RUN;
-```
-
 ## Dealing with Missing Values
 
 ### Force Missing Rows and Columns with `CLASSDATA`
@@ -238,5 +226,17 @@ Provided that the specific category is present (non-missing) at least in one of 
 PROC TABULATE DATA=SAS-data-set ORDER=FREQ OUT=Output-SAS-data-set MISSING;
 	CLASS var1 var2 crossvar;
 	TABLE var1 var2, crossvar*(N COLPCTN) / PRINTMISS MISSTEXT='0';
+RUN;
+```
+
+## Examples
+
+```
+PROC TABULATE DATA=SAS-data-set ORDER=FREQ;
+	VAR var1 var2;
+	CLASS AEencoding;
+	CLASS grade / ORDER=FORMATTED;
+	CLASS treatment / ORDER=FORMATTED;
+	TABLE AEencoding='', treatment='Treatment/Grade'*grade=''*(N='N' var1='%'*SUM='') ALL='Total (N=# cases)'*(N='N' var2='%'*SUM='') / BOX="Preferred MeDDRA Term";
 RUN;
 ```
