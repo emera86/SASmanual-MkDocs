@@ -235,7 +235,29 @@ The components of the `COMPUTE` statement include:
 * **`options`**: Several options are available that can be used to determine the appearance and location of the result of the compute block.
 * **`SAS language elements`**: Any number of SAS language elements can be used within the compute block. These include the use of executable statements, logical processing (`IF-THEN`/`ELSE`), and most of the functions available in the DATA step.
 
-The compute block can be placed anywhere within the REPORT step, however generally compute blocks are grouped following the `DEFINE` statements.
+The compute block can be placed anywhere within the `REPORT` step, however generally compute blocks are grouped following the `DEFINE` statements.
+
+#### Using the `LINE` Statement
+
+* It can be used to insert a **blank line**
+```
+COMPUTE AFTER variable1;
+	LINE ' ';
+ENDCOMP;
+```
+
+* It can be used to **add lines of text**
+```
+COMPUTE AFTER;
+ LINE @20 'Weight taken during';
+ LINE @20 'the entrance exam.';
+ENDCOMP;
+```
+
+!!! note
+    In these `LINE` statements the `@` is used, as it is in the `DATA` step `PUT` statement, to designate the column number. If a specific column is not specified with the `@`, and no justification options are specified, text will be centered.
+    
+    When writing to `ODS` destinations other than `LISTING`, proportional fonts may make exact placement of values difficult, and may require you to use a trial-and-error approach, and to make things more interesting some destinations ignore the `@` altogether. 
 
 ```
 DEFINE obs / COMPUTED; 
