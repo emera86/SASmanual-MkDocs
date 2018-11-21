@@ -228,3 +228,21 @@ PROC FORMAT LIBRARY=WORK CNTLIN=tmpfmt1 FMTLIB;
 RUN;
 ODS SELECT ALL;
 ```
+
+### Introducing Special Characters in a Format Definition
+
+```
+PROC FORMAT;
+	VALUE cea
+		1 = '>5 ~{unicode mu}g/L'
+		2 = '<=5 ~{unicode mu}g/L'
+		;
+RUN;
+
+ODS SCAPECHAR='~';
+
+PROC PRINT DATA=SAS-data-set;
+	FORMAT cea cea.
+	VAR pt cea;
+RUN;
+```
