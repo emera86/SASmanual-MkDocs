@@ -228,9 +228,9 @@ compute <location> <report_item> </ options>;
 endcomp;
 ````
 
-The components of the COMPUTE statement include:
+The components of the `COMPUTE` statement include:
 
-* **`location`** (`BEFORE` | `AFTER`): Specifies when the compute block is to execute and ultimately what is to be done with the result of the compute block.  When a location is specified without also specifying a report_item, the location will be at the start (BEFORE) or at the end (AFTER) of the report.
+* **`location`** (`BEFORE` | `AFTER`): Specifies when the compute block is to execute and ultimately what is to be done with the result of the compute block.  When a location is specified without also specifying a report_item, the location will be at the start (`BEFORE`) or at the end (`AFTER`) of the report.
 * **`report_item`**: When the result of the compute block is associated with a variable or report item, its name is supplied here. This `report_item` variable can be any variable on the `COLUMN` statement. When `report_item` is a variable that either groups or orders rows (usage of `GROUP` or `ORDER`) you may also use `BEFORE` and `AFTER` to apply the result at the start or end of each group. 
 * **`options`**: Several options are available that can be used to determine the appearance and location of the result of the compute block.
 * **`SAS language elements`**: Any number of SAS language elements can be used within the compute block. These include the use of executable statements, logical processing (`IF-THEN`/`ELSE`), and most of the functions available in the DATA step.
