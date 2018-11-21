@@ -112,6 +112,38 @@ run;
 
 ### Introducing Line Breaks
 
+To introduce line breaks in the **title or labels** you can use the `SPLIT=` option.
+If you want to introduce a line break on the variable's value you need to define a `ODS ESCAPECHAR=` and use the `n` on your string as in the following example:
+
+!!! Example
+    ```
+	DATA addy;
+		INFILE DATALINES DLM='|';
+		INPUT name ~$15. address ~$15. city $ state $;
+		DATALINES;
+	Debby Jones|1234 Johnny St|Chicago|IL
+	Joe Smith|2345 Bobby Dr|New York|NY
+	Ron Lee|3456 Suzy Ln|Miami|FL
+	;
+	RUN;
+
+	ODS ESCAPECHAR='^';
+
+	PROC REPORT DATA=addy SPLIT='~';
+		COLUMN state city address name addblock;
+		DEFINE state / DISPLAY NOPRINT ORDER=INTERNAL;
+		DEFINE city / DISPLAY NOPRINT ORDER=INTERNAL;
+		DEFINE address / DISPLAY NOPRINT ORDER=INTERNAL;
+		DEFINE name / DISPLAY NOPRINT ORDER=INTERNAL;
+		DEFINE addblock / COMPUTED 'Mailing~Address' FLOW WIDTH=30;
+
+		COMPUTE addblock / CHAR LENGTH=40;
+			addblock=CATX('^n',name,address,catx(', ',city,state));
+		ENDCOMP;
+	RUN;
+    ```
+	
+
 ```
 PROC REPORT DATA=SAS-data-set NOWINDOWS HEADLINE STYLE(HEADER)={BACKGROUND=VERY LIGHT GREY} MISSING SPLIT='*';
 	COLUMN ("Sample report" var1 var2 var3);
