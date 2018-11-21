@@ -218,6 +218,10 @@ run;
     
 ### Defining your own variables
 
+!!! summary "Check these websites"
+    * [Compute Block Basics (Part I)](http://www2.sas.com/proceedings/forum2008/031-2008.pdf)
+    * [Compute Block Basics (Part II)](http://www2.sas.com/proceedings/forum2008/188-2008.pdf)
+    
 There are two basic types of compute blocks; those that are **associated with a location** (the option `BEFORE` or `AFTER` follows the `COMPUTE` keyword), and those **associated only with a report item**. While the structure and execution of these two types of compute blocks is similar, how they are used and the timing of their execution can be quite different.
 
 The compute block starts with the `COMPUTE` statement and terminates with the `ENDCOMP` statement. Usually the compute block is placed in the `REPORT` step after the `DEFINE` statements. The syntax of the compute block looks something like:
@@ -249,14 +253,28 @@ ENDCOMP;
 * It can be used to **add lines of text**
 ```
 COMPUTE AFTER;
- LINE @20 'Weight taken during';
- LINE @20 'the entrance exam.';
+ LINE @20 'Some custom text';
+ LINE @20 'More custom text';
 ENDCOMP;
 ```
 
 !!! note
     In these `LINE` statements the `@` is used, as it is in the `DATA` step `PUT` statement, to designate the column number. If a specific column is not specified with the `@`, and no justification options are specified, text will be centered.
     When writing to `ODS` destinations other than `LISTING`, proportional fonts may make exact placement of values difficult, and may require you to use a trial-and-error approach, and to make things more interesting some destinations ignore the `@` altogether. 
+
+* It can be used to **write formatted values**
+
+```
+COMPUTE BEFORE variable1;
+	line @3 variable1 $formatname.;
+ENDCOMP;
+```
+!!! note
+    The format could have also been used in the `DEFINE` statement, however in this case we wanted to show the unformatted value as well as the formatted group header.
+
+#### Creating and Modifying Columns
+
+
 
 ```
 DEFINE obs / COMPUTED; 
