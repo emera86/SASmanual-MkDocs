@@ -235,6 +235,8 @@ The components of the `COMPUTE` statement include:
 * **`options`**: Several options are available that can be used to determine the appearance and location of the result of the compute block.
 * **`SAS language elements`**: Any number of SAS language elements can be used within the compute block. These include the use of executable statements, logical processing (`IF-THEN`/`ELSE`), and most of the functions available in the DATA step.
 
+The compute block can be placed anywhere within the REPORT step, however generally compute blocks are grouped following the `DEFINE` statements.
+
 ```
 DEFINE obs / COMPUTED; 
 
