@@ -113,7 +113,8 @@ run;
 ### Introducing Line Breaks
 
 To introduce line breaks in the **title or labels** you can use the `SPLIT=` option.
-If you want to introduce a line break on the variable's value you need to define a `ODS ESCAPECHAR=` and use the `n` on your string as in the following example:
+
+If you want to introduce a line break on the **variable's value** you need to define a `ODS ESCAPECHAR=` and use the `n` on your string as in the following example:
 
 !!! Example
     ```
@@ -142,7 +143,8 @@ If you want to introduce a line break on the variable's value you need to define
 		ENDCOMP;
 	RUN;
     ```
-	
+
+You can also force line breaks in the **resulting tables** to better visualize the data.
 
 ```
 PROC REPORT DATA=SAS-data-set NOWINDOWS HEADLINE STYLE(HEADER)={BACKGROUND=VERY LIGHT GREY} MISSING SPLIT='*';
