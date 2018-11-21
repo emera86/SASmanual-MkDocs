@@ -256,7 +256,6 @@ ENDCOMP;
 
 !!! note
     In these `LINE` statements the `@` is used, as it is in the `DATA` step `PUT` statement, to designate the column number. If a specific column is not specified with the `@`, and no justification options are specified, text will be centered.
-    
     When writing to `ODS` destinations other than `LISTING`, proportional fonts may make exact placement of values difficult, and may require you to use a trial-and-error approach, and to make things more interesting some destinations ignore the `@` altogether. 
 
 ```
