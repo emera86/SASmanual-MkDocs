@@ -26,14 +26,14 @@ The three main types of blood cells are:
 |------------------------|------------|----------------------------------|
 | Red blood cells (RBC)  | g/l        | Men: 130-180, Women: 115-165     |
 | Hematocrit (HCT)       | %          | Men: 41-50, Women: 36-44         |
-| Hemoglobin      (Hgb)  | g/l        | Men: 13.5-16.5, Women: 12.0-15.0 |
+| Hemoglobin (HGB)       | g/l        | Men: 13.5-16.5, Women: 12.0-15.0 |
 | Platelets              | 10^9/L     | 150-400                          |
 | White blood cells      | 10^9/L     | 4.0-11.0                         |
 | Neutrophils            | 10^9/L     | 2.0-7.5                          |
 | Lymphocytes            | 10^9/L     | 1.5-4.5                          |
 
 !!! summary "Check these websites"
-* [Laboratory values](http://globalrph.com/laboratory-values/)
+    * [Laboratory values](http://globalrph.com/laboratory-values/)
 
 ### Blood-Related Anomalies
 
