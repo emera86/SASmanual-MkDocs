@@ -218,6 +218,23 @@ run;
     
 ### Defining your own variables
 
+There are two basic types of compute blocks; those that are **associated with a location** (the option `BEFORE` or `AFTER` follows the `COMPUTE` keyword), and those **associated only with a report item**. While the structure and execution of these two types of compute blocks is similar, how they are used and the timing of their execution can be quite different.
+
+The compute block starts with the `COMPUTE` statement and terminates with the `ENDCOMP` statement. Usually the compute block is placed in the `REPORT` step after the `DEFINE` statements. The syntax of the compute block looks something like:
+
+```
+compute <location> <report_item> </ options>;
+	one or more SAS language elements
+endcomp;
+````
+
+The components of the COMPUTE statement include:
+
+* **`location`** (`BEFORE` | `AFTER`): Specifies when the compute block is to execute and ultimately what is to be done with the result of the compute block.  When a location is specified without also specifying a report_item, the location will be at the start (BEFORE) or at the end (AFTER) of the report.
+* **`report_item`**: When the result of the compute block is associated with a variable or report item, its name is supplied here. This `report_item` variable can be any variable on the `COLUMN` statement. When `report_item` is a variable that either groups or orders rows (usage of `GROUP` or `ORDER`) you may also use `BEFORE` and `AFTER` to apply the result at the start or end of each group. 
+* **`options`**: Several options are available that can be used to determine the appearance and location of the result of the compute block.
+* **`SAS language elements`**: Any number of SAS language elements can be used within the compute block. These include the use of executable statements, logical processing (`IF-THEN`/`ELSE`), and most of the functions available in the DATA step.
+
 ```
 DEFINE obs / COMPUTED; 
 
