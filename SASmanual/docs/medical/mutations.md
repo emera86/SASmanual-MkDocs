@@ -32,6 +32,8 @@ Head and neck squamous cell carcinoma	| 0.5-2	| 0.3-2	| 5-6 | 5-10
 Gastric carcinoma	| 4.0-6	| 1 |	0-1	| 5-9
 Esophageal adenocarcinoma	| 2-4	| 0	| 0.6-0.7	| 3-5
 
+Source: [Therapeutic Approaches to RAS Mutation](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4959441/)
+
 ## BRAF
 
 BRAF is a human gene that encodes a protein called B-Raf. The gene is also referred to as proto-oncogene B-Raf and v-Raf murine sarcoma viral oncogene homolog B, while the protein is more formally known as serine/threonine-protein kinase B-Raf.
