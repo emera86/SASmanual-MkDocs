@@ -20,17 +20,17 @@ Multiple myeloma |	22 |	19 |	0 |	42
 Lung adenocarcinoma |	16-33 |	0.6-0.9 |	0.3-0.5 |	17-33
 Skin cutaneous melanoma |	0.8 |	28 |	1	 | 29
 Biliary carcinoma |	25 |	3	| 0 |	27
-Uterine endometroid carcinoma	| 14-21	2-3	0.4-0.5	16-25
-Small intestine adenocarcinoma	| 23	0.7	0	23
-Chronic myelomonocytic leukemia	| 9	13	0	22
-Thyroid carcinoma	| 1-2	6-9	4	13-14
-Acute myeloid leukemia	| 3-4	7-11	2	11-15
-Cervical adenocarcinoma	| 7-8	0.8	0-6	7-15
-Urothelial carcinoma	| 3-4	1-2	6-9	11-15
-Stomach adenocarcinoma	| 6-11	1	0-1	9-12
-Head and neck squamous cell carcinoma	| 0.5-2	0.3-2	5-6	5-10
-Gastric carcinoma	| 4.0-6	1	0-1	5-9
-Esophageal adenocarcinoma	| 2-4	0	0.6-0.7	3-5
+Uterine endometroid carcinoma	| 14-21 |	2-3 |	0.4-0.5 |	16-25
+Small intestine adenocarcinoma	| 23 |	0.7 |	0 |	23
+Chronic myelomonocytic leukemia	| 9	 | 13	| 0	| 22
+Thyroid carcinoma	| 1-2 |	6-9 |	4	 | 13-14
+Acute myeloid leukemia	| 3-4	| 7-11	| 2 |	11-15
+Cervical adenocarcinoma	| 7-8	| 0.8	| 0-6	| 7-15
+Urothelial carcinoma	| 3-4	| 1-2	| 6-9	| 11-15
+Stomach adenocarcinoma	| 6-11	| 1	| 0-1	| 9-12
+Head and neck squamous cell carcinoma	| 0.5-2	| 0.3-2	| 5-6 | 5-10
+Gastric carcinoma	| 4.0-6	| 1 |	0-1	| 5-9
+Esophageal adenocarcinoma	| 2-4	| 0	| 0.6-0.7	| 3-5
 
 ## BRAF
 
