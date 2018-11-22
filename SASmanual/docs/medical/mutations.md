@@ -14,12 +14,12 @@ Despite the efforts to find a clinically effective inhibitor, targeting RAS muta
 
 Cancer Type	| % KRAS	| % NRAS	| % HRAS	| % All RAS
 :----------:|:-------:|:-------:|:-------:|:-----------:
-Pancreatic adenocarcinoma |	90-98	0-0.5	0	91-98
-Colorectal adenocarcinoma |	40-45	4-8	0	44-53
-Multiple myeloma |	22	19	0	42
-Lung adenocarcinoma |	16-33	0.6-0.9	0.3-0.5	17-33
-Skin cutaneous melanoma |	0.8	28	1	29
-Biliary carcinoma |	25	3	0	27
+Pancreatic adenocarcinoma |	90-98	| 0-0.5 | 	0	| 91-98
+Colorectal adenocarcinoma |	40-45	| 4-8	| 0	| 44-53
+Multiple myeloma |	22 |	19 |	0 |	42
+Lung adenocarcinoma |	16-33 |	0.6-0.9 |	0.3-0.5 |	17-33
+Skin cutaneous melanoma |	0.8 |	28 |	1	 | 29
+Biliary carcinoma |	25 |	3	| 0 |	27
 Uterine endometroid carcinoma	| 14-21	2-3	0.4-0.5	16-25
 Small intestine adenocarcinoma	| 23	0.7	0	23
 Chronic myelomonocytic leukemia	| 9	13	0	22
