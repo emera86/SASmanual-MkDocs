@@ -10,7 +10,16 @@ Despite the efforts to find a clinically effective inhibitor, targeting RAS muta
 * **HRAS**:
 * **KRAS or K-ras or Ki-ras** is a short name for the gene v-Ki-ras2 Kirsten rat sarcoma viral oncogene homolog. 
 
-
 * **NRAS**:
 
-* **BRAF**
+## BRAF
+
+BRAF is a human gene that encodes a protein called B-Raf. The gene is also referred to as proto-oncogene B-Raf and v-Raf murine sarcoma viral oncogene homolog B, while the protein is more formally known as serine/threonine-protein kinase B-Raf.
+
+The BRAF gene provides instructions for making a protein that helps transmit chemical signals from outside the cell to the cell's nucleus. This protein is part of a signaling pathway known as the RAS/MAPK pathway, which controls several important cell functions. Specifically, the RAS/MAPK pathway regulates the growth and division (proliferation) of cells, the process by which cells mature to carry out specific functions (differentiation), cell movement (migration), and the self-destruction of cells (apoptosis). Chemical signaling through this pathway is essential for normal development before birth.
+
+In 2002, [Davis et al.](https://www.nature.com/articles/nature00766) shown to be faulty (mutated) in some human cancers.
+
+
+
+
