@@ -112,6 +112,40 @@ run;
 
 ### Introducing Line Breaks
 
+To introduce line breaks in the **title or labels** you can use the `SPLIT=` option.
+
+If you want to introduce a line break on the **variable's value** you need to define a `ODS ESCAPECHAR=` and use the `n` on your string as in the following example:
+
+!!! Example
+    ```
+	DATA addy;
+		INFILE DATALINES DLM='|';
+		INPUT name ~$15. address ~$15. city $ state $;
+		DATALINES;
+	Debby Jones|1234 Johnny St|Chicago|IL
+	Joe Smith|2345 Bobby Dr|New York|NY
+	Ron Lee|3456 Suzy Ln|Miami|FL
+	;
+	RUN;
+
+	ODS ESCAPECHAR='^';
+
+	PROC REPORT DATA=addy SPLIT='~';
+		COLUMN state city address name addblock;
+		DEFINE state / DISPLAY NOPRINT ORDER=INTERNAL;
+		DEFINE city / DISPLAY NOPRINT ORDER=INTERNAL;
+		DEFINE address / DISPLAY NOPRINT ORDER=INTERNAL;
+		DEFINE name / DISPLAY NOPRINT ORDER=INTERNAL;
+		DEFINE addblock / COMPUTED 'Mailing~Address' FLOW WIDTH=30;
+
+		COMPUTE addblock / CHAR LENGTH=40;
+			addblock=CATX('^n',name,address,catx(', ',city,state));
+		ENDCOMP;
+	RUN;
+    ```
+
+You can also force line breaks in the **resulting tables** to better visualize the data.
+
 ```
 PROC REPORT DATA=SAS-data-set NOWINDOWS HEADLINE STYLE(HEADER)={BACKGROUND=VERY LIGHT GREY} MISSING SPLIT='*';
 	COLUMN ("Sample report" var1 var2 var3);
@@ -183,6 +217,64 @@ run;
     * [Sailing Over the `ACROSS` Hurdle in `PROC REPORT`](https://www.sas.com/content/dam/SAS/support/en/technical-papers/SAS388-2014.pdf)
     
 ### Defining your own variables
+
+!!! summary "Check these websites"
+    * [Compute Block Basics (Part I)](http://www2.sas.com/proceedings/forum2008/031-2008.pdf)
+    * [Compute Block Basics (Part II)](http://www2.sas.com/proceedings/forum2008/188-2008.pdf)
+    
+There are two basic types of compute blocks; those that are **associated with a location** (the option `BEFORE` or `AFTER` follows the `COMPUTE` keyword), and those **associated only with a report item**. While the structure and execution of these two types of compute blocks is similar, how they are used and the timing of their execution can be quite different.
+
+The compute block starts with the `COMPUTE` statement and terminates with the `ENDCOMP` statement. Usually the compute block is placed in the `REPORT` step after the `DEFINE` statements. The syntax of the compute block looks something like:
+
+```
+compute <location> <report_item> </ options>;
+	one or more SAS language elements
+endcomp;
+````
+
+The components of the `COMPUTE` statement include:
+
+* **`location`** (`BEFORE` | `AFTER`): Specifies when the compute block is to execute and ultimately what is to be done with the result of the compute block.  When a location is specified without also specifying a report_item, the location will be at the start (`BEFORE`) or at the end (`AFTER`) of the report.
+* **`report_item`**: When the result of the compute block is associated with a variable or report item, its name is supplied here. This `report_item` variable can be any variable on the `COLUMN` statement. When `report_item` is a variable that either groups or orders rows (usage of `GROUP` or `ORDER`) you may also use `BEFORE` and `AFTER` to apply the result at the start or end of each group. 
+* **`options`**: Several options are available that can be used to determine the appearance and location of the result of the compute block.
+* **`SAS language elements`**: Any number of SAS language elements can be used within the compute block. These include the use of executable statements, logical processing (`IF-THEN`/`ELSE`), and most of the functions available in the DATA step.
+
+The compute block can be placed anywhere within the `REPORT` step, however generally compute blocks are grouped following the `DEFINE` statements.
+
+#### Using the `LINE` Statement
+
+* It can be used to insert a **blank line**
+```
+COMPUTE AFTER variable1;
+	LINE ' ';
+ENDCOMP;
+```
+
+* It can be used to **add lines of text**
+```
+COMPUTE AFTER;
+ LINE @20 'Some custom text';
+ LINE @20 'More custom text';
+ENDCOMP;
+```
+
+!!! note
+    In these `LINE` statements the `@` is used, as it is in the `DATA` step `PUT` statement, to designate the column number. If a specific column is not specified with the `@`, and no justification options are specified, text will be centered.
+    When writing to `ODS` destinations other than `LISTING`, proportional fonts may make exact placement of values difficult, and may require you to use a trial-and-error approach, and to make things more interesting some destinations ignore the `@` altogether. 
+
+* It can be used to **write formatted values**
+
+```
+COMPUTE BEFORE variable1;
+	line @3 variable1 $formatname.;
+ENDCOMP;
+```
+!!! note
+    The format could have also been used in the `DEFINE` statement, however in this case we wanted to show the unformatted value as well as the formatted group header.
+
+#### Creating and Modifying Columns
+
+
 
 ```
 DEFINE obs / COMPUTED; 

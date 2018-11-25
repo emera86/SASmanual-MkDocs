@@ -200,17 +200,23 @@ RUN;
     * Specify thickness of spacing around cell: `CELLPADDING=10`
     * Specify width of table: `OUTPUTWIDTH=` 
 
-## Examples
+## Dealing with Missing Values
+
+### Force Missing Rows and Columns with `CLASSDATA`
+
+When creating the same report over time, it is important that the format stays the same to ensure consistency. With the `TABULATE` procedure, **levels of a class variable, which do not have any observations, will not appear in the report**. To create consistent reports, a solution is needed that will ensure a standard report format over time. In order to account for changes that occur over time, all levels of class variables will need to be included in the standard report format. Creating a SAS data set with all levels of every class variable, along with declaring the `CLASSDATA` option in `PROC TABULATE`, will solve this problem. This paper shows how to set up the SAS data set to be used in conjunction with the `CLASSDATA` option, and how to avoid common errors that will cause `PROC TABULATE` to error out. The result is a **report format that will not change over time when the data changes over time**.
+
+The basic syntax for of a `PROC TABULATE` that uses the `CLASSDATA` option is as follows:
 
 ```
-PROC TABULATE DATA=SAS-data-set ORDER=FREQ;
-	VAR var1 var2;
-	CLASS AEencoding;
-	CLASS grade / ORDER=FORMATTED;
-	CLASS treatment / ORDER=FORMATTED;
-	TABLE AEencoding='', treatment='Treatment/Grade'*grade=''*(N='N' var1='%'*SUM='') ALL='Total (N=# cases)'*(N='N' var2='%'*SUM='') / BOX="Preferred MeDDRA Term";
+PROC TABULATE DATA=SAS-data-set CLASSDATA=SAS-data-set <options>;
+	CLASS variables </options>;
+	VAR variables </options>;
+	TABLE page, row, column </options>;
 RUN;
 ```
+
+Read [this article](http://support.sas.com/resources/papers/proceedings11/087-2011.pdf) for more information.
 
 ### How to Force Missing Values to Appear
 
@@ -220,5 +226,17 @@ Provided that the specific category is present (non-missing) at least in one of 
 PROC TABULATE DATA=SAS-data-set ORDER=FREQ OUT=Output-SAS-data-set MISSING;
 	CLASS var1 var2 crossvar;
 	TABLE var1 var2, crossvar*(N COLPCTN) / PRINTMISS MISSTEXT='0';
+RUN;
+```
+
+## Examples
+
+```
+PROC TABULATE DATA=SAS-data-set ORDER=FREQ;
+	VAR var1 var2;
+	CLASS AEencoding;
+	CLASS grade / ORDER=FORMATTED;
+	CLASS treatment / ORDER=FORMATTED;
+	TABLE AEencoding='', treatment='Treatment/Grade'*grade=''*(N='N' var1='%'*SUM='') ALL='Total (N=# cases)'*(N='N' var2='%'*SUM='') / BOX="Preferred MeDDRA Term";
 RUN;
 ```
