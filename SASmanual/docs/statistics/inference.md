@@ -1,5 +1,3 @@
-[Chapter summary in SAS](https://support.sas.com/edu/OLTRN/ECST131/m554/m554_4_a_sum.htm)
-
 How to **verify the assumptions** and **diagnose problems** that you encounter in **linear regression**?
 
 ## Examining Residuals
@@ -15,7 +13,7 @@ You want to see a **random scatter of the residual values** above and below the 
 ![Assumptions violation examples](../images/assumption-violation.PNG "Assumptions violation examples")
 
 !!! note
-    To take autocorrelation (correlated over time) into account, you might need to use a regression procedure such as **PROC AUTOREG**
+    To take autocorrelation (correlated over time) into account, you might need to use a regression procedure such as **`PROC AUTOREG`**
 
 You can also use these plots to **detect outliers**, which often reflect data errors or unusual circumstances. They can affect your regression results, so you want to know whether any outliers are present and causing problems and investigate if they result from **data entry error or some other problem** that you can correct.
 

@@ -34,7 +34,7 @@ The three main types of blood cells are:
 | Lymphocytes            | 10^9/L     | 1.5-4.5                          |
 
 !!! summary "Check these websites"
-* [Laboratory values](http://globalrph.com/laboratory-values/)
+    * [Laboratory values](http://globalrph.com/laboratory-values/)
 
 ### Blood-Related Anomalies
 

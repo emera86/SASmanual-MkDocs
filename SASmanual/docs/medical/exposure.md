@@ -12,7 +12,9 @@ $DI = \frac{sum \ of \ all \ administered \ doses}{(last \ dose \ date - 1^{st} 
 
 The **Relative Dose Intensity (RDI)** is the ratio of *delivered* respect to the *planned* dose intensity and can be expressed as a percentage. An RDI of 100% indicates that the drug was administered at the dose planned per protocol, without delay and without cancellations.
 
-$RDI = \frac{sum \ of \ all \ administered \ doses}{(last \ dose \ date - 1^{st} \  dose \ date + planned \ cycle \ duration)/ 7} \cdot \left (\frac{planned \ dose \ per \ cycle}{planned \ cycle \ duration / 7}  \right )^{-1} \cdot 100 = \frac{sum \ of \ all \ administered \ doses}{planned \ dose \ per \ cycle} \cdot \frac{planned \ cycle \ duration}{last \ dose \ date - 1^{st} \  dose \ date + planned \ cycle \ duration} \cdot 100$
+$RDI = \frac{sum \ of \ all \ administered \ doses}{(last \ dose \ date - 1^{st} \  dose \ date + planned \ cycle \ duration)/ 7} \cdot \left (\frac{planned \ dose \ per \ cycle}{planned \ cycle \ duration / 7}  \right )^{-1} \cdot 100 =$
+
+$= \frac{sum \ of \ all \ administered \ doses}{planned \ dose \ per \ cycle} \cdot \frac{planned \ cycle \ duration}{last \ dose \ date - 1^{st} \  dose \ date + planned \ cycle \ duration} \cdot 100$
 
 ### Derived Variables
 

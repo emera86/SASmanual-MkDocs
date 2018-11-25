@@ -2,7 +2,7 @@ site_name: SAS Manual
 site_description: Learning How to Program in SAS
 site_author: Lucía Rodrigo Insausti
 
-pages:
+nav:
     - Gettin' Started!: index.md
     - The Essentials: 
       - 'Accessing Data': 'essentials/accessing.md'
@@ -22,8 +22,8 @@ pages:
       - 'Categorical Data Analysis': 'statistics/categorical-data.md'
       - 'Model Building and Scoring for Prediction': 'statistics/prediction.md'
       - 'Miscellanea': 'statistics/miscellanea.md'
-   - Using Macros: 
-      - 'Introducing Macro Variables': 'macros/introducing-macrovar.md.md'
+    - Using Macros: 
+      - 'Introducing Macro Variables': 'macros/introducing-macrovar.md'
       - 'Using Macro Functions': 'macros/using-macrofunc.md'
       - 'Creating Macro Variables at Execution Time': 'macros/macrovar-at-execution-time.md'
       - 'Creating and Using Macro Programs': 'macros/macroprog.md'
@@ -85,6 +85,8 @@ pages:
       - 'Execution time': 'miscellanea/execution-time.md'
       - 'Time intervals': 'miscellanea/time-intervals.md'
       - 'Patient identification': 'miscellanea/patient-identification.md'
+      - 'Generating a Random List': 'miscellanea/random-list.md'
+      - 'Shell Scripting in SAS': 'miscellanea/shell.md'
     - Medical terms:
       - 'General': 'medical/general.md'
       - 'Laboratory Test': 'medical/labs.md'
@@ -104,7 +106,9 @@ extra_javascript:
 markdown_extensions:
     - mdx_math
     - admonition
-    - codehilite(linenums=true)
-    - toc(permalink=true)
+    - codehilite:
+        linenums: true
+    - toc:
+        permalink: Link
 
 theme: 'material'

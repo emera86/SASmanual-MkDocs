@@ -59,42 +59,43 @@ You can use the `SYMPUTX` routine with `DATA` step expressions for both argument
 
 To create an **indirect reference**, you precede a name token with **multiple ampersands**. When the macro processor encounters two ampersands, it resolves them to one ampersand and continues to rescan from left to right, from the point where the multiple ampersands begin. This action is known as the **Forward Rescan Rule**.
 
-**Example:** Given the macro variables and values shown in the following global symbol table, the `PROC PRINT` step will print all classes that are taught in a particular city. The statement is written in such a way that you would need to change only the value of `crsloc` in order for the `PROC PRINT` step to print classes that are taught in a different city.
+!!! example
+    Given the macro variables and values shown in the following global symbol table, the `PROC PRINT` step will print all classes that are taught in a particular city. The statement is written in such a way that you would need to change only the value of `crsloc` in order for the `PROC PRINT` step to print classes that are taught in a different city.
 
-*Global Symbol Table*
+    *Global Symbol Table*
 
-| Name	| Value |
-|:---:|:---:|
-| city1	| Dallas |
-| city2	| Boston |
-| city3 | Seattle |
+    | Name	| Value |
+    |:---:|:---:|
+    | city1	| Dallas |
+    | city2	| Boston |
+    | city3 | Seattle |
 
-```
-%let crsloc=2;
-proc print data=schedule;
-    where location="&&city&crsloc";
-run;
-```
+    <pre><code>%let crsloc=2;
+    proc print data=schedule;
+        where location="&&city&crsloc";
+    run;
+    </code></pre>
 
 You precede the macro variable name `city` with **two ampersands**. Then you add a reference to the macro variable `crsloc` immediately after the first reference in order to build a new token.
 
 You need to use **three ampersands** in front of a macro variable name when its value exactly **matches the name of a second macro variable**.
 
-**Example:** Given the macro variables and values shown in this global symbol table, the correspondance between each macro variable reference and its resolved value.
+!!! example 
+    Given the macro variables and values shown in this global symbol table, the correspondance between each macro variable reference and its resolved value.
 
-*Global Symbol Table*
+    *Global Symbol Table*
 
-| Name	| Value |
-|:---:|:---:|
-cat100	| Outerwear
-cat120	| Accessories
-sale	| cat100
+    | Name	| Value |
+    |:---:|:---:|
+    cat100	| Outerwear
+    cat120	| Accessories
+    sale	| cat100
 
-| Macro variable | Resolved value |
-|:---:|:---:|
-| `&sale` | cat100 |	 	 
-| `&&sale` | cat100 |	  
-| `&&&sale` | Outerwear |	 	
+    | Macro variable | Resolved value |
+    |:---:|:---:|
+    | `&sale` | cat100 |	 	 
+    | `&&sale` | cat100 |	  
+    | `&&&sale` | Outerwear |
 
 ## Creating Macro Variables Using `PROC SQL`
 
@@ -121,20 +122,18 @@ Unlike the `%LET` statement and the `SYMPUTX` routine, the `PROC SQL INTO` claus
 !!! tip 
     You can use the `PROC SQL NOPRINT` option to suppress the report if you don't want output to be displayed.
 
-**Example:** The following `SELECT` statement creates a series of macro variables named `place1`, `place2`, `place3`, and so on (as many new macro variables as are needed so that each new macro variable will be assigned a value of a distinct city and state where a student lives as provided in the data set variable `City_State`). The first `SELECT` statement uses the `N` function to count the number of distinct `city_state` values and assigns this number to the macro variable `numlocs`.
+!!! example 
+    The following `SELECT` statement creates a series of macro variables named `place1`, `place2`, `place3`, and so on (as many new macro variables as are needed so that each new macro variable will be assigned a value of a distinct city and state where a student lives as provided in the data set variable `City_State`). The first `SELECT` statement uses the `N` function to count the number of distinct `city_state` values and assigns this number to the macro variable `numlocs`.
 
-```
-proc sql;
-    select N(distinct city_state)
-      into :numlocs
-    from students;
-
-    %let numlocs=&numlocs;
-    select distinct city_state
-      into :place1-:place&numlocs
-    from students;
-quit;
-```
+    <pre><code>proc sql;
+        select N(distinct city_state)
+          into :numlocs
+        from students;
+        %let numlocs=&numlocs;
+        select distinct city_state
+          into :place1-:place&numlocs
+        from students;
+    quit;</code></pre>
 
 ### Storing a List of Values in a Macro Variable 
 

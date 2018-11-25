@@ -1,5 +1,3 @@
-[Chapter summary in SAS](https://support.sas.com/edu/OLTRN/ECST131/m553/m553_6_a_sum.htm)
-
 ![Summary lessons 3-6](../images/summary3-6.png "Summary lessons 3-6")
 
 ## Exploratory Data Analysis

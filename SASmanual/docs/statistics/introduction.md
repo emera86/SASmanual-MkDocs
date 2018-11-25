@@ -1,5 +1,3 @@
-[Chapter summary in SAS](https://support.sas.com/edu/OLTRN/ECST131/m551/m551_6_a_sum.htm)
-
 ## Basic Statistical Concepts
 
 ***Descriptive statistics (exploratory data analysis, EDA)***

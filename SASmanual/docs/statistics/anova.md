@@ -1,5 +1,3 @@
-[Chapter summary in SAS](https://support.sas.com/edu/OLTRN/ECST131/m552/m552_7_a_sum.htm)
-
 ![enter image description here](../images/anova.png "ANOVA")
 
 ## Graphical Analysis of Associations

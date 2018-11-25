@@ -1,10 +1,8 @@
-Hope this site help you with your SAS programming.
+I hope this site help you with your SAS programming.
 Contact me if you want any content to be added to this brief (hopefully not so brief in the future) manual. 
 I will be glad to include it.
 
 Enjoy! :)
-    
----
 
 !!! summary "If this is your starting point with SAS programming, maybe these readings could be useful"
     * [Getting Started with SAS Programming](https://support.sas.com/edu/OLTRN/ECPRG193/m411/m411_5_a_sum.htm)

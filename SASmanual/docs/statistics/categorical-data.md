@@ -1,5 +1,3 @@
-[Chapter summary in SAS](https://support.sas.com/edu/OLTRN/ECST131/m556/m556_5_a_sum.htm)
-
 When you response variable is categorical, you need to use a different kind of regression analysis: **logistic regression**.
 
 ## Describing Categorical Data
@@ -159,13 +157,11 @@ RUN;
 * `CLASS` is used to define the classification (categorical) predictor variables (if any); this statement must precede the `MODEL` statement
 * `CLODDS = PL` (profile likelihood) | `WALD` (default) | `BOTH` is an example of a general option that you can specify in the `MODEL` statement which computes confidence intervals for the odds ratios of all predictor variables and also enables the production of the odds ratio plot
 
-!!! tip "Example"
-	```
-	PROC LOGISTIC DATA=statdata.sales_inc PLOTS(ONLY)=(EFFECT ODDSRATIO);
+!!! example
+	<pre><code>PROC LOGISTIC DATA=statdata.sales_inc PLOTS(ONLY)=(EFFECT ODDSRATIO);
 	    CLASS gender;
 	    MODEL purchase(EVENT='1')=gender / CLODDS=PL;
-	RUN;
-	```
+	RUN;</code></pre>
 
 ### Classification Variables Parametrization
 
@@ -182,7 +178,7 @@ Here we present two of the most common methods of parameterizing (`PARAM =`) the
 
 Also called **deviation from the mean coding**, it compares the effect of each level of the variable to the **average effect of all levels**. 
 
-!!! tip "Example"
+!!! example
 	Using this parametrization scheme the model will be described as follows
 
 	$logit(p)=\beta_0+\beta_1\cdot D_{Low \\ Income} + \beta_2\cdot D_{Medium \\ Income}$
@@ -203,7 +199,7 @@ Also called **deviation from the mean coding**, it compares the effect of each l
 
 It compares the effect of each level of the predictor to the effect of another **level that is the designated reference level**.
 
-!!! tip "Example"
+!!! example
 	To use this scheme the classification variable has to be defined in the following way
 
 	`CLASS gender (PARAM=REF REF='Male');`
@@ -296,11 +292,10 @@ This table also shows the four rank correlation indices that are computed from t
 * **Kendall's `Tau-a`**, defined as $(n_c-n_d)/(0.5 \cdot N(N-1))$, with $N$ being the sum of observation frequencies in the data
 * **The concordance index `c`** is the most commonly used of these values and estimates the probability of an observation with the desired outcome having a higher predicted probability than an observation without the desired outcome and is defined as $c=\frac{n_c+0.5 \cdot n_t}{n_c+n_d+n_t}$. Note that the concordance index, `c`, also gives an estimate of the **area under the receiver operating characteristic (ROC) curve** when the response is binary.
 
-!!! note
+!!! summary "Check these websites"
 	More information about these parameters [here](http://support.sas.com/documentation/cdl/en/statug/66859/HTML/default/viewer.htm#statug_logistic_details22.htm).
 
 In general, a model with higher values of these indices has better predictive ability than a model with lower values.
-
 
 ## Multiple Logistic Regression Model
 

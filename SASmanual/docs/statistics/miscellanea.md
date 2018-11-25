@@ -95,4 +95,3 @@ This relationship between normal and chi-square distributions can be extended to
 !!! summary "Check these websites"
     * [The difference between a t-test & a chi-square](https://sciencing.com/difference-between-ttest-chi-square-8225095.html)
     * [Introduction to Categorical Data Analysis, A. Agresti, 2007 (2nd ed.) page 11](https://mregresion.files.wordpress.com/2012/08/agresti-introduction-to-categorical-data.pdf)
-    * [Test internal link Agresti 2007](../books/agresti-introduction-to-categorical-data.pdf)
