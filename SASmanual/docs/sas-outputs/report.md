@@ -230,7 +230,7 @@ The compute block starts with the `COMPUTE` statement and terminates with the `E
 compute <location> <report_item> </ options>;
 	one or more SAS language elements
 endcomp;
-````
+```
 
 The components of the `COMPUTE` statement include:
 
@@ -273,8 +273,6 @@ ENDCOMP;
     The format could have also been used in the `DEFINE` statement, however in this case we wanted to show the unformatted value as well as the formatted group header.
 
 #### Creating and Modifying Columns
-
-
 
 ```
 DEFINE obs / COMPUTED; 
