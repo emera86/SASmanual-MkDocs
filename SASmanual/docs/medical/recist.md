@@ -121,9 +121,39 @@ When patients have non-measurable (therefore non-target) disease only, the next 
 Non-target lesions | New lesions | Overall response
 :-----------------:|:-----------:|:----------------:
 CR                 | No          | CR
-Non-CR/non-PD      | No          | Non-CR/non-PD<sup>[1](#myfootnote1)</sup>
+Non-CR/non-PD      | No          | Non-CR/non-PD<sup>[*](#myfootnote1)</sup>
 Not all evaluated  | No          | NE
 Unequivocal PD     | Yes or No   | PD
 Any                | Yes         | PD
 
-<a name="myfootnote1"><sup>1</sup></a>Non-CR / non-PD is preferred over ‘Stable Disease’ for non-target disease since SD is increasingly used as an endpoint for assessment of efficacy in some trials. To assign this category when no lesions can be measured is not advised.
+<a name="myfootnote1"><sup>*</sup></a>Non-CR / non-PD is preferred over ‘Stable Disease’ for non-target disease since SD is increasingly used as an endpoint for assessment of efficacy in some trials. To assign this category when no lesions can be measured is not advised.
+
+## Confirmation
+
+In non-randomized trials where response is the primary endpoint, confirmation of PR and CR is required to ensure responses identified are not the result of measurement error. This will also permit appropriate interpretation of results in the context of historical data where response has traditionally required confirmation in such trials.
+
+However, in all other circumstances, (i.e., in randomized phase II or III trials or studies where stable disease or progression are the primary endpoints), confirmation of response is not required since it will not add value to the interpretation of trial results. However, elimination of the requirement for response confirmation may increase the importance of central review to protect against bias, in particular in studies which are not blinded.
+
+In the case of SD, measurements must have met the SD criteria at least once after study entry at a minimum interval (in general not less than 6–8 weeks) that is defined in the study protocol.
+
+## Missing Assessments and Inevaluable Designation
+
+When no imaging/measurement is done at all at a particular time point, the patient is not evaluable (NE) at that time point. 
+
+If only a subset of lesion measurements are made at an assessment, usually the case is also considered NE at that time point, unless a convincing argument can be made that the contribution of the individual missing lesion(s) would not change the assigned time point response. This would most likely happen in the case of PD.
+
+## RECIST FAQ
+
+---
+**When measuring the longest diameter of target lesions in response to treatment, is the same axis that was used initially used subsequently, even if there is a shape change to the lesion that may have produced a new longest diameter?**
+---
+The longest diameter of the lesion should always be measured even if the actual axis is different from the one used to measure the lesion initially (or at a different time point during followup). The only exception to this is lymph nodes —per RECIST 1.1 the short axis should always be followed and as in the case of target lesions, the vector of the short axis may change on follow-up.
+
+
+* **What if a single nontarget lesion cannot be reviewed (for whatever reason)? Does this negate the overall assessment?**: Sometimes the major contribution of a single non-target lesion may be in the setting of CR having otherwise been achieved; failure to examine one non-target in that setting will leave you unable to claim CR. It is also possible that the non-target lesion has undergone such substantial progression that it would override the target disease and render the patient PD. However, this is very unlikely, especially if the rest of the measurable disease is stable or responding.
+* ** **: 
+* ** **: 
+* ** **: 
+* ** **: 
+* ** **: 
+* ** **: 
