@@ -126,4 +126,4 @@ Not all evaluated  | No          | NE
 Unequivocal PD     | Yes or No   | PD
 Any                | Yes         | PD
 
-<a name="myfootnote1">1</a>: Non-CR / non-PD is preferred over ‘Stable Disease’ for non-target disease since SD is increasingly used as an endpoint for assessment of efficacy in some trials. To assign this category when no lesions can be measured is not advised.
+<a name="myfootnote1"><sup>1</sup></a>Non-CR / non-PD is preferred over ‘Stable Disease’ for non-target disease since SD is increasingly used as an endpoint for assessment of efficacy in some trials. To assign this category when no lesions can be measured is not advised.
