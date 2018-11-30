@@ -100,6 +100,8 @@ It is sometimes reasonable to incorporate the use of FDG-PET scanning to complem
 
 The following table provides  a summary of the overall response status calculation at each time point for patients who have measurable disease at baseline. 
 
+**Time point response: Patients with target (+/– non-target) disease**
+
 Target lesions | Non-target lesions | New lesions | Overall response
 :-------------:|:------------------:|:-----------:|:----------------:
 CR             | CR                 | No          | CR
@@ -111,3 +113,17 @@ Not all evaluated | Non-PD          | No          | NE
 PD             | Any                | Yes or No   | PD
 Any            | PD                 | Yes or No   | PD
 Any            | Any                | Yes         | PD
+
+When patients have non-measurable (therefore non-target) disease only, the next table is to be used.
+
+**Time point response: Patients with non-target disease**
+
+Non-target lesions | New lesions | Overall response
+:-----------------:|:-----------:|:----------------:
+CR                 | No          | CR
+Non-CR/non-PD      | No          | Non-CR/non-PD<sup>[1](#myfootnote1)</sup>
+Not all evaluated  | No          | NE
+Unequivocal PD     | Yes or No   | PD
+Any                | Yes         | PD
+
+<a name="myfootnote1">1</a>: Non-CR / non-PD is preferred over ‘Stable Disease’ for non-target disease since SD is increasingly used as an endpoint for assessment of efficacy in some trials. To assign this category when no lesions can be measured is not advised.
