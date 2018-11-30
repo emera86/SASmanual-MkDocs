@@ -68,8 +68,32 @@ of diameters.
 * **Progressive Disease (PD)**: At least a 20% increase in the sum of diameters of target lesions, taking as reference the smallest sum on study (this may include the baseline sum). The sum must also demonstrate an absolute increase of at least 5 mm.
 * **Stable Disease (SD)**: Neither sufficient shrinkage to qualify for PR nor sufficient increase to qualify for PD.
 
-### Special notes on the assessment of target lesions
+#### Special notes on the assessment of target lesions
 
 * **Lymph nodes** identified as target lesions should always have the actual short axis measurement recorded even if the nodes regress to below 10 mm on study. When lymph nodes are included as target lesions, the ‘sum’ of lesions may not be zero even if complete response criteria are met since a normal lymph node is defined as having a short axis of <10 mm.
 * **Target lesions that become ‘too small to measure’**. While on study, all lesions (nodal and non-nodal) recorded at baseline should have their actual measurements recorded at each subsequent evaluation, even when very small. However, sometimes lesions or lymph nodes become so faint on a CT scan that the radiologist may not feel comfortable assigning an exact measure and may report them as being ‘too small to measure’, in which case a default value of 5 mm should be assigned.
 * **Lesions that split or coalesce on treatment**. When non-nodal lesions ‘fragment’, the longest diameters of the fragmented portions should be added together to calculate the target lesion sum. Similarly, as lesions coalesce, a plane between them may be maintained that would aid in obtaining maximal diameter measurements of each individual lesion. If the lesions have truly coalesced such that they are no longer separable, the vector of the longest diameter in this instance should be the maximal longest diameter for the ‘coalesced lesion’.
+
+### Evaluation of non-target lesions
+
+* **Complete Response (CR)**: Disappearance of all non-target lesions and normalization of tumor marker levels. All lymph nodes must be non-pathological in size (<10 mm short axis).
+* **Non-CR / Non-PD**: Persistence of one or more non-target lesion(s) and/or maintenance of tumor marker levels above normal limits.
+* **Progressive Disease (PD)**: Unequivocal progression of existing non-target lesions.
+  * **When patient has measurable disease**. To achieve ‘unequivocal progression’ on the basis of the non-target disease, there must be an overall level of substantial worsening in non-target disease such that, even in presence of SD or PR in target disease, the overall tumor burden has increased sufficiently to merit discontinuation of therapy. A modest ‘increase’ in the size of one or more non-target lesions is usually not sufficient to qualify for unequivocal progression status. 
+  * **When patient has only non-measurable disease**. There is no measurable disease assessment to factor into the interpretation of an increase in non-measurable disease burden. Because worsening in non-target disease cannot be easily quantified, a useful test that can be applied is to consider if the increase in overall disease burden based on change in nonmeasurable disease is comparable in magnitude to the increase that would be required to declare PD for measurable disease. Examples include an increase in a pleural effusion from ‘trace’ to ‘large’ or an increase in lymphangitic disease from localized to widespread.
+
+### New lesions
+
+The appearance of new malignant lesions denotes disease progression:
+
+* The finding of a new lesion should be unequivocal (i.e., not attributable to differences in scanning technique, change in imaging modality or findings thought to represent something other than tumor, especially when the patient’s baseline lesions show partial or complete response). 
+* If a new lesion is equivocal, for example because of its small size, continued therapy and follow-up evaluation will clarify if it represents truly new disease. If repeat scans confirm there is definitely a new lesion, then progression should be declared using the date of the initial scan. 
+* A lesion identified on a follow-up study in an anatomical location that was not scanned at baseline is considered a new lesion and disease progression.
+
+It is sometimes reasonable to incorporate the use of FDG-PET scanning to complement CT in assessment of progression (particularly possible ‘new’ disease). New lesions on the basis of FDG-PET imaging can be identified according to the following algorithm:
+
+* **Negative FDG-PET at baseline, with a positive FDG-PET at follow-up** is PD based on a new lesion.
+* **No FDG-PET at baseline and a positive FDG-PET at follow-up**:
+  * If the positive FDG-PET at follow-up corresponds to a new site of disease confirmed by CT, this is PD.
+  * If the positive FDG-PET at follow-up is not confirmed as a new site of disease on CT, additional follow-up CT scans are needed to determine if there is truly progression occurring at that site (if so, the date of PD will be the date of the initial abnormal FDG-PET scan).
+  * If the positive FDG-PET at follow-up corresponds to a pre-existing site of disease on CT that is not progressing on the basis of the anatomic images, this is not PD.
