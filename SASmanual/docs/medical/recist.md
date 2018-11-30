@@ -97,3 +97,17 @@ It is sometimes reasonable to incorporate the use of FDG-PET scanning to complem
   * If the positive FDG-PET at follow-up corresponds to a new site of disease confirmed by CT, this is PD.
   * If the positive FDG-PET at follow-up is not confirmed as a new site of disease on CT, additional follow-up CT scans are needed to determine if there is truly progression occurring at that site (if so, the date of PD will be the date of the initial abnormal FDG-PET scan).
   * If the positive FDG-PET at follow-up corresponds to a pre-existing site of disease on CT that is not progressing on the basis of the anatomic images, this is not PD.
+
+The following table provides  a summary of the overall response status calculation at each time point for patients who have measurable disease at baseline. 
+
+Target lesions | Non-target lesions | New lesions | Overall response
+:-------------:|:------------------:|:-----------:|:----------------:
+CR             | CR                 | No          | CR
+CR             | Non-CR /non-PD     | No          | PR
+CR             | NE                 | No          | PR
+PR             | Non-PD /or not all evaluated | No | PR
+SD             | Non-PD /or not all evaluated | No | SD
+Not all evaluated | Non-PD          | No          | NE
+PD             | Any                | Yes or No   | PD
+Any            | PD                 | Yes or No   | PD
+Any            | Any                | Yes         | PD
