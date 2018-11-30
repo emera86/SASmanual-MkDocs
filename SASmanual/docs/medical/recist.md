@@ -144,9 +144,8 @@ If only a subset of lesion measurements are made at an assessment, usually the c
 
 ## RECIST FAQs
 
-
-**When measuring the longest diameter of target lesions in response to treatment, is the same axis that was used initially used subsequently, even if there is a shape change to the lesion that may have produced a new longest diameter?**
+**When measuring the longest diameter of target lesions in response to treatment, is the same axis that was used initially used subsequently, even if there is a shape change to the lesion that may have produced a new longest diameter?**<br/>
 The longest diameter of the lesion should always be measured even if the actual axis is different from the one used to measure the lesion initially (or at a different time point during followup). The only exception to this is lymph nodes —per RECIST 1.1 the short axis should always be followed and as in the case of target lesions, the vector of the short axis may change on follow-up.
 
-**What if a single nontarget lesion cannot be reviewed (for whatever reason)? Does this negate the overall assessment?**
+**What if a single nontarget lesion cannot be reviewed (for whatever reason)? Does this negate the overall assessment?**<br/>
 Sometimes the major contribution of a single non-target lesion may be in the setting of CR having otherwise been achieved; failure to examine one non-target in that setting will leave you unable to claim CR. It is also possible that the non-target lesion has undergone such substantial progression that it would override the target disease and render the patient PD. However, this is very unlikely, especially if the rest of the measurable disease is stable or responding.
