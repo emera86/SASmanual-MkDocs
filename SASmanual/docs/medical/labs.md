@@ -57,7 +57,7 @@ The three main types of blood cells are:
     * **Causes of sodium excess**: decreased sodium excretion or excessive intake
 
 * **Albumin**:
-* **Bicarbonate**:
+
 * **Blood urea nitrogen**:
 * **Calcium**:
 * **Chloride**:
@@ -67,7 +67,7 @@ The three main types of blood cells are:
 * **Magnesium**:
 * **Creatinine**:
 * **Creatinine Clearance**:
-* **Phosphate**:
+
 * **Phosphorous**:
 * **HbA1c**:
 * **Total Cholesterol**:
@@ -75,6 +75,20 @@ The three main types of blood cells are:
 * **LDL Cholesterol**:
 * **Triglycerides**:
 * **Uric acid**:
+
+### Regulation of Acid-Base Balance
+
+In the first instance pH is maintained by physiological buffers. Buffers may be intracellular and extracellular. Different buffer systems work in correlation with one another. It means that changes in one buffer system lead to changes in another.
+
+The main buffer systems are the following:
+
+1. **Bicarbonate buffer** (53% buffering capacity): the most important extracellular buffer, produced by kidneys.
+2. **Haemoglobin buffer** (35% buffering capacity): main intracellular buffer of the blood.
+3. **Protein buffer** (7% buffering capacity): is an extracellular buffer represented by plasma proteins.
+4. **Phosphate buffer** (5% buffering capacity): takes part in hydrogen ions excretion in renal tubules, is not of great importance in blood.
+
+* If blood pH **increases**, $H^+$ ions move from cells to extracellular fluid in exchange of $K$ ions that enter the cells. That's why **alkalosis is usually accompanied by hypokalaemia**.
+* If blood pH **decreases**, $H^+$ ions enter the cells in exchange of $K$ ions that leaves the cells. That's why **acidosis may cause hyperkalaemia**.
 
 ### Enzyme Diagnostics
 
@@ -96,9 +110,10 @@ of them leads to significant increase of AST in the blood serum. **Increase** in
 * **Alkaline phosphatase (ALP)**:  is produced by various tissues: intestinal mucous membrane, osteoblasts, biliary ducts, placenta, mammary gland during lactation. Several isoenzymes of ALP are present in blood serum. Bone (ALP increases with
 bone formation), liver (main indicator of biliary tract pathology), intestinal (small part of total ALP activity, may be increased by intestinal diseases accompanied by diarrhoea) and placental (appears in pregnancy during the 3rd trimester, increase in women with placenta damage) ones are the most significant for clinical and diagnostic purposes.
 * **Gamma-Glutamyl Transpeptidase (GGT)**: it has a great significance in diagnosis of any pathology of liver and bile ducts (increased activity). The liver is considered as the main source of normal serum activity, despite the fact that the kidney has the highest level of the enzyme. Pancreas also contains GGT (100% of patients with acute pancreatitis show GGT activity 10-20 times higher than normal). If GGT activity is normal, liver disease probability is very low. Thus, GGT is a good marker for differential diagnosis of liver pathology. The most significant increase is observed in **cholestasis**. Determination of **GGT in urine** allows to diagnose the early stages of kidney disease, which is accompanied by proximal renal tubular damage.
-* **Creatine Кinase (CК)**:
-* **Lactate Dehydrogenase (LDH)**:
-* ****:
+* **Lactate Dehydrogenase (LDH)**: catalyzes reversible reduction of pyruvate to lactate.  In the liver, heart, kidneys, skeletal muscles and erythrocytes LDH activity is 500 times higher than in serum. That is why damage of these organs is accompanied by elevation of serum LDH. Increase in this enzyme occurs in tissue necrosis, especially in acute myocardial injury, haemolysis (erythrocyte damage), injury of kidneys, skeletal muscles, liver, lungs and skin. 
+    * **LDH-1** is the most specific test for diagnosis of myocardial infarction and also increases in tumors of reproductive organs: teratoma, testicle seminoma, ovarian dysgerminoma.
+    * **LDH-2**, **LDH-3** and **LDH-4** have increased activity in massive platelet destruction (pulmonary embolism, massive blood transfusions) and lymphatic system involvement.
+    * **LDH-5** is contained in small amounts in skeletal muscles, liver, skin, mucous membranes, some kinds of malignant cells. Significant increase in LDH-5 occurs in traumas, inflammatory and degenerative muscular diseases and different liver diseases (hepatitis, cirrhosis and others). Oncologic diseases (i.e. lymphocytic leukemia) also  can lead to increase in LDH-5. Its activity also grows in active phase of rheumatism, kidney tumors, rejection of kidney transplant, severe diabetes mellitus. 
 
 ## Urinalysis
 
