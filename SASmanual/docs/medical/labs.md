@@ -56,6 +56,26 @@ The three main types of blood cells are:
     * **Causes of sodium deficiency**: renal/skin/intestinal losses
     * **Causes of sodium excess**: decreased sodium excretion or excessive intake
 
+* **Albumin**:
+* **Bicarbonate**:
+* **Blood urea nitrogen**:
+* **Calcium**:
+* **Chloride**:
+* **Glucose**:
+* **Total Bilirubin**:
+* **Calcium**:
+* **Magnesium**:
+* **Creatinine**:
+* **Creatinine Clearance**:
+* **Phosphate**:
+* **Phosphorous**:
+* **HbA1c**:
+* **Total Cholesterol**:
+* **HDL Cholesterol**:
+* **LDL Cholesterol**:
+* **Triglycerides**:
+* **Uric acid**:
+
 ### Enzyme Diagnostics
 
 Enzymes synthesis, functioning and breakdown take place continuously and simultaneously. They are localized in different cellular compartments (cytoplasm, lysosomes, cellular membrane, mitochondrions) and therefore, that is why increased activity of certain enzymes can indicate cellular damage. 
@@ -69,8 +89,8 @@ Serum enzymes are divided into 3 groups:
 Here, we have provided information about enzymes which are most frequently used in clinical practice for diagnosis, prognosis and therapy monitoring of different pathologies. Their determination in blood serum has high clinical significance.
 
 * **Aminotransferases**: they catalyze the process of transamination and are present in every organ and tissue. 
-   * **АLТ**: Highest concentration of ALT is noted in the liver cells. **Increased** ALT activity is most frequently revealed in acute liver and biliary ducts diseases.
-   * **АSТ**: High concentration of AST is noted in heart and skeletal muscles, liver, kidneys, pancreas and erythrocytes. Damage of any
+   * **АLТ (SGPT)**: Highest concentration of ALT is noted in the liver cells. **Increased** ALT activity is most frequently revealed in acute liver and biliary ducts diseases.
+   * **АSТ (SGOT)**: High concentration of AST is noted in heart and skeletal muscles, liver, kidneys, pancreas and erythrocytes. Damage of any
 of them leads to significant increase of AST in the blood serum. **Increase** in AST activity reveals hepatic pathology. **Low** AST activity usually reveals vitamin В6 deficiency, renal failure, pregnancy. 
    * **Ritis ratio**: AST/ALT ratio. Its normal value is around 1–1.3. It decreases in liver diseases and increases in heart diseases. 
 * **Alkaline phosphatase (ALP)**:  is produced by various tissues: intestinal mucous membrane, osteoblasts, biliary ducts, placenta, mammary gland during lactation. Several isoenzymes of ALP are present in blood serum. Bone (ALP increases with
