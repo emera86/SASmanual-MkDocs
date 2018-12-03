@@ -57,17 +57,16 @@ The three main types of blood cells are:
     * **Causes of sodium excess**: decreased sodium excretion or excessive intake
 
 * **Albumin**:
-
-* **Blood urea nitrogen**:
+* **Blood Urea Nitrogen (BUN)**: is a measure of kidney function. A high level may indicate that the kidneys are functioning less than normal.
+* **Carbon Dioxide ($CO_2$)**: Most carbon dioxide is present in the form of bicarbonate, which is regulated by the lungs and kidneys. The test result is an indication of how well the kidneys, and sometimes the lungs, are managing the bicarbonate level in the blood.
 * **Calcium**:
-* **Chloride**:
-* **Glucose**:
+* **Serum Chloride**: Chloride binds with electrolytes including potassium and sodium in the blood and plays a role in maintaining the proper pH of the blood. Chloride levels can vary widely if the patient is dehydrated or overly hydrated, if the kidneys are not functioning properly. Heart failure and endocrine problems can also contribute to abnormal chloride results.
+* **Glucose**: High levels of glucose can indicate the presence of diabetes or another endocrine disorder. Keep in mind that some medications and the timing of the test in relation to meals can radically alter the results.
 * **Total Bilirubin**:
 * **Calcium**:
 * **Magnesium**:
-* **Creatinine**:
+* **Creatinine**: is produced by the body during the process of normal muscle breakdown. High levels may indicate kidney impairment, low blood pressure, high blood pressure or another condition. Some medications can also cause a higher than normal level of blood creatinine. Low levels may be caused by late-stage muscular dystrophy, myasthenia gravis and overhydration.
 * **Creatinine Clearance**:
-
 * **Phosphorous**:
 * **HbA1c**:
 * **Total Cholesterol**:
@@ -75,6 +74,17 @@ The three main types of blood cells are:
 * **LDL Cholesterol**:
 * **Triglycerides**:
 * **Uric acid**:
+
+https://www.verywellhealth.com/blood-chemistry-tests-and-results-3156998
+
+| **Type of test**           | **Unit**   | **Levels**                       |
+|----------------------------|------------|----------------------------------|
+| Blood Urea Nitrogen (BUN)  | mmol/l     | 2.9-8.9                          |
+| Carbon Dioxide ($CO_2$)    | mmol/l     | 24-30                            |
+| Creatinine                 | umol/l     | Men: 15-40; Women: 25-70         |
+| Glucose                    | mmol/l     | 3.9-5.6                          |
+| Serum Chloride             | mmol/l     | 100-106                          |
+|
 
 ### Regulation of Acid-Base Balance
 
