@@ -53,16 +53,16 @@ It usually contains 8 tests, all of which are found in the CMP (below); provides
 
 #### Electrolytes
 
-* **Sodium ($Na$) concentration in blood serum**: Sodium is vital to normal body processes, including **nerve and muscle function**. The kidneys work to excrete any excess sodium that is ingested in food and beverages. Sodium levels fluctuate with dehydration or over-hydration, the food and beverages consumed, diarrhea, endocrine disorders, water retention (various causes), trauma and bleeding.
+* **Sodium ($Na^+$) concentration in blood serum**: Sodium is vital to normal body processes, including **nerve and muscle function**. The kidneys work to excrete any excess sodium that is ingested in food and beverages. Sodium levels fluctuate with dehydration or over-hydration, the food and beverages consumed, diarrhea, endocrine disorders, water retention (various causes), trauma and bleeding.
     * **Hyponatraemia**: $Na_{serum}< 135 \: mmol/l$
     * **Hypernatraemia**: $Na_{serum}> 150 \: mmol/l$
     * **Causes of sodium deficiency**: renal/skin/intestinal losses
     * **Causes of sodium excess**: decreased sodium excretion or excessive intake
-* **Potassium ($K$) concentration in blood serum**: plays an important role in **muscle contractions and cell function**. Both high and low levels of potassium can cause problems with the rhythm of the heart so it is important to monitor the level of potassium after surgery. Patients who are taking diuretics regularly may require regular blood tests to monitor potassium levels, as some diuretics cause the kidneys to excrete too much potassium.
+* **Potassium ($K^+$) concentration in blood serum**: plays an important role in **muscle contractions and cell function**. Both high and low levels of potassium can cause problems with the rhythm of the heart so it is important to monitor the level of potassium after surgery. Patients who are taking diuretics regularly may require regular blood tests to monitor potassium levels, as some diuretics cause the kidneys to excrete too much potassium.
     * **Hypokalaemia**: $K_{serum} < 3.5 \: mmol/l$
     * **Hyperkalaemia**: $K_{serum} < 5.2 \: mmol/l$
 * **Carbon Dioxide ($CO_2$)**: Most carbon dioxide is present in the form of **bicarbonate**, which is regulated by the lungs and kidneys and helps to maintain the body's acid-base balance. The test result is an indication of how well the kidneys, and sometimes the lungs, are managing the bicarbonate level in the blood.
-* **Chloride ($Cl$) concentration in blood serum**: Chloride binds with electrolytes including potassium and sodium in the blood and plays a role in maintaining the proper pH of the blood. Chloride levels can vary widely if the patient is dehydrated or overly hydrated, if the kidneys are not functioning properly. Heart failure and endocrine problems can also contribute to abnormal chloride results.
+* **Chloride ($Cl^-$) concentration in blood serum**: Chloride binds with electrolytes including potassium and sodium in the blood and plays a role in maintaining the proper pH of the blood. Chloride levels can vary widely if the patient is dehydrated or overly hydrated, if the kidneys are not functioning properly. Heart failure and endocrine problems can also contribute to abnormal chloride results.
 
 #### Kidney Tests
 
@@ -77,17 +77,38 @@ It usually includes 14 tests; provides the same information as the BMP with the 
 #### Proteins
 
 * **Albumin**: a small protein produced in the liver; the major protein in serum.
-* **Total protein**: the concentration of all fractions of plasma proteins (including albumin and several types of globulin).
+* **Total protein (TP)**: the concentration of all fractions of plasma proteins (including albumin and several types of globulin).
    * **Hypoproteinaemia**: total blood protein decrease below 65 g/l (life threatening when total protein concentration $< 40 g/l$ and albumin $< 20 g/l$
-   * **Hyperproteinaemia**: ???
+   * **Hyperproteinaemia**: is an abnormal increase in serum and plasma proteins.
    
 ![alt text](https://upload.wikimedia.org/wikipedia/commons/2/26/Electrophoresis.png "Electrophoresis plot")
 
+#### Liver Tests
 
+* **Aminotransferases**: they catalyze the process of transamination and are present in every organ and tissue. 
+   * **АLТ (alanine amino transferase, also called SGPT)**: Highest concentration of ALT is noted in the liver cells. **Increased** ALT activity is most frequently revealed in acute liver and biliary ducts diseases.
+   * **АSТ (aspartate amino transferase, also called SGOT)**: High concentration of AST is noted in heart and skeletal muscles, liver, kidneys, pancreas and erythrocytes. Damage of any of them leads to significant increase of AST in the blood serum. **Increase** in AST activity reveals hepatic pathology. **Low** AST activity usually reveals vitamin В6 deficiency, renal failure, pregnancy. 
+   * **Ritis ratio**: AST/ALT ratio. Its normal value is around 1–1.3. It decreases in liver diseases and increases in heart diseases. 
+* **Alkaline phosphatase (ALP)**:  is produced by various tissues: intestinal mucous membrane, osteoblasts, biliary ducts, placenta and mammary gland during lactation. Bone (ALP increases with bone formation), liver (main indicator of biliary tract pathology), intestinal (small part of total ALP activity, may be increased by intestinal diseases accompanied by diarrhoea) and placental (appears in pregnancy during the 3rd trimester, increase in women with placenta damage) ones are the most significant for clinical and diagnostic purposes.
+* **Total Bilirubin**: is an orange-yellow pigment, a waste product primarily produced by the normal breakdown of heme (component of hemoglobin found in RBCs) when aged red blood cells (RBCs) are recycled. Bilirubin is ultimately processed by the liver to allow its elimination from the body. This test measures the amount of bilirubin in the blood to evaluate a person's liver function or to help diagnose anemias caused by RBC destruction (hemolytic anemia).
 
 ### Electrolyte Panel 
 
-It is helpful for detecting a problem with the body's fluid and electrolyte balance.
+It is helpful for detecting a problem with the body's fluid and electrolyte balance. Electrolytes are minerals that are found in body tissues and blood in the form of dissolved salts. As electrically charged particles, electrolytes help move nutrients into and wastes out of the body's cells, maintain a healthy water balance, and help stabilize the body's acid/base (pH) level.
+
+In the first instance pH is maintained by physiological buffers. Buffers may be intracellular and extracellular. Different buffer systems work in correlation with one another. It means that changes in one buffer system lead to changes in another.
+
+The main buffer systems are the following:
+
+1. **Bicarbonate buffer** (53% buffering capacity): the most important extracellular buffer, produced by kidneys.
+2. **Haemoglobin buffer** (35% buffering capacity): main intracellular buffer of the blood.
+3. **Protein buffer** (7% buffering capacity): is an extracellular buffer represented by plasma proteins.
+4. **Phosphate buffer** (5% buffering capacity): takes part in hydrogen ions excretion in renal tubules, is not of great importance in blood.
+
+* If blood pH **increases**, $H^+$ ions move from cells to extracellular fluid in exchange of $K$ ions that enter the cells. That's why **alkalosis is usually accompanied by hypokalaemia**.
+* If blood pH **decreases**, $H^+$ ions enter the cells in exchange of $K$ ions that leaves the cells. That's why **acidosis may cause hyperkalaemia**.
+
+The electrolyte panel measures the blood levels of the main electrolytes in the body: sodium (Na+), potassium (K+), chloride (Cl-), and bicarbonate (HCO3-; sometimes reported as total CO2), which are included in the **BMP**.
 
 ### Lipid Panel
 
@@ -103,7 +124,14 @@ A small amount of cholesterol circulates in the blood in complex particles calle
 
 ### Liver Panel 
 
-Also called **Hepatic Function Panel**, it is used to screen for, detect, evaluate, and monitor actue and chronic liver inflammation (hepatitis), liver disease and/or damage.
+Also called **Hepatic Function Panel**, it is used to screen for, detect, evaluate, and monitor actue and chronic liver inflammation (hepatitis), liver disease and/or damage. Along with the Liver tests from the **CMP**, others are contained in this panel:
+
+The **CMP** includes most of the liver panel (ALT, ALP, AST, bilirubin, albumin, total protein). Depending on the healthcare provider and the laboratory, other tests that may be included in a liver panel are:
+
+* **Gamma-Glutamyl Transpeptidase (GGT)**: it has a great significance in diagnosis of any pathology of liver and bile ducts (increased activity). The liver is considered as the main source of normal serum activity, despite the fact that the kidney has the highest level of the enzyme. Pancreas also contains GGT (100% of patients with acute pancreatitis show GGT activity 10-20 times higher than normal). If GGT activity is normal, liver disease probability is very low. Thus, GGT is a good marker for differential diagnosis of liver pathology. The most significant increase is observed in **cholestasis**. Determination of **GGT in urine** allows to diagnose the early stages of kidney disease, which is accompanied by proximal renal tubular damage.
+* **Lactate Dehydrogenase (LDH)**: is an enzyme involved in energy production that is found in almost all of the body's cells, with the highest levels found in the cells of the heart, liver, muscles, kidneys, lungs, and in blood cells; bacteria also produce LDH. Only a small amount of LDH is usually detectable in serum or plasma. LDH is released from the cells into the serum when cells are damaged or destroyed. Thus, an LDH blood level is a non-specific marker for the **presence of tissue damage somewhere in the body**. By itself, it cannot be used to identify the underlying cause or location of the cellular damage. However, it may be used, in conjunction with other blood tests, to help evaluate for and/or monitor conditions that lead to tissue damage, such as liver or blood diseases or cancer.
+* **Prothrombin Time (PT)**: the liver produces proteins involved in the clotting (coagulation) of blood; the PT measures clotting function and, if abnormal, may indicate liver damage. A PT measures the number of seconds it takes for a clot to form in a person's sample of blood after substances are added.
+* **International Normalized Ratio (INR)**: is a calculation based on results of a PT that is used to monitor individuals who are being treated with the blood-thinning medication (anticoagulant) warfarin. The INR is a calculation that adjusts for changes in the PT reagents and allows for results from different laboratories to be compared. 
 
 ### Renal Panel 
 
@@ -114,23 +142,10 @@ Also called **Kidney Function Panel**, it contains tests such as albumin, creati
 This panel helps in evaluating thyroid gland function and diagnosing thyroid disorders.
 
 
-
-
-
-
-
-
-
-
-
-* **Total Bilirubin**:
 * **Magnesium ($Mg$)**:
 * **Phosphorous ($P$)**:
 * **HbA1c**
 * **Uric acid**:
-
-
-
 
 ### Normal Ranges' Rule of Thumb 
 
@@ -149,46 +164,6 @@ https://www.verywellhealth.com/blood-chemistry-tests-and-results-3156998
 | Triglycerides              | mmol/l     | <1.7 (high >2.3)                 |
 | HDL-C                      | mmol/l     | Men: 1.0-1.3; Women: 1.3-1.5     |
 | LDL-C                      | mmol/l     | <2.59 (high >160)                |
-
-
-### Regulation of Acid-Base Balance
-
-In the first instance pH is maintained by physiological buffers. Buffers may be intracellular and extracellular. Different buffer systems work in correlation with one another. It means that changes in one buffer system lead to changes in another.
-
-The main buffer systems are the following:
-
-1. **Bicarbonate buffer** (53% buffering capacity): the most important extracellular buffer, produced by kidneys.
-2. **Haemoglobin buffer** (35% buffering capacity): main intracellular buffer of the blood.
-3. **Protein buffer** (7% buffering capacity): is an extracellular buffer represented by plasma proteins.
-4. **Phosphate buffer** (5% buffering capacity): takes part in hydrogen ions excretion in renal tubules, is not of great importance in blood.
-
-* If blood pH **increases**, $H^+$ ions move from cells to extracellular fluid in exchange of $K$ ions that enter the cells. That's why **alkalosis is usually accompanied by hypokalaemia**.
-* If blood pH **decreases**, $H^+$ ions enter the cells in exchange of $K$ ions that leaves the cells. That's why **acidosis may cause hyperkalaemia**.
-
-### Enzyme Diagnostics
-
-Enzymes synthesis, functioning and breakdown take place continuously and simultaneously. They are localized in different cellular compartments (cytoplasm, lysosomes, cellular membrane, mitochondrions) and therefore, that is why increased activity of certain enzymes can indicate cellular damage. 
-
-Serum enzymes are divided into 3 groups:
-
-1. **Cellular enzymes** enter the blood from different organs (divided into non-specific and organ specific).
-2. **Secretory enzymes** are synthesized by cells, enter the bloodstream and fulfill their specific functions in the circulatory system. These are enzymes of coagulation system and fibrinolysis, choline esterase, etc.
-3. **Excretory enzymes** are synthesized by glands of the gastrointestinal tract and enter the blood (amylase, lipase).
-
-Here, we have provided information about enzymes which are most frequently used in clinical practice for diagnosis, prognosis and therapy monitoring of different pathologies. Their determination in blood serum has high clinical significance.
-
-* **Aminotransferases**: they catalyze the process of transamination and are present in every organ and tissue. 
-   * **АLТ (SGPT)**: Highest concentration of ALT is noted in the liver cells. **Increased** ALT activity is most frequently revealed in acute liver and biliary ducts diseases.
-   * **АSТ (SGOT)**: High concentration of AST is noted in heart and skeletal muscles, liver, kidneys, pancreas and erythrocytes. Damage of any
-of them leads to significant increase of AST in the blood serum. **Increase** in AST activity reveals hepatic pathology. **Low** AST activity usually reveals vitamin В6 deficiency, renal failure, pregnancy. 
-   * **Ritis ratio**: AST/ALT ratio. Its normal value is around 1–1.3. It decreases in liver diseases and increases in heart diseases. 
-* **Alkaline phosphatase (ALP)**:  is produced by various tissues: intestinal mucous membrane, osteoblasts, biliary ducts, placenta, mammary gland during lactation. Several isoenzymes of ALP are present in blood serum. Bone (ALP increases with
-bone formation), liver (main indicator of biliary tract pathology), intestinal (small part of total ALP activity, may be increased by intestinal diseases accompanied by diarrhoea) and placental (appears in pregnancy during the 3rd trimester, increase in women with placenta damage) ones are the most significant for clinical and diagnostic purposes.
-* **Gamma-Glutamyl Transpeptidase (GGT)**: it has a great significance in diagnosis of any pathology of liver and bile ducts (increased activity). The liver is considered as the main source of normal serum activity, despite the fact that the kidney has the highest level of the enzyme. Pancreas also contains GGT (100% of patients with acute pancreatitis show GGT activity 10-20 times higher than normal). If GGT activity is normal, liver disease probability is very low. Thus, GGT is a good marker for differential diagnosis of liver pathology. The most significant increase is observed in **cholestasis**. Determination of **GGT in urine** allows to diagnose the early stages of kidney disease, which is accompanied by proximal renal tubular damage.
-* **Lactate Dehydrogenase (LDH)**: catalyzes reversible reduction of pyruvate to lactate.  In the liver, heart, kidneys, skeletal muscles and erythrocytes LDH activity is 500 times higher than in serum. That is why damage of these organs is accompanied by elevation of serum LDH. Increase in this enzyme occurs in tissue necrosis, especially in acute myocardial injury, haemolysis (erythrocyte damage), injury of kidneys, skeletal muscles, liver, lungs and skin. 
-    * **LDH-1** is the most specific test for diagnosis of myocardial infarction and also increases in tumors of reproductive organs: teratoma, testicle seminoma, ovarian dysgerminoma.
-    * **LDH-2**, **LDH-3** and **LDH-4** have increased activity in massive platelet destruction (pulmonary embolism, massive blood transfusions) and lymphatic system involvement.
-    * **LDH-5** is contained in small amounts in skeletal muscles, liver, skin, mucous membranes, some kinds of malignant cells. Significant increase in LDH-5 occurs in traumas, inflammatory and degenerative muscular diseases and different liver diseases (hepatitis, cirrhosis and others). Oncologic diseases (i.e. lymphocytic leukemia) also  can lead to increase in LDH-5. Its activity also grows in active phase of rheumatism, kidney tumors, rejection of kidney transplant, severe diabetes mellitus. 
 
 ## Urinalysis
 
