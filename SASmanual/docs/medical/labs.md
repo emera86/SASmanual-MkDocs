@@ -168,28 +168,31 @@ https://www.verywellhealth.com/blood-chemistry-tests-and-results-3156998
 |------------------------------|-------------|----------------------------------|
 | Glucose                      | $mmol/l$    | 3.9-5.6                          |
 | Calcium                      | | |
-
 | Serum Sodium                 | $mmol/l$    | 3.5-5                            |
 | Serum Potassium              | $mmol/l$    | 3.5-5                            |
-| Carbon Dioxide (bicarbonate) | $mmol/l$    | 24-30                       |
+| Carbon Dioxide (bicarbonate) | $mmol/l$    | 24-30                            |
 | Serum Chloride               | $mmol/l$    | 100-106                          |
-
 | Blood Urea Nitrogen (BUN)    | $mmol/l$    | 2.9-8.9                          |
 | Creatinine                   | $\mu mol/l$ | Men: 15-40; Women: 25-70         |
 | Creatinine Clearance         | | |
-
 | Albumin                      | | |
 | Total Protein (TP)           | | |
-
 | ALT/SGPT                     | | |
 | AST/SGOT                     | | |
 | ALP                          | | |
-| Total bilirubin              | | |
-
+| Total Bilirubin              | | |
+| GGT                          | | |
+| LDH                          | | |
+| Prothrombin Time             | | |
+| INR                          | | |
+| Phosphorous                  | | |
 | Total Cholesterol            | $mmol/l$    | <5.18 (high >6.22)               |
 | Triglycerides                | $mmol/l$    | <1.7 (high >2.3)                 |
 | HDL-C                        | $mmol/l$    | Men: 1.0-1.3; Women: 1.3-1.5     |
 | LDL-C                        | $mmol/l$    | <2.59 (high >160)                |
+| Magnesium                    | | |
+| HbA1c                        | | |
+| Uric Acid                    | | |
 
 ## Urinalysis
 
