@@ -44,36 +44,95 @@ The three main types of blood cells are:
 
 ## Chemistry
 
-* **Total protein**: the concentration of all fractions of plasma proteins
-   * **Hypoproteinaemia**: total blood protein decrease below 65 g/l (life threatening when total protein concentration $< 40 g/l$ and albumin $< 20 g/l$
-   * **Hyperproteinaemia**: 
-* **Potassium concentration in blood serum**:
-    * **Hypokalaemia**: $K_{serum} < 3.5 \: mmol/l$
-    * **Hyperkalaemia**: $K_{serum} < 5.2 \: mmol/l$
-* **Sodium concentration in blood serum**:
+### Basic Metabolic Panel (BMP)
+
+It usually contains 8 tests, all of which are found in the CMP (below); provides information about the current status of a person's kidneys and respiratory system as well as electrolyte and acid/base balance and level of blood glucose.
+
+* **Glucose**: energy source for the body; a steady supply must be available for use, and a relatively constant level of glucose must be maintained in the blood. High levels of glucose can indicate the presence of diabetes or another endocrine disorder.
+* **Calcium ($Ca$)**: one of the most important minerals in the body; it is essential for the proper functioning of muscles, nerves, and the heart and is required in blood clotting and in the formation of bones.
+
+#### Electrolytes
+
+* **Sodium ($Na$) concentration in blood serum**: Sodium is vital to normal body processes, including **nerve and muscle function**. The kidneys work to excrete any excess sodium that is ingested in food and beverages. Sodium levels fluctuate with dehydration or over-hydration, the food and beverages consumed, diarrhea, endocrine disorders, water retention (various causes), trauma and bleeding.
     * **Hyponatraemia**: $Na_{serum}< 135 \: mmol/l$
     * **Hypernatraemia**: $Na_{serum}> 150 \: mmol/l$
     * **Causes of sodium deficiency**: renal/skin/intestinal losses
     * **Causes of sodium excess**: decreased sodium excretion or excessive intake
+* **Potassium ($K$) concentration in blood serum**: plays an important role in **muscle contractions and cell function**. Both high and low levels of potassium can cause problems with the rhythm of the heart so it is important to monitor the level of potassium after surgery. Patients who are taking diuretics regularly may require regular blood tests to monitor potassium levels, as some diuretics cause the kidneys to excrete too much potassium.
+    * **Hypokalaemia**: $K_{serum} < 3.5 \: mmol/l$
+    * **Hyperkalaemia**: $K_{serum} < 5.2 \: mmol/l$
+* **Carbon Dioxide ($CO_2$)**: Most carbon dioxide is present in the form of **bicarbonate**, which is regulated by the lungs and kidneys and helps to maintain the body's acid-base balance. The test result is an indication of how well the kidneys, and sometimes the lungs, are managing the bicarbonate level in the blood.
+* **Chloride ($Cl$) concentration in blood serum**: Chloride binds with electrolytes including potassium and sodium in the blood and plays a role in maintaining the proper pH of the blood. Chloride levels can vary widely if the patient is dehydrated or overly hydrated, if the kidneys are not functioning properly. Heart failure and endocrine problems can also contribute to abnormal chloride results.
 
-* **Albumin**:
-* **Blood Urea Nitrogen (BUN)**: is a measure of kidney function. A high level may indicate that the kidneys are functioning less than normal.
-* **Carbon Dioxide ($CO_2$)**: Most carbon dioxide is present in the form of bicarbonate, which is regulated by the lungs and kidneys. The test result is an indication of how well the kidneys, and sometimes the lungs, are managing the bicarbonate level in the blood.
-* **Calcium**:
-* **Serum Chloride**: Chloride binds with electrolytes including potassium and sodium in the blood and plays a role in maintaining the proper pH of the blood. Chloride levels can vary widely if the patient is dehydrated or overly hydrated, if the kidneys are not functioning properly. Heart failure and endocrine problems can also contribute to abnormal chloride results.
-* **Glucose**: High levels of glucose can indicate the presence of diabetes or another endocrine disorder. Keep in mind that some medications and the timing of the test in relation to meals can radically alter the results.
-* **Total Bilirubin**:
-* **Calcium**:
-* **Magnesium**:
-* **Creatinine**: is produced by the body during the process of normal muscle breakdown. High levels may indicate kidney impairment, low blood pressure, high blood pressure or another condition. Some medications can also cause a higher than normal level of blood creatinine. Low levels may be caused by late-stage muscular dystrophy, myasthenia gravis and overhydration.
+#### Kidney Tests
+
+* **Blood Urea Nitrogen (BUN)**: waste product filtered out of the blood by the kidneys; conditions that affect the **kidney** have the potential to affect the amount of urea in the blood. A high level may indicate that the kidneys are functioning less than normal.
+* **Creatinine**: waste product generated by the body during the process of normal muscle breakdown; it is filtered out of the blood by the kidneys so blood levels are a good indication of how well the kidneys are working. High levels may indicate kidney impairment, low blood pressure, high blood pressure or another condition.
 * **Creatinine Clearance**:
-* **Phosphorous**:
-* **HbA1c**:
-* **Total Cholesterol**:
-* **HDL Cholesterol**:
-* **LDL Cholesterol**:
-* **Triglycerides**:
+
+### Comprehensive Metabolic Panel (CMP) 
+
+It usually includes 14 tests; provides the same information as the BMP with the addition of the status of a person's liver and important blood proteins.
+
+#### Proteins
+
+* **Albumin**: a small protein produced in the liver; the major protein in serum.
+* **Total protein**: the concentration of all fractions of plasma proteins (including albumin and several types of globulin).
+   * **Hypoproteinaemia**: total blood protein decrease below 65 g/l (life threatening when total protein concentration $< 40 g/l$ and albumin $< 20 g/l$
+   * **Hyperproteinaemia**: ???
+   
+![alt text](https://upload.wikimedia.org/wikipedia/commons/2/26/Electrophoresis.png "Electrophoresis plot")
+
+
+
+### Electrolyte Panel 
+
+It is helpful for detecting a problem with the body's fluid and electrolyte balance.
+
+### Lipid Panel
+
+Also known as **coronary risk panel**, measures the level of specific lipids in blood to help assess someone's risk of cardiovascular disease (CVD).
+
+* **Total Cholesterol**: The cholesterol forms the membranes for cells in all organs and tissues in the body. It is used to make hormones that are essential for development, growth, and reproduction. It forms bile acids that are needed to absorb nutrients from food. The test for cholesterol measures total cholesterol that is carried in the blood by lipoproteins.
+* **Triglycerides**: They are a form of fat and a major source of energy for the body. Most triglycerides are found in fat (adipose) tissue, but some triglycerides circulate in the blood to provide fuel for muscles to work. Most triglycerides are carried in the blood by lipoproteins called **very low-density lipoproteins (VLDL)**. High levels of triglycerides in the blood are associated with an increased risk of developing cardiovascular disease (CVD). Certain factors can contribute to high triglyceride levels and to risk of CVD, including lack of exercise, being overweight, smoking cigarettes, consuming excess alcohol, and having medical conditions such as diabetes and kidney disease.
+
+A small amount of cholesterol circulates in the blood in complex particles called **lipoproteins**. Each particle contains a combination of **protein, cholesterol, triglyceride, and phospholipid molecules** and the particles are classified by their density into:
+
+* **High-density lipoprotein cholesterol (HDL-C)**: often called *good cholesterol* because it removes excess cholesterol and carries it to the liver for removal.
+* **Low-density lipoprotein cholesterol (LDL-C)**: often called *bad cholesterol* because it deposits excess cholesterol in walls of blood vessels, which can contribute to atherosclerosis.
+
+### Liver Panel 
+
+Also called **Hepatic Function Panel**, it is used to screen for, detect, evaluate, and monitor actue and chronic liver inflammation (hepatitis), liver disease and/or damage.
+
+### Renal Panel 
+
+Also called **Kidney Function Panel**, it contains tests such as albumin, creatinine, BUN, eGFR to evaluate kidney function.
+
+### Thyroid Function Panel 
+
+This panel helps in evaluating thyroid gland function and diagnosing thyroid disorders.
+
+
+
+
+
+
+
+
+
+
+
+* **Total Bilirubin**:
+* **Magnesium ($Mg$)**:
+* **Phosphorous ($P$)**:
+* **HbA1c**
 * **Uric acid**:
+
+
+
+
+### Normal Ranges' Rule of Thumb 
 
 https://www.verywellhealth.com/blood-chemistry-tests-and-results-3156998
 
@@ -83,8 +142,14 @@ https://www.verywellhealth.com/blood-chemistry-tests-and-results-3156998
 | Carbon Dioxide ($CO_2$)    | mmol/l     | 24-30                            |
 | Creatinine                 | umol/l     | Men: 15-40; Women: 25-70         |
 | Glucose                    | mmol/l     | 3.9-5.6                          |
+| Serum Potassium            | mmol/l     | 3.5-5                            |
+| Serum Sodium               | mmol/l     | 3.5-5                            |
 | Serum Chloride             | mmol/l     | 100-106                          |
-|
+| Total Cholesterol          | mmol/l     | <5.18 (high >6.22)               |
+| Triglycerides              | mmol/l     | <1.7 (high >2.3)                 |
+| HDL-C                      | mmol/l     | Men: 1.0-1.3; Women: 1.3-1.5     |
+| LDL-C                      | mmol/l     | <2.59 (high >160)                |
+
 
 ### Regulation of Acid-Base Balance
 
