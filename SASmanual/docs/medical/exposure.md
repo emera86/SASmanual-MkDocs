@@ -16,6 +16,12 @@ $RDI = \frac{sum \ of \ all \ administered \ doses}{(last \ dose \ date - 1^{st}
 
 $= \frac{sum \ of \ all \ administered \ doses}{planned \ dose \ per \ cycle} \cdot \frac{planned \ cycle \ duration}{last \ dose \ date - 1^{st} \  dose \ date + planned \ cycle \ duration} \cdot 100$
 
+!!! note
+    For **RDI** calculation, the full theoretical dose and cycle duration stablished by protocol are used (not the intended dose registered by cycle which may account for reductions). Regarding the last cycle, the protocol or principal investigator should specify the criteria to accound for interrupted treatments.
+    **Example:** treatment consisting on administrations on day 1, 7 and 15 of a 21-day cycle. What should we do with a patient who received the 100% of the treatment until the last cycle on which he only received the doses of day 1 and 7? Should we consider the administration of day 15 as zero dose (RDI will be less than 100%)? Should we consider this last cycle as reduced in duration (finished with the last dose administered and, thus, RDI maintained in 100%)? 
+    When there is a special interest in safety (Phase I trials) we need to be careful when defining these variables, otherwise the variations introduced by these details are minimal and it's not worth the trouble.
+    If there is a delay during the cycle (between doses), we may need to use the last dose date plus the theoretical rest period (until the end of the cycle) to account for the cycle duration (moreover if it's the last one).
+    
 ### Derived Variables
 
 Key derived variables for exposure derived datasets could be:
