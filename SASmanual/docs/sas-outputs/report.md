@@ -70,7 +70,7 @@ run;
 
 proc report data=test nowindows headline style(header)={background=very light grey} missing split='*';
 	column ("First and Last Dates in the Study" ('Patient' pt) ('First Study Date' firstdate) ('Last Study Date' lastdate) flag color1 color2);
-	define pt / '' display order=internal;
+	define pt / '' display order=internal descending;
 	define firstdate / '' display;
 	define lastdate / '' display;
 	define flag / display noprint;
