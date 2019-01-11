@@ -136,6 +136,31 @@ However, in all other circumstances, (i.e., in randomized phase II or III trials
 
 In the case of SD, measurements must have met the SD criteria at least once after study entry at a minimum interval (in general not less than 6–8 weeks) that is defined in the study protocol.
 
+The Best Overall Response (BOR) is the best response recorded from the start of the study treatment until the disease progression/recurrence:
+
+* **Complete Response (CR)** upon confirmation at least 4 weeks after first CR
+* **Partial Response (PR)** upon confirmation at least 4 weeks after first PR
+* **Stable Disease (SD)** should be met at least once no less than 6-8 weeks after the first dose of trial treatment/baseline assessment, otherwise the best response will be Not Evaluable (NE)
+* **Progressive Disease (PD)** does not need confirmation
+
+The criteria for confirmation of the response is summarized in the following table for the best overall response when confirmation of CR and PR are required:
+
+Overall response 1st time point | Overall response subsequent time point |  Best Overall Response
+:-----------------:|:------------:|:----------------:
+CR                 | CR           | CR
+CR                 | PR           | SD, PD, PR *
+CR                 | SD           | SD provided minimum criteria for SD duration met, otherwise, PD
+CR                 | PD           | SD provided minimum criteria for SD duration met, otherwise, PD
+CR                 | NE           | SD provided minimum criteria for SD duration met, otherwise, NE
+PR                 | CR           | PR
+PR                 | PR           | PR
+PR                 | SD           | SD
+PR                 | PD           | SD provided minimum criteria for SD duration met, otherwise, PD
+PR                 | NE           | SD provided minimum criteria for SD duration met, otherwise, NE
+NE                 | NE           | NE
+
+* If a CR is truly met at first time point, then any disease seen at a subsequent time point, even disease meeting PR criteria relative to baseline, makes the disease PD at that point (since disease must have reappeared after CR). Best response would depend on whether minimum duration for SD was met. However, sometimes CR may be claimed when subsequent scans suggest small lesions were likely still present and in fact the patient had PR, not CR at the first time point. Under these circumstances, the original CR should be changed to PR and the best response is PR.
+
 ## Missing Assessments and Inevaluable Designation
 
 When no imaging/measurement is done at all at a particular time point, the patient is not evaluable (NE) at that time point. 
