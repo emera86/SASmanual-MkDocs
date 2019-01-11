@@ -148,7 +148,7 @@ The criteria for confirmation of the response is summarized in the following tab
 Overall response 1st time point | Overall response subsequent time point |  Best Overall Response
 :-----------------:|:------------:|:----------------:
 CR                 | CR           | CR
-CR                 | PR           | SD, PD, PR <sup>1</sup>
+CR                 | PR           | SD, PD or PR <sup><a name="myfootnote">1</a></sup>
 CR                 | SD           | SD provided minimum criteria for SD duration met, otherwise, PD
 CR                 | PD           | SD provided minimum criteria for SD duration met, otherwise, PD
 CR                 | NE           | SD provided minimum criteria for SD duration met, otherwise, NE
@@ -159,7 +159,7 @@ PR                 | PD           | SD provided minimum criteria for SD duration
 PR                 | NE           | SD provided minimum criteria for SD duration met, otherwise, NE
 NE                 | NE           | NE
 
-<sup>1</sup> If a CR is truly met at first time point, then any disease seen at a subsequent time point, even disease meeting PR criteria relative to baseline, makes the disease PD at that point (since disease must have reappeared after CR). Best response would depend on whether minimum duration for SD was met. However, sometimes CR may be claimed when subsequent scans suggest small lesions were likely still present and in fact the patient had PR, not CR at the first time point. Under these circumstances, the original CR should be changed to PR and the best response is PR.
+<sup>[1](#myfootnote)</sup> If a CR is truly met at first time point, then any disease seen at a subsequent time point, even disease meeting PR criteria relative to baseline, makes the disease PD at that point (since disease must have reappeared after CR). Best response would depend on whether minimum duration for SD was met. However, sometimes CR may be claimed when subsequent scans suggest small lesions were likely still present and in fact the patient had PR, not CR at the first time point. Under these circumstances, the original CR should be changed to PR and the best response is PR.
 
 ## Missing Assessments and Inevaluable Designation
 
