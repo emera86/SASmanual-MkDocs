@@ -121,12 +121,12 @@ When patients have non-measurable (therefore non-target) disease only, the next 
 Non-target lesions | New lesions | Overall response
 :-----------------:|:-----------:|:----------------:
 CR                 | No          | CR
-Non-CR/non-PD      | No          | Non-CR/non-PD<sup>[*](#myfootnote1)</sup>
+Non-CR/non-PD      | No          | Non-CR/non-PD<sup>[1](#myfootnote1)</sup>
 Not all evaluated  | No          | NE
 Unequivocal PD     | Yes or No   | PD
 Any                | Yes         | PD
 
-<a name="myfootnote1"><sup>*</sup></a>Non-CR / non-PD is preferred over ‘Stable Disease’ for non-target disease since SD is increasingly used as an endpoint for assessment of efficacy in some trials. To assign this category when no lesions can be measured is not advised.
+<sup><a name="myfootnote1">1</a></sup>Non-CR / non-PD is preferred over ‘Stable Disease’ for non-target disease since SD is increasingly used as an endpoint for assessment of efficacy in some trials. To assign this category when no lesions can be measured is not advised.
 
 ## Confirmation
 
@@ -148,8 +148,8 @@ The criteria for confirmation of the response is summarized in the following tab
 Overall response 1st time point | Overall response subsequent time point |  Best Overall Response
 :-----------------:|:------------:|:----------------:
 CR                 | CR           | CR
-CR                 | PR           | SD, PD or PR <sup>[1](#myfootnote)</sup>
-CR                 | SD           | SD provided minimum criteria for SD duration met, otherwise, PD
+CR                 | PR           | SD, PD or PR <sup>[2](#myfootnote)</sup>
+CR                 | SD           | SD provided minimum criteria for2 SD duration met, otherwise, PD
 CR                 | PD           | SD provided minimum criteria for SD duration met, otherwise, PD
 CR                 | NE           | SD provided minimum criteria for SD duration met, otherwise, NE
 PR                 | CR           | PR
@@ -159,7 +159,7 @@ PR                 | PD           | SD provided minimum criteria for SD duration
 PR                 | NE           | SD provided minimum criteria for SD duration met, otherwise, NE
 NE                 | NE           | NE
 
-<sup><a name="myfootnote">1</a></sup> If a CR is truly met at first time point, then any disease seen at a subsequent time point, even disease meeting PR criteria relative to baseline, makes the disease PD at that point (since disease must have reappeared after CR). Best response would depend on whether minimum duration for SD was met. However, sometimes CR may be claimed when subsequent scans suggest small lesions were likely still present and in fact the patient had PR, not CR at the first time point. Under these circumstances, the original CR should be changed to PR and the best response is PR.
+<sup><a name="myfootnote2">2</a></sup> If a CR is truly met at first time point, then any disease seen at a subsequent time point, even disease meeting PR criteria relative to baseline, makes the disease PD at that point (since disease must have reappeared after CR). Best response would depend on whether minimum duration for SD was met. However, sometimes CR may be claimed when subsequent scans suggest small lesions were likely still present and in fact the patient had PR, not CR at the first time point. Under these circumstances, the original CR should be changed to PR and the best response is PR.
 
 ## Missing Assessments and Inevaluable Designation
 
@@ -172,5 +172,5 @@ If only a subset of lesion measurements are made at an assessment, usually the c
 **When measuring the longest diameter of target lesions in response to treatment, is the same axis that was used initially used subsequently, even if there is a shape change to the lesion that may have produced a new longest diameter?**<br/>
 The longest diameter of the lesion should always be measured even if the actual axis is different from the one used to measure the lesion initially (or at a different time point during followup). The only exception to this is lymph nodes —per RECIST 1.1 the short axis should always be followed and as in the case of target lesions, the vector of the short axis may change on follow-up.
 
-**What if a single nontarget lesion cannot be reviewed (for whatever reason)? Does this negate the overall assessment?**<br/>
+**What if a single non-target lesion cannot be reviewed (for whatever reason)? Does this negate the overall assessment?**<br/>
 Sometimes the major contribution of a single non-target lesion may be in the setting of CR having otherwise been achieved; failure to examine one non-target in that setting will leave you unable to claim CR. It is also possible that the non-target lesion has undergone such substantial progression that it would override the target disease and render the patient PD. However, this is very unlikely, especially if the rest of the measurable disease is stable or responding.
