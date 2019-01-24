@@ -148,7 +148,7 @@ The criteria for confirmation of the response is summarized in the following tab
 Overall response 1st time point | Overall response subsequent time point |  Best Overall Response
 :-----------------:|:------------:|:----------------:
 CR                 | CR           | CR
-CR                 | PR           | SD, PD or PR <sup>[2](#myfootnote)</sup>
+CR                 | PR           | SD, PD or PR <sup>[2](#myfootnote2)</sup>
 CR                 | SD           | SD provided minimum criteria for2 SD duration met, otherwise, PD
 CR                 | PD           | SD provided minimum criteria for SD duration met, otherwise, PD
 CR                 | NE           | SD provided minimum criteria for SD duration met, otherwise, NE
