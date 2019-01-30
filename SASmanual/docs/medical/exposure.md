@@ -22,6 +22,12 @@ $= \frac{sum \ of \ all \ administered \ doses}{planned \ dose \ per \ cycle} \c
     When there is a special interest in safety (Phase I trials) we need to be careful when defining these variables, otherwise the variations introduced by these details are minimal and it's not worth the trouble.
     If there is a delay during the cycle (between doses), we may need to use the last dose date plus the theoretical rest period (until the end of the cycle) to account for the cycle duration (moreover if it's the last one).
     
+A different definition is sometimes used for the **Relative Dose Intensity (RDI)** on which the time factor is not considered:
+
+$RDI = \frac{sum \ of \ all \ administered \ doses}{sum \ of \ all \ planned \ doses} \cdot 100$
+
+This definition is equivalent to the previous one if there are not delays in the treatment respect to the planned cycle duration, however, if that is the case (there are delays) using this definition one would be overestimating the **RDI**.
+    
 ### Derived Variables
 
 Key derived variables for exposure derived datasets could be:
