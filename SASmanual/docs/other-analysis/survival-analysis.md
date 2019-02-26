@@ -17,7 +17,7 @@ it is usual that at the end of follow-up some of the individuals **have not had 
 ## Endpoints in Clinical Trials Related to Survival Analysis
 
 !!! summary "Check these websites"
-* [Efficacy Endpoints in Oncology Clinical Trials](https://www.biooncology.com/clinical-trials/efficacy-endpoints.html)
+    * [Efficacy Endpoints in Oncology Clinical Trials](https://www.biooncology.com/clinical-trials/efficacy-endpoints.html)
 
 ### Overall Survival
 
