@@ -56,7 +56,7 @@ hours=intck('hour','00:00:00't,'12:00:00't);
 minutes=intck('minute','00:00:00't,'12:00:00't);
 seconds=intck('second','00:00:00't,'12:00:00't);
 
-* Use 'days365' to calculate number of years instead of number of number of interval boundaries (would be 1 for this case);
+* Use 'days365' to calculate number of years instead of number of interval boundaries (would be 1 for this case);
 days365=intck('day365','31dec2009'd,'01jan2010'd);
 ```
 
