@@ -58,9 +58,13 @@ seconds=intck('second','00:00:00't,'12:00:00't);
 
 * Use 'days365' to calculate number of years instead of number of number of interval boundaries (would be 1 for this case);
 days365=intck('day365','31dec2009'd,'01jan2010'd);
+```
 
-* Using 'Timepart()' and 'Datepart()' ;
-*-------------------------------------;
+### Using `Timepart()` and `Datepart()`
+
+To extract from a date+time variable only the date or only the time you may use this functions:
+
+```
 format a1 b1 date9.;
 a0='01jan2009:00:00:00'dt;
 b0='01jan2010:00:00:00'dt;
