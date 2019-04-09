@@ -143,7 +143,7 @@ Logistic Regression is a generalized linear model (like Linear Regression or ANO
 
 ### `PROC LOGISTIC`
 
-To model categorical data yu use the `LOGISTIC` procedure. Some of the most common statements of this procedure are shown here:
+To model categorical data you use the `LOGISTIC` procedure. Some of the most common statements of this procedure are shown here:
 
 ```hl_lines="1 3"
 PROC LOGISTIC DATA=SAS-data-set <options>;
