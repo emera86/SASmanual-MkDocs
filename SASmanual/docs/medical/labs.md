@@ -150,7 +150,7 @@ The individual tests included in a renal panel can vary by laboratory, but the t
 
 This panel helps in evaluating thyroid gland function and diagnosing thyroid disorders.
 
-### Other tests (where ar they contained???)
+### Other tests (???)
 
 * **Magnesium ($Mg$)**: is a mineral that is vital for energy production, muscle contraction, nerve function, and the maintenance of strong bones. This test is used to evaluate the level of magnesium in your blood and to help determine the cause of abnormal levels of magnesium, calcium and/or potassium.
     * **Hypomagnesemia**: may be seen with malnutrition, conditions that cause malabsorption, and with excess loss of magnesium by the kidneys.
