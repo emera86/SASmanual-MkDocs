@@ -47,8 +47,16 @@ Related considerations:
 * Both DI and RDI together with Cumulative Dose and Treatment Duration, are described by means of descriptive statistics for continuos variables. Additionally frequency distribution together with % of number of Administered Cycle is also provided
 * In combination studies, when applicable, the above information is derived and presented for each drug administered taking into account that the treatment duration may be different for each one of them
 
-## Treatment Delays, Reductions and Interruptions
+## Treatment Reductions, Delays, Interruptions and Drug Withdrawal
 
 If it's not explicitely defined in the protocol, in oncology clinical trials a delay of more than 3 days will be considered as a relevant delay. Delays of less than 3 days will be considered as if the treatment was given at the right date. This standard definition is stablished to account for weekends as non-working days.
 
 Other point that must be defined in the protocol is if delays are permitted or not, so you wouldn't/would need to include 0-dose cycles when computing the DI or RDI.
+
+* A **temporary interruption** occurs when leaving one or more cycles with dose = 0 and then keep going with the treatment in a cycle that does not exceed the limits of 0-dose cycles allowed by the protocol.
+* A **delay** is a cycle that simply begins outside the window in which it was planned, but on which the dose is administered (not a 0-dose cycle).
+
+The curious circumstance (and this has to be explicitly in the protocol), is that a cycle can be **delayed beyond the full time period of the corresponding cycle** and i then enters the next window, so, except that the protocol consider that all cycles must be administered regardless of whether one is delayed, then the delayed cycle is recorded where it belonged without leaving gaps of blank cycles. If this is not expressed in the protocol (which all cycles must be administered) then you may consider that when one cycle overlaps with the next window, the cycle in question has to be considered **interruption with dosage = 0**. If the **delay was too long** and the study recommended the withdrawal, then the delays would become **treatment withdrawals**.
+
+In summary, a **delay** of more than one cycle becomes **interruption** of the treatment during that cycle and if such interruption is prolonged beyond the number of cycles allowed by the protocol then it becomes a **withdrawal**.
+
