@@ -92,6 +92,8 @@ nav:
       - 'Laboratory Test': 'medical/labs.md'
       - 'Treatment Exposure': 'medical/exposure.md'
       - 'ORR and DCR': 'medical/orr-dcr.md'
+      - 'RECIST v1.1': 'medical/recist.md'
+      - 'iRECIST': 'medical/irecist.md'
     - R with Shiny:
       - 'Introduction and Shiny Basics': 'R-with-Shiny/introduction.md'
       - 'Inputs, Outputs, and Rendering Functions': 'R-with-Shiny/input-output.md'
