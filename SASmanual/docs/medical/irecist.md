@@ -95,10 +95,10 @@ We recommend CT images be collected if feasible.
 |     | **RECIST 1.1** | **iRECIST**  |
 |-------|------------------|----------------|
 |**Definitions of measurable and non-measurable disease; numbers and site of target disease**| Measurable lesions are >=10mm in long diameter (15mm for nodal lesions); maximum of 5 lesions (2 per organ); all other disease considered not-target (must be 10mm of longer in short axis for nodal disease) | No change; however, <ul><li>NEW lesions assessed per RECIST 1.1 </li><li>Recorded separately on the CRF </li><li>NOT included in the SOM for target lesions identified at baseline</li></ul>|
-|CR, PR or SD|Cannot have met criteria for PD prior to CR, PR or SD|May have had iUPD (1 or more instances), but not iCPD, prior to iCR, iPR or iSD|
-|Confirmation of CR, PR|Only required for non-randomized trials|As per RECIST 1.1 |
-|Confirmation of SD|Not required|As per RECIST 1.1 |
-|New lesions|Results in PD. Recorded but not measured|Results in iUPD but iCPD is only assigned based on this category if at next assessment <ul><li>Additional NL appear or </li><li>Increase in size of NLs (≥5mm for SOM of NLT or any increase in NLNT) </li></ul> Remember NLs can also confirm iCPD if iUPD was only in T or NT disease|
-|Independent blinded review and central collection of scans|Recommended in some circumstances|Collection of scans (but not independent review) recommended for all trials |
-|Confirmation of PD|Not required (unless equivocal)|Always required|
-|Consideration of clinical status|Not included in assessment|Clinical stability is always considered and collected on case record form|
+|**CR, PR or SD**|Cannot have met criteria for PD prior to CR, PR or SD|May have had iUPD (1 or more instances), but not iCPD, prior to iCR, iPR or iSD|
+|**Confirmation of CR, PR**|Only required for non-randomized trials|As per RECIST 1.1 |
+|**Confirmation of SD**|Not required|As per RECIST 1.1 |
+|**New lesions**|Results in PD. Recorded but not measured|Results in iUPD but iCPD is only assigned based on this category if at next assessment <ul><li>Additional NL appear or </li><li>Increase in size of NLs (≥5mm for SOM of NLT or any increase in NLNT) </li></ul> Remember NLs can also confirm iCPD if iUPD was only in T or NT disease|
+|**Independent blinded review and central collection of scans**|Recommended in some circumstances|Collection of scans (but not independent review) recommended for all trials |
+|**Confirmation of PD**|Not required (unless equivocal)|Always required|
+|**Consideration of clinical status**|Not included in assessment|Clinical stability is always considered and collected on case record form|
