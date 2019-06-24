@@ -28,7 +28,7 @@ New lesions (NL) are assessed using RECIST 1.1 principles:
 
 ### Time Point Response
 
-In iRECIST there can be *iSD*, *iPR* or *iCR* after RECIST 1.1 PD 
+In iRECIST there can be **iSD**, **iPR** or **iCR** after RECIST 1.1 PD 
 * ‘once a PD always a PD’ is no longer the case 
 * First RECIST 1.1 PD is “unconfirmed” for iRECIST – termed **iUPD** 
 * iUPD must be confirmed at the next assessment (4-8 weeks) 
