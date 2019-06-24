@@ -30,7 +30,7 @@ New lesions (NL) are assessed using RECIST 1.1 principles:
 
 In iRECIST there can be **iSD**, **iPR** or **iCR** after RECIST 1.1 PD 
 * ‘once a PD always a PD’ is no longer the case 
-* First RECIST 1.1 PD is “unconfirmed” for iRECIST – termed **iUPD** 
+* First RECIST 1.1 PD is "unconfirmed" for iRECIST – termed **iUPD** 
 * iUPD must be confirmed at the next assessment (4-8 weeks) 
 * If confirmed, termed **iCPD**
 
@@ -50,3 +50,50 @@ Record the reason iUPD not confirmed:
 * Treatment stopped but patient not reassessed/imaging not performed 
 * iCPD never occurs 
 * Patient has died
+
+## iRECIST: Confirming Progression (iCPD)
+
+* Must be the NEXT assessment – if iSD, iPR or iCR intervenes then bar is reset and iUPD must occur again and be confirmed
+* Two ways to confirm 
+    * Existing iUPD gets worse – "low bar"
+    * Lesion category without prior iUPD now meet RECIST 1.1 criteria for PD – "RECIST PD" 
+* If confirmatory scans not done must document reason why
+
+## Statistical and Data Considerations
+
+### Primary and Exploratory Response Criteria
+
+* RECIST 1.1 should remain primary criteria 
+* iRECIST exploratory
+  
+### Date of i-Progression
+
+* Will be the same as RECIST 1.1 date (i.e. first iUPD date) UNLESS iSD, iPR or iCR intervenes 
+* Will be the UPD date which has been subsequently confirmed 
+    * The date used is the first UPD date 
+* If iUPD never confirmed 
+    * If a subsequent iSD, iPR or iCR is seen with no later iUPD or iCPD then the initial iUPD is ignored 
+		* Otherwise the iUPD date is used
+			  * Patient not considered to be clinically stable, stops protocol treatment and no further response assessments are done 
+			  * The next TPRs are all iUPD, and iCPD never occurs. 
+			  * The patient dies of cancer
+
+### Data Collection
+
+Investigator/site assessment is the primary method of evaluation for RECIST and iRECIST in keeping with RWG principles.
+Record time-point and best overall response for both.
+* RECIST 1.1 
+* iRECIST 
+Record reasons
+* Treatment discontinued when iUPD 
+* iCPD not confirmed 
+Independent imaging review can occur in parallel if indicated. 
+We recommend CT images be collected if feasible.
+
+## Summary: RECIST 1.1 vs. iRECIST 
+
+|:     :|: **RECIST 1.1** :|: **iRECIST**  :|
+|**Definitions of measurable and non-measurable disease; numbers and site of target disease**| Measurable lesions are >=10mm in long diameter (15mm for nodal lesions); maximum of 5 lesions (2 per organ); all other disease considered not-target (must be 10mm of longer in short axis for nodal disease) | No change; however, 
+* NEW lesions assessed per RECIST 1.1 
+* Recorded separately on the CRF 
+* NOT included in the SOM for target lesions identified at baseline |
