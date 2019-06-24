@@ -92,9 +92,6 @@ We recommend CT images be collected if feasible.
 
 ## Summary: RECIST 1.1 vs. iRECIST 
 
-|:     :|: **RECIST 1.1** :|: **iRECIST**  :|
+|     | **RECIST 1.1** | **iRECIST**  |
 |-------|------------------|----------------|
-|**Definitions of measurable and non-measurable disease; numbers and site of target disease**| Measurable lesions are >=10mm in long diameter (15mm for nodal lesions); maximum of 5 lesions (2 per organ); all other disease considered not-target (must be 10mm of longer in short axis for nodal disease) | No change; however, 
-* NEW lesions assessed per RECIST 1.1 
-* Recorded separately on the CRF 
-* NOT included in the SOM for target lesions identified at baseline |
+|**Definitions of measurable and non-measurable disease; numbers and site of target disease**| Measurable lesions are >=10mm in long diameter (15mm for nodal lesions); maximum of 5 lesions (2 per organ); all other disease considered not-target (must be 10mm of longer in short axis for nodal disease) | No change; however, <ul><li>NEW lesions assessed per RECIST 1.1 </li><li>Recorded separately on the CRF </li><li>NOT included in the SOM for target lesions identified at baseline</li></ul>|
