@@ -102,3 +102,32 @@ We recommend CT images be collected if feasible.
 |**Independent blinded review and central collection of scans**|Recommended in some circumstances|Collection of scans (but not independent review) recommended for all trials |
 |**Confirmation of PD**|Not required (unless equivocal)|Always required|
 |**Consideration of clinical status**|Not included in assessment|Clinical stability is always considered and collected on case record form|
+
+## iRECIST in a Nutshell
+
+* RECIST 1.1 – primary criteria 
+* iRECIST exploratory and applicable only after RECIST1.1 progression occurs 
+    * Most patients will not have ‘pseudoprogression’ 
+* Principles of iRECIST follow RECIST 1.1 very closely 
+    * RECIST 1.1 principles are generally the default except: 
+        * Management of new lesions 
+	* What constitutes confirmation of progression 
+    * Assess RECIST 1.1 and iRECIST separately but in parallel at each time point 
+* Progression must be confirmed 
+    * Consider treatment past progression only in carefully defined scenarios 
+    * Confirmation requires some worsening of disease bulk 
+        * Must be next evaluable assessment after iUPD 
+	* Lesion category with existing iUPD just needs to get a little bit worse OR 
+	* Lesion category without prior iUPD has to meet RECIST 1.1 criteria for progression 
+* New lesions 
+    * Managed using RECIST 1.1 principles 
+    * NOT added to SOM (but included in separate iSOM) 
+* Unconfirmed progression does not preclude a later i-response
+* Response after iUPD is driven by TARGET disease (as long as iCPD not confirmed) 
+* This means that can have subsequent iSD or iPR in target lesions (compared to baseline) EVEN IF 
+    * The new lesion seen at the time of iUPD is still there
+    * The unequivocal increase in non-target lesions at the time of iUPD hasn’t improved
+* "Bar reset" does mean that: a previously observed iUPD can be ignored if there is an intervening response (i.e. if criteria for iPR, iCR, or iSD are met ) 
+* "Bar reset" does not mean that: the baseline or the nadir are re-set 
+    * iCR/iPR/iSD still calculated from BASELINE 
+    * i progression date still calculated from NADIR (which may or may not be the same as baseline – and could be before or after any iUPD)
