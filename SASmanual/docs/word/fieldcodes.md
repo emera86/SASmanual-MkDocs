@@ -3,13 +3,12 @@
 **SEQ Identifier [Bookmark] [Switches]** 
 
 ```
-SEQ Listing_  \r19 \* ARABIC \s 2 
+SEQ Listing_  \r 19 \* ARABIC \s 2 
 ```
 
 -  ```SEQ```: defines a sequence of numbers/characters
 -  ```Listing_```: sequence identifier/name
--  ```\r19```: initializes to 19 the listing
+-  ```\r 19``` (reset switch): resets the listing to 19 
 - ```\*```:
-- ```ARABIC```:
-- ```\s```:
-- ```2```:
+- ```ARABIC```: use arabic numbers for this list
+- ```\s 2```:
