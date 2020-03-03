@@ -93,8 +93,7 @@ A swimmer plot is a graphical tool involving horizontal bars that can be used to
 
 !!! summary "Check these websites"
     * [Swimmer Plot](https://blogs.sas.com/content/graphicallyspeaking/2014/06/22/swimmer-plot/)
-    * [Swimmer Plot: Tell a Graphical Story of Your Time to Response Data Using PROC
-SGPLOT](http://www.pharmasug.org/proceedings/2014/DG/PharmaSUG-2014-DG07.pdf)
+    * [Swimmer Plot: Tell a Graphical Story of Your Time to Response Data Using PROC SGPLOT](http://www.pharmasug.org/proceedings/2014/DG/PharmaSUG-2014-DG07.pdf)
 
 ### Waterfall plot
 
