@@ -118,7 +118,7 @@ A spaghetti plot is a method of viewing data to visualize possible flows through
     * [Clinical Graphs: Spider plot](https://blogs.sas.com/content/graphicallyspeaking/2016/10/24/clinical-graphs-spider-plot/)
     
 !!! example "SAS code examples"
-    * [Example 1]()
+    * [Example 1](example-spaghetti-1.txt)
 
 ## Miscellanea
 
