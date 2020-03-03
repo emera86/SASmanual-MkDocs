@@ -108,6 +108,18 @@ A waterfall chart is commonly used in the Oncology domain to track the change in
     * [Waterfall Charts in Oncology Trials - Ride the Wave](https://www.pharmasug.org/proceedings/2012/DG/PharmaSUG-2012-DG13.pdf)
     * [A 3D waterfall chart](https://blogs.sas.com/content/graphicallyspeaking/2018/01/11/3d-waterfall-chart/)
 
+### Spaghetti or spider plot
+
+A spaghetti plot is a method of viewing data to visualize possible flows through systems. Flows depicted in this manner appear like noodles, hence the coining of this term. This method of statistics was first used to track routing through factories. Visualizing flow in this manner can reduce inefficiency within the flow of a system. Within medicine, they can illustrate the effects of drugs on patients during clinical trials. It can be used as another way of presenting the **change from baseline for tumors for each subject** in a study by week. The plot can be classified by response and stage.
+
+![Spaghetti or spider plot](../images/spaghetti-plot.png "Spaghetti or spider plot")
+
+!!! summary "Check these websites"
+    * [Clinical Graphs: Spider plot](https://blogs.sas.com/content/graphicallyspeaking/2016/10/24/clinical-graphs-spider-plot/)
+    
+!!! example "SAS code examples"
+    * [Example 1]()
+
 ## Miscellanea
 
 ### Available Colors at the SAS Registry
