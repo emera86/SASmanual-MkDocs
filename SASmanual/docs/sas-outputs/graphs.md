@@ -105,7 +105,7 @@ A waterfall chart is commonly used in the Oncology domain to track the change in
     * [Clinical graphs: Waterfall plot ++](https://blogs.sas.com/content/graphicallyspeaking/2017/07/30/clinical-graphs-waterfall-plot/)
     * [Create a waterfall plot in SAS](https://blogs.sas.com/content/iml/2015/04/20/waterfall-plot.html)
     * [Waterfall plot: two different approaches, one beautiful graph](https://www.lexjansen.com/pharmasug/2016/DG/PharmaSUG-2016-DG03.pdf)
-    * [Waterfall Charts in Oncology Trials - Ride the Wave}(https://www.pharmasug.org/proceedings/2012/DG/PharmaSUG-2012-DG13.pdf)
+    * [Waterfall Charts in Oncology Trials - Ride the Wave](https://www.pharmasug.org/proceedings/2012/DG/PharmaSUG-2012-DG13.pdf)
     * [A 3D waterfall chart](https://blogs.sas.com/content/graphicallyspeaking/2018/01/11/3d-waterfall-chart/)
 
 ## Miscellanea
