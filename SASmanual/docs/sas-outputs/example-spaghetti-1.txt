@@ -1,0 +1,29 @@
+proc sgplot data=targetsum noautolegend;
+  title 'Change of target lesion diameter sum by patient and background therapy';
+  refline 0 / axis=y lineattrs=(pattern=2);
+  series x=visit y=change/ group=pt markers MARKERATTRS=(color=black size=4 symbol=circlefilled) LINEATTRS=(pattern=1);
+  yaxis label="Change on the diameter sum (%)";
+  xaxis label="Visit" values=(1 2 3 4 5);
+run;
+
+proc sgplot data=targetsum;
+  title 'Change of target lesion diameter sum by patient and background therapy';
+  styleattrs datacontrastcolors=("#005B88" "#A7A5A5" "#BE0028");
+  refline 0 / axis=y lineattrs=(pattern=2);
+  series x=visit y=change/ group=pt markers MARKERATTRS=(color=black size=4 symbol=circlefilled)
+               grouplc=tumortype name='grouping' LINEATTRS=(pattern=1);
+  keylegend 'grouping' / type=linecolor;
+  yaxis label="Change on the diameter sum (%)";
+  xaxis label="Visit" values=(1 2 3 4 5);
+run;
+
+proc sgplot data=targetsum;
+  title 'Change of target lesion diameter sum by patient and background therapy';
+  styleattrs datacontrastcolors=(purple green orange);
+  refline 0 / axis=y lineattrs=(pattern=2);
+  series x=visit y=change/ group=pt curvelabel markers MARKERATTRS=(color=black size=4 symbol=circlefilled)
+               grouplc=tumortype name='grouping' LINEATTRS=(color="#005B88 #A7A5A5 #BE0028 " pattern=1);
+  keylegend 'grouping' / type=linecolor;
+  yaxis label="Change on the diameter sum (%)";
+  xaxis label="Visit" values=(1 2 3 4 5);
+run;
