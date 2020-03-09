@@ -1,0 +1,18 @@
+* Best response;
+
+Proc sql;
+create table auxbestresp2 as
+	select pt, min(response) as response format=responseshort. from auxrs group by pt;
+create table auxbestresp3 as
+	select auxbestresp2.pt, min(a.visit) as visit from auxrs a, auxbestresp2 where a.pt=auxbestresp2.pt and a.response=auxbestresp2.response group by auxbestresp2.pt;
+quit;
+
+
+* 1st assessment;
+
+Proc sql;
+create table auxfstresp2 as
+	select pt, min(f_rsdat) as f_rsdat from auxrs group by pt;
+create table auxfstresp3 as
+	select auxfstresp2.pt, a.cpevent as cpevent from auxrs a, auxfstresp2 where a.pt=auxfstresp2.pt and a.f_rsdat=auxfstresp2.f_rsdat group by auxfstresp2.pt;
+quit;
