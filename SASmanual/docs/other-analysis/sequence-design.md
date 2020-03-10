@@ -1,6 +1,6 @@
 ## Theory of Hypothesis-Based Adaptive Design
 
-An adaptive design is a design that allows adaptations or modifcations to some aspects of a trial after its initiation without undermining the validity and integrity of the trial. The adaptations may include, but are not limited to, sample-size reestimation, early stopping for effcacy or futility, response-adaptive randomization, and dropping inferior treatment groups. Adaptive designs usually require unblinding data and invoke a dependent sampling procedure. Therefore, theory behind adaptive design is much more complicated than that behind classical design.
+An adaptive design is a design that allows adaptations or modifcations to some aspects of a trial after its initiation without undermining the validity and integrity of the trial. The adaptations may include, but are not limited to, sample-size reestimation, early stopping for efficacy or futility, response-adaptive randomization, and dropping inferior treatment groups. Adaptive designs usually require unblinding data and invoke a dependent sampling procedure. Therefore, theory behind adaptive design is much more complicated than that behind classical design.
 
 Many interesting methods for adaptive design have been developed. Virtually all methods can be viewed as some combination of stagewise p-values. The stagewise p-values are obtained based on the subsample from each stage; therefore, they are mutually independent and uniformly distributed over [0,1] under the null hypothesis. 
 
@@ -79,6 +79,3 @@ RUN;
     * The `NULLPROP =` option specifies proportions $p_a=p_{0a}$ and $p_b=p_{0b}$ in groups A and B, respectively, under the null hypothesis
     * The `TEST =` option specifies the null hypothesis $H_0:\theta=0$ in the test (`PROP` option uses the difference in proportions $\theta=(p_a-p_b)-(p_{0a}-p_{0b})$, `LOGOR` option uses the log odds-ratio test and the `LOGRR` option uses the log relative risk test) 
     * The `WEIGHT=` option specifies the sample size allocation weights for the two groups
-
-
-
