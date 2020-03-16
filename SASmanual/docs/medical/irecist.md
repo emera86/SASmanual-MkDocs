@@ -24,7 +24,8 @@
 
 ### New Lesions
 
-New lesions (NL) are assessed using RECIST 1.1 principles: 
+New lesions (NL) are assessed using RECIST 1.1 principles:
+
 * Classified as measurable or non-measurable 
 * Up to 5 (2 per site) measured (but not included in the sum of measurements of target lesions identified at baseline) and recorded as new lesions target (NL-T) with an i-sum of measurements (iSOM) 
 * Other new lesions (measurable/non-measurable) are recorded as new lesions non-target (NL-NT) 
