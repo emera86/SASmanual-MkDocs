@@ -1,7 +1,6 @@
 !!! summary "Check these websites"
     * [iRECIST at the RECIST Working Group Official Website](http://recist.eortc.org/irecist/)
-    * [Merck Imaging Tip Sheet for
-RECIST 1.1 and iRECIST](http://nps-training.com/Courses/Other%20MyLearning%20Courses/RECIST1.1_Study%20Sites_SCORM_110917/story_content/external_files/iRECIST_Modified_RECIST_for_Immunotherapy_v8.pdf)
+    * [Merck Imaging Tip Sheet for RECIST 1.1 and iRECIST](http://nps-training.com/Courses/Other%20MyLearning%20Courses/RECIST1.1_Study%20Sites_SCORM_110917/story_content/external_files/iRECIST_Modified_RECIST_for_Immunotherapy_v8.pdf)
 
 ## iRECIST vs RECIST 1.1
 
