@@ -118,7 +118,26 @@ A spaghetti plot is a method of viewing data to visualize possible flows through
     * [Clinical Graphs: Spider plot](https://blogs.sas.com/content/graphicallyspeaking/2016/10/24/clinical-graphs-spider-plot/)
     
 !!! example "SAS code examples"
-    * [Example 1](example-spaghetti-1.txt)
+    * [Example 1](../code-samples/example-spaghetti-1.txt)
+    
+### Box-and-whiskers plot or boxplot
+
+This is a method for graphically depicting groups of numerical data through their quartiles. These plots may also have lines extending from the boxes (whiskers) indicating variability outside the upper and lower quartiles. Outliers may be plotted as individual points. Boxplots are non-parametric: they display variation in samples of a statistical population without making any assumptions of the underlying statistical distribution (though Tukey's boxplot assumes symmetry for the whiskers and normality for their length). The spacings between the different parts of the box indicate the degree of dispersion (spread) and skewness in the data, and show outliers.
+
+A boxplot is a standardized way of displaying the dataset based on a five-number summary: 
+
+* **Minimum**: the lowest data point excluding any outliers
+* **Maximum**: the largest data point excluding any outliers
+* **Median (Q2 / 50th Percentile)**: the middle value of the dataset
+* **First quartile (Q1 / 25th Percentile)**: is also known as the lower quartile and is the middle value between the smallest number (not the minimum) and the median of the dataset
+* **Third quartile (Q3 / 75th Percentile)**: is also known as the upper quartile and is the middle value between the largest number (not the maximum) and the median of the dataset
+
+![Boxplot](../images/boxplot.png "Boxplot")
+
+Some boxplots include an additional character to represent the **mean** of the data (such as the diamond symbol in SAS procedure).
+
+!!! example "SAS code examples"
+    * [Example 1](../code-samples/example-boxplot-1.txt)
 
 ## Miscellanea
 
