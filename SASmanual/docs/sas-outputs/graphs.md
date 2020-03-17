@@ -132,7 +132,7 @@ A boxplot is a standardized way of displaying the dataset based on a five-number
 * **First quartile (Q1 / 25th Percentile)**: is also known as the lower quartile and is the middle value between the smallest number (not the minimum) and the median of the dataset
 * **Third quartile (Q3 / 75th Percentile)**: is also known as the upper quartile and is the middle value between the largest number (not the maximum) and the median of the dataset
 
-![Boxplot](../images/boxplot.png "Boxplot")
+![Boxplot](../images/boxplot.PNG "Boxplot")
 
 Some boxplots include an additional character to represent the **mean** of the data (such as the diamond symbol in SAS procedure).
 
