@@ -1,0 +1,14 @@
+%let labtest=Red Blood Cells;
+%let units=10^12/L;
+%let low=4.7;
+%let high=5.1;
+
+%let labtestu = &labtest (&units);
+
+proc sgplot data=lbhmlb(where=(lbtest eq "&labtest"));
+	vbox lbstresn / category=visit;
+	refline &high / axis=y label='Normal range highest limit' labelloc=inside labelpos=max labelattrs=(size=10 color=bgr);
+	refline &low / axis=y label='Normal range lowest limit' labelloc=inside labelpos=max labelattrs=(size=10 color=bgr);
+	xaxis label='Visit' labelattrs=(size=10) valueattrs=(size=10);
+	yaxis label="&labtestu" labelattrs=(size=10) valueattrs=(size=10);
+run;
