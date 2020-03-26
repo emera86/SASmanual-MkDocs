@@ -33,8 +33,9 @@ New lesions (NL) are assessed using RECIST 1.1 principles:
 
 ### Time Point Response
 
-In iRECIST there can be **iSD**, **iPR** or **iCR** after RECIST 1.1 PD 
-* ‘once a PD always a PD’ is no longer the case 
+In iRECIST there can be **iSD**, **iPR** or **iCR** after RECIST 1.1 PD.
+
+* *Once a PD always a PD* is no longer the case 
 * First RECIST 1.1 PD is "unconfirmed" for iRECIST – termed **iUPD** 
 * iUPD must be confirmed at the next assessment (4-8 weeks) 
 * If confirmed, termed **iCPD**
@@ -46,11 +47,13 @@ Time point response is dynamic and based on:
 ### Progression
 
 Treatment past RECIST 1.1 PD should only be considered if patient clinically stable (recommendation, may be protocol specific): 
+
 * No worsening of performance status
 * No clinically relevant worsening in disease related symptoms 
 * No requirement for intensified management of disease related symptoms (analgesics, radiation, palliative care) 
 
 Record the reason iUPD not confirmed: 
+
 * Not stable 
 * Treatment stopped but patient not reassessed/imaging not performed 
 * iCPD never occurs 
@@ -87,11 +90,15 @@ Record the reason iUPD not confirmed:
 
 Investigator/site assessment is the primary method of evaluation for RECIST and iRECIST in keeping with RWG principles.
 Record time-point and best overall response for both.
+
 * RECIST 1.1 
 * iRECIST 
+
 Record reasons
+
 * Treatment discontinued when iUPD 
 * iCPD not confirmed 
+
 Independent imaging review can occur in parallel if indicated. 
 We recommend CT images be collected if feasible.
 
