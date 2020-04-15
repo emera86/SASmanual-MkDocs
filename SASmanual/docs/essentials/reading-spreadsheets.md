@@ -20,13 +20,20 @@ E.g.:<br>
 
 ---
 
-Import the xls data:
+Import the xlsx data:
+```
+LIBNAME x XLSX "/folders/myfolders/reading_test.xlsx";
+DATA SAS-dataset;
+            SET x.sheetname;
+RUN;
+```
 
 ```
 PROC IMPORT DATAFILE="/folders/myfolders/reading_test.xlsx"
             OUT=work.myexcel
             DBMS=xlsx 
-            REPLACE;
+            REPLACE
+            SHEET=sheetname;
 RUN;
 ```
 
