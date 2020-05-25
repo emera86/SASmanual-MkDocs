@@ -92,6 +92,7 @@ nav:
       - 'Laboratory Test': 'medical/labs.md'
       - 'Treatment Exposure': 'medical/exposure.md'
       - 'ORR and DCR': 'medical/orr-dcr.md'
+      - 'Sensitivity and Specificity': 'medical/sensitivity-specificity.md'
       - 'RECIST v1.1': 'medical/recist.md'
       - 'iRECIST': 'medical/irecist.md'
     - R with Shiny:
