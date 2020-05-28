@@ -6,7 +6,7 @@ When defined in this manner, ORR is a direct measure of drug antitumor activity,
 
 ## Disease Control Rate (DCR)
 
-The **disease control rate (DCR)** or **clinical benefit rate (CBR)** is defined as the percentage of patients with advanced or metastatic cancer who have achieved complete response, partial response or stable disease to a therapeutic intervention in clinical trials of anticancer agents. 
+The **disease control rate (DCR)** or **clinical benefit rate (CBR)** is defined as the percentage of patients with advanced or metastatic cancer who have achieved complete response, partial response or stable disease to a therapeutic intervention in clinical trials of anticancer agents. It is then a composite of **ORR and stable disease** and is useful to measure the efficacy of therapies that have tumoristatic effects rather than tumoricidal effects.
 
 ## Calculation
 
