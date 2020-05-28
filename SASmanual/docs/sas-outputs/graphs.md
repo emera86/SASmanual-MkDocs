@@ -84,6 +84,8 @@ RUN;
 !!! summary "Check these websites"
     * [Clinical Graphs using SAS](https://www.lexjansen.com/phuse/2016/dv/DV04.pdf)
     * [Graphical Results in Clinical Oncology Studies](http://support.sas.com/resources/papers/proceedings16/7520-2016.pdf)
+    * [Annotate Dictionary](https://support.sas.com/documentation/cdl/en/graphref/63022/HTML/default/viewer.htm#annodictchap.htm)
+    * [Using the SG Annotation Macros](https://documentation.sas.com/?docsetId=grstatproc&docsetTarget=n0eben23mwnl3dn1cm95zbks0eea.htm&docsetVersion=1.0&locale=en)
 
 ### Swimmer plot
 
