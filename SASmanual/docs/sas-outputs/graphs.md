@@ -121,6 +121,7 @@ A spaghetti plot is a method of viewing data to visualize possible flows through
     
 !!! example "SAS code examples"
     * [Example 1](../code-samples/example-spaghetti-1.txt)
+    * [Example 2](../code-samples/example-spaghetti-2.txt)
     
 ### Box-and-whiskers plot or boxplot
 
