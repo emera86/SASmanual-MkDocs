@@ -1,0 +1,41 @@
+%macro spider(datain=,title=);
+
+	proc sgplot data=&datain. noautolegend;
+	  title "Change of target lesion diameter sum vs time per patient - &title.";
+	  refline 0   / axis=y            lineattrs=(pattern=2);
+	  refline 20  / axis=y label="PD" lineattrs=(pattern=2);
+	  refline -30 / axis=y label="PR" lineattrs=(pattern=2);
+
+	  series x=time2 y=pctnbest/ group=subject curvelabel markers MARKERATTRS=(color=black size=4 symbol=circlefilled) lineattrs=(pattern=1) ;
+	  yaxis label="Change on the diameter sum (%)";
+	  xaxis label="Time from screening assessment (weeks)";
+	run;
+
+%mend;
+
+%macro spiderbystage(datain=,title=);
+
+	data mymap;
+	   set &datain.;
+	   id="mytest";
+	   if stage='S1' then linecolor='Blue';
+	   if stage='S2' then linecolor='Green';
+	run;
+
+	proc sgplot data=&datain. noautolegend dattrmap=mymap;
+	  title "Change of target lesion diameter sum vs time per patient - &title.";
+	  refline 0   / axis=y            lineattrs=(pattern=2);
+	  refline 20  / axis=y label="PD" lineattrs=(pattern=2);
+	  refline -30 / axis=y label="PR" lineattrs=(pattern=2);
+
+	  series x=time2 y=pctnbest/ group=subject grouplc=stage lcattrid=mytest name='GRU' curvelabel markers MARKERATTRS=(color=black size=4 symbol=circlefilled) lineattrs=(pattern=1) ;
+	  yaxis label="Change on the diameter sum (%)";
+	  xaxis label="Time from screening assessment (weeks)";
+	  keylegend "GRU" / type=linecolor;
+	run;
+
+%mend;
+
+%spider(datain=spider,title=Cohort 1);
+%spiderbystage(datain=spider,title=Cohort 1);
+
