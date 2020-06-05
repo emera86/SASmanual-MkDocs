@@ -57,6 +57,16 @@ SELECT object-item <, ...object-item>
 
 In the `FROM` clause, the table names are separated by the `CROSS JOIN` keywords instead of by a comma.
 
+**Example:**
+```
+PROC SQL;
+CREATE TABLE dataset-new AS
+  SELECT *
+  FROM dataset1 CROSS JOIN dataset2
+  WHERE dataset1.reference-variable=dataset2.reference-variable;
+quit;
+```
+
 ## Working with Inner Joins
 
 ### Performing an Inner Join
