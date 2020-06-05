@@ -18,12 +18,9 @@ Whatever method you use, you must also specify criteria for matching and combini
 
 * **Inner joins:** return a result table that contains all of the matching rows in the input tables. The result of an inner join does not include any nonmatching rows.
 *  **Outer joins:** return a result table that contains all of the matching rows in the input tables and some or all of the nonmatching rows from one or both tables.
-
-There are three types of outer joins:
-
-* A full outer join returns all of the matching rows plus the nonmatching rows from both tables.
-* A left outer join returns all of the matching rows plus the nonmatching rows from the first, or left, table.
-* A right outer join returns all of the matching rows plus the nonmatching rows from the second, or right, table.
+    * A *full outer join* returns all of the matching rows plus the nonmatching rows from both tables.
+    * A *left outer join* returns all of the matching rows plus the nonmatching rows from the first, or left, table.
+    * A *right outer join* returns all of the matching rows plus the nonmatching rows from the second, or right, table.
 
 When performing an SQL join, the SQL processor first generates all possible combinations of all of the rows in the tables to be combined. An intermediate result table that contains all possible combinations of rows in the input tables is called a **Cartesian product**. From the rows in the Cartesian product, the SQL processor can then select the appropriate rows for an inner join or an outer join.
 
