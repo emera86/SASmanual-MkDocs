@@ -7,10 +7,11 @@
     [AUTOSDTM: A Macro to Automatically Map CDASH Data to SDTM (2017)](https://support.sas.com/resources/papers/proceedings17/1352-2017.pdf)
     [SDTM Automation with Standard CRF Pages (2016)](https://www.pharmasug.org/proceedings/2016/PO/PharmaSUG-2016-PO21.pdf)
     [CDISC Transformer: a metadata-based transformation tool for clinical trial and research data into CDISC standards (2011)](http://www.itiis.org/digital-library/manuscript/239)  
+    [Confessions of a Clinical Programmer: Creating SDTM Domains with SAS](https://www.sas.com/content/dam/SAS/en_us/doc/whitepaper1/confessions-of-a-clinical-programmer-105353.pdf)
     
 ## Target Domain
 
-| <!-- -->            | Domain abbreviation   | Domain name |
+| Category/Class      | Domain abbreviation   | Domain name |
 |---------------------|----|------------------------------|
 | **Special Purpose** | DM | Demographics                 |
 |                     | CO | Comments                     |
@@ -25,7 +26,7 @@
 |                     | DV | Protocol Deviations          |
 |                     | CE | Clinical Events              |
 | **Findings**        | EG | ECG Test Results             |
-|                     | IE | Inclusion/EXclusion Criteria |
+|                     | IE | Inclusion/Exclusion Exception |
 |                     | LB | Laboratory Tests Results     |
 |                     | PE | Physical Examination         |
 |                     | QS | Questionnaires               |
@@ -33,10 +34,12 @@
 |                     | VS | Vital Signs                  |
 |                     | DA | Drug Accountability          |
 |                     | MB | Microbiology Specimen        |
-|                     | MS | Microbiology Susceptibility...  |
-|                     | PC | Pharmacokinetic Conce...     |
-|                     | PP | Pharmacokinetic Parame...    |
-|                     | FA | Findings About Events ...       |
+|                     | MS | Microbiology Susceptibility  |
+|                     | PC | Pharmacokinetic Concentrations |
+|                     | PP | Pharmacokinetic Parameters    |
+|                     | FA | Findings About Events       |
+
+https://www.semanticscholar.org/paper/Practical-Methods-for-Creating-CDISC-SDTM-Domain-Graebner/cfa34869f92bec4f7c9c58505b64ef5201ea0dee/figure/0
 
 There is no common rule for converting clinical trial data to CDISC standard-compliant data. Without automation, they require labor intensive or time-consuming processes such as
 re-entering data and manually mapping the data to the standard models.
