@@ -3,8 +3,9 @@
     
 ## Target Domain
 
-| **Special Purpose** | DM | Demographics                 |
+| <!-- -->            | <!-- -->    | <!-- -->            |
 |---------------------|----|------------------------------|
+| **Special Purpose** | DM | Demographics                 |
 |                     | CO | Comments                     |
 |                     | SE | Subject Elements             |
 |                     | SV | Subject Visits               |
