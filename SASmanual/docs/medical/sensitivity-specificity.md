@@ -9,3 +9,5 @@ Sensitivity and specificity are statistical measures of the performance of a bin
 * **Specificity** (also called the true negative rate) measures the proportion of actual negatives that are correctly identified as such.
 * **Positive predictive value (PPV)** is the probability that subjects with a positive screening test truly have the disease.
 * **Negative predictive value (NPV)** is the probability that subjects with a negative screening test truly don't have the disease.
+
+![sensitivity-vs-specificity](../images/graphic-sensitivity-specificity.png "Sensitivity vs Sensibility")
