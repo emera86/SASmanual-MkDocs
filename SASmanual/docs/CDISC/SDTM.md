@@ -53,3 +53,5 @@ Note that **Core** variable together with the other two shaded columns **CDISC N
 | **Req** | Required | **Required** variables must always be include in the dataset and cannot be null for any record. They are basic to the identification of a data record and are necessary to make record meaningful (key variables and topic variables). |
 | **Exp** | Expected | **Expected** variables may contain some null values and still are included in the dataset even when no data has been collected. In this case, a comment can be included in define.xml to state that data was not collected. |
 | **Perm** | Permissible | The sponsor can decide whether a **Permissible** variable should be included as a column when all values for that variable are null. |
+
+http://pharma-sas.com/sdtm-model-concepts-and-terms/
