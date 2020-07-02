@@ -46,9 +46,9 @@ re-entering data and manually mapping the data to the standard models.
 
 ## SDTM Model Concepts and Terms
 
-Note that **CORE** variable together with the other two shaded columns “CDISC Notes” and “References” are not sent to FDA. Three categories of variables are specified in the “Core” column.
+Note that **Core** variable together with the other two shaded columns **CDISC Notes** and **References** are not sent to FDA. Three categories of variables are specified in the **Core** column:
 
-| CORE variable       | Meaning             | Description         |
+| Core variable       | Meaning             | Description         |
 |---------------------|---------------------|---------------------|
 | **Req** | Required | **Required** variables must always be include in the dataset and cannot be null for any record. They are basic to the identification of a data record and are necessary to make record meaningful (key variables and topic variables). |
 | **Exp** | Expected | **Expected** variables may contain some null values and still are included in the dataset even when no data has been collected. In this case, a comment can be included in define.xml to state that data was not collected |
