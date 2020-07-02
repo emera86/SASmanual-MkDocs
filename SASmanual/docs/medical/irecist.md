@@ -59,6 +59,8 @@ Record the reason iUPD not confirmed:
 * iCPD never occurs 
 * Patient has died
 
+![Pseudoprogression](../images/pseudoprogression.PNG "Pseudoprogression in immunotherapy treatments")
+
 ## iRECIST: Confirming Progression (iCPD)
 
 * Must be the NEXT assessment – if iSD, iPR or iCR intervenes then bar is reset and iUPD must occur again and be confirmed
