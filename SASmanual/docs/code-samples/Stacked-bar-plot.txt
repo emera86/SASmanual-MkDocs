@@ -1,0 +1,78 @@
+/* CREATE DATASET TO PLOT*/
+data teae;
+	set ads.teae;
+	* New variable to unify grades;
+	if aetoxgr_std in (1 2) then grade = 1 /*Grade 1-2*/;
+	if aetoxgr_std in (3 4 5) then grade = 2 /*Grade >=3*/;
+	keep Subject cohort aetoxgr_std grade aeterm aeterm_soc aeterm_decod saf dose;
+run;
+
+data testteae2plot;
+	set teae(where=(saf eq 1));
+run;
+data testindex2plot;
+	set ads.index(keep=Subject cohort saf dose where=(saf eq 1));
+run;
+
+ods exclude all;
+%aesumv2(lib=work, aedsn=testteae2plot, safdsn=testindex2plot, trt=, var1=grade, var2=, outdsn=teaegradepartial, soc=aeterm_soc, pref=aeterm_decod, subjid=subject);
+%aesumv2(lib=work, aedsn=testteae2plot, safdsn=testindex2plot, trt=, var1=,      var2=, outdsn=teaegradetotal,   soc=aeterm_soc, pref=aeterm_decod, subjid=subject);
+ods exclude none;
+
+proc sort data=teaegradepartial;
+	by aeterm_soc aeterm_decod;
+run;
+
+data teaegradetotal2;
+	set teaegradetotal(rename=(event111=event111tot subj111=subj111tot percent111=percent111tot));
+	ind = _n_;
+run;
+
+proc sort data=teaegradetotal2;
+	by aeterm_soc aeterm_decod;
+run;
+
+data teae2reportall1;
+	merge teaegradepartial teaegradetotal2;
+	by aeterm_soc aeterm_decod;
+run;
+
+proc sort data=teae2reportall1(where=(aeterm_soc ne aeterm_decod and aeterm_decod ne 'Overall' and percent111tot ge 15)) out=teae2reportall2;
+	by descending percent111tot;
+run;
+
+data teae2reportall2;
+	set teae2reportall2;
+	ind = _n_;
+run;
+
+/* Create aeterm_decod format for numeric variable ind (to order plot axis) */
+data format_aeterm;
+	set teae2reportall2(keep=aeterm_decod ind rename=(aeterm_decod=label ind=start));
+	fmtname = 'aeterm';
+run;
+
+proc format cntlin=format_aeterm;
+	select aeterm;
+run;
+
+/* FINAL DATASET TO PLOT */
+data teae2reportall3;
+	set teae2reportall2(in=a rename=(event111=event subj111=subj percent111=percent) keep=event111 subj111 percent111 ind)
+	    teae2reportall2(in=b rename=(event121=event subj121=subj percent121=percent) keep=event121 subj121 percent121 ind);
+	if a then Grade = '1-2';
+	if b then Grade = '>=3';
+	format ind aeterm.;
+	percent = percent/100;
+run;
+
+/* PLOT */
+ods listing gpath="&tables.";
+ods graphics / imagename="AEs per grade" imagefmt=png;
+PROC SGPLOT DATA = teae2reportall3 noborder;
+  	format percent percent5.1;
+	HBAR ind / response=percent stat=sum GROUP=grade seglabel datalabel baselineattrs=(thickness=0) outlineattrs=(color=cx3f3f3f);
+	TITLE 'Most Commonly Reported AEs Occurring in >=15% of Patients';
+  	yaxis display=(nolabel noline noticks);
+  	xaxis display=(noline noticks) label='Percentage' grid;
+RUN;
