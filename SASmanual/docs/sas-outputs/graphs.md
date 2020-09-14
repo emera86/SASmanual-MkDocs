@@ -141,6 +141,18 @@ Some boxplots include an additional character to represent the **mean** of the d
 
 !!! example "SAS code examples"
     * [Example 1](../code-samples/example-boxplot-1.txt)
+    
+### Stacked bar plot
+
+One of the most popular and useful graph types is the Bar Chart.  The `SGPLOT` procedure supports many types of bar charts, each suitable for some specific use case. In this case the stacked bar plot is very useful to easily represent this kind of information about AEs.
+
+![Stacked bar plot](../images/example-stacked-bar-plot-1.png "Stacked bar plot")
+
+!!! summary "Check these websites"
+    * [Getting started with SGPLOT - VBAR](https://blogs.sas.com/content/graphicallyspeaking/2016/11/27/getting-started-sgplot-part-2-vbar/)
+    
+!!! example "SAS code examples"
+    * [Example 1](../code-samples/example-stacked-bar-plot-1.txt)
 
 ## Miscellanea
 
