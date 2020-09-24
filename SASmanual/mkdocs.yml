@@ -54,6 +54,7 @@ nav:
       - 'Survival Analysis': 'other-analysis/survival-analysis.md'
       - 'Odds Ratio, Hazard Ratio and Relative Risk': 'other-analysis/HR_vs_OR_vs_RR.md'
       - 'Clustering': 'other-analysis/clustering.md'
+      - 'Randomization': 'other-analysis/randomization.md'
     - Specific Procedures:
       - 'General Notes on Regression Procedures': 'procedures/regression-models.md'
       - 'PROC GLIMMIX': 'procedures/glimmix.md'
