@@ -7,13 +7,9 @@ We were commonly asked why multiple comparisons tests following one-way (or two-
 
 ### What are adjusted p-values?
 
-The definition of the **adjusted p-value** is the answer to this question: **What is the smallest significance level, when applied to an entire family of comparisons, at which a particular comparison will be deemed statistically significant?**
+The definition of the **adjusted p-value** is the answer to this question: **What is the smallest significance level, when applied to an entire family of comparisons, at which a particular comparison will be deemed statistically significant?** In other words, the adjusted p-value is the smallest familywise significance level at which a particular comparison will be declared statistically significant as part of the multiple comparison testing.
 
-The idea is pretty simple. There is nothing special about significance levels of 0.05 or 0.01... You can set the significance level to any probability you want. The adjusted P value is the smallest familywise significance level at which a particular comparison will be declared statistically significant as part of the multiple comparison testing.
-
-Here is a simple way to think about it. You perform multiple comparisons twice. The first time you set the familywise significance level to 5%. The second time, you set it to 1% level. If a particular comparison is statistically significant by the first calculations (5% significance level) but is not for the second (1% significance level), its adjusted P value must be between 0.01 and 0.05, say 0.0323. 
-
-A separate adjusted P value is computed for each comparison in a family of comparisons. But the value of these adjusted P values depends on the entire family. The adjusted P value for one particular comparison would have a different value if there were a different number of comparisons or if the data in the other comparisons were changed. 
+A separate adjusted p-value is computed for each comparison in a family of comparisons, but its value depends on the entire family. The adjusted p-value for one particular comparison would have a different value if there were a different number of comparisons or if the data in the other comparisons were changed. 
 
 Each comparison will have a unique adjusted P value. But these P values are computed from all the comparisons, and really can't be interpreted for just one comparison. If you added another group to the ANOVA, all of the adjusted P values would change.
 
