@@ -49,6 +49,13 @@ RUN;
     * [5 keyboard shortcuts in SAS that will change your life](http://blogs.sas.com/content/sasdummy/2013/10/29/five-keyboard-shortcuts/)
 
 ### Create folder from code
+* Create folders directly in the chosen directory:
 ```
 X MD "&path.\folder";
+```
+
+* Create the folders in the study directory from the library declaration:
+```
+options dlcreatedir;
+libname newfolder	"&path.\newfolder";
 ```
