@@ -3,7 +3,9 @@
     * [CDISC Standards](https://www.cdisc.org/standards)
     * [Macro-Supported Metadata-Driven Process for Mapping SDTM VISIT and VISITNUM](https://www.lexjansen.com/pharmasug/2018/AD/PharmaSUG-2018-AD09.pdf)
 
-## ¿Qué es CDISC?
+## CDISC Standards
+The Clinical Data Interchange Standards Consortium (CDISC) has worked over the last several years to create standards for the pharmaceutical, biotechnology and medical
+device companies to adopt. Now, there is a whole new level of data management programming that needs to be done during the submission process. 
 
 ## Diferencias entre CDASH, SDTM/SEND y ADAM
 
