@@ -69,8 +69,9 @@ nav:
       - 'Write to pdf file': 'sas-outputs/pdf.md'
       - 'Export to Excel file': 'sas-outputs/excel.md'
     - SAS CDI:
-      - 'What is CDISC and SDTM?': 'CDISC/introduction.md'
-      - 'Introduction to CDI': 'SAS-CDI/intro.md'
+      - 'What is CDISC?': 'SAS-CDI/intro-CDISC.md'
+      - 'SDTM Basics': 'SAS-CDI/sdtm.md'
+      - 'Introduction to CDI': 'SAS-CDI/intro-CDI.md'
     - SAS vs R: 
       - 'Introduction': 'sasvsr/introduction.md'
       - 'Importing and Reporting Data': 'sasvsr/importing-reporting.md'
