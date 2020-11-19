@@ -46,6 +46,7 @@ nav:
       - 'Interim Analysis Design': 'other-analysis/interim-analysis.md'
       - 'Normality Tests': 'other-analysis/normality-tests.md'
       - 'Post-hoc Tests': 'other-analysis/post-hoc-tests.md'
+      - 'Adjusted P-value': 'other-analysis\adjusted-pvalue.md'
       - 'Effect Size': 'other-analysis/effect-size.md'
       - 'Propensity Score': 'other-analysis/propensity-score.md'
       - 'ROC Curve': 'other-analysis/roc-curve.md'
@@ -98,6 +99,7 @@ nav:
       - 'Sensitivity and Specificity': 'medical/sensitivity-specificity.md'
       - 'RECIST v1.1': 'medical/recist.md'
       - 'iRECIST': 'medical/irecist.md'
+      - 'Mutations': 'medical/mutations.md'
     - R with Shiny:
       - 'Introduction and Shiny Basics': 'R-with-Shiny/introduction.md'
       - 'Inputs, Outputs, and Rendering Functions': 'R-with-Shiny/input-output.md'
