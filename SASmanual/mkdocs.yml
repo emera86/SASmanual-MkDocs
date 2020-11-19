@@ -68,6 +68,9 @@ nav:
       - 'PROC TEMPLATE': 'sas-outputs/template.md'
       - 'Write to pdf file': 'sas-outputs/pdf.md'
       - 'Export to Excel file': 'sas-outputs/excel.md'
+    - SAS CDI:
+      - 'What is CDISC and SDTM?': 'CDISC/introduction.md'
+      - 'Introduction to CDI': 'SAS-CDI/intro.md'
     - SAS vs R: 
       - 'Introduction': 'sasvsr/introduction.md'
       - 'Importing and Reporting Data': 'sasvsr/importing-reporting.md'
@@ -79,8 +82,6 @@ nav:
       - 'A Bridge Between SAS and R': 'sasvsr/bridge.md'
     - Using Wizard Menus: wizard.md
     - SAS Visual Analytics: sasvi.md
-    - CDISC:
-      - 'Introduction': 'CDISC/introduction.md'
     - Miscellanea: 
       - 'Working with Arrays': 'miscellanea/arrays.md'
       - 'Execution time': 'miscellanea/execution-time.md'
