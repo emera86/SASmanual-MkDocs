@@ -7,7 +7,7 @@
 The Clinical Data Interchange Standards Consortium (CDISC) has worked over the last several years to create standards for the pharmaceutical, biotechnology and medical
 device companies to adopt. Now, there is a whole new level of data management programming that needs to be done during the submission process. 
 
-## [Domain vs. Dataset: What's the Difference?](https://www.cdisc.org/kb/articles/domain-vs-dataset-whats-difference)
+## [Domain vs Dataset: What's the Difference?](https://www.cdisc.org/kb/articles/domain-vs-dataset-whats-difference)
 The terms “domain” and “dataset” are commonly used in CDISC’s nomenclature and found frequently in the Study Data Tabulation Model (SDTM). The CDISC Glossary defines these terms as follows:
 
   * **Domain**: A collection of logically related observations with a common, specific topic that are normally collected for all subjects in a clinical investigation. Example domains include laboratory test results (LB), adverse events (AE), concomitant medications (CM). 
