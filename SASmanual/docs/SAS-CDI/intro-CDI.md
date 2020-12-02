@@ -1,3 +1,7 @@
+!!!Summary "Check these Websites"
+    * [Using SAS CDI to Implement and Manage CDISC Standards](https://www.yumpu.com/en/document/view/32137420/using-sas-clinical-data-integration-to-implement-and-phuse-wiki)
+
+
 !!! summary "Series of Short Videos on the SAS Clinical Data Integration Solution (CDI)"
     1. [Defining a Clinical Study](https://youtu.be/JftoqxZdd5I)
     2. [Registering Source or Raw Data](https://youtu.be/lRz5t5UIN_U)
