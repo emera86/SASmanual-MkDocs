@@ -40,7 +40,14 @@ Once you have the structure of the dataset you want to create, you need to defin
   * **SQL > Create Table**: will allow any kind of operations in the input dataset
   
   ![create-table](../images/CDI/create-table.PNG "Create Table")
-
+  
+  * **Data > Sort**:
+  
+  * **Data > Append**:
+  
+  * **SQL > Join**:
+  
+  * **SQL > Extract**:
 
 ## Warnings and Errors
   
