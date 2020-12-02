@@ -45,6 +45,8 @@ Once you have the structure of the dataset you want to create, you need to defin
   
   * **Data > Append**:
   
+  * **Data > User written Code**:
+  
   * **SQL > Join**:
   
   * **SQL > Extract**:
