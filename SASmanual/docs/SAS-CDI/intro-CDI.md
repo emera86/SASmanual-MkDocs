@@ -15,6 +15,7 @@ Please not before starting this process that each project is not allowed to have
 
 To create a standard SDTM Domain:
 Folders > [Project name] > SDTM (right click)> New > Standard Domain(s)...
+
 ![new-standard-domain](../images/CDI/new-standard-domain.png "New Standard Domain")
 
 Then you need to follow these steps:
@@ -30,6 +31,7 @@ After a *Creating the specified domains* message you will find the new Domain in
   
 ### Integrity Constraint Compliance
 The following warning message can appear for two main reasons:
+
 ![integrity-constraint](../images/CDI/integrity-constraint.PNG "Integrity Constraint")
 
   * The primary keys of the output dataset are not well defined: some are automatically defined but you may need to add some extra ones to avoid information overlapping
