@@ -11,6 +11,8 @@ SAS Clinical Data Integration is an ETL tool built on top of SAS Data Management
 
 ## How to Create a Standard SDTM Domain
 
+### Loading the Standard Structure
+
 Please not before starting this process that each project is not allowed to have more than one active domain with the same name.
 
 To create a standard SDTM Domain:
@@ -26,7 +28,20 @@ Then you need to follow these steps:
   * **Library Selection**: right now there are no default libraries so you would need to define it later 
 
 After a *Creating the specified domains* message you will find the new Domain in your SDTM folder, it will be empty as you have only created the structure.
+
+### Fill with Data
+
+Once you have the structure of the dataset you want to create, you need to define a operation flow to achieve this structure thourgh the concatenation of the following **transformations**: 
+
+  * **Access > Table Loader**: is needed as the previous step to a SDTM domain definition
   
+  ![table-loader](../images/CDI/table-loader.PNG "Table Loader")
+  
+  * **SQL > Create Table**: will allow any kind of operations in the input dataset
+  
+  ![create-table](../images/CDI/create-table.PNG "Create Table")
+
+
 ## Warnings and Errors
   
 ### Integrity Constraint Compliance
