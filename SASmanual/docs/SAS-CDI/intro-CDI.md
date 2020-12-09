@@ -32,6 +32,9 @@ Then you need to follow these steps:
   * **Library Selection**: right now there are no default libraries so you would need to define it later 
 
 After a *Creating the specified domains* message you will find the new Domain in your SDTM folder, it will be empty as you have only created the structure.
+As the library was not specified during the creation process you will also need to define it in the properties menu of the SDTM standard domain:
+
+![assign-library-to-standard-domain](../images/CDI/assign-library-to-standard-domain.png "Assigning library to standard domain")
 
 ### Fill with Data
 
