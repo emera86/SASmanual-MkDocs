@@ -45,15 +45,19 @@ Once you have the structure of the dataset you want to create, you need to defin
   
   ![create-table](../images/CDI/create-table.PNG "Create Table")
   
+  * **SQL > Join**:
+  
+  * **SQL > Extract**:
+  
   * **Data > Sort**:
   
   * **Data > Append**:
   
   * **Data > User written Code**:
   
-  * **SQL > Join**:
+  * **Clinical > Subject Sequence Generator**:
   
-  * **SQL > Extract**:
+  * **Clinical > CDISC-SDTM/ADaM Compliance**:
 
 ## Warnings and Errors
   
