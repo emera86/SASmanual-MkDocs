@@ -21,27 +21,25 @@ However, since in most cases there is a one-to-one relationships between a conce
 
 ----
 
-## Diferencias entre CDASH, SDTM/SEND y ADAM
+## Differences between CDASH, SDTM/SEND and ADaM
 
-### CDASH
-Clinical Data Acquisition Standards Harmonization
+### Clinical Data Acquisition Standards Harmonization (**CDASH**)
 
-Lograr que los datos sean recogidos de manera más homogénea. No está pensado para presentar los datos sino para recogerlos. Estándar para la recogida de datos. No hay que inspirarse en SDTM (estructura vertical) para diseñar la base de datos sino en CDASH, y luego ya se hará una transformación a SDTM.
+CDASH establishes a standard way to collect data consistently across studies and sponsors so that data collection formats and structures provide clear traceability of submission data into the Study Data Tabulation Model (SDTM), delivering more transparency to regulators and others who conduct data review. 
 
-### SDTM
-Study Data Tabulation Model
+This is a standard for data collecting, not for data submission. The datasets may not be inspired in SDTM (vertical structure) to design the clinical database but in CDASH instead. From this first data structure some transformations will be applied to build the SDTM domains.
 
-Depués de la transformación se tiene que reportar sobre el CRF anotado una nueva anotación con las variables SDTM. Esta nueva anotación puede requerir estructuras condicionales para poder reconocer las nuevas variables.
+### Study Data Tabulation Model (**SDTM**)
 
-### ADaM
-Analysis Data Model
+Along with the transformation from CDASH to SDTM, a new annotated CRF based on the original CDASH one has to be prepared with the new SDTM variables. This new annotation may require conditional structures to rearrange the old variables in a vertical manner into a single new variable.
 
-Define los estándares de data sets y metadata de cara a un análisis y presentación de resultados. Permite una generación eficiente, replicación y revisión de los datos usados para realizar análisis estadísticos en ensayos clínicos.
+### Analysis Data Model (**ADaM**)
 
-### SEND
-Standard for Exchange of Nonclinical Data
+This standard defines the datasets and metadata that will be used in the statistical analysis and the results presentation. These ADaM datasets allows for an efficient generation, replication and review of the data used to produce the statistical analysis in the clinical trials.
 
-Una implementación menos restrictiva de SDTM para estudios no clínicos que tienen más variabilidad.
+### Standard for Exchange of Nonclinical Data (**SEND**)
+
+A less restrictive implementation of the SDTM standards for non-clinical studies with more variability.
 	
 ## ¿Qué es el CDI?
 SAS Clinical Data Integration. Te permite hacer un mapeo de tu base de datos original y la documentación de la transformación se genera automáticamente.
