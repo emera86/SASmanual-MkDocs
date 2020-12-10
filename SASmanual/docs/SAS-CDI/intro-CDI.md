@@ -38,24 +38,6 @@ Validar que tus data sets cumplen todas las reglas y estándares que impone CDIS
 SAS CDI genera este fichero automáticamente agrupando toda la información necesaria para enviar a las agencias regulatorias con hipervínculos entre sección.
 El archivo Define.xml contiene toda la información anterior.
 
-## Domain types
-
-### Special Purpose Domains
-
-* CO (Comments)
-* DM (Demographics): una de las pocas tablas que es plana, se recogen variables que siempre están en todos los estudios que tienen nombre propio.
-* SE (Subject Elements): especifica las visitas que va a tener el paciente a nivel de elemento, el esquema de visitas que debería tener el paciente.
-* SV (Subject Visits): fechas de visitas
-
-### General Observation Classes
-
-* Intervenciones: dominios que recogen acciones o intervenciones sobre los pacientes: CM (Concomitant and Prior Medications), EX (Exposure), EC (Exposure as Collected), PR (Procedures), SU (Substance Use)
-* Eventos: dominios donde se recogen los acontecimientos que suceden sobre el paciente: AE (Adverse Events), CE (Clinical Events), DS (Disposition), DV (Protocol Deviations), HO (Helthcare Encounters), MH (Medical History)
-* Findings: todo el resto de la información del estudio.
-* Experimental Design
-* Scheduling of Assessments
-* Trial Summary Eligilility
-
 ## How to Create a Standard SDTM Domain
 
 ### Loading the Standard Structure
