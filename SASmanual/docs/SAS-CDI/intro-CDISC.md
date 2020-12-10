@@ -30,6 +30,11 @@ ADaM defines dataset and metadata standards that support:
 
 The ADaM [Implementation Guide (ADaMIG)](https://www.cdisc.org/standards/foundational/adam/adamig-v12) is intended to guide the organization, structure, and format of analysis datasets and related metadata. It specifies ADaM standard dataset structures and variables, including naming conventions, and presents standard solutions to implementation issues, illustrated with examples.
 
+Among the analysis dataset there are different types:
+  * Adverse Event Analysis Dataset (ADAE)
+  * Subject-Level Analysis Dataset (ADSL)
+  * ADaM Basic Data Structure (BDS)
+
 ### Standard for Exchange of Nonclinical Data (**SEND**)
 
 A less restrictive implementation of the SDTM standards for non-clinical studies with more variability.
