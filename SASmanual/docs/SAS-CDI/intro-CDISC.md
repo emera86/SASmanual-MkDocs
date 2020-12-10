@@ -48,7 +48,7 @@ The distinction between domain and dataset is most clearly seen in cases where a
 
 However, since in most cases there is a one-to-one relationships between a conceptual domain and a dataset based on that conceptual domain, the words are used interchangeably in the standards and, therefore, by most users. 
 
-### Domain Variable Types (Core)
+### [Domain Variable Types (Core)](http://pharma-sas.com/sdtm-model-concepts-and-terms/)
 
 | Variable Type   |  Abbreviation  |  Definition |
 |---|---|---|
