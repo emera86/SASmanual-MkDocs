@@ -38,25 +38,3 @@ Among the analysis dataset there are different types:
 ### Standard for Exchange of Nonclinical Data (**SEND**)
 
 A less restrictive implementation of the SDTM standards for non-clinical studies with more variability.
-
-## CDISC General Concepts
-
-### [Domain vs Dataset: What's the Difference?](https://www.cdisc.org/kb/articles/domain-vs-dataset-whats-difference)
-The terms “domain” and “dataset” are commonly used in CDISC’s nomenclature and found frequently in the Study Data Tabulation Model (SDTM). The CDISC Glossary defines these terms as follows:
-
-  * **Domain**: A collection of logically related observations with a common, specific topic that are normally collected for all subjects in a clinical investigation. Example domains include laboratory test results (LB), adverse events (AE), concomitant medications (CM). 
-  * **Dataset**: A collection of structured data in a single file. 
-  
-In plainer terms, a domain is a grouping of observations that are related while a dataset is the data structure associated with that grouping of observations. Both domains and datasets use the same nomenclature, which is why they are often confused.
-
-The distinction between domain and dataset is most clearly seen in cases where a general observation class domain is split into multiple datasets in a submission. Common examples are splitting the Laboratory Test Results (LB) domain due to size, splitting the Questionnaires (QS) domain by questionnaire, and splitting the Findings About Events or Interventions (FA) domain by parent domain.
-
-However, since in most cases there is a one-to-one relationships between a conceptual domain and a dataset based on that conceptual domain, the words are used interchangeably in the standards and, therefore, by most users. 
-
-### [Domain Variable Types (Core)](http://pharma-sas.com/sdtm-model-concepts-and-terms/)
-
-| Variable Type   |  Abbreviation  |  Definition |
-|---|---|---|
-| Required  | **Req**  | **Required** variables must always be included in the dataset and cannot be null for any record. They are basic to the identification of a data record and are necessary to make the record meaningful (key variables and topic variables).  |
-| Expected | **Exp**  | **Expected** variables may contain some null values and still are included in the dataset even when no data has been collected. In this case, a comment can be included in define.xml to state that data was not collected.  |
-| Permissible | **Perm**  | The sponsor can decide whether a **Permissible** variable should be included as a column when all values for that variable are null.  |
