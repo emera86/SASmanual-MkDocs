@@ -1,7 +1,6 @@
 !!! summary "Check these Websites"
     * [Using SAS CDI to Implement and Manage CDISC Standards](https://www.yumpu.com/en/document/view/32137420/using-sas-clinical-data-integration-to-implement-and-phuse-wiki)
 
-
 !!! summary "Series of Short Videos on the SAS Clinical Data Integration Solution (CDI)"
     1. [Defining a Clinical Study](https://youtu.be/JftoqxZdd5I)
     2. [Registering Source or Raw Data](https://youtu.be/lRz5t5UIN_U)
@@ -11,13 +10,57 @@
 
 ## Implementing SDTM with SAS Clinical Data Integration
 
-SAS Clinical Data Integration is an ETL tool built on top of SAS Data Management that includes specific functionality to support clinical trials.
+SAS Clinical Data Integration is an ETL tool built on top of SAS Data Management that includes specific functionality to support clinical trials. The main steps to take during the SDTM domains creation process are:
+
+  1. Define your study on SAS CDI and the working folders as needed (Jobs, SRCDATA, SDTM, ADaM, TEMP, etc.)
+  2. Extract raw datasets from the clinical database
+  3. Register the raw datasets and assign the corresponding libraries
+  4. Identify the source variables/datasets that will be needed to build each domain
+  5. Load SDTM domains standard structure
+  6. Create a new job (recommended one per domain depending on the complexity of the transformations needed)
+  7. Create a work flow of transformations inside the job to reach the final desired SDTM structure from the raw datasets
+  8. Load SDTM domains with the transformed data
+  9. Validate SDTM Domains
+  
+### Libraries
+
+### Jobs
+
+### Domains
+The domains are the 
+
+Conjuntos de variables. Los estándares definen qué variables tiene cada uno, cuales son obligatorias, opcionales o recomendables y cuales se deben enviar. En algunas te tienes que limitar a una estructura restringida y tienes que meter la información extra en un dominio suplementario que va ligado al principal, pero otros dominios son un poco más flexibles. Hay información que te puede cuadrar en varios dominios, ahí entra ya la interpretación del sponsor o del que mapea la base de datos. El estándar no está totalmente cerrado y hay cosas que hay que decidir y será necesario justificar las decisiones.
+
+### Pinacle21/OpenCDISC
+Validar que tus data sets cumplen todas las reglas y estándares que impone CDISC. Te presenta un informe en excel de los errores.
+
+### Define.xml compliance
+SAS CDI genera este fichero automáticamente agrupando toda la información necesaria para enviar a las agencias regulatorias con hipervínculos entre sección.
+El archivo Define.xml contiene toda la información anterior.
+
+## Domain types
+
+### Special Purpose Domains
+
+* CO (Comments)
+* DM (Demographics): una de las pocas tablas que es plana, se recogen variables que siempre están en todos los estudios que tienen nombre propio.
+* SE (Subject Elements): especifica las visitas que va a tener el paciente a nivel de elemento, el esquema de visitas que debería tener el paciente.
+* SV (Subject Visits): fechas de visitas
+
+### General Observation Classes
+
+* Intervenciones: dominios que recogen acciones o intervenciones sobre los pacientes: CM (Concomitant and Prior Medications), EX (Exposure), EC (Exposure as Collected), PR (Procedures), SU (Substance Use)
+* Eventos: dominios donde se recogen los acontecimientos que suceden sobre el paciente: AE (Adverse Events), CE (Clinical Events), DS (Disposition), DV (Protocol Deviations), HO (Helthcare Encounters), MH (Medical History)
+* Findings: todo el resto de la información del estudio.
+* Experimental Design
+* Scheduling of Assessments
+* Trial Summary Eligilility
 
 ## How to Create a Standard SDTM Domain
 
 ### Loading the Standard Structure
 
-Please not before starting this process that each project is not allowed to have more than one active domain with the same name.
+Please note before starting this process that each project is not allowed to have more than one active domain with the same name.
 
 To create a standard SDTM Domain:
 Folders > [Project name] > SDTM (right click)> New > Standard Domain(s)...
