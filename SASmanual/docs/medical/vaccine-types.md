@@ -3,3 +3,6 @@
 * **Vacunas basadas en algún agente infeccioso al que se le ha atenuado o quitado toda posibilidad de que esté vivo y al que se le añade un gen o genes del virus contra el que queremos vacunar**: ejemplo de esto son las vacunas basadas en adenovirus (rusa, china y Oxford). El CSIC está trabajando en una de este tipo sobre la base de la vacuna de la viruela.
 * **Vacunas basadas en proteínas purificadas**: mucho más sencillas que las anteriores, se purifica la proteína que vale y se concentra en grandes cantidades y se inocula. Genera anticuerpos frente a esa proteína (entrena a nuestro sistema inmunitario a reconocer sobre todo las partículas virales que son las que están en el recubrimiento de los virus, pero no entrena para reconocer las células infectadas). (Sanofi, CSK, innovavaccs)
   * **Vacunas basadas en toxoides**: bacterias que generan una enfermedad muy grave no por la bacteria en sí sino por una única proteína que genera que es una toxina (tétanos, difteria, tosferina). Contrarrestando sólamente a esa toxina aunque la bacteria siga trabajando y multiplicándose se logra controlar del todo la infección.
+* **Vacunas de ácido nucléico**:
+  * **Vacunas de ADN**:
+  * **Vacunas de ARN**:
