@@ -91,6 +91,7 @@ nav:
       - 'Patient identification': 'miscellanea/patient-identification.md'
       - 'Generating a Random List': 'miscellanea/random-list.md'
       - 'Shell Scripting in SAS': 'miscellanea/shell.md'
+      - 'Encoding' : 'miscellanea/encoding.md'
     - Medical terms:
       - 'General': 'medical/general.md'
       - 'Laboratory Test': 'medical/labs.md'
