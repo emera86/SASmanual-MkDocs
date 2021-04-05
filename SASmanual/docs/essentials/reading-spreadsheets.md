@@ -37,6 +37,11 @@ PROC IMPORT DATAFILE="/folders/myfolders/reading_test.xlsx"
 RUN;
 ```
 
+If the header or variable name row is not the first one of the spreadsheet you need to add this extra line in the `PROC IMPORT` (in this example for the second row):
+```
+	range="'Sheet1'$A2:Z100";
+```
+
 ## Reading Database Data
 
 ```
